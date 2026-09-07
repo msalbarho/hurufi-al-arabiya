@@ -3,7 +3,13 @@ import { Lock } from "lucide-react";
 import { PageShell } from "@/components/kids/PageShell";
 import { BackButton, SectionTitle, StarPill } from "@/components/kids/ui";
 import { CurriculumLoadError } from "@/components/learn/CurriculumStatus.tsx";
-import { unitExerciseCompletion } from "@/lib/curriculum/masteryAdapter.ts";
+import {
+  evaluateUnitMastery,
+  evaluateUnitUnlock,
+  exercisesForUnit,
+  unitExerciseCompletion,
+  unitPathStatus,
+} from "@/lib/curriculum/unitMastery.ts";
 import { resolveLearnPath, unitSlugForOrder, WAVE1_SLUG } from "@/lib/curriculum/resolveLearn.ts";
 import { AudioManager } from "@/lib/audio/AudioManager";
 import { useProgress } from "@/lib/progress/store";
@@ -61,18 +67,27 @@ function LearnPathScreen() {
         <SectionTitle>الْوَحَدَات</SectionTitle>
         <div className="grid gap-5">
           {view.units.map((unit) => {
-            const playable = unit.order === 1;
+            const exercises = exercisesForUnit(view.bundle, unit);
+            const unlock = evaluateUnitUnlock(view.bundle, view.units, unit, items);
+            if (import.meta.env.DEV && unlock.missingPrereqs.length) {
+              console.warn(`[learn] missing prereqs for ${unit.id}:`, unlock.missingPrereqs.join(", "));
+            }
+            const mastery = evaluateUnitMastery(view.bundle, unit, exercises, items);
+            const status = unitPathStatus(unlock.unlocked, mastery);
+            const playable = status !== "locked";
             const slug = unitSlugForOrder(unit.order);
-            const exercises = playable
-              ? (unit.exerciseIds ?? [])
-                  .map((id) => view.bundle.exercises.find((row) => row.id === id))
-                  .filter((row): row is NonNullable<typeof row> => Boolean(row))
-              : [];
-            const progress = playable
-              ? unitExerciseCompletion(view.bundle, unit, exercises, items)
-              : { done: 0, total: unit.exerciseIds?.length ?? 0, firstIncomplete: 0 };
+            const progress = unitExerciseCompletion(view.bundle, unit, exercises, items);
             const ratio = progress.total ? progress.done / progress.total : 0;
-            const cta = !playable ? "قَرِيباً" : progress.done === 0 ? "ابْدَأ" : progress.done >= progress.total ? "أَعِدْ" : "تَابِع";
+            const cta =
+              status === "locked"
+                ? undefined
+                : status === "mastered"
+                  ? "أَتْقَنْتَ"
+                  : status === "review"
+                    ? "رَاجِع"
+                    : status === "continue"
+                      ? "تَابِع"
+                      : "ابْدَأ";
             const objective =
               playable && exercises.length
                 ? exercises
@@ -100,9 +115,11 @@ function LearnPathScreen() {
                     </div>
                   </div>
                 ) : null}
-                <span className={cn("mt-4 inline-flex items-center gap-1 text-sm font-bold", playable ? "text-coral" : "text-ink/40")}>
-                  {cta} {playable ? <span>←</span> : null}
-                </span>
+                {cta ? (
+                  <span className={cn("mt-4 inline-flex items-center gap-1 text-sm font-bold text-coral")}>
+                    {cta} <span>←</span>
+                  </span>
+                ) : null}
               </>
             );
 
@@ -120,7 +137,7 @@ function LearnPathScreen() {
                   aria-disabled
                   onClick={() => {
                     AudioManager.error();
-                    void AudioManager.speak("قريباً");
+                    void AudioManager.speak("أكمل الوحدة السابقة أولاً");
                   }}
                 >
                   {inner}

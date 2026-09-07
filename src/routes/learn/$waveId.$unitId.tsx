@@ -1,9 +1,14 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { PageShell } from "@/components/kids/PageShell";
 import { BackButton } from "@/components/kids/ui";
-import { CurriculumLoadError, UnitLockedCard } from "@/components/learn/CurriculumStatus.tsx";
+import { CurriculumLoadError, UnitComingSoonCard, UnitLockedCard } from "@/components/learn/CurriculumStatus.tsx";
 import { LessonPlayer } from "@/components/learn/LessonPlayer.tsx";
-import { unitExerciseCompletion } from "@/lib/curriculum/masteryAdapter.ts";
+import { unitRenderersReady } from "@/lib/curriculum/exerciseReadiness.ts";
+import {
+  evaluateUnitUnlock,
+  resolveUnitRouteAccess,
+  unitExerciseCompletion,
+} from "@/lib/curriculum/unitMastery.ts";
 import { missingLearnRefs, resolveLearnUnit } from "@/lib/curriculum/resolveLearn.ts";
 import { useProgress } from "@/lib/progress/store";
 
@@ -35,6 +40,13 @@ function LearnUnitScreen() {
   const missing = missingLearnRefs(view);
   const progress = unitExerciseCompletion(view.bundle, view.unit, view.exercises, items);
   const startAt = progress.done >= progress.total ? 0 : progress.firstIncomplete;
+  const unlock = evaluateUnitUnlock(view.bundle, view.units, view.unit, items);
+  const hasPrereqs = (view.unit.prereqUnitIds ?? []).length > 0;
+  const unlocked = hasPrereqs ? hydrated && unlock.unlocked : unlock.unlocked;
+  if (import.meta.env.DEV && unlock.missingPrereqs.length) {
+    console.warn(`[learn] missing prereqs for ${view.unit.id}:`, unlock.missingPrereqs.join(", "));
+  }
+  const access = resolveUnitRouteAccess(unlocked, unitRenderersReady(view.exercises));
 
   return (
     <PageShell>
@@ -50,8 +62,10 @@ function LearnUnitScreen() {
       <main className="mx-auto max-w-4xl px-6 pt-8 pb-16">
         {missing.length > 0 ? (
           <CurriculumLoadError detail={missing.join("; ")} />
-        ) : !view.playable ? (
+        ) : access === "locked" ? (
           <UnitLockedCard title={view.unit.titleAr} />
+        ) : access === "coming_soon" ? (
+          <UnitComingSoonCard title={view.unit.titleAr} />
         ) : (
           <LessonPlayer key={hydrated ? "ready" : "pending"} view={view} startAt={hydrated ? startAt : 0} />
         )}

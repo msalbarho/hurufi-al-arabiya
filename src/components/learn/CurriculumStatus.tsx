@@ -19,7 +19,19 @@ export function UnitLockedCard({ title }: { title: string }) {
         <Lock className="size-8" />
       </span>
       <h2 className="mt-5 font-display text-3xl font-extrabold">{title}</h2>
-      <p className="mt-3 text-lg text-ink/60">هَذِهِ الْوَحْدَةُ قَرِيباً</p>
+      <p className="mt-3 text-lg text-ink/60">أَكْمِلِ الْوَحْدَةَ السَّابِقَةَ أَوَّلاً</p>
+    </div>
+  );
+}
+
+export function UnitComingSoonCard({ title }: { title: string }) {
+  return (
+    <div className="mx-auto max-w-lg rounded-[2rem] border-2 border-ink/10 bg-card p-8 text-center shadow-chunky">
+      <p className="text-5xl" aria-hidden>
+        🌟
+      </p>
+      <h2 className="mt-5 font-display text-3xl font-extrabold">{title}</h2>
+      <p className="mt-3 text-lg text-ink/60">النَّشَاطُ التَّالِي يُحَضَّرُ الْآن</p>
     </div>
   );
 }

@@ -1,13 +1,24 @@
 import type { ReactNode } from "react";
 import type { ExerciseType } from "@/content/curriculum/index.ts";
+import { isExerciseTypeReady } from "@/lib/curriculum/exerciseReadiness.ts";
 import type { ExerciseViewProps } from "./exerciseTypes.ts";
 import { SoundToLetterExercise } from "./SoundToLetterExercise.tsx";
 import { TracingExercise } from "./TracingExercise.tsx";
+import { SyllableBlendingExercise } from "./SyllableBlendingExercise.tsx";
 
 const registry: Partial<Record<ExerciseType, (props: ExerciseViewProps) => ReactNode>> = {
   sound_to_letter: SoundToLetterExercise,
   tracing: TracingExercise,
+  syllable_blending: SyllableBlendingExercise,
 };
+
+if (import.meta.env.DEV) {
+  for (const type of Object.keys(registry) as ExerciseType[]) {
+    if (!isExerciseTypeReady(type)) {
+      console.warn(`[exerciseRegistry] ${type} is registered but missing from READY_EXERCISE_TYPES`);
+    }
+  }
+}
 
 export function renderExercise(type: ExerciseType, props: ExerciseViewProps) {
   const View = registry[type];

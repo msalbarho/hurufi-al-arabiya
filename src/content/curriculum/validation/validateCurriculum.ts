@@ -879,6 +879,13 @@ export function validateCurriculum(data: unknown): ValidationResult {
     if (letterId) checkId(out, `${path}.letterId`, letterId, "letter");
     const vowelSkillId = expectString(out, `${path}.vowelSkillId`, row["vowelSkillId"], true);
     if (vowelSkillId) checkId(out, `${path}.vowelSkillId`, vowelSkillId, "skill");
+    if (vowelSkillId && !vowelSkillId.startsWith("skill.short_vowel.")) {
+      out.error(
+        "INVALID_TYPE",
+        `${path}.vowelSkillId`,
+        `Syllable vowelSkillId must be a short-vowel skill, got "${vowelSkillId}".`,
+      );
+    }
     const pattern = expectString(out, `${path}.pattern`, row["pattern"], true);
     if (pattern && !SYLLABLE_PATTERNS.has(pattern)) {
       out.error("UNKNOWN_ENUM", `${path}.pattern`, `Unknown syllable pattern "${pattern}".`);
@@ -1300,8 +1307,56 @@ export function validateCurriculum(data: unknown): ValidationResult {
     const choices = row["choices"];
     if (Array.isArray(choices)) {
       choices.forEach((choice, j) => {
-        if (isRecord(choice)) resolveAsset(`${path}.choices[${j}].assetId`, choice["assetId"]);
+        if (!isRecord(choice)) return;
+        resolveAsset(`${path}.choices[${j}].assetId`, choice["assetId"]);
+        if (typeof choice["id"] !== "string") return;
+        const parsed = parseCurriculumId(choice["id"]);
+        if (parsed?.namespace === "syllable") resolveSyllable(`${path}.choices[${j}].id`, choice["id"]);
+        if (parsed?.namespace === "letter") resolveLetter(`${path}.choices[${j}].id`, choice["id"]);
       });
+    }
+    if (row["type"] === "syllable_blending") {
+      const success = isRecord(row["success"]) ? row["success"] : undefined;
+      const correctId = success && typeof success["correctChoiceId"] === "string" ? success["correctChoiceId"] : undefined;
+      if (correctId) {
+        const parsed = parseCurriculumId(correctId);
+        if (parsed?.namespace === "syllable") resolveSyllable(`${path}.success.correctChoiceId`, correctId);
+      }
+      const hasSyllableContent = (Array.isArray(row["contentIds"]) ? row["contentIds"] : []).some(
+        (id) => typeof id === "string" && id.startsWith("syllable."),
+      );
+      const targetSyllableIds = Array.isArray(row["masteryTargets"])
+        ? row["masteryTargets"].flatMap((target) =>
+            isRecord(target) && typeof target["syllableId"] === "string" ? [target["syllableId"]] : [],
+          )
+        : [];
+      const hasSyllableTarget = targetSyllableIds.length > 0;
+      if (!hasSyllableContent && !hasSyllableTarget && !correctId) {
+        out.error(
+          "MISSING_FIELD",
+          `${path}.contentIds`,
+          "syllable_blending exercise must reference a syllable.",
+        );
+      }
+      if (correctId && Array.isArray(choices) && choices.length > 0) {
+        const choiceIds = choices.flatMap((choice) =>
+          isRecord(choice) && typeof choice["id"] === "string" ? [choice["id"]] : [],
+        );
+        if (!choiceIds.includes(correctId)) {
+          out.error(
+            "MISSING_FIELD",
+            `${path}.success.correctChoiceId`,
+            `syllable_blending correctChoiceId "${correctId}" is not listed in choices.`,
+          );
+        }
+      }
+      if (correctId?.startsWith("syllable.") && hasSyllableTarget && !targetSyllableIds.includes(correctId)) {
+        out.error(
+          "MISSING_MASTERY_TARGET",
+          `${path}.masteryTargets`,
+          `syllable_blending exercise does not score its correct syllable "${correctId}".`,
+        );
+      }
     }
     const evidence = row["masteryEvidence"];
     if (isRecord(evidence)) {
@@ -1461,6 +1516,7 @@ export function validateCurriculum(data: unknown): ValidationResult {
       const availableLetters = accumulate(available, (uid) => unitLetterIds.get(uid));
       const availableSkills = accumulate(available, (uid) => unitSkillIds.get(uid));
       const availableForms = accumulate(available, (uid) => unitFormKeys.get(uid));
+      const availableSyllables = accumulate(available, (uid) => unitSyllableIds.get(uid));
 
       for (const [j, wordId] of (unitWordIds.get(id) ?? []).entries()) {
         for (const lid of wordLetterReqs.get(wordId) ?? []) {
@@ -1509,6 +1565,85 @@ export function validateCurriculum(data: unknown): ValidationResult {
               "PREMATURE_CONTENT",
               `units[${i}].syllableIds[${j}]`,
               `Syllable "${syllableId}" needs skill "${sid}" before unit "${id}" teaches it.`,
+            );
+          }
+        }
+      }
+
+      const listedExercises = (Array.isArray(row["exerciseIds"]) ? row["exerciseIds"] : []).filter(
+        (x): x is string => typeof x === "string",
+      );
+      const listedExerciseRows = listedExercises.flatMap((exerciseId) => {
+        const exercise = exercises.find((item) => isRecord(item) && item["id"] === exerciseId);
+        return isRecord(exercise) ? [{ exerciseId, exercise }] : [];
+      });
+      const blendingOnly =
+        listedExerciseRows.length > 0 &&
+        listedExerciseRows.every((item) => item.exercise["type"] === "syllable_blending");
+      const scoredSyllables = new Set<string>();
+      for (const [j, { exerciseId, exercise }] of listedExerciseRows.entries()) {
+        const usedSyllables = new Set<string>();
+        const addSyllable = (value: unknown) => {
+          if (typeof value === "string" && value.startsWith("syllable.")) usedSyllables.add(value);
+        };
+        const addScored = (value: unknown) => {
+          if (typeof value === "string" && value.startsWith("syllable.")) scoredSyllables.add(value);
+        };
+        (Array.isArray(exercise["contentIds"]) ? exercise["contentIds"] : []).forEach(addSyllable);
+        if (isRecord(exercise["success"])) {
+          addSyllable(exercise["success"]["correctChoiceId"]);
+          addScored(exercise["success"]["correctChoiceId"]);
+        }
+        const targets = exercise["masteryTargets"];
+        if (Array.isArray(targets)) {
+          targets.forEach((target) => {
+            if (!isRecord(target)) return;
+            addSyllable(target["syllableId"]);
+            addScored(target["syllableId"]);
+          });
+        }
+        const choices = exercise["choices"];
+        if (Array.isArray(choices)) {
+          choices.forEach((choice) => {
+            if (isRecord(choice)) addSyllable(choice["id"]);
+          });
+        }
+        for (const syllableId of usedSyllables) {
+          if (!syllableIds.has(syllableId)) continue;
+          if (!availableSyllables.has(syllableId)) {
+            out.error(
+              "PREMATURE_CONTENT",
+              `units[${i}].exerciseIds[${j}]`,
+              `Exercise "${exerciseId}" uses syllable "${syllableId}" before unit "${id}" introduces it.`,
+            );
+          }
+          for (const lid of syllableLetterReqs.get(syllableId) ?? []) {
+            if (letterIds.has(lid) && !availableLetters.has(lid)) {
+              out.error(
+                "PREMATURE_CONTENT",
+                `units[${i}].exerciseIds[${j}]`,
+                `Syllable "${syllableId}" needs letter "${lid}" before unit "${id}" teaches it.`,
+              );
+            }
+          }
+          for (const sid of syllableSkillReqs.get(syllableId) ?? []) {
+            if (skillIds.has(sid) && !availableSkills.has(sid)) {
+              out.error(
+                "PREMATURE_CONTENT",
+                `units[${i}].exerciseIds[${j}]`,
+                `Syllable "${syllableId}" needs skill "${sid}" before unit "${id}" teaches it.`,
+              );
+            }
+          }
+        }
+      }
+      if (blendingOnly) {
+        for (const [j, syllableId] of (unitSyllableIds.get(id) ?? []).entries()) {
+          if (!scoredSyllables.has(syllableId)) {
+            out.error(
+              "MISSING_MASTERY_TARGET",
+              `units[${i}].syllableIds[${j}]`,
+              `Unit "${id}" lists syllable "${syllableId}" but no syllable_blending exercise scores it.`,
             );
           }
         }

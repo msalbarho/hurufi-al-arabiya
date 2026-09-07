@@ -12,7 +12,8 @@
     "format": "prettier --write .",
     "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.scripts.json",
     "validate:curriculum": "node --experimental-strip-types --no-warnings scripts/validate-curriculum.ts",
-    "check": "npm run typecheck && npm run validate:curriculum && npm run build"
+    "validate:unit-mastery": "node --experimental-strip-types --no-warnings scripts/validate-unit-mastery.ts",
+    "check": "npm run typecheck && npm run validate:curriculum && npm run validate:unit-mastery && npm run build"
   },
   "overrides": {
     "rolldown": "1.2.1"

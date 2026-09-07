@@ -575,6 +575,11 @@
           "id": "mastery.letter.mim.sound",
           "skillId": "skill.letter_sounds.core",
           "letterId": "letter.mim"
+        },
+        {
+          "id": "mastery.letter.mim.recognition",
+          "skillId": "skill.letter_recognition.core",
+          "letterId": "letter.mim"
         }
       ],
       "promptAssetId": "audio.letter.mim.sound",
@@ -650,10 +655,51 @@
         {
           "id": "mastery.syllable.mim.fatha",
           "skillId": "skill.syllable_blending.cv",
-          "syllableId": "syllable.mim.fatha"
+          "syllableId": "syllable.mim.fatha",
+          "letterId": "letter.mim"
+        },
+        {
+          "id": "mastery.syllable.mim.fatha.vowel",
+          "skillId": "skill.short_vowel.fatha",
+          "syllableId": "syllable.mim.fatha",
+          "letterId": "letter.mim"
         }
       ],
+      "promptAssetId": "audio.syllable.mim.fatha",
       "promptText": "اقْرَأْ هَذَا الْمَقْطَع: مَ",
+      "choices": [
+        { "id": "syllable.lam.fatha", "label": "لَ" },
+        { "id": "syllable.mim.fatha", "label": "مَ" }
+      ],
+      "tags": ["wave-1"]
+    },
+    {
+      "id": "exercise.wave1.syllable_blending.lam_fatha",
+      "type": "syllable_blending",
+      "skillIds": ["skill.syllable_blending.cv", "skill.short_vowel.fatha"],
+      "contentIds": ["syllable.lam.fatha", "syllable.mim.fatha"],
+      "difficulty": "easy",
+      "prereqSkillIds": ["skill.short_vowel.fatha"],
+      "learningObjectiveAr": "يَقْرَأُ الْمَقْطَعَ لَ بِدَمْجِ الْحَرْفِ وَالْفَتْحَة",
+      "learningObjectiveEn": "Decode the CV syllable لَ",
+      "success": { "type": "correct_choice", "correctChoiceId": "syllable.lam.fatha" },
+      "masteryEvidence": { "reading": ["skill.syllable_blending.cv"] },
+      "masteryTargets": [
+        {
+          "id": "mastery.syllable.lam.fatha",
+          "skillId": "skill.syllable_blending.cv",
+          "syllableId": "syllable.lam.fatha",
+          "letterId": "letter.lam"
+        },
+        {
+          "id": "mastery.syllable.lam.fatha.vowel",
+          "skillId": "skill.short_vowel.fatha",
+          "syllableId": "syllable.lam.fatha",
+          "letterId": "letter.lam"
+        }
+      ],
+      "promptAssetId": "audio.syllable.lam.fatha",
+      "promptText": "اقْرَأْ هَذَا الْمَقْطَع: لَ",
       "choices": [
         { "id": "syllable.mim.fatha", "label": "مَ" },
         { "id": "syllable.lam.fatha", "label": "لَ" }
@@ -846,7 +892,10 @@
         { "letterId": "letter.lam", "form": "isolated" }
       ],
       "syllableIds": ["syllable.mim.fatha", "syllable.lam.fatha"],
-      "exerciseIds": ["exercise.wave1.syllable_blending.mim_fatha"],
+      "exerciseIds": [
+        "exercise.wave1.syllable_blending.mim_fatha",
+        "exercise.wave1.syllable_blending.lam_fatha"
+      ],
       "prereqUnitIds": ["unit.literacy.wave1.letters_mim_lam"],
       "mastery": {
         "minAttempts": 3,

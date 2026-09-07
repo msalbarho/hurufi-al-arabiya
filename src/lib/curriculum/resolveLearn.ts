@@ -6,6 +6,7 @@ import {
   type LearningUnitDefinition,
 } from "@/content/curriculum/index.ts";
 import { legacyLetterFromCanonical } from "./letterAdapter.ts";
+import { exercisesForUnit } from "./unitMastery.ts";
 import { getWave1Bundle } from "./wave1Bundle.ts";
 
 export const WAVE1_SLUG = "wave-1";
@@ -25,10 +26,6 @@ export function parseUnitSlug(unitSlug: string): number | undefined {
   return Number.isInteger(order) && order > 0 ? order : undefined;
 }
 
-export function isUnitPlayable(waveSlug: string, unit: LearningUnitDefinition): boolean {
-  return waveSlug === WAVE1_SLUG && unit.order === 1;
-}
-
 function unitsForPath(bundle: CurriculumBundle, path: LearningPathDefinition): LearningUnitDefinition[] {
   const byId = new Map((bundle.units ?? []).map((unit) => [unit.id, unit]));
   return path.unitIds.flatMap((id) => {
@@ -37,13 +34,7 @@ function unitsForPath(bundle: CurriculumBundle, path: LearningPathDefinition): L
   });
 }
 
-function exercisesForUnit(bundle: CurriculumBundle, unit: LearningUnitDefinition): ExerciseDefinition[] {
-  const byId = new Map(bundle.exercises.map((exercise) => [exercise.id, exercise]));
-  return (unit.exerciseIds ?? []).flatMap((id) => {
-    const exercise = byId.get(id);
-    return exercise ? [exercise] : [];
-  });
-}
+export { exercisesForUnit };
 
 export interface LearnPathView {
   waveSlug: string;
@@ -60,7 +51,6 @@ export interface LearnUnitView {
   unit: LearningUnitDefinition;
   units: LearningUnitDefinition[];
   exercises: ExerciseDefinition[];
-  playable: boolean;
 }
 
 export function resolveLearnPath(waveSlug: string): LearnPathView | undefined {
@@ -85,7 +75,6 @@ export function resolveLearnUnit(waveSlug: string, unitSlug: string): LearnUnitV
     unitSlug,
     unit,
     exercises,
-    playable: isUnitPlayable(waveSlug, unit),
   };
 }
 
@@ -103,6 +92,12 @@ export function missingLearnRefs(view: LearnUnitView): string[] {
     for (const target of exercise.masteryTargets ?? []) {
       if (target.letterId && !view.bundle.letters.some((letter) => letter.id === target.letterId)) {
         missing.push(`letter ${target.letterId} on ${target.id}`);
+      }
+      if (
+        target.syllableId &&
+        !view.bundle.syllables?.some((syllable) => syllable.id === target.syllableId)
+      ) {
+        missing.push(`syllable ${target.syllableId} on ${target.id}`);
       }
     }
   }
