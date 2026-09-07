@@ -172,3 +172,92 @@ export function resolvePictureToWord(
     ...(exercise.promptText ? { promptText: exercise.promptText } : {}),
   };
 }
+
+export interface ResolvedWordToPictureChoice extends ResolvedWordChoice {
+  visual: PrototypeWordVisual;
+  imageAssetId?: string;
+}
+
+export interface ResolvedWordToPicture {
+  target: ResolvedWordChoice;
+  choices: ResolvedWordToPictureChoice[];
+  promptText?: string;
+}
+
+function resolveWordVisual(
+  word: WordDefinition,
+  choiceAssetId?: string,
+): { visual: PrototypeWordVisual; imageAssetId?: string } | undefined {
+  const imageAssetId =
+    (typeof choiceAssetId === "string" && choiceAssetId.startsWith("image.") ? choiceAssetId : undefined) ??
+    word.imageAssetId;
+  const visual = prototypeVisualForWord(word);
+  if (visual.kind === "none") return undefined;
+  return { visual, ...(imageAssetId ? { imageAssetId } : {}) };
+}
+
+/**
+ * Written word → picture. Visuals come from the prototype emoji source
+ * until logical image assets have files. No spoken target unless the
+ * exercise itself declares an audio promptAssetId.
+ */
+export function resolveWordToPicture(
+  bundle: CurriculumBundle,
+  exercise: ExerciseDefinition,
+): ResolvedWordToPicture | undefined {
+  const targetId = wordIdFromExercise(exercise);
+  const word = portableWord(bundle, targetId);
+  const listedLabels = new Map(
+    (exercise.choices ?? [])
+      .filter((choice) => choice.id.startsWith("word."))
+      .map((choice) => [choice.id, choice.label]),
+  );
+  const target = targetId ? resolveWordChoice(bundle, targetId, listedLabels.get(targetId)) : undefined;
+  if (!word || !target) return undefined;
+
+  const listedIds = (exercise.choices ?? [])
+    .filter((choice) => choice.id.startsWith("word."))
+    .map((choice) => choice.id);
+  const sourceIds = listedIds.length ? listedIds : exercise.contentIds.filter((id) => id.startsWith("word."));
+  const choiceAsset = new Map(
+    (exercise.choices ?? [])
+      .filter((choice) => choice.id.startsWith("word."))
+      .map((choice) => [choice.id, choice.assetId]),
+  );
+
+  const byId = new Map<string, ResolvedWordToPictureChoice>();
+  for (const id of sourceIds) {
+    if (byId.has(id)) continue;
+    const portable = portableWord(bundle, id);
+    const resolved = resolveWordChoice(bundle, id, listedLabels.get(id));
+    const visual = portable ? resolveWordVisual(portable, choiceAsset.get(id)) : undefined;
+    if (!resolved || !visual) continue;
+    byId.set(id, {
+      ...resolved,
+      visual: visual.visual,
+      ...(visual.imageAssetId ? { imageAssetId: visual.imageAssetId } : {}),
+    });
+  }
+
+  const targetVisual = resolveWordVisual(word, choiceAsset.get(target.id));
+  if (!targetVisual) return undefined;
+  if (!byId.has(target.id)) {
+    byId.set(target.id, {
+      ...target,
+      visual: targetVisual.visual,
+      ...(targetVisual.imageAssetId ? { imageAssetId: targetVisual.imageAssetId } : {}),
+    });
+  }
+
+  let choices = [...byId.values()].slice(0, 3);
+  if (!choices.some((row) => row.id === target.id)) {
+    choices = [...choices.slice(0, 2), byId.get(target.id)!];
+  }
+  if (choices.length < 2 || !choices.some((row) => row.id === target.id)) return undefined;
+
+  return {
+    target,
+    choices,
+    ...(exercise.promptText ? { promptText: exercise.promptText } : {}),
+  };
+}

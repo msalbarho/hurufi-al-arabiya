@@ -10,7 +10,7 @@ import { unitRenderersReady } from "../src/lib/curriculum/exerciseReadiness.ts";
 import { resolveLetterRecognition } from "../src/lib/curriculum/letterRecognitionAdapter.ts";
 import { resolveMissingHaraka } from "../src/lib/curriculum/missingHarakaAdapter.ts";
 import { resolveSyllableBlending, shuffleWithSeed } from "../src/lib/curriculum/syllableAdapter.ts";
-import { resolveAudioToWord, resolvePictureToWord } from "../src/lib/curriculum/wordAdapter.ts";
+import { resolveAudioToWord, resolvePictureToWord, resolveWordToPicture } from "../src/lib/curriculum/wordAdapter.ts";
 import {
   evaluateUnitMastery,
   evaluateUnitUnlock,
@@ -952,10 +952,194 @@ function main(): void {
     !evaluateUnitUnlock(bundle, units, unit6, u4unlockItems).unlocked,
   );
   const u6after = evaluateUnitUnlock(bundle, units, unit6, { ...u4unlockItems, ...u5masteredItems });
-  assert("17. Unit 6 unlocks after Unit 5 mastery", u6after.unlocked);
+  assert("1. Unit 6 remains locked until Unit 5 mastery", !evaluateUnitUnlock(bundle, units, unit6, u4unlockItems).unlocked);
+  assert("1. Unit 6 unlocks after Unit 5 mastery", u6after.unlocked);
   assert(
-    "17. Unit 6 stays renderer-gated",
-    resolveUnitRouteAccess(u6after.unlocked, unitRenderersReady(unit6Exercises)) === "coming_soon",
+    "2. Unit 6 becomes curriculum-playable after valid Unit 5 mastery",
+    resolveUnitRouteAccess(u6after.unlocked, unitRenderersReady(unit6Exercises)) === "play",
+  );
+  assert("3. word_to_picture renderer reports ready", unitRenderersReady(unit6Exercises));
+
+  const yadExercise = unit6Exercises.find((row) => row.type === "word_to_picture");
+  const resolvedYad = yadExercise ? resolveWordToPicture(bundle, yadExercise) : undefined;
+  assert("4. Unit 6 exercise resolves", Boolean(resolvedYad));
+  assert("5. target word exists", resolvedYad?.target.id === "word.yad" && resolvedYad.target.displayText === "يَد");
+  assert(
+    "6. all visual choices resolve",
+    resolvedYad?.choices.length === 3 &&
+      resolvedYad.choices.every((row) => row.visual.kind === "emoji") === true &&
+      resolvedYad.choices.some((row) => row.id === "word.yad") === true &&
+      resolvedYad.choices.some((row) => row.id === "word.qalam") === true &&
+      resolvedYad.choices.some((row) => row.id === "word.jamal") === true,
+  );
+  assert(
+    "word_to_picture uses getWordLiveKey",
+    getWordLiveKey({ wordId: "word.yad" }).liveKey === "word:yad.decoding",
+  );
+  const unit6Refs = refsForExercises(bundle, unit6Exercises);
+  const yadRef = unit6Refs.find((ref) => ref.liveKey === "word:yad.decoding");
+  assert("11. Unit 6 live key is word:yad.decoding", yadRef?.liveKey === "word:yad.decoding" && yadRef.type === "word");
+  assert("Unit 6 has one unique word-decoding ref", unit6Refs.length === 1);
+  assert(
+    "Unit 6 required skill is mapped",
+    (unit6.mastery.requiredSkillIds ?? []).includes("skill.word_decoding.simple") &&
+      !(unit6.mastery.requiredSkillIds ?? []).includes("skill.letter_recognition.core"),
+  );
+  assert(
+    "picture_to_word and word_to_picture share the decoding facet for a given word",
+    getWordLiveKey({ wordId: "word.walad" }).liveKey === "word:walad.decoding" &&
+      getWordLiveKey({ wordId: "word.yad" }).liveKey !== "word:walad.decoding",
+  );
+
+  const unknownYadBundle = JSON.parse(readFileSync(wave1Path, "utf8")) as Record<string, unknown>;
+  const unknownYadExercises = unknownYadBundle["exercises"] as Array<Record<string, unknown>>;
+  const unknownYadRow = unknownYadExercises.find((row) => row["id"] === "exercise.wave1.word_to_picture.yad");
+  if (unknownYadRow) {
+    unknownYadRow["choices"] = [
+      ...(Array.isArray(unknownYadRow["choices"]) ? unknownYadRow["choices"] : []),
+      { id: "word.notreal", label: "?" },
+    ];
+  }
+  const unknownYadResult = validateCurriculum(unknownYadBundle);
+  assert(
+    "7. unknown word/visual ref fails validation",
+    unknownYadResult.issues.some(
+      (issue) => issue.code === "MISSING_WORD" && issue.message.includes("word.notreal"),
+    ),
+  );
+
+  const prematureYadBundle = JSON.parse(readFileSync(wave1Path, "utf8")) as Record<string, unknown>;
+  const prematureYadUnits = prematureYadBundle["units"] as Array<Record<string, unknown>>;
+  const prematureUnit5 = prematureYadUnits.find((row) => row["id"] === "unit.literacy.wave1.waw_walad_vowels");
+  if (prematureUnit5 && Array.isArray(prematureUnit5["exerciseIds"])) {
+    prematureUnit5["exerciseIds"] = [...prematureUnit5["exerciseIds"], "exercise.wave1.word_to_picture.yad"];
+  }
+  const prematureYadResult = validateCurriculum(prematureYadBundle);
+  assert(
+    "8. premature future word fails validation",
+    prematureYadResult.issues.some(
+      (issue) =>
+        issue.code === "PREMATURE_CONTENT" &&
+        issue.message.includes("word.yad") &&
+        issue.message.includes("exercise.wave1.word_to_picture.yad"),
+    ),
+    prematureYadResult.issues.map((issue) => `${issue.code}: ${issue.message}`).join(" | "),
+  );
+
+  const mismatchYadBundle = JSON.parse(readFileSync(wave1Path, "utf8")) as Record<string, unknown>;
+  const mismatchYadExercises = mismatchYadBundle["exercises"] as Array<Record<string, unknown>>;
+  const mismatchYadRow = mismatchYadExercises.find((row) => row["id"] === "exercise.wave1.word_to_picture.yad");
+  if (mismatchYadRow && Array.isArray(mismatchYadRow["masteryTargets"])) {
+    const targets = mismatchYadRow["masteryTargets"] as Array<Record<string, unknown>>;
+    if (targets[0]) targets[0]["wordId"] = "word.jamal";
+  }
+  const mismatchYadResult = validateCurriculum(mismatchYadBundle);
+  assert(
+    "word_to_picture mastery must match scored word",
+    mismatchYadResult.issues.some(
+      (issue) =>
+        issue.code === "MISSING_MASTERY_TARGET" &&
+        issue.message.includes("word.yad"),
+    ),
+  );
+
+  const noYadVisualBundle = JSON.parse(readFileSync(wave1Path, "utf8")) as Record<string, unknown>;
+  const noYadVisualExercises = noYadVisualBundle["exercises"] as Array<Record<string, unknown>>;
+  const noYadVisualWords = noYadVisualBundle["words"] as Array<Record<string, unknown>>;
+  const noYadVisualRow = noYadVisualExercises.find((row) => row["id"] === "exercise.wave1.word_to_picture.yad");
+  if (noYadVisualRow && Array.isArray(noYadVisualRow["choices"])) {
+    noYadVisualRow["choices"] = (noYadVisualRow["choices"] as Array<Record<string, unknown>>).map((choice) => {
+      const next = { ...choice };
+      delete next["assetId"];
+      return next;
+    });
+  }
+  for (const id of ["word.yad", "word.qalam", "word.jamal"]) {
+    const wordRow = noYadVisualWords.find((row) => row["id"] === id);
+    if (wordRow) delete wordRow["imageAssetId"];
+  }
+  const noYadVisualResult = validateCurriculum(noYadVisualBundle);
+  assert(
+    "malformed word_to_picture visual target fails",
+    noYadVisualResult.issues.some(
+      (issue) => issue.code === "MISSING_FIELD" && issue.message.includes("visual target"),
+    ),
+  );
+
+  const orderedUnit6Refs = [yadRef!];
+  assert(
+    "9. wrong answer does not complete activity",
+    !exerciseActivitiesComplete(bundle, yadExercise!, itemsFrom(orderedUnit6Refs, [[false]])),
+  );
+  const yadCorrect = itemsFrom(orderedUnit6Refs, [[true]]);
+  assert("10. correct answer completes activity step", exerciseActivitiesComplete(bundle, yadExercise!, yadCorrect));
+  assert("11. attempt writes word:yad.decoding", Object.keys(yadCorrect)[0] === "word:yad.decoding");
+
+  const u6fromHaraka = evaluateUnitMastery(bundle, unit6, unit6Exercises, itemsFrom(orderedUnit5Refs, [[true, true, true], []]));
+  assert(
+    "12. Unit 5 haraka evidence cannot satisfy Unit 6 word evidence",
+    !u6fromHaraka.mastered &&
+      (u6fromHaraka.blockers.some((row) => row.includes("skill.word_decoding.simple")) ||
+        u6fromHaraka.completedTargets === 0),
+  );
+  const waladAsYad = evaluateUnitMastery(
+    bundle,
+    unit6,
+    unit6Exercises,
+    itemsFrom([{ ...yadRef!, liveKey: "word:walad.decoding" }], [[true, true, true, true]]),
+  );
+  const qalamAsYad = evaluateUnitMastery(
+    bundle,
+    unit6,
+    unit6Exercises,
+    itemsFrom([{ ...yadRef!, liveKey: "word:qalam.decoding" }], [[true, true, true, true]]),
+  );
+  assert(
+    "13. unrelated earlier word evidence cannot satisfy Unit 6 target word",
+    !waladAsYad.mastered && !qalamAsYad.mastered,
+  );
+
+  const u6once = evaluateUnitMastery(bundle, unit6, unit6Exercises, itemsFrom(orderedUnit6Refs, [[true]]));
+  assert("14. one lesson completion does not bypass thresholds", !u6once.mastered);
+  assert("14. the Unit 6 activity can complete in one visit", u6once.activitiesDone === 1);
+  assert("14. attempts are 1 < 4", u6once.attempts === 1 && u6once.requiredAttempts === 4);
+
+  const day1 = Date.UTC(2026, 0, 1);
+  const day2 = Date.UTC(2026, 0, 2);
+  let yadMasteredProgress = emptyProgress();
+  yadMasteredProgress = applyAttempt(yadMasteredProgress, true, day1);
+  yadMasteredProgress = applyAttempt(yadMasteredProgress, true, day1);
+  yadMasteredProgress = applyAttempt(yadMasteredProgress, true, day1);
+  yadMasteredProgress = applyAttempt(yadMasteredProgress, true, day2);
+  const u6masteredItems = { [yadRef!.liveKey]: yadMasteredProgress };
+  const u6sameDay = evaluateUnitMastery(
+    bundle,
+    unit6,
+    unit6Exercises,
+    itemsFrom(orderedUnit6Refs, [[true, true, true, true]]),
+  );
+  assert("14. four same-day attempts do not meet minSessions 2", !u6sameDay.mastered);
+  const u6mastered = evaluateUnitMastery(bundle, unit6, unit6Exercises, u6masteredItems);
+  assert("Unit 6 mastery after thresholds", u6mastered.mastered, u6mastered.blockers.join("; "));
+  assert("Unit 6 valid mastery has no unmapped required skills", u6mastered.unmappedRequiredSkills.length === 0);
+
+  const unit7 = {
+    ...unit6,
+    id: "unit.literacy.wave1.next",
+    order: 7,
+    prereqUnitIds: [unit6.id],
+    exerciseIds: [] as string[],
+  };
+  const u6unlockItems = { ...u4unlockItems, ...u5masteredItems };
+  assert(
+    "15. Unit 7 remains locked until Unit 6 mastery",
+    !evaluateUnitUnlock(bundle, units, unit7, u6unlockItems).unlocked,
+  );
+  const u7after = evaluateUnitUnlock(bundle, units, unit7, { ...u6unlockItems, ...u6masteredItems });
+  assert("15. Unit 7 unlocks after Unit 6 mastery", u7after.unlocked);
+  assert(
+    "15. Unit 7 stays coming_soon without a ready renderer",
+    resolveUnitRouteAccess(u7after.unlocked, false) === "coming_soon",
   );
 
   const ghost = evaluateUnitUnlock(

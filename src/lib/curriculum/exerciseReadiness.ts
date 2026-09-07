@@ -13,6 +13,7 @@ export const READY_EXERCISE_TYPES: ReadonlySet<ExerciseType> = new Set([
   "audio_to_word",
   "missing_haraka",
   "picture_to_word",
+  "word_to_picture",
 ]);
 
 export function isExerciseTypeReady(type: ExerciseType): boolean {

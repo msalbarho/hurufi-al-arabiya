@@ -1672,6 +1672,86 @@ export function validateCurriculum(data: unknown): ValidationResult {
         );
       }
     }
+    if (row["type"] === "word_to_picture") {
+      const success = isRecord(row["success"]) ? row["success"] : undefined;
+      const correctId = success && typeof success["correctChoiceId"] === "string" ? success["correctChoiceId"] : undefined;
+      if (correctId) {
+        const parsed = parseCurriculumId(correctId);
+        if (parsed?.namespace === "word") resolveWord(`${path}.success.correctChoiceId`, correctId);
+      }
+      const contentWordIds = (Array.isArray(row["contentIds"]) ? row["contentIds"] : []).filter(
+        (id): id is string => typeof id === "string" && id.startsWith("word."),
+      );
+      const targetWordIds = Array.isArray(row["masteryTargets"])
+        ? row["masteryTargets"].flatMap((target) =>
+            isRecord(target) && typeof target["wordId"] === "string" ? [target["wordId"]] : [],
+          )
+        : [];
+      const decodingWordIds = Array.isArray(row["masteryTargets"])
+        ? row["masteryTargets"].flatMap((target) =>
+            isRecord(target) &&
+            target["skillId"] === "skill.word_decoding.simple" &&
+            typeof target["wordId"] === "string"
+              ? [target["wordId"]]
+              : [],
+          )
+        : [];
+      const targetId =
+        (correctId?.startsWith("word.") ? correctId : undefined) ??
+        targetWordIds[0] ??
+        contentWordIds[0];
+      if (!targetId) {
+        out.error(
+          "MISSING_FIELD",
+          `${path}.success.correctChoiceId`,
+          "word_to_picture exercise must reference a playable target word.",
+        );
+      }
+      if (correctId && Array.isArray(choices) && choices.length > 0) {
+        const choiceIds = choices.flatMap((choice) =>
+          isRecord(choice) && typeof choice["id"] === "string" ? [choice["id"]] : [],
+        );
+        if (!choiceIds.includes(correctId)) {
+          out.error(
+            "MISSING_FIELD",
+            `${path}.success.correctChoiceId`,
+            `word_to_picture correctChoiceId "${correctId}" is not listed in choices.`,
+          );
+        }
+      }
+      if (Array.isArray(choices)) {
+        choices.forEach((choice, j) => {
+          if (!isRecord(choice) || typeof choice["id"] !== "string") return;
+          if (!choice["id"].startsWith("word.")) {
+            out.error(
+              "INVALID_TYPE",
+              `${path}.choices[${j}].id`,
+              `word_to_picture choice "${choice["id"]}" must be a word.`,
+            );
+            return;
+          }
+          const wordRow = words.find((item) => isRecord(item) && item["id"] === choice["id"]);
+          const wordImage =
+            isRecord(wordRow) && typeof wordRow["imageAssetId"] === "string" ? wordRow["imageAssetId"] : undefined;
+          const choiceImage =
+            typeof choice["assetId"] === "string" && choice["assetId"].startsWith("image.") ? choice["assetId"] : undefined;
+          if (!choiceImage && !wordImage) {
+            out.error(
+              "MISSING_FIELD",
+              `${path}.choices[${j}].assetId`,
+              `word_to_picture choice "${choice["id"]}" has no visual target (choice assetId or word imageAssetId).`,
+            );
+          }
+        });
+      }
+      if (correctId?.startsWith("word.") && decodingWordIds.length > 0 && decodingWordIds.some((id) => id !== correctId)) {
+        out.error(
+          "MISSING_MASTERY_TARGET",
+          `${path}.masteryTargets`,
+          `word_to_picture word-decoding target does not match scored word "${correctId}".`,
+        );
+      }
+    }
     const evidence = row["masteryEvidence"];
     if (isRecord(evidence)) {
       for (const key of ["reading", "writing", "listening"] as const) {

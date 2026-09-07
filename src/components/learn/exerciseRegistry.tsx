@@ -9,6 +9,7 @@ import { PictureToWordExercise } from "./PictureToWordExercise.tsx";
 import { SoundToLetterExercise } from "./SoundToLetterExercise.tsx";
 import { TracingExercise } from "./TracingExercise.tsx";
 import { SyllableBlendingExercise } from "./SyllableBlendingExercise.tsx";
+import { WordToPictureExercise } from "./WordToPictureExercise.tsx";
 
 const registry: Partial<Record<ExerciseType, (props: ExerciseViewProps) => ReactNode>> = {
   sound_to_letter: SoundToLetterExercise,
@@ -18,6 +19,7 @@ const registry: Partial<Record<ExerciseType, (props: ExerciseViewProps) => React
   audio_to_word: AudioToWordExercise,
   missing_haraka: MissingHarakaExercise,
   picture_to_word: PictureToWordExercise,
+  word_to_picture: WordToPictureExercise,
 };
 
 if (import.meta.env.DEV) {

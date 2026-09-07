@@ -12,6 +12,7 @@ export type PrototypeWordVisual =
 /**
  * Same emojis as the existing `/words` category chips.
  * Used only until production image files exist for `image.word.*`.
+ * Shared by picture_to_word and word_to_picture.
  */
 const CATEGORY_EMOJI: Record<string, string> = {
   animals: "🦁",

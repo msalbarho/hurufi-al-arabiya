@@ -137,7 +137,11 @@ export function getLetterFormLiveKey(args: {
  *   word.qalam → word:qalam.decoding
  *
  * Distinct from letter/syllable keys and from 720-bank ids (`school-8`).
- * Future word-decoding exercises must go through this helper.
+ *
+ * `audio_to_word`, `picture_to_word`, and `word_to_picture` share this
+ * key when they score `skill.word_decoding.simple` on the same word:
+ * both directions measure decoding that written form. Different words
+ * never share a key (`word:walad.decoding` ≠ `word:yad.decoding`).
  */
 export function getWordLiveKey(args: {
   wordId?: string;
@@ -184,6 +188,10 @@ function isShortVowelSkill(skillId: string): boolean {
   );
 }
 
+function isWordDecodingExercise(type: string | undefined): boolean {
+  return type === "audio_to_word" || type === "picture_to_word" || type === "word_to_picture";
+}
+
 export function liveRefForTarget(
   bundle: CurriculumBundle,
   target: ExerciseMasteryTarget,
@@ -200,6 +208,20 @@ export function liveRefForTarget(
       ...(letterId ? { letterId } : {}),
       vowelSkillId: target.skillId,
     });
+    return {
+      portableMasteryId: target.id,
+      skillId: target.skillId,
+      type: keyed.type,
+      id: keyed.id,
+      liveKey: keyed.liveKey,
+    };
+  }
+  if (
+    target.wordId &&
+    target.skillId === "skill.word_decoding.simple" &&
+    (isWordDecodingExercise(exercise?.type) || !exercise)
+  ) {
+    const keyed = getWordLiveKey({ wordId: target.wordId });
     return {
       portableMasteryId: target.id,
       skillId: target.skillId,

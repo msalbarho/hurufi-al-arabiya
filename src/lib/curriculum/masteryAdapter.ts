@@ -13,7 +13,8 @@
  * `diacritic:{legacyId}.{vowel}.discrimination`. Those keys must not be shared.
  *
  * Word decoding uses `getWordLiveKey` → `word:{slug}.decoding`
- * (e.g. word.qalam → word:qalam.decoding). Not a letter key.
+ * for audio_to_word, picture_to_word, and word_to_picture when they
+ * score the same word. Not a letter key.
  */
 import type { CurriculumBundle, ExerciseDefinition } from "@/content/curriculum/index.ts";
 import { useProgress } from "@/lib/progress/store";
