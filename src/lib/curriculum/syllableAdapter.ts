@@ -36,6 +36,16 @@ export function harakaCarrier(vowelSkillId: string): string {
   return TATWEEL + (vowelMarkForSkill(vowelSkillId) ?? "");
 }
 
+/** Empty tatweel carrier for a missing-haraka slot (does not reveal the vowel). */
+export function emptyHarakaCarrier(): string {
+  return TATWEEL;
+}
+
+/** Letter + tatweel so the child sees where a short vowel belongs. */
+export function missingHarakaPromptGlyph(letterGlyph: string): string {
+  return letterGlyph + TATWEEL;
+}
+
 export interface ResolvedSyllableChoice {
   id: string;
   text: string;

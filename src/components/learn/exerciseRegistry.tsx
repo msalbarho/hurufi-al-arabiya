@@ -4,6 +4,8 @@ import { isExerciseTypeReady } from "@/lib/curriculum/exerciseReadiness.ts";
 import type { ExerciseViewProps } from "./exerciseTypes.ts";
 import { AudioToWordExercise } from "./AudioToWordExercise.tsx";
 import { LetterRecognitionExercise } from "./LetterRecognitionExercise.tsx";
+import { MissingHarakaExercise } from "./MissingHarakaExercise.tsx";
+import { PictureToWordExercise } from "./PictureToWordExercise.tsx";
 import { SoundToLetterExercise } from "./SoundToLetterExercise.tsx";
 import { TracingExercise } from "./TracingExercise.tsx";
 import { SyllableBlendingExercise } from "./SyllableBlendingExercise.tsx";
@@ -14,6 +16,8 @@ const registry: Partial<Record<ExerciseType, (props: ExerciseViewProps) => React
   syllable_blending: SyllableBlendingExercise,
   letter_recognition: LetterRecognitionExercise,
   audio_to_word: AudioToWordExercise,
+  missing_haraka: MissingHarakaExercise,
+  picture_to_word: PictureToWordExercise,
 };
 
 if (import.meta.env.DEV) {

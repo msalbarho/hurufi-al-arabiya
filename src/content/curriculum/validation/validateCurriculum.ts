@@ -1488,6 +1488,190 @@ export function validateCurriculum(data: unknown): ValidationResult {
         );
       }
     }
+    if (row["type"] === "missing_haraka") {
+      const success = isRecord(row["success"]) ? row["success"] : undefined;
+      const correctId = success && typeof success["correctChoiceId"] === "string" ? success["correctChoiceId"] : undefined;
+      if (correctId) {
+        const parsed = parseCurriculumId(correctId);
+        if (parsed?.namespace === "syllable") resolveSyllable(`${path}.success.correctChoiceId`, correctId);
+      }
+      const contentSyllableIds = (Array.isArray(row["contentIds"]) ? row["contentIds"] : []).filter(
+        (id): id is string => typeof id === "string" && id.startsWith("syllable."),
+      );
+      const targetSyllableIds = Array.isArray(row["masteryTargets"])
+        ? row["masteryTargets"].flatMap((target) =>
+            isRecord(target) && typeof target["syllableId"] === "string" ? [target["syllableId"]] : [],
+          )
+        : [];
+      const vowelTargetSkills = Array.isArray(row["masteryTargets"])
+        ? row["masteryTargets"].flatMap((target) =>
+            isRecord(target) && typeof target["skillId"] === "string" && target["skillId"].startsWith("skill.short_vowel.")
+              ? [target["skillId"]]
+              : [],
+          )
+        : [];
+      const targetId =
+        (correctId?.startsWith("syllable.") ? correctId : undefined) ??
+        targetSyllableIds[0] ??
+        contentSyllableIds[0];
+      if (!targetId) {
+        out.error(
+          "MISSING_FIELD",
+          `${path}.success.correctChoiceId`,
+          "missing_haraka exercise must reference a playable target syllable.",
+        );
+      }
+      const vowelOf = (id: string | undefined): string | undefined => {
+        if (!id) return undefined;
+        const found = syllables.find((item) => isRecord(item) && item["id"] === id);
+        return isRecord(found) && typeof found["vowelSkillId"] === "string" ? found["vowelSkillId"] : undefined;
+      };
+      const targetVowel = vowelOf(targetId);
+      if (targetId && !targetVowel) {
+        out.error(
+          "MISSING_FIELD",
+          `${path}.success.correctChoiceId`,
+          `missing_haraka target "${targetId}" has no short-vowel skill.`,
+        );
+      } else if (
+        targetVowel &&
+        targetVowel !== "skill.short_vowel.fatha" &&
+        targetVowel !== "skill.short_vowel.kasra" &&
+        targetVowel !== "skill.short_vowel.damma"
+      ) {
+        out.error(
+          "UNKNOWN_ENUM",
+          `${path}.success.correctChoiceId`,
+          `missing_haraka target "${targetId}" uses unsupported vowel "${targetVowel}".`,
+        );
+      }
+      if (correctId && Array.isArray(choices) && choices.length > 0) {
+        const choiceIds = choices.flatMap((choice) =>
+          isRecord(choice) && typeof choice["id"] === "string" ? [choice["id"]] : [],
+        );
+        if (!choiceIds.includes(correctId)) {
+          out.error(
+            "MISSING_FIELD",
+            `${path}.success.correctChoiceId`,
+            `missing_haraka correctChoiceId "${correctId}" is not listed in choices.`,
+          );
+        }
+      }
+      if (Array.isArray(choices)) {
+        choices.forEach((choice, j) => {
+          if (!isRecord(choice) || typeof choice["id"] !== "string") return;
+          if (!choice["id"].startsWith("syllable.")) {
+            out.error(
+              "INVALID_TYPE",
+              `${path}.choices[${j}].id`,
+              `missing_haraka choice "${choice["id"]}" must be a syllable.`,
+            );
+            return;
+          }
+          const vowel = vowelOf(choice["id"]);
+          if (
+            vowel &&
+            vowel !== "skill.short_vowel.fatha" &&
+            vowel !== "skill.short_vowel.kasra" &&
+            vowel !== "skill.short_vowel.damma"
+          ) {
+            out.error(
+              "UNKNOWN_ENUM",
+              `${path}.choices[${j}].id`,
+              `missing_haraka choice "${choice["id"]}" is not a short-vowel haraka.`,
+            );
+          }
+        });
+      }
+      if (targetVowel && vowelTargetSkills.length > 0 && vowelTargetSkills.some((id) => id !== targetVowel)) {
+        out.error(
+          "MISSING_MASTERY_TARGET",
+          `${path}.masteryTargets`,
+          `missing_haraka mastery skill does not match scored vowel "${targetVowel}".`,
+        );
+      }
+      if (correctId?.startsWith("syllable.") && targetSyllableIds.length > 0 && !targetSyllableIds.includes(correctId)) {
+        out.error(
+          "MISSING_MASTERY_TARGET",
+          `${path}.masteryTargets`,
+          `missing_haraka exercise does not score its correct syllable "${correctId}".`,
+        );
+      }
+    }
+    if (row["type"] === "picture_to_word") {
+      const success = isRecord(row["success"]) ? row["success"] : undefined;
+      const correctId = success && typeof success["correctChoiceId"] === "string" ? success["correctChoiceId"] : undefined;
+      if (correctId) {
+        const parsed = parseCurriculumId(correctId);
+        if (parsed?.namespace === "word") resolveWord(`${path}.success.correctChoiceId`, correctId);
+      }
+      const contentWordIds = (Array.isArray(row["contentIds"]) ? row["contentIds"] : []).filter(
+        (id): id is string => typeof id === "string" && id.startsWith("word."),
+      );
+      const targetWordIds = Array.isArray(row["masteryTargets"])
+        ? row["masteryTargets"].flatMap((target) =>
+            isRecord(target) && typeof target["wordId"] === "string" ? [target["wordId"]] : [],
+          )
+        : [];
+      const decodingWordIds = Array.isArray(row["masteryTargets"])
+        ? row["masteryTargets"].flatMap((target) =>
+            isRecord(target) &&
+            target["skillId"] === "skill.word_decoding.simple" &&
+            typeof target["wordId"] === "string"
+              ? [target["wordId"]]
+              : [],
+          )
+        : [];
+      const targetId =
+        (correctId?.startsWith("word.") ? correctId : undefined) ??
+        targetWordIds[0] ??
+        contentWordIds[0];
+      if (!targetId) {
+        out.error(
+          "MISSING_FIELD",
+          `${path}.success.correctChoiceId`,
+          "picture_to_word exercise must reference a playable target word.",
+        );
+      }
+      const promptId = row["promptAssetId"];
+      const wordRow = words.find((item) => isRecord(item) && item["id"] === targetId);
+      const wordImage = isRecord(wordRow) && typeof wordRow["imageAssetId"] === "string" ? wordRow["imageAssetId"] : undefined;
+      const hasVisual =
+        (typeof promptId === "string" && promptId.startsWith("image.")) || Boolean(wordImage);
+      if (targetId && !hasVisual) {
+        out.error(
+          "MISSING_FIELD",
+          `${path}.promptAssetId`,
+          `picture_to_word "${row["id"]}" has no visual target (promptAssetId or word imageAssetId).`,
+        );
+      }
+      if (typeof promptId === "string" && !promptId.startsWith("image.")) {
+        out.error(
+          "INVALID_TYPE",
+          `${path}.promptAssetId`,
+          "picture_to_word promptAssetId must be an image asset.",
+        );
+      }
+      if (correctId && Array.isArray(choices) && choices.length > 0) {
+        const choiceIds = choices.flatMap((choice) =>
+          isRecord(choice) && typeof choice["id"] === "string" ? [choice["id"]] : [],
+        );
+        if (!choiceIds.includes(correctId)) {
+          out.error(
+            "MISSING_FIELD",
+            `${path}.success.correctChoiceId`,
+            `picture_to_word correctChoiceId "${correctId}" is not listed in choices.`,
+          );
+        }
+      }
+      if (correctId?.startsWith("word.") && decodingWordIds.length > 0 && decodingWordIds.some((id) => id !== correctId)) {
+        out.error(
+          "MISSING_MASTERY_TARGET",
+          `${path}.masteryTargets`,
+          `picture_to_word word-decoding target does not match scored word "${correctId}".`,
+        );
+      }
+    }
     const evidence = row["masteryEvidence"];
     if (isRecord(evidence)) {
       for (const key of ["reading", "writing", "listening"] as const) {

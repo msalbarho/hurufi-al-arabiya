@@ -29,6 +29,7 @@ export {
   exerciseActivitiesComplete,
   getLetterFormLiveKey,
   getSyllableLiveKey,
+  getHarakaLiveKey,
   getWordLiveKey,
   liveRefForTarget,
   unitExerciseCompletion,

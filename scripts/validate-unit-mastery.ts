@@ -8,13 +8,15 @@ import { fileURLToPath } from "node:url";
 import { asCurriculumBundle, validateCurriculum, WAVE1_PATH_ID } from "../src/content/curriculum/validation/validateCurriculum.ts";
 import { unitRenderersReady } from "../src/lib/curriculum/exerciseReadiness.ts";
 import { resolveLetterRecognition } from "../src/lib/curriculum/letterRecognitionAdapter.ts";
+import { resolveMissingHaraka } from "../src/lib/curriculum/missingHarakaAdapter.ts";
 import { resolveSyllableBlending, shuffleWithSeed } from "../src/lib/curriculum/syllableAdapter.ts";
-import { resolveAudioToWord } from "../src/lib/curriculum/wordAdapter.ts";
+import { resolveAudioToWord, resolvePictureToWord } from "../src/lib/curriculum/wordAdapter.ts";
 import {
   evaluateUnitMastery,
   evaluateUnitUnlock,
   exerciseActivitiesComplete,
   exercisesForUnit,
+  getHarakaLiveKey,
   getLetterFormLiveKey,
   getSyllableLiveKey,
   getWordLiveKey,
@@ -76,13 +78,15 @@ function main(): void {
   const unit3 = units[2];
   const unit4 = units[3];
   const unit5 = units[4];
-  if (!unit1 || !unit2 || !unit3 || !unit4 || !unit5) throw new Error("Wave 1 units 1–5 missing");
+  const unit6 = units[5];
+  if (!unit1 || !unit2 || !unit3 || !unit4 || !unit5 || !unit6) throw new Error("Wave 1 units 1–6 missing");
 
   const unit1Exercises = exercisesForUnit(bundle, unit1);
   const unit2Exercises = exercisesForUnit(bundle, unit2);
   const unit3Exercises = exercisesForUnit(bundle, unit3);
   const unit4Exercises = exercisesForUnit(bundle, unit4);
   const unit5Exercises = exercisesForUnit(bundle, unit5);
+  const unit6Exercises = exercisesForUnit(bundle, unit6);
   const unit1Refs = uniqueRefs(
     unit1Exercises.flatMap((exercise) =>
       (exercise.masteryTargets ?? []).map((target) => liveRefForTarget(bundle, target)),
@@ -685,10 +689,231 @@ function main(): void {
     !evaluateUnitUnlock(bundle, units, unit5, u3masteredItems).unlocked,
   );
   const u5after = evaluateUnitUnlock(bundle, units, unit5, { ...u3masteredItems, ...u4masteredItems });
-  assert("15. Unit 5 unlocks after Unit 4 mastery", u5after.unlocked);
+  assert("1. Unit 5 remains locked until Unit 4 mastery", !evaluateUnitUnlock(bundle, units, unit5, u3masteredItems).unlocked);
+  assert("1. Unit 5 unlocks after Unit 4 mastery", u5after.unlocked);
   assert(
-    "15. Unit 5 stays renderer-gated",
-    resolveUnitRouteAccess(u5after.unlocked, unitRenderersReady(unit5Exercises)) === "coming_soon",
+    "2. Unit 5 becomes curriculum-playable after Unit 4 mastery",
+    resolveUnitRouteAccess(u5after.unlocked, unitRenderersReady(unit5Exercises)) === "play",
+  );
+  assert("3. missing_haraka renderer reports ready", unitRenderersReady(unit5Exercises.filter((row) => row.type === "missing_haraka")));
+  assert("4. picture_to_word renderer reports ready", unitRenderersReady(unit5Exercises.filter((row) => row.type === "picture_to_word")));
+  assert("Unit 5 both renderers ready", unitRenderersReady(unit5Exercises));
+
+  const harakaExercise = unit5Exercises.find((row) => row.type === "missing_haraka");
+  const pictureExercise = unit5Exercises.find((row) => row.type === "picture_to_word");
+  const resolvedHaraka = harakaExercise ? resolveMissingHaraka(bundle, harakaExercise) : undefined;
+  const resolvedPicture = pictureExercise ? resolvePictureToWord(bundle, pictureExercise) : undefined;
+  assert("5. missing_haraka resolves", Boolean(resolvedHaraka));
+  assert("5. picture_to_word resolves", Boolean(resolvedPicture));
+  assert("missing_haraka scores fatha", resolvedHaraka?.target.id === "syllable.mim.fatha" && resolvedHaraka.target.vowelSkillId === "skill.short_vowel.fatha");
+  const harakaPrompt = resolvedHaraka?.promptGlyph ?? "";
+  assert(
+    "missing_haraka prompt does not reveal the vowel",
+    harakaPrompt.length > 0 &&
+      !harakaPrompt.includes("\u064E") &&
+      !harakaPrompt.includes("\u064F") &&
+      !harakaPrompt.includes("\u0650"),
+  );
+  assert(
+    "6. haraka choices are fatha/kasra/damma",
+    resolvedHaraka?.choices.some((row) => row.id === "syllable.mim.fatha") === true &&
+      resolvedHaraka.choices.some((row) => row.id === "syllable.mim.kasra") === true &&
+      resolvedHaraka.choices.some((row) => row.id === "syllable.mim.damma") === true,
+  );
+  assert("9. picture target word exists", resolvedPicture?.target.id === "word.walad" && resolvedPicture.target.displayText === "وَلَد");
+  assert(
+    "picture choices are walad/qalam/qadam",
+    resolvedPicture?.choices.some((row) => row.id === "word.walad") === true &&
+      resolvedPicture.choices.some((row) => row.id === "word.qalam") === true &&
+      resolvedPicture.choices.some((row) => row.id === "word.qadam") === true &&
+      resolvedPicture.choices.length === 3,
+  );
+  assert(
+    "picture visual is prototype emoji",
+    resolvedPicture?.visual.kind === "emoji" && resolvedPicture.visual.source === "category",
+  );
+  assert(
+    "getHarakaLiveKey keeps letter:mim.fatha",
+    getHarakaLiveKey({ letterLegacyId: "mim", vowelSkillId: "skill.short_vowel.fatha" }).liveKey === "letter:mim.fatha",
+  );
+  assert(
+    "kasra does not collapse onto fatha",
+    getHarakaLiveKey({ letterLegacyId: "mim", vowelSkillId: "skill.short_vowel.kasra" }).liveKey === "letter:mim.kasra",
+  );
+
+  const unit5Refs = uniqueRefs(
+    unit5Exercises.flatMap((exercise) =>
+      (exercise.masteryTargets ?? []).map((target) => liveRefForTarget(bundle, target)),
+    ),
+  );
+  const harakaRef = unit5Refs.find((ref) => ref.liveKey === "letter:mim.fatha");
+  const waladRef = unit5Refs.find((ref) => ref.liveKey === "word:walad.decoding");
+  assert("13. haraka live key is letter:mim.fatha", harakaRef?.liveKey === "letter:mim.fatha");
+  assert("13. walad live key is word:walad.decoding", waladRef?.liveKey === "word:walad.decoding");
+  assert("Unit 5 unique refs are fatha + walad", unit5Refs.length === 2);
+  assert(
+    "Unit 5 required skills are mapped",
+    (unit5.mastery.requiredSkillIds ?? []).includes("skill.short_vowel.fatha") &&
+      (unit5.mastery.requiredSkillIds ?? []).includes("skill.word_decoding.simple") &&
+      !(unit5.mastery.requiredSkillIds ?? []).includes("skill.short_vowel.kasra") &&
+      !(unit5.mastery.requiredSkillIds ?? []).includes("skill.short_vowel.damma"),
+  );
+
+  const unknownHarakaBundle = JSON.parse(readFileSync(wave1Path, "utf8")) as Record<string, unknown>;
+  const unknownHarakaExercises = unknownHarakaBundle["exercises"] as Array<Record<string, unknown>>;
+  const unknownHarakaRow = unknownHarakaExercises.find((row) => row["id"] === "exercise.wave1.missing_haraka.mim");
+  if (unknownHarakaRow) {
+    unknownHarakaRow["choices"] = [
+      ...(Array.isArray(unknownHarakaRow["choices"]) ? unknownHarakaRow["choices"] : []),
+      { id: "syllable.does.not.exist", label: "?" },
+    ];
+  }
+  const unknownHarakaResult = validateCurriculum(unknownHarakaBundle);
+  assert(
+    "7. unknown/illegal haraka ref fails validation",
+    unknownHarakaResult.issues.some(
+      (issue) => issue.code === "MISSING_SYLLABLE" && issue.message.includes("syllable.does.not.exist"),
+    ),
+  );
+
+  const prematureVowelBundle = JSON.parse(readFileSync(wave1Path, "utf8")) as Record<string, unknown>;
+  const prematureVowelUnits = prematureVowelBundle["units"] as Array<Record<string, unknown>>;
+  const prematureUnit4 = prematureVowelUnits.find((row) => row["id"] === "unit.literacy.wave1.dal_qadam");
+  if (prematureUnit4 && Array.isArray(prematureUnit4["exerciseIds"])) {
+    prematureUnit4["exerciseIds"] = [...prematureUnit4["exerciseIds"], "exercise.wave1.missing_haraka.mim"];
+  }
+  const prematureVowelResult = validateCurriculum(prematureVowelBundle);
+  assert(
+    "8. premature vowel use fails validation",
+    prematureVowelResult.issues.some(
+      (issue) =>
+        issue.code === "PREMATURE_CONTENT" &&
+        (issue.message.includes("skill.short_vowel.kasra") || issue.message.includes("syllable.mim.kasra")),
+    ),
+    prematureVowelResult.issues.map((issue) => `${issue.code}: ${issue.message}`).join(" | "),
+  );
+
+  const mismatchHarakaBundle = JSON.parse(readFileSync(wave1Path, "utf8")) as Record<string, unknown>;
+  const mismatchHarakaExercises = mismatchHarakaBundle["exercises"] as Array<Record<string, unknown>>;
+  const mismatchHarakaRow = mismatchHarakaExercises.find((row) => row["id"] === "exercise.wave1.missing_haraka.mim");
+  if (mismatchHarakaRow && Array.isArray(mismatchHarakaRow["masteryTargets"])) {
+    const targets = mismatchHarakaRow["masteryTargets"] as Array<Record<string, unknown>>;
+    if (targets[0]) targets[0]["skillId"] = "skill.short_vowel.kasra";
+  }
+  const mismatchHarakaResult = validateCurriculum(mismatchHarakaBundle);
+  assert(
+    "haraka mastery must match scored vowel",
+    mismatchHarakaResult.issues.some(
+      (issue) =>
+        issue.code === "MISSING_MASTERY_TARGET" &&
+        issue.message.includes("skill.short_vowel.fatha"),
+    ),
+  );
+
+  const unknownPictureBundle = JSON.parse(readFileSync(wave1Path, "utf8")) as Record<string, unknown>;
+  const unknownPictureExercises = unknownPictureBundle["exercises"] as Array<Record<string, unknown>>;
+  const unknownPictureRow = unknownPictureExercises.find((row) => row["id"] === "exercise.wave1.picture_to_word.walad");
+  if (unknownPictureRow) {
+    unknownPictureRow["choices"] = [
+      ...(Array.isArray(unknownPictureRow["choices"]) ? unknownPictureRow["choices"] : []),
+      { id: "word.notreal", label: "?" },
+    ];
+  }
+  const unknownPictureResult = validateCurriculum(unknownPictureBundle);
+  assert(
+    "10. unknown picture-to-word choice fails validation",
+    unknownPictureResult.issues.some(
+      (issue) => issue.code === "MISSING_WORD" && issue.message.includes("word.notreal"),
+    ),
+  );
+
+  const prematurePictureBundle = JSON.parse(readFileSync(wave1Path, "utf8")) as Record<string, unknown>;
+  const prematurePictureExercises = prematurePictureBundle["exercises"] as Array<Record<string, unknown>>;
+  const prematurePictureRow = prematurePictureExercises.find((row) => row["id"] === "exercise.wave1.picture_to_word.walad");
+  if (prematurePictureRow) {
+    prematurePictureRow["choices"] = [
+      ...(Array.isArray(prematurePictureRow["choices"]) ? prematurePictureRow["choices"] : []),
+      { id: "word.yad", label: "يَد" },
+    ];
+  }
+  const prematurePictureResult = validateCurriculum(prematurePictureBundle);
+  assert(
+    "10. premature picture-to-word choice fails validation",
+    prematurePictureResult.issues.some(
+      (issue) =>
+        issue.code === "PREMATURE_CONTENT" &&
+        issue.message.includes("word.yad") &&
+        issue.message.includes("exercise.wave1.picture_to_word.walad"),
+    ),
+  );
+
+  const noVisualBundle = JSON.parse(readFileSync(wave1Path, "utf8")) as Record<string, unknown>;
+  const noVisualExercises = noVisualBundle["exercises"] as Array<Record<string, unknown>>;
+  const noVisualWords = noVisualBundle["words"] as Array<Record<string, unknown>>;
+  const noVisualRow = noVisualExercises.find((row) => row["id"] === "exercise.wave1.picture_to_word.walad");
+  const noVisualWord = noVisualWords.find((row) => row["id"] === "word.walad");
+  if (noVisualRow) delete noVisualRow["promptAssetId"];
+  if (noVisualWord) delete noVisualWord["imageAssetId"];
+  const noVisualResult = validateCurriculum(noVisualBundle);
+  assert(
+    "malformed picture_to_word visual target fails",
+    noVisualResult.issues.some(
+      (issue) => issue.code === "MISSING_FIELD" && issue.message.includes("visual target"),
+    ),
+  );
+
+  const orderedUnit5Refs = [harakaRef!, waladRef!];
+  assert(
+    "11. wrong haraka does not complete",
+    !exerciseActivitiesComplete(bundle, harakaExercise!, itemsFrom(orderedUnit5Refs, [[false]])),
+  );
+  assert(
+    "11. wrong picture choice does not complete",
+    !exerciseActivitiesComplete(bundle, pictureExercise!, itemsFrom(orderedUnit5Refs, [[], [false]])),
+  );
+  const harakaCorrect = itemsFrom(orderedUnit5Refs, [[true]]);
+  const pictureCorrect = itemsFrom(orderedUnit5Refs, [[], [true]]);
+  assert("12. correct haraka completes that activity", exerciseActivitiesComplete(bundle, harakaExercise!, harakaCorrect));
+  assert("12. picture step still incomplete", !exerciseActivitiesComplete(bundle, pictureExercise!, harakaCorrect));
+  assert("12. correct picture completes that activity", exerciseActivitiesComplete(bundle, pictureExercise!, pictureCorrect));
+  assert("13. haraka attempt writes letter:mim.fatha", Object.keys(harakaCorrect)[0] === "letter:mim.fatha");
+  assert("13. picture attempt writes word:walad.decoding", Object.keys(pictureCorrect)[1] === "word:walad.decoding");
+
+  const harakaOnly = itemsFrom(orderedUnit5Refs, [[true, true, true], []]);
+  const waladOnly = itemsFrom(orderedUnit5Refs, [[], [true, true, true]]);
+  const u5harakaOnly = evaluateUnitMastery(bundle, unit5, unit5Exercises, harakaOnly);
+  const u5waladOnly = evaluateUnitMastery(bundle, unit5, unit5Exercises, waladOnly);
+  assert(
+    "14. haraka evidence cannot satisfy word decoding",
+    !u5harakaOnly.mastered &&
+      u5harakaOnly.blockers.some((row) => row.includes("skill.word_decoding.simple")),
+  );
+  assert(
+    "15. word evidence cannot satisfy unrelated vowel mastery",
+    !u5waladOnly.mastered &&
+      u5waladOnly.blockers.some((row) => row.includes("skill.short_vowel.fatha")),
+  );
+
+  const u5once = evaluateUnitMastery(bundle, unit5, unit5Exercises, itemsFrom(orderedUnit5Refs, [[true], [true]]));
+  assert("16. finishing Unit 5 lesson once does not bypass mastery", !u5once.mastered);
+  assert("16. both Unit 5 activities can complete in one visit", u5once.activitiesDone === 2);
+  assert("16. attempts are 2 < 3", u5once.attempts === 2 && u5once.requiredAttempts === 3);
+
+  const u5masteredItems = itemsFrom(orderedUnit5Refs, [[true, true], [true]]);
+  const u5mastered = evaluateUnitMastery(bundle, unit5, unit5Exercises, u5masteredItems);
+  assert("Unit 5 mastery after thresholds", u5mastered.mastered, u5mastered.blockers.join("; "));
+  assert("Unit 5 valid mastery has no unmapped required skills", u5mastered.unmappedRequiredSkills.length === 0);
+
+  const u4unlockItems = { ...u3masteredItems, ...u4masteredItems };
+  assert(
+    "17. Unit 6 remains locked until Unit 5 mastery",
+    !evaluateUnitUnlock(bundle, units, unit6, u4unlockItems).unlocked,
+  );
+  const u6after = evaluateUnitUnlock(bundle, units, unit6, { ...u4unlockItems, ...u5masteredItems });
+  assert("17. Unit 6 unlocks after Unit 5 mastery", u6after.unlocked);
+  assert(
+    "17. Unit 6 stays renderer-gated",
+    resolveUnitRouteAccess(u6after.unlocked, unitRenderersReady(unit6Exercises)) === "coming_soon",
   );
 
   const ghost = evaluateUnitUnlock(

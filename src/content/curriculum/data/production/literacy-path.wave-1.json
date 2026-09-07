@@ -978,6 +978,7 @@
       "learnerLevel": 4,
       "skillIds": [
         "skill.letter_recognition.core",
+        "skill.short_vowel.fatha",
         "skill.short_vowel.kasra",
         "skill.short_vowel.damma",
         "skill.word_decoding.simple"
@@ -1005,7 +1006,7 @@
         "minAccuracy": 0.7,
         "minStreak": 2,
         "minSessions": 1,
-        "requiredSkillIds": ["skill.word_decoding.simple"],
+        "requiredSkillIds": ["skill.short_vowel.fatha", "skill.word_decoding.simple"],
         "reviewAfterDays": 2
       },
       "tags": ["wave-1"]

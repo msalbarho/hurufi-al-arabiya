@@ -142,6 +142,19 @@ export function getWordLiveKey(args: {
   return { type: "word", id, liveKey: `word:${id}` };
 }
 
+/**
+ * Short-vowel / haraka discrimination on a taught letter.
+ * Persisted shape matches `getSyllableLiveKey` (`letter:mim.fatha`).
+ * Kasra and damma use their own facets; they do not collapse onto fatha.
+ */
+export function getHarakaLiveKey(args: {
+  letterLegacyId?: string;
+  letterId?: string;
+  vowelSkillId: string;
+}): { type: ItemType; id: string; liveKey: string } {
+  return getSyllableLiveKey(args);
+}
+
 export function liveRefForTarget(bundle: CurriculumBundle, target: ExerciseMasteryTarget): LiveMasteryRef {
   const syllable = target.syllableId
     ? bundle.syllables?.find((row) => row.id === target.syllableId)
