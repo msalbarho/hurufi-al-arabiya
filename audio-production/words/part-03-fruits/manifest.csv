@@ -1,0 +1,36 @@
+index,content_id,legacy_id,arabic,diacritized,audio_asset_id,audio_basename,audio_filename,category
+1,word.tuffah,fruits-1,تفاح,تُفَّاح,audio.word.tuffah,tuffah,tuffah.mp3,fruits
+2,word.mawz,fruits-2,موز,مَوْز,audio.word.mawz,mawz,mawz.mp3,fruits
+3,word.burtuqaal,fruits-3,برتقال,بُرْتُقَال,audio.word.burtuqaal,burtuqaal,burtuqaal.mp3,fruits
+4,word.inab,fruits-4,عنب,عِنَب,audio.word.inab,inab,inab.mp3,fruits
+5,word.faraawila,fruits-5,فراولة,فَرَاوِلَة,audio.word.faraawila,faraawila,faraawila.mp3,fruits
+6,word.bittikh,fruits-6,بطيخ,بِطِّيخ,audio.word.bittikh,bittikh,bittikh.mp3,fruits
+7,word.shammaam,fruits-7,شمام,شَمَّام,audio.word.shammaam,shammaam,shammaam.mp3,fruits
+8,word.anaanaas,fruits-8,أناناس,أَنَانَاس,audio.word.anaanaas,anaanaas,anaanaas.mp3,fruits
+9,word.maanju,fruits-9,مانجو,مَانْجُو,audio.word.maanju,maanju,maanju.mp3,fruits
+10,word.kiwi,fruits-10,كيوي,كِيوِي,audio.word.kiwi,kiwi,kiwi.mp3,fruits
+11,word.khawkh,fruits-11,خوخ,خَوْخ,audio.word.khawkh,khawkh,khawkh.mp3,fruits
+12,word.ijjaas,fruits-12,إجاص,إِجَّاص,audio.word.ijjaas,ijjaas,ijjaas.mp3,fruits
+13,word.karaz,fruits-13,كرز,كَرَز,audio.word.karaz,karaz,karaz.mp3,fruits
+14,word.laymun,fruits-14,ليمون,لَيْمُون,audio.word.laymun,laymun,laymun.mp3,fruits
+15,word.tin,fruits-15,تين,تِين,audio.word.tin,tin,tin.mp3,fruits
+16,word.rummaan,fruits-16,رمان,رُمَّان,audio.word.rummaan,rummaan,rummaan.mp3,fruits
+17,word.tamr,fruits-17,تمر,تَمْر,audio.word.tamr,tamr,tamr.mp3,fruits
+18,word.mishmish,fruits-18,مشمش,مِشْمِش,audio.word.mishmish,mishmish,mishmish.mp3,fruits
+19,word.barquq,fruits-19,برقوق,بَرْقُوق,audio.word.barquq,barquq,barquq.mp3,fruits
+20,word.tut,fruits-20,توت,تُوت,audio.word.tut,tut,tut.mp3,fruits
+21,word.jawaafa,fruits-21,جوافة,جَوَافَة,audio.word.jawaafa,jawaafa,jawaafa.mp3,fruits
+22,word.afukaadu,fruits-22,أفوكادو,أَفُوكَادُو,audio.word.afukaadu,afukaadu,afukaadu.mp3,fruits
+23,word.naarinj,fruits-23,نارنج,نَارِنْج,audio.word.naarinj,naarinj,naarinj.mp3,fruits
+24,word.yusufi,fruits-24,يوسفي,يُوسُفِي,audio.word.yusufi,yusufi,yusufi.mp3,fruits
+25,word.jawzu_alhind,fruits-25,جوز الهند,جَوْزُ الهِنْد,audio.word.jawzu_alhind,jawzu_alhind,jawzu_alhind.mp3,fruits
+26,word.kaakaa,fruits-26,كاكا,كَاكَا,audio.word.kaakaa,kaakaa,kaakaa.mp3,fruits
+27,word.safarjal,fruits-27,سفرجل,سَفَرْجَل,audio.word.safarjal,safarjal,safarjal.mp3,fruits
+28,word.tuffaahu_akhdar,fruits-28,تفاح أخضر,تُفَّاحٌ أَخْضَر,audio.word.tuffaahu_akhdar,tuffaahu_akhdar,tuffaahu_akhdar.mp3,fruits
+29,word.inabu_ahmar,fruits-29,عنب أحمر,عِنَبٌ أَحْمَر,audio.word.inabu_ahmar,inabu_ahmar,inabu_ahmar.mp3,fruits
+30,word.tutu_alullayq,fruits-30,توت العليق,تُوتُ العُلَّيْق,audio.word.tutu_alullayq,tutu_alullayq,tutu_alullayq.mp3,fruits
+31,word.karambulaa,fruits-31,كرمبولا,كَرَمْبُولَا,audio.word.karambulaa,karambulaa,karambulaa.mp3,fruits
+32,word.baabaayaa,fruits-32,بابايا,بَابَايَا,audio.word.baabaayaa,baabaayaa,baabaayaa.mp3,fruits
+33,word.litshi,fruits-33,ليتشي,لِيتْشِي,audio.word.litshi,litshi,litshi.mp3,fruits
+34,word.tutu_alard,fruits-34,توت الأرض,تُوتُ الأَرْض,audio.word.tutu_alard,tutu_alard,tutu_alard.mp3,fruits
+35,word.unnaab,fruits-35,عناب,عُنَّاب,audio.word.unnaab,unnaab,unnaab.mp3,fruits

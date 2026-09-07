@@ -1,0 +1,146 @@
+{
+  "id": "hurufi.production.shared-skills.v1",
+  "title": "Canonical shared SkillDefinitions",
+  "description": "Single meaning per skill id. Bundles that include these ids must match this catalog. Contextual letter/unit dependencies live on units, exercises, and items — not here.",
+  "skills": [
+    {
+      "id": "skill.letter_recognition.core",
+      "domain": "letter_recognition",
+      "nameAr": "التَّعَرُّفُ عَلَى الْحَرْف",
+      "nameEn": "Recognize a letter",
+      "prereqSkillIds": [],
+      "vocabBandHint": "A",
+      "modality": ["read", "listen"],
+      "masteryHint": "Generic skill. Which letter is mastered is the item (letterId), not a separate SkillDefinition."
+    },
+    {
+      "id": "skill.letter_sounds.core",
+      "domain": "letter_sounds",
+      "nameAr": "صَوْتُ الْحَرْف",
+      "nameEn": "Letter sound",
+      "prereqSkillIds": [],
+      "vocabBandHint": "A",
+      "modality": ["listen", "speak"],
+      "masteryHint": "Generic skill. Pair with letterId for per-letter sound mastery."
+    },
+    {
+      "id": "skill.letter_forms.positional",
+      "domain": "letter_forms",
+      "nameAr": "أَشْكَالُ الْحَرْفِ الْمَوْضِعِيَّة",
+      "nameEn": "Positional letter forms",
+      "prereqSkillIds": ["skill.letter_recognition.core"],
+      "vocabBandHint": "A",
+      "modality": ["read"],
+      "masteryHint": "Generic skill. Pair with letterId + letterForm (isolated/initial/medial/final)."
+    },
+    {
+      "id": "skill.handwriting.isolated",
+      "domain": "handwriting",
+      "nameAr": "رَسْمُ الْحَرْفِ الْمُنْفَرِد",
+      "nameEn": "Trace the isolated letter",
+      "prereqSkillIds": ["skill.letter_recognition.core"],
+      "vocabBandHint": "A",
+      "modality": ["write"],
+      "masteryHint": "Generic isolated tracing. Pair with letterId. Prototype TracingCanvas; stroke order later."
+    },
+    {
+      "id": "skill.short_vowel.fatha",
+      "domain": "short_vowels",
+      "nameAr": "الْفَتْحَة",
+      "nameEn": "Fatha",
+      "prereqSkillIds": [],
+      "vocabBandHint": "A",
+      "modality": ["listen", "read"]
+    },
+    {
+      "id": "skill.short_vowel.kasra",
+      "domain": "short_vowels",
+      "nameAr": "الْكَسْرَة",
+      "nameEn": "Kasra",
+      "prereqSkillIds": ["skill.short_vowel.fatha"],
+      "vocabBandHint": "A",
+      "modality": ["listen", "read"]
+    },
+    {
+      "id": "skill.short_vowel.damma",
+      "domain": "short_vowels",
+      "nameAr": "الضَّمَّة",
+      "nameEn": "Damma",
+      "prereqSkillIds": ["skill.short_vowel.fatha"],
+      "vocabBandHint": "A",
+      "modality": ["listen", "read"]
+    },
+    {
+      "id": "skill.syllable_blending.cv",
+      "domain": "syllable_blending",
+      "nameAr": "دَمْجُ مَقْطَعٍ قَصِير",
+      "nameEn": "Blend a CV syllable",
+      "prereqSkillIds": ["skill.short_vowel.fatha"],
+      "vocabBandHint": "A",
+      "modality": ["read", "listen"]
+    },
+    {
+      "id": "skill.word_decoding.simple",
+      "domain": "word_decoding",
+      "nameAr": "قِرَاءَةُ كَلِمَةٍ بَسِيطَة",
+      "nameEn": "Simple word decoding",
+      "prereqSkillIds": ["skill.syllable_blending.cv"],
+      "vocabBandHint": "A",
+      "modality": ["read", "listen"]
+    },
+    {
+      "id": "skill.sukun.basic",
+      "domain": "sukun",
+      "nameAr": "السُّكُون",
+      "nameEn": "Sukun",
+      "prereqSkillIds": ["skill.short_vowel.fatha"],
+      "vocabBandHint": "A",
+      "modality": ["listen", "read"]
+    },
+    {
+      "id": "skill.long_vowel.madd",
+      "domain": "long_vowels",
+      "nameAr": "الْمَدّ",
+      "nameEn": "Long vowel / madd",
+      "prereqSkillIds": ["skill.short_vowel.fatha"],
+      "vocabBandHint": "A",
+      "modality": ["listen", "read"]
+    },
+    {
+      "id": "skill.shadda.basic",
+      "domain": "shadda",
+      "nameAr": "الشَّدَّة",
+      "nameEn": "Shadda",
+      "prereqSkillIds": ["skill.sukun.basic"],
+      "vocabBandHint": "A",
+      "modality": ["listen", "read"]
+    },
+    {
+      "id": "skill.hamza.reading",
+      "domain": "letter_sounds",
+      "nameAr": "قِرَاءَةُ الْهَمْزَة",
+      "nameEn": "Hamza reading",
+      "prereqSkillIds": ["skill.short_vowel.fatha"],
+      "vocabBandHint": "A",
+      "modality": ["listen", "read"]
+    },
+    {
+      "id": "skill.taa_marbuta.reading",
+      "domain": "letter_forms",
+      "nameAr": "التَّاءُ الْمَرْبُوطَة",
+      "nameEn": "Taa marbuta",
+      "prereqSkillIds": ["skill.short_vowel.fatha"],
+      "vocabBandHint": "A",
+      "modality": ["listen", "read"]
+    },
+    {
+      "id": "skill.alif_maqsura.reading",
+      "domain": "letter_forms",
+      "nameAr": "الْأَلِفُ الْمَقْصُورَة",
+      "nameEn": "Alif maqsura",
+      "prereqSkillIds": ["skill.long_vowel.madd"],
+      "vocabBandHint": "A",
+      "modality": ["listen", "read"]
+    }
+  ]
+}

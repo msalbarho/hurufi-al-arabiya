@@ -1,0 +1,61 @@
+import { createFileRoute, notFound } from "@tanstack/react-router";
+import { PageShell } from "@/components/kids/PageShell";
+import { BackButton } from "@/components/kids/ui";
+import { CurriculumLoadError, UnitLockedCard } from "@/components/learn/CurriculumStatus.tsx";
+import { LessonPlayer } from "@/components/learn/LessonPlayer.tsx";
+import { unitExerciseCompletion } from "@/lib/curriculum/masteryAdapter.ts";
+import { missingLearnRefs, resolveLearnUnit } from "@/lib/curriculum/resolveLearn.ts";
+import { useProgress } from "@/lib/progress/store";
+
+export const Route = createFileRoute("/learn/$waveId/$unitId")({
+  loader: ({ params }) => {
+    const view = resolveLearnUnit(params.waveId, params.unitId);
+    if (!view) throw notFound();
+    return { view };
+  },
+  head: ({ loaderData }) => {
+    const unit = loaderData?.view.unit;
+    const title = unit ? `${unit.titleAr} — حُرُوفِي العَرَبِيَّة` : "وَحْدَة — حُرُوفِي العَرَبِيَّة";
+    return {
+      meta: [
+        { title },
+        { name: "description", content: unit?.titleEn ?? "وحدة تعليمية" },
+        { property: "og:title", content: title },
+        { property: "og:type", content: "article" },
+      ],
+    };
+  },
+  component: LearnUnitScreen,
+});
+
+function LearnUnitScreen() {
+  const { view } = Route.useLoaderData();
+  const items = useProgress((s) => s.items);
+  const hydrated = useProgress((s) => s.hydrated);
+  const missing = missingLearnRefs(view);
+  const progress = unitExerciseCompletion(view.bundle, view.unit, view.exercises, items);
+  const startAt = progress.done >= progress.total ? 0 : progress.firstIncomplete;
+
+  return (
+    <PageShell>
+      <header className="mx-auto flex max-w-4xl items-center justify-between px-6 pt-6">
+        <div className="flex items-center gap-4">
+          <BackButton to="/learn" />
+          <div>
+            <p className="text-xs font-bold text-coral">الْمَوْجَةُ الْأُولَى</p>
+            <h1 className="font-display text-3xl font-extrabold leading-none">{view.unit.titleAr}</h1>
+          </div>
+        </div>
+      </header>
+      <main className="mx-auto max-w-4xl px-6 pt-8 pb-16">
+        {missing.length > 0 ? (
+          <CurriculumLoadError detail={missing.join("; ")} />
+        ) : !view.playable ? (
+          <UnitLockedCard title={view.unit.titleAr} />
+        ) : (
+          <LessonPlayer key={hydrated ? "ready" : "pending"} view={view} startAt={hydrated ? startAt : 0} />
+        )}
+      </main>
+    </PageShell>
+  );
+}

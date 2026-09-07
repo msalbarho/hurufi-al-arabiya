@@ -1,0 +1,21 @@
+index,content_id,legacy_id,arabic,diacritized,audio_asset_id,audio_basename,audio_filename,category
+1,word.wahid,numbers-1,واحد,وَاحِد,audio.word.wahid,wahid,wahid.mp3,numbers
+2,word.ithnaan,numbers-2,اثنان,اِثْنَان,audio.word.ithnaan,ithnaan,ithnaan.mp3,numbers
+3,word.thalatha,numbers-3,ثلاثة,ثَلَاثَة,audio.word.thalatha,thalatha,thalatha.mp3,numbers
+4,word.arbaa,numbers-4,أربعة,أَرْبَعَة,audio.word.arbaa,arbaa,arbaa.mp3,numbers
+5,word.khamsa,numbers-5,خمسة,خَمْسَة,audio.word.khamsa,khamsa,khamsa.mp3,numbers
+6,word.sitta,numbers-6,ستة,سِتَّة,audio.word.sitta,sitta,sitta.mp3,numbers
+7,word.saba,numbers-7,سبعة,سَبْعَة,audio.word.saba,saba,saba.mp3,numbers
+8,word.thamaaniya,numbers-8,ثمانية,ثَمَانِيَة,audio.word.thamaaniya,thamaaniya,thamaaniya.mp3,numbers
+9,word.tisa,numbers-9,تسعة,تِسْعَة,audio.word.tisa,tisa,tisa.mp3,numbers
+10,word.ashara,numbers-10,عشرة,عَشَرَة,audio.word.ashara,ashara,ashara.mp3,numbers
+11,word.sifr,numbers-11,صفر,صِفْر,audio.word.sifr,sifr,sifr.mp3,numbers
+12,word.ahada_ashar,numbers-12,أحد عشر,أَحَدَ عَشَر,audio.word.ahada_ashar,ahada_ashar,ahada_ashar.mp3,numbers
+13,word.ithnaa_ashar,numbers-13,اثنا عشر,اِثْنَا عَشَر,audio.word.ithnaa_ashar,ithnaa_ashar,ithnaa_ashar.mp3,numbers
+14,word.ishrun,numbers-14,عشرون,عِشْرُون,audio.word.ishrun,ishrun,ishrun.mp3,numbers
+15,word.thalaathun,numbers-15,ثلاثون,ثَلَاثُون,audio.word.thalaathun,thalaathun,thalaathun.mp3,numbers
+16,word.khamsun,numbers-16,خمسون,خَمْسُون,audio.word.khamsun,khamsun,khamsun.mp3,numbers
+17,word.miya,numbers-17,مئة,مِئَة,audio.word.miya,miya,miya.mp3,numbers
+18,word.alf,numbers-18,ألف,أَلْف,audio.word.alf,alf,alf.mp3,numbers
+19,word.nisf,numbers-19,نصف,نِصْف,audio.word.nisf,nisf,nisf.mp3,numbers
+20,word.zawj,numbers-20,زوج,زَوْج,audio.word.zawj,zawj,zawj.mp3,numbers

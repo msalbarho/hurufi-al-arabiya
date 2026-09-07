@@ -1,0 +1,36 @@
+index,content_id,legacy_id,arabic,diacritized,audio_asset_id,audio_basename,audio_filename,category
+1,word.sayyara,transport-1,سيارة,سَيَّارَة,audio.word.sayyara,sayyara,sayyara.mp3,transport
+2,word.hafila,transport-2,حافلة,حَافِلَة,audio.word.hafila,hafila,hafila.mp3,transport
+3,word.darraja,transport-3,دراجة,دَرَّاجَة,audio.word.darraja,darraja,darraja.mp3,transport
+4,word.darraaja_naariyya,transport-4,دراجة نارية,دَرَّاجَةٌ نَارِيَّة,audio.word.darraaja_naariyya,darraaja_naariyya,darraaja_naariyya.mp3,transport
+5,word.qitar,transport-5,قطار,قِطَار,audio.word.qitar,qitar,qitar.mp3,transport
+6,word.taayira,transport-6,طائرة,طَائِرَة,audio.word.taayira,taayira,taayira.mp3,transport
+7,word.safina,transport-7,سفينة,سَفِينَة,audio.word.safina,safina,safina.mp3,transport
+8,word.qaarib,transport-8,قارب,قَارِب,audio.word.qaarib,qaarib,qaarib.mp3,transport
+9,word.shaahina,transport-9,شاحنة,شَاحِنَة,audio.word.shaahina,shaahina,shaahina.mp3,transport
+10,word.sayyaara_isaaf,transport-10,سيارة إسعاف,سَيَّارَةُ إِسْعَاف,audio.word.sayyaara_isaaf,sayyaara_isaaf,sayyaara_isaaf.mp3,transport
+11,word.sayyaara_itfaa,transport-11,سيارة إطفاء,سَيَّارَةُ إِطْفَاء,audio.word.sayyaara_itfaa,sayyaara_itfaa,sayyaara_itfaa.mp3,transport
+12,word.sayyaara_shurta,transport-12,سيارة شرطة,سَيَّارَةُ شُرْطَة,audio.word.sayyaara_shurta,sayyaara_shurta,sayyaara_shurta.mp3,transport
+13,word.jarraar,transport-13,جرار,جَرَّار,audio.word.jarraar,jarraar,jarraar.mp3,transport
+14,word.mirwahiyya,transport-14,مروحية,مِرْوَحِيَّة,audio.word.mirwahiyya,mirwahiyya,mirwahiyya.mp3,transport
+15,word.saarukh,transport-15,صاروخ,صَارُوخ,audio.word.saarukh,saarukh,saarukh.mp3,transport
+16,word.ghawwaasa,transport-16,غواصة,غَوَّاصَة,audio.word.ghawwaasa,ghawwaasa,ghawwaasa.mp3,transport
+17,word.mitru,transport-17,مترو,مِتْرُو,audio.word.mitru,mitru,mitru.mp3,transport
+18,word.taaksi,transport-18,تاكسي,تَاكْسِي,audio.word.taaksi,taaksi,taaksi.mp3,transport
+19,word.araba,transport-19,عربة,عَرَبَة,audio.word.araba,araba,araba.mp3,transport
+20,word.mizlaja,transport-20,مزلجة,مِزْلَجَة,audio.word.mizlaja,mizlaja,mizlaja.mp3,transport
+21,word.lawhu_tazalluj,transport-21,لوح تزلج,لَوْحُ تَزَلُّج,audio.word.lawhu_tazalluj,lawhu_tazalluj,lawhu_tazalluj.mp3,transport
+22,word.mintaad,transport-22,منطاد,مِنْطَاد,audio.word.mintaad,mintaad,mintaad.mp3,transport
+23,word.ajala,transport-23,عجلة,عَجَلَة,audio.word.ajala,ajala,ajala.mp3,transport
+24,word.miqwad,transport-24,مقود,مِقْوَد,audio.word.miqwad,miqwad,miqwad.mp3,transport
+25,word.tariq,transport-25,طريق,طَرِيق,audio.word.tariq,tariq,tariq.mp3,transport
+26,word.jisr,transport-26,جسر,جِسْر,audio.word.jisr,jisr,jisr.mp3,transport
+27,word.nafaq,transport-27,نفق,نَفَق,audio.word.nafaq,nafaq,nafaq.mp3,transport
+28,word.mahatta,transport-28,محطة,مَحَطَّة,audio.word.mahatta,mahatta,mahatta.mp3,transport
+29,word.mataar,transport-29,مطار,مَطَار,audio.word.mataar,mataar,mataar.mp3,transport
+30,word.minaa,transport-30,ميناء,مِينَاء,audio.word.minaa,minaa,minaa.mp3,transport
+31,word.ishaara_murur,transport-31,إشارة مرور,إِشَارَةُ مُرُور,audio.word.ishaara_murur,ishaara_murur,ishaara_murur.mp3,transport
+32,word.mawqif,transport-32,موقف,مَوْقِف,audio.word.mawqif,mawqif,mawqif.mp3,transport
+33,word.waqud,transport-33,وقود,وَقُود,audio.word.waqud,waqud,waqud.mp3,transport
+34,word.khudha,transport-34,خوذة,خُوذَة,audio.word.khudha,khudha,khudha.mp3,transport
+35,word.hizaamu_amaan,transport-35,حزام أمان,حِزَامُ أَمَان,audio.word.hizaamu_amaan,hizaamu_amaan,hizaamu_amaan.mp3,transport

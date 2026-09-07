@@ -1,0 +1,69 @@
+سَيَّارَة
+[silence]
+حَافِلَة
+[silence]
+دَرَّاجَة
+[silence]
+دَرَّاجَةٌ نَارِيَّة
+[silence]
+قِطَار
+[silence]
+طَائِرَة
+[silence]
+سَفِينَة
+[silence]
+قَارِب
+[silence]
+شَاحِنَة
+[silence]
+سَيَّارَةُ إِسْعَاف
+[silence]
+سَيَّارَةُ إِطْفَاء
+[silence]
+سَيَّارَةُ شُرْطَة
+[silence]
+جَرَّار
+[silence]
+مِرْوَحِيَّة
+[silence]
+صَارُوخ
+[silence]
+غَوَّاصَة
+[silence]
+مِتْرُو
+[silence]
+تَاكْسِي
+[silence]
+عَرَبَة
+[silence]
+مِزْلَجَة
+[silence]
+لَوْحُ تَزَلُّج
+[silence]
+مِنْطَاد
+[silence]
+عَجَلَة
+[silence]
+مِقْوَد
+[silence]
+طَرِيق
+[silence]
+جِسْر
+[silence]
+نَفَق
+[silence]
+مَحَطَّة
+[silence]
+مَطَار
+[silence]
+مِينَاء
+[silence]
+إِشَارَةُ مُرُور
+[silence]
+مَوْقِف
+[silence]
+وَقُود
+[silence]
+خُوذَة
+[silence]
+حِزَامُ أَمَان

@@ -1,0 +1,8 @@
+stale Band A legacyId: food-47 points to word.maa (ماء) but 720 row is عصير; ignored; identity resolved by lemma/slug
+stale Band A legacyId: food-48 points to word.shay (شاي) but 720 row is ماء; ignored; identity resolved by lemma/slug
+stale Band A legacyId: home-26 points to word.kub (كوب) but 720 row is مشط; ignored; identity resolved by lemma/slug
+stale Band A legacyId: nature-21 points to word.matar (مطر) but 720 row is عين ماء; ignored; identity resolved by lemma/slug
+filename collision: tin for "تين" vs "طين" → tin_2
+sense check (shared audio): زَوْج family-25 husband vs numbers-20 pair/even — identical citation form zawj.mp3
+sense check (shared audio): قَرِيب family-37 relative vs adjectives-39 nearby — identical citation form qarib.mp3
+sense check (shared audio): وَرَقَة school-17 paper vs nature-4 leaf — identical citation form waraqa.mp3

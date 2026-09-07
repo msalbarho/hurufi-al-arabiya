@@ -1,0 +1,475 @@
+{
+  "meta": {
+    "kind": "fixture",
+    "id": "hurufi.fixture.portable-content.v1",
+    "title": "Portable content fixture — NOT Level 1 curriculum",
+    "description": "Technical sample for schema, IDs, and the validator. It is not Band A, not the child journey, and must not be shipped as production lessons.",
+    "notProductionCurriculum": true
+  },
+  "levels": [
+    { "id": 1, "nameAr": "أَتَعَرَّفُ عَلَى الْحُرُوف", "nameEn": "Letters I can see, hear, and trace" },
+    { "id": 2, "nameAr": "أَشْكَالٌ وَحَرَكَات", "nameEn": "Forms and short vowels" },
+    { "id": 3, "nameAr": "أَدْمُجُ الْأَصْوَات", "nameEn": "I can blend" },
+    { "id": 4, "nameAr": "كَلِمَاتِي الْأُولَى", "nameEn": "First real word bank" },
+    { "id": 5, "nameAr": "أَسْتَعْمِلُ الْكَلِمَات", "nameEn": "Words I can use" },
+    { "id": 6, "nameAr": "لُغَةُ كُلِّ يَوْم", "nameEn": "Everyday language" },
+    { "id": 7, "nameAr": "أَفْهَمُ مَا أَقْرَأ", "nameEn": "I understand what I read" },
+    { "id": 8, "nameAr": "قِصَصٌ وَاسْتِقْلَال", "nameEn": "Stories and independence" }
+  ],
+  "skills": [
+    {
+      "id": "skill.letter_recognition.ba",
+      "domain": "letter_recognition",
+      "nameAr": "التَّعَرُّفُ عَلَى حَرْفِ الْبَاء",
+      "nameEn": "Recognize letter ba",
+      "childLabelAr": "نَعْرِفُ الْبَاء",
+      "prereqSkillIds": [],
+      "learnerLevelHint": 1,
+      "modality": ["read", "listen"],
+      "masteryHint": "Identify ب from look-alikes; progress rules live outside content."
+    },
+    {
+      "id": "skill.similar_letter.ba_ta",
+      "domain": "similar_letter_discrimination",
+      "nameAr": "التَّمْيِيزُ بَيْنَ ب وَت",
+      "nameEn": "Discriminate ba and ta",
+      "prereqSkillIds": ["skill.letter_recognition.ba"],
+      "learnerLevelHint": 1,
+      "modality": ["read", "listen"]
+    },
+    {
+      "id": "skill.short_vowel.fatha",
+      "domain": "short_vowels",
+      "nameAr": "الْفَتْحَة",
+      "nameEn": "Fatha",
+      "childLabelAr": "فَتْحَة",
+      "prereqSkillIds": [],
+      "learnerLevelHint": 2,
+      "modality": ["listen", "read"]
+    },
+    {
+      "id": "skill.syllable_blending.cv",
+      "domain": "syllable_blending",
+      "nameAr": "دَمْجُ مَقْطَعٍ قَصِير",
+      "nameEn": "Blend a CV syllable",
+      "prereqSkillIds": ["skill.short_vowel.fatha"],
+      "learnerLevelHint": 3,
+      "modality": ["read", "listen"]
+    },
+    {
+      "id": "skill.word_decoding.simple",
+      "domain": "word_decoding",
+      "nameAr": "قِرَاءَةُ كَلِمَةٍ بَسِيطَة",
+      "nameEn": "Simple word decoding",
+      "prereqSkillIds": ["skill.syllable_blending.cv"],
+      "learnerLevelHint": 3,
+      "modality": ["read", "listen"]
+    },
+    {
+      "id": "skill.sentence_reading.two_word",
+      "domain": "sentence_reading",
+      "nameAr": "قِرَاءَةُ جُمْلَةٍ قَصِيرَة",
+      "nameEn": "Two-word sentence reading",
+      "prereqSkillIds": ["skill.word_decoding.simple"],
+      "learnerLevelHint": 4,
+      "modality": ["read", "listen"]
+    }
+  ],
+  "letters": [
+    {
+      "id": "letter.ba",
+      "legacyId": "ba",
+      "char": "ب",
+      "nameAr": "بَاء",
+      "phoneme": "b",
+      "forms": {
+        "isolated": "ب",
+        "initial": "بـ",
+        "medial": "ـبـ",
+        "final": "ـب"
+      },
+      "abjadOrder": 2,
+      "wave": 1,
+      "teachOrder": 2,
+      "similarLetterIds": ["letter.ta"],
+      "exampleWordIds": ["word.bab"],
+      "unlocksSkillIds": ["skill.letter_recognition.ba"],
+      "audioAssetIds": {
+        "name": "audio.letter.ba.name",
+        "phoneme": "audio.letter.ba.phoneme"
+      },
+      "traceAssetId": "trace.letter.ba.isolated"
+    },
+    {
+      "id": "letter.ta",
+      "legacyId": "ta",
+      "char": "ت",
+      "nameAr": "تَاء",
+      "phoneme": "t",
+      "forms": {
+        "isolated": "ت",
+        "initial": "تـ",
+        "medial": "ـتـ",
+        "final": "ـت"
+      },
+      "abjadOrder": 3,
+      "wave": 1,
+      "teachOrder": 3,
+      "similarLetterIds": ["letter.ba"],
+      "audioAssetIds": {
+        "name": "audio.letter.ta.name"
+      }
+    },
+    {
+      "id": "letter.mim",
+      "legacyId": "mim",
+      "char": "م",
+      "nameAr": "مِيم",
+      "phoneme": "m",
+      "forms": {
+        "isolated": "م",
+        "initial": "مـ",
+        "medial": "ـمـ",
+        "final": "ـم"
+      },
+      "abjadOrder": 24,
+      "wave": 1,
+      "teachOrder": 8,
+      "exampleWordIds": ["word.umm"],
+      "audioAssetIds": {
+        "name": "audio.letter.mim.name"
+      }
+    }
+  ],
+  "words": [
+    {
+      "id": "word.bab",
+      "lemma": "باب",
+      "diacritized": "بَاب",
+      "pos": "noun",
+      "gender": "m",
+      "number": "sg",
+      "category": "home",
+      "vocabBand": "A",
+      "learnerLevel": 4,
+      "difficulty": 1,
+      "concreteness": "concrete",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": ["letter.ba"],
+      "requiredSkillIds": ["skill.short_vowel.fatha"],
+      "phonicsSkillIds": ["skill.short_vowel.fatha"],
+      "frequencyBand": "core",
+      "highFrequency": true,
+      "reviewPriority": 4,
+      "imageAssetId": "image.word.bab",
+      "audioAssetIds": { "citation": "audio.word.bab" },
+      "tags": ["fixture", "home"],
+      "status": "fixture"
+    },
+    {
+      "id": "word.umm",
+      "legacyId": "family-1",
+      "lemma": "أم",
+      "diacritized": "أُمّ",
+      "pos": "noun",
+      "gender": "f",
+      "number": "sg",
+      "category": "family",
+      "vocabBand": "A",
+      "learnerLevel": 4,
+      "difficulty": 1,
+      "concreteness": "concrete",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": ["letter.mim"],
+      "requiredSkillIds": ["skill.word_decoding.simple"],
+      "frequencyBand": "core",
+      "highFrequency": true,
+      "reviewPriority": 5,
+      "imageAssetId": "image.word.umm",
+      "audioAssetIds": { "citation": "audio.word.umm" },
+      "tags": ["fixture", "family"],
+      "status": "fixture"
+    },
+    {
+      "id": "word.ab",
+      "legacyId": "family-2",
+      "lemma": "أب",
+      "diacritized": "أَب",
+      "pos": "noun",
+      "gender": "m",
+      "number": "sg",
+      "category": "family",
+      "vocabBand": "A",
+      "learnerLevel": 4,
+      "difficulty": 1,
+      "concreteness": "concrete",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": ["letter.ba"],
+      "frequencyBand": "core",
+      "highFrequency": true,
+      "reviewPriority": 5,
+      "tags": ["fixture", "family"],
+      "status": "fixture"
+    },
+    {
+      "id": "word.qitt",
+      "legacyId": "animals-1",
+      "lemma": "قط",
+      "diacritized": "قِطّ",
+      "pos": "noun",
+      "gender": "m",
+      "number": "sg",
+      "category": "animals",
+      "vocabBand": "A",
+      "learnerLevel": 4,
+      "difficulty": 1,
+      "concreteness": "concrete",
+      "msaStatus": "STANDARD_MSA",
+      "frequencyBand": "common",
+      "highFrequency": true,
+      "reviewPriority": 3,
+      "imageAssetId": "image.word.qitt",
+      "audioAssetIds": { "citation": "audio.word.qitt" },
+      "tags": ["fixture", "animals"],
+      "status": "fixture"
+    },
+    {
+      "id": "word.maa",
+      "lemma": "ماء",
+      "diacritized": "مَاء",
+      "pos": "noun",
+      "gender": "m",
+      "number": "sg",
+      "category": "food",
+      "vocabBand": "A",
+      "learnerLevel": 4,
+      "difficulty": 1,
+      "concreteness": "concrete",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": ["letter.mim"],
+      "frequencyBand": "core",
+      "highFrequency": true,
+      "tags": ["fixture"],
+      "status": "fixture"
+    },
+    {
+      "id": "word.hadha",
+      "lemma": "هذا",
+      "diacritized": "هَذَا",
+      "pos": "demonstrative",
+      "gender": "m",
+      "number": "sg",
+      "vocabBand": "A",
+      "learnerLevel": 4,
+      "difficulty": 1,
+      "msaStatus": "STANDARD_MSA",
+      "frequencyBand": "core",
+      "highFrequency": true,
+      "reviewPriority": 5,
+      "tags": ["fixture", "glue"],
+      "status": "fixture"
+    },
+    {
+      "id": "word.kabir",
+      "lemma": "كبير",
+      "diacritized": "كَبِير",
+      "pos": "adjective",
+      "gender": "m",
+      "number": "sg",
+      "category": "adjectives",
+      "vocabBand": "A",
+      "learnerLevel": 5,
+      "difficulty": 1,
+      "msaStatus": "STANDARD_MSA",
+      "frequencyBand": "common",
+      "highFrequency": true,
+      "tags": ["fixture"],
+      "status": "fixture"
+    },
+    {
+      "id": "word.huna",
+      "lemma": "هنا",
+      "diacritized": "هُنَا",
+      "pos": "adverb",
+      "vocabBand": "A",
+      "learnerLevel": 4,
+      "difficulty": 1,
+      "msaStatus": "STANDARD_MSA",
+      "frequencyBand": "core",
+      "highFrequency": true,
+      "tags": ["fixture", "glue"],
+      "status": "fixture"
+    }
+  ],
+  "sentences": [
+    {
+      "id": "sentence.l4.001",
+      "diacritized": "هَذَا بَابٌ",
+      "text": "هذا باب",
+      "wordIds": ["word.hadha", "word.bab"],
+      "targetSkillIds": ["skill.sentence_reading.two_word"],
+      "requiredSkillIds": ["skill.word_decoding.simple"],
+      "learnerLevel": 4,
+      "difficulty": 1,
+      "audioAssetId": "audio.sentence.l4.001",
+      "imageAssetId": "image.sentence.l4.001",
+      "tags": ["fixture"]
+    },
+    {
+      "id": "sentence.l4.002",
+      "diacritized": "الْبَابُ كَبِيرٌ",
+      "text": "الباب كبير",
+      "wordIds": ["word.bab", "word.kabir"],
+      "targetSkillIds": ["skill.sentence_reading.two_word"],
+      "requiredSkillIds": ["skill.word_decoding.simple"],
+      "learnerLevel": 4,
+      "difficulty": 1,
+      "audioAssetId": "audio.sentence.l4.002",
+      "tags": ["fixture"]
+    }
+  ],
+  "stories": [
+    {
+      "id": "story.l4.bab",
+      "kind": "story",
+      "titleAr": "الْبَاب",
+      "learnerLevel": 4,
+      "difficulty": 1,
+      "targetSkillIds": ["skill.sentence_reading.two_word"],
+      "vocabularyWordIds": ["word.hadha", "word.bab", "word.kabir"],
+      "newWordIds": [],
+      "recycledWordIds": ["word.hadha", "word.bab", "word.kabir"],
+      "coverAssetId": "image.story.l4.bab.cover",
+      "audioAssetId": "audio.story.l4.bab",
+      "pages": [
+        {
+          "id": "p1",
+          "sentenceId": "sentence.l4.001",
+          "imageAssetId": "image.story.l4.bab.p1"
+        },
+        {
+          "id": "p2",
+          "sentenceId": "sentence.l4.002",
+          "imageAssetId": "image.story.l4.bab.p2"
+        }
+      ],
+      "comprehension": [
+        {
+          "id": "q1",
+          "type": "wh_picture",
+          "promptAr": "أَيْنَ الْبَاب؟",
+          "choiceAssetIds": ["image.story.l4.bab.p1", "image.word.qitt"],
+          "correctAssetId": "image.story.l4.bab.p1"
+        }
+      ],
+      "tags": ["fixture"]
+    }
+  ],
+  "informationalTexts": [
+    {
+      "id": "text.l4.bab",
+      "kind": "informational",
+      "titleAr": "الْبَاب",
+      "topic": "daily_life",
+      "learnerLevel": 4,
+      "difficulty": 1,
+      "targetSkillIds": ["skill.sentence_reading.two_word"],
+      "vocabularyWordIds": ["word.bab", "word.kabir"],
+      "pages": [
+        {
+          "id": "p1",
+          "sentenceId": "sentence.l4.002",
+          "imageAssetId": "image.story.l4.bab.p2"
+        }
+      ],
+      "tags": ["fixture", "informational"]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "exercise.similar_letter.ba_ta.01",
+      "type": "similar_letter_discrimination",
+      "skillIds": ["skill.similar_letter.ba_ta", "skill.letter_recognition.ba"],
+      "contentIds": ["letter.ba", "letter.ta", "letter.mim"],
+      "difficulty": "normal",
+      "prereqSkillIds": ["skill.letter_recognition.ba"],
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "letter.ba"
+      },
+      "masteryEvidence": {
+        "reading": ["skill.similar_letter.ba_ta"]
+      },
+      "promptAssetId": "audio.letter.ba.phoneme",
+      "choices": [
+        { "id": "letter.ba", "label": "ب" },
+        { "id": "letter.ta", "label": "ت" },
+        { "id": "letter.mim", "label": "م" }
+      ],
+      "tags": ["fixture"]
+    },
+    {
+      "id": "exercise.picture_to_word.bab.01",
+      "type": "picture_to_word",
+      "skillIds": ["skill.word_decoding.simple"],
+      "contentIds": ["word.bab", "word.umm", "word.qitt"],
+      "difficulty": "easy",
+      "prereqSkillIds": ["skill.short_vowel.fatha"],
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "word.bab"
+      },
+      "masteryEvidence": {
+        "reading": ["skill.word_decoding.simple"]
+      },
+      "promptAssetId": "image.word.bab",
+      "choices": [
+        { "id": "word.bab", "label": "بَاب", "assetId": "image.word.bab" },
+        { "id": "word.umm", "label": "أُمّ" },
+        { "id": "word.qitt", "label": "قِطّ" }
+      ],
+      "tags": ["fixture"]
+    },
+    {
+      "id": "exercise.audio_to_word.umm.01",
+      "type": "audio_to_word",
+      "skillIds": ["skill.word_decoding.simple"],
+      "contentIds": ["word.umm", "word.ab", "word.bab"],
+      "difficulty": "normal",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "word.umm"
+      },
+      "masteryEvidence": {
+        "listening": ["skill.word_decoding.simple"]
+      },
+      "promptAssetId": "audio.word.umm",
+      "choices": [
+        { "id": "word.umm", "label": "أُمّ" },
+        { "id": "word.ab", "label": "أَب" },
+        { "id": "word.bab", "label": "بَاب" }
+      ],
+      "tags": ["fixture"]
+    }
+  ],
+  "assets": [
+    { "id": "audio.letter.ba.name", "kind": "audio", "hint": "letter ba name" },
+    { "id": "audio.letter.ba.phoneme", "kind": "audio", "hint": "letter ba phoneme" },
+    { "id": "audio.letter.ta.name", "kind": "audio", "hint": "letter ta name" },
+    { "id": "audio.letter.mim.name", "kind": "audio", "hint": "letter mim name" },
+    { "id": "audio.word.bab", "kind": "audio" },
+    { "id": "audio.word.umm", "kind": "audio" },
+    { "id": "audio.word.qitt", "kind": "audio" },
+    { "id": "audio.sentence.l4.001", "kind": "audio" },
+    { "id": "audio.sentence.l4.002", "kind": "audio" },
+    { "id": "audio.story.l4.bab", "kind": "audio" },
+    { "id": "image.word.bab", "kind": "image" },
+    { "id": "image.word.umm", "kind": "image" },
+    { "id": "image.word.qitt", "kind": "image" },
+    { "id": "image.sentence.l4.001", "kind": "image" },
+    { "id": "image.story.l4.bab.cover", "kind": "image" },
+    { "id": "image.story.l4.bab.p1", "kind": "image" },
+    { "id": "image.story.l4.bab.p2", "kind": "image" },
+    { "id": "trace.letter.ba.isolated", "kind": "trace" }
+  ]
+}

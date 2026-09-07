@@ -1,0 +1,36 @@
+index,content_id,legacy_id,arabic,diacritized,audio_asset_id,audio_basename,audio_filename,category
+1,word.qamis,clothes-1,قميص,قَمِيص,audio.word.qamis,qamis,qamis.mp3,clothes
+2,word.bantaal,clothes-2,بنطال,بَنْطَال,audio.word.bantaal,bantaal,bantaal.mp3,clothes
+3,word.fustaan,clothes-3,فستان,فُسْتَان,audio.word.fustaan,fustaan,fustaan.mp3,clothes
+4,word.tannura,clothes-4,تنورة,تَنُّورَة,audio.word.tannura,tannura,tannura.mp3,clothes
+5,word.mitaf,clothes-5,معطف,مِعْطَف,audio.word.mitaf,mitaf,mitaf.mp3,clothes
+6,word.sutra,clothes-6,سترة,سُتْرَة,audio.word.sutra,sutra,sutra.mp3,clothes
+7,word.kanza,clothes-7,كنزة,كَنْزَة,audio.word.kanza,kanza,kanza.mp3,clothes
+8,word.jawrab,clothes-8,جورب,جَوْرَب,audio.word.jawrab,jawrab,jawrab.mp3,clothes
+9,word.hidha,clothes-9,حذاء,حِذَاء,audio.word.hidha,hidha,hidha.mp3,clothes
+10,word.sandal,clothes-10,صندل,صَنْدَل,audio.word.sandal,sandal,sandal.mp3,clothes
+11,word.hizaam,clothes-11,حزام,حِزَام,audio.word.hizaam,hizaam,hizaam.mp3,clothes
+12,word.qubbaa,clothes-12,قبعة,قُبَّعَة,audio.word.qubbaa,qubbaa,qubbaa.mp3,clothes
+13,word.wishaah,clothes-13,وشاح,وِشَاح,audio.word.wishaah,wishaah,wishaah.mp3,clothes
+14,word.quffaaz,clothes-14,قفاز,قُفَّاز,audio.word.quffaaz,quffaaz,quffaaz.mp3,clothes
+15,word.nazzaara,clothes-15,نظارة,نَظَّارَة,audio.word.nazzaara,nazzaara,nazzaara.mp3,clothes
+16,word.saa_yad,clothes-16,ساعة يد,سَاعَةُ يَد,audio.word.saa_yad,saa_yad,saa_yad.mp3,clothes
+17,word.haqiba_yad,clothes-17,حقيبة يد,حَقِيبَةُ يَد,audio.word.haqiba_yad,haqiba_yad,haqiba_yad.mp3,clothes
+18,word.mihfaza,clothes-18,محفظة,مِحْفَظَة,audio.word.mihfaza,mihfaza,mihfaza.mp3,clothes
+19,word.zirr,clothes-19,زر,زِرّ,audio.word.zirr,zirr,zirr.mp3,clothes
+20,word.jayb,clothes-20,جيب,جَيْب,audio.word.jayb,jayb,jayb.mp3,clothes
+21,word.mindil,clothes-21,منديل,مِنْدِيل,audio.word.mindil,mindil,mindil.mp3,clothes
+22,word.miryala,clothes-22,مريلة,مِرْيَلَة,audio.word.miryala,miryala,miryala.mp3,clothes
+23,word.bijaama,clothes-23,بيجامة,بِيجَامَة,audio.word.bijaama,bijaama,bijaama.mp3,clothes
+24,word.shurt,clothes-24,شورت,شُورْت,audio.word.shurt,shurt,shurt.mp3,clothes
+25,word.thawb,clothes-25,ثوب,ثَوْب,audio.word.thawb,thawb,thawb.mp3,clothes
+26,word.abaa,clothes-26,عباءة,عَبَاءَة,audio.word.abaa,abaa,abaa.mp3,clothes
+27,word.hijaab,clothes-27,حجاب,حِجَاب,audio.word.hijaab,hijaab,hijaab.mp3,clothes
+28,word.kufiyya,clothes-28,كوفية,كُوفِيَّة,audio.word.kufiyya,kufiyya,kufiyya.mp3,clothes
+29,word.qamisu_daakhili,clothes-29,قميص داخلي,قَمِيصٌ دَاخِلِيّ,audio.word.qamisu_daakhili,qamisu_daakhili,qamisu_daakhili.mp3,clothes
+30,word.malaabisu_riyaada,clothes-30,ملابس رياضة,مَلَابِسُ رِيَاضَة,audio.word.malaabisu_riyaada,malaabisu_riyaada,malaabisu_riyaada.mp3,clothes
+31,word.mitafu_matar,clothes-31,معطف مطر,مِعْطَفُ مَطَر,audio.word.mitafu_matar,mitafu_matar,mitafu_matar.mp3,clothes
+32,word.hidhaau_matar,clothes-32,حذاء مطر,حِذَاءُ مَطَر,audio.word.hidhaau_matar,hidhaau_matar,hidhaau_matar.mp3,clothes
+33,word.khaatam,clothes-33,خاتم,خَاتَم,audio.word.khaatam,khaatam,khaatam.mp3,clothes
+34,word.siwaar,clothes-34,سوار,سِوَار,audio.word.siwaar,siwaar,siwaar.mp3,clothes
+35,word.qilaada,clothes-35,قلادة,قِلَادَة,audio.word.qilaada,qilaada,qilaada.mp3,clothes

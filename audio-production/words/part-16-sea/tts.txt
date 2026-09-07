@@ -1,0 +1,49 @@
+بَحْر
+[silence]
+مَوْجَة
+[silence]
+سَمَكَة
+[silence]
+سَمَكَةٌ مُلَوَّنَة
+[silence]
+حُوت
+[silence]
+دُلْفِين
+[silence]
+قِرْش
+[silence]
+أُخْطُبُوط
+[silence]
+حَبَّارُ البَحْر
+[silence]
+سَرَطَان
+[silence]
+جَمْبَرِي
+[silence]
+نَجْمُ البَحْر
+[silence]
+قُنْدُسُ البَحْر
+[silence]
+فَقْمَة
+[silence]
+مَحَارَة
+[silence]
+صَدَفَة
+[silence]
+لُؤْلُؤَة
+[silence]
+مَرْجَان
+[silence]
+طُحْلُب
+[silence]
+شِرَاع
+[silence]
+مِرْسَاة
+[silence]
+غَوَّاص
+[silence]
+زَعَانِف
+[silence]
+شَاطِئٌ رَمْلِيّ
+[silence]
+مَنَارَة

@@ -1,0 +1,36 @@
+index,content_id,legacy_id,arabic,diacritized,audio_asset_id,audio_basename,audio_filename,category
+1,word.tabib,jobs-1,طبيب,طَبِيب,audio.word.tabib,tabib,tabib.mp3,jobs
+2,word.tabiba,jobs-2,طبيبة,طَبِيبَة,audio.word.tabiba,tabiba,tabiba.mp3,jobs
+3,word.mumarrid,jobs-3,ممرض,مُمَرِّض,audio.word.mumarrid,mumarrid,mumarrid.mp3,jobs
+4,word.muallim,jobs-4,معلم,مُعَلِّم,audio.word.muallim,muallim,muallim.mp3,jobs
+5,word.muhandis,jobs-5,مهندس,مُهَنْدِس,audio.word.muhandis,muhandis,muhandis.mp3,jobs
+6,word.shurti,jobs-6,شرطي,شُرْطِيّ,audio.word.shurti,shurti,shurti.mp3,jobs
+7,word.itfaayi,jobs-7,إطفائي,إِطْفَائِيّ,audio.word.itfaayi,itfaayi,itfaayi.mp3,jobs
+8,word.tayyaar,jobs-8,طيار,طَيَّار,audio.word.tayyaar,tayyaar,tayyaar.mp3,jobs
+9,word.bahhaar,jobs-9,بحار,بَحَّار,audio.word.bahhaar,bahhaar,bahhaar.mp3,jobs
+10,word.saayiq,jobs-10,سائق,سَائِق,audio.word.saayiq,saayiq,saayiq.mp3,jobs
+11,word.fallaah,jobs-11,فلاح,فَلَّاح,audio.word.fallaah,fallaah,fallaah.mp3,jobs
+12,word.khabbaaz,jobs-12,خباز,خَبَّاز,audio.word.khabbaaz,khabbaaz,khabbaaz.mp3,jobs
+13,word.tabbaakh,jobs-13,طباخ,طَبَّاخ,audio.word.tabbaakh,tabbaakh,tabbaakh.mp3,jobs
+14,word.jazzaar,jobs-14,جزار,جَزَّار,audio.word.jazzaar,jazzaar,jazzaar.mp3,jobs
+15,word.baqqaal,jobs-15,بقال,بَقَّال,audio.word.baqqaal,baqqaal,baqqaal.mp3,jobs
+16,word.najjaar,jobs-16,نجار,نَجَّار,audio.word.najjaar,najjaar,najjaar.mp3,jobs
+17,word.haddaad,jobs-17,حداد,حَدَّاد,audio.word.haddaad,haddaad,haddaad.mp3,jobs
+18,word.bannaa,jobs-18,بناء,بَنَّاء,audio.word.bannaa,bannaa,bannaa.mp3,jobs
+19,word.sabbaak,jobs-19,سباك,سَبَّاك,audio.word.sabbaak,sabbaak,sabbaak.mp3,jobs
+20,word.kahrabaayi,jobs-20,كهربائي,كَهْرَبَائِيّ,audio.word.kahrabaayi,kahrabaayi,kahrabaayi.mp3,jobs
+21,word.khayyaat,jobs-21,خياط,خَيَّاط,audio.word.khayyaat,khayyaat,khayyaat.mp3,jobs
+22,word.hallaaq,jobs-22,حلاق,حَلَّاق,audio.word.hallaaq,hallaaq,hallaaq.mp3,jobs
+23,word.rassaam,jobs-23,رسام,رَسَّام,audio.word.rassaam,rassaam,rassaam.mp3,jobs
+24,word.musiqi,jobs-24,موسيقي,مُوسِيقِيّ,audio.word.musiqi,musiqi,musiqi.mp3,jobs
+25,word.kaatib,jobs-25,كاتب,كَاتِب,audio.word.kaatib,kaatib,kaatib.mp3,jobs
+26,word.sahafi,jobs-26,صحفي,صَحَفِيّ,audio.word.sahafi,sahafi,sahafi.mp3,jobs
+27,word.aalim,jobs-27,عالم,عَالِم,audio.word.aalim,aalim,aalim.mp3,jobs
+28,word.saydali,jobs-28,صيدلي,صَيْدَلِيّ,audio.word.saydali,saydali,saydali.mp3,jobs
+29,word.tabibu_asnaan,jobs-29,طبيب أسنان,طَبِيبُ أَسْنَان,audio.word.tabibu_asnaan,tabibu_asnaan,tabibu_asnaan.mp3,jobs
+30,word.muhaami,jobs-30,محام,مُحَامٍ,audio.word.muhaami,muhaami,muhaami.mp3,jobs
+31,word.qaadi,jobs-31,قاض,قَاضٍ,audio.word.qaadi,qaadi,qaadi.mp3,jobs
+32,word.saai_albarid,jobs-32,ساعي البريد,سَاعِي البَرِيد,audio.word.saai_albarid,saai_albarid,saai_albarid.mp3,jobs
+33,word.haaris,jobs-33,حارس,حَارِس,audio.word.haaris,haaris,haaris.mp3,jobs
+34,word.riyaadi,jobs-34,رياضي,رِيَاضِيّ,audio.word.riyaadi,riyaadi,riyaadi.mp3,jobs
+35,word.raayidu_fadaa,jobs-35,رائد فضاء,رَائِدُ فَضَاء,audio.word.raayidu_fadaa,raayidu_fadaa,raayidu_fadaa.mp3,jobs

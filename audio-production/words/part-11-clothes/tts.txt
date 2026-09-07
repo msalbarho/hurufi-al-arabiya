@@ -1,0 +1,69 @@
+قَمِيص
+[silence]
+بَنْطَال
+[silence]
+فُسْتَان
+[silence]
+تَنُّورَة
+[silence]
+مِعْطَف
+[silence]
+سُتْرَة
+[silence]
+كَنْزَة
+[silence]
+جَوْرَب
+[silence]
+حِذَاء
+[silence]
+صَنْدَل
+[silence]
+حِزَام
+[silence]
+قُبَّعَة
+[silence]
+وِشَاح
+[silence]
+قُفَّاز
+[silence]
+نَظَّارَة
+[silence]
+سَاعَةُ يَد
+[silence]
+حَقِيبَةُ يَد
+[silence]
+مِحْفَظَة
+[silence]
+زِرّ
+[silence]
+جَيْب
+[silence]
+مِنْدِيل
+[silence]
+مِرْيَلَة
+[silence]
+بِيجَامَة
+[silence]
+شُورْت
+[silence]
+ثَوْب
+[silence]
+عَبَاءَة
+[silence]
+حِجَاب
+[silence]
+كُوفِيَّة
+[silence]
+قَمِيصٌ دَاخِلِيّ
+[silence]
+مَلَابِسُ رِيَاضَة
+[silence]
+مِعْطَفُ مَطَر
+[silence]
+حِذَاءُ مَطَر
+[silence]
+خَاتَم
+[silence]
+سِوَار
+[silence]
+قِلَادَة

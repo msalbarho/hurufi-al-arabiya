@@ -1,0 +1,26 @@
+index,content_id,legacy_id,arabic,diacritized,audio_asset_id,audio_basename,audio_filename,category
+1,word.bahr,sea-1,بحر,بَحْر,audio.word.bahr,bahr,bahr.mp3,sea
+2,word.mawja,sea-2,موجة,مَوْجَة,audio.word.mawja,mawja,mawja.mp3,sea
+3,word.samaka,sea-3,سمكة,سَمَكَة,audio.word.samaka,samaka,samaka.mp3,sea
+4,word.samaka_mulawwana,sea-4,سمكة ملونة,سَمَكَةٌ مُلَوَّنَة,audio.word.samaka_mulawwana,samaka_mulawwana,samaka_mulawwana.mp3,sea
+5,word.hut,sea-5,حوت,حُوت,audio.word.hut,hut,hut.mp3,sea
+6,word.dulfin,sea-6,دلفين,دُلْفِين,audio.word.dulfin,dulfin,dulfin.mp3,sea
+7,word.qirsh,sea-7,قرش,قِرْش,audio.word.qirsh,qirsh,qirsh.mp3,sea
+8,word.ukhtubut,sea-8,أخطبوط,أُخْطُبُوط,audio.word.ukhtubut,ukhtubut,ukhtubut.mp3,sea
+9,word.habbaaru_albahr,sea-9,حبار البحر,حَبَّارُ البَحْر,audio.word.habbaaru_albahr,habbaaru_albahr,habbaaru_albahr.mp3,sea
+10,word.sarataan,sea-10,سرطان,سَرَطَان,audio.word.sarataan,sarataan,sarataan.mp3,sea
+11,word.jambari,sea-11,جمبري,جَمْبَرِي,audio.word.jambari,jambari,jambari.mp3,sea
+12,word.najmu_albahr,sea-12,نجم البحر,نَجْمُ البَحْر,audio.word.najmu_albahr,najmu_albahr,najmu_albahr.mp3,sea
+13,word.qundusu_albahr,sea-13,قندس البحر,قُنْدُسُ البَحْر,audio.word.qundusu_albahr,qundusu_albahr,qundusu_albahr.mp3,sea
+14,word.faqma,sea-14,فقمة,فَقْمَة,audio.word.faqma,faqma,faqma.mp3,sea
+15,word.mahaara,sea-15,محارة,مَحَارَة,audio.word.mahaara,mahaara,mahaara.mp3,sea
+16,word.sadafa,sea-16,صدفة,صَدَفَة,audio.word.sadafa,sadafa,sadafa.mp3,sea
+17,word.luwluwa,sea-17,لؤلؤة,لُؤْلُؤَة,audio.word.luwluwa,luwluwa,luwluwa.mp3,sea
+18,word.marjaan,sea-18,مرجان,مَرْجَان,audio.word.marjaan,marjaan,marjaan.mp3,sea
+19,word.tuhlub,sea-19,طحلب,طُحْلُب,audio.word.tuhlub,tuhlub,tuhlub.mp3,sea
+20,word.shiraa,sea-20,شراع,شِرَاع,audio.word.shiraa,shiraa,shiraa.mp3,sea
+21,word.mirsaa,sea-21,مرساة,مِرْسَاة,audio.word.mirsaa,mirsaa,mirsaa.mp3,sea
+22,word.ghawwaas,sea-22,غواص,غَوَّاص,audio.word.ghawwaas,ghawwaas,ghawwaas.mp3,sea
+23,word.zaanif,sea-23,زعانف,زَعَانِف,audio.word.zaanif,zaanif,zaanif.mp3,sea
+24,word.shaatiyu_ramli,sea-24,شاطئ رملي,شَاطِئٌ رَمْلِيّ,audio.word.shaatiyu_ramli,shaatiyu_ramli,shaatiyu_ramli.mp3,sea
+25,word.manaara,sea-25,منارة,مَنَارَة,audio.word.manaara,manaara,manaara.mp3,sea

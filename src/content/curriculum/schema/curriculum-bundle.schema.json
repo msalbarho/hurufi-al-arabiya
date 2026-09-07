@@ -1,0 +1,681 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hurufi.app/schema/curriculum-bundle.json",
+  "title": "Hurufi Al Arabiya curriculum bundle",
+  "description": "Portable curriculum content. Cross-references are validated in TypeScript, not here.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "meta",
+    "levels",
+    "skills",
+    "letters",
+    "words",
+    "sentences",
+    "stories",
+    "informationalTexts",
+    "exercises",
+    "assets"
+  ],
+  "properties": {
+    "meta": { "$ref": "#/$defs/CurriculumBundleMeta" },
+    "levels": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/CurriculumLevel" }
+    },
+    "skills": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/SkillDefinition" }
+    },
+    "letters": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/LetterDefinition" }
+    },
+    "words": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/WordDefinition" }
+    },
+    "sentences": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/SentenceDefinition" }
+    },
+    "stories": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/StoryDefinition" }
+    },
+    "informationalTexts": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/InformationalTextDefinition" }
+    },
+    "exercises": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/ExerciseDefinition" }
+    },
+    "assets": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/AssetReference" }
+    },
+    "syllables": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/SyllableDefinition" }
+    },
+    "units": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/LearningUnitDefinition" }
+    },
+    "paths": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/LearningPathDefinition" }
+    }
+  },
+  "$defs": {
+    "curriculumId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*(\\.[a-z0-9_]+)+$",
+      "minLength": 3
+    },
+    "letterId": {
+      "type": "string",
+      "pattern": "^letter\\.[a-z][a-z0-9_]*$"
+    },
+    "skillId": {
+      "type": "string",
+      "pattern": "^skill\\.[a-z][a-z0-9_]*(\\.[a-z0-9_]+)+$"
+    },
+    "wordId": {
+      "type": "string",
+      "pattern": "^word\\.[a-z][a-z0-9_]*(\\.[a-z0-9_]+)*$"
+    },
+    "sentenceId": {
+      "type": "string",
+      "pattern": "^sentence\\.[a-z0-9_]+(\\.[a-z0-9_]+)+$"
+    },
+    "storyId": {
+      "type": "string",
+      "pattern": "^story\\.[a-z0-9_]+(\\.[a-z0-9_]+)+$"
+    },
+    "textId": {
+      "type": "string",
+      "pattern": "^text\\.[a-z0-9_]+(\\.[a-z0-9_]+)+$"
+    },
+    "exerciseId": {
+      "type": "string",
+      "pattern": "^exercise\\.[a-z0-9_]+(\\.[a-z0-9_]+)+$"
+    },
+    "syllableId": {
+      "type": "string",
+      "pattern": "^syllable\\.[a-z][a-z0-9_]*(\\.[a-z0-9_]+)+$"
+    },
+    "unitId": {
+      "type": "string",
+      "pattern": "^unit\\.[a-z][a-z0-9_]*(\\.[a-z0-9_]+)+$"
+    },
+    "pathId": {
+      "type": "string",
+      "pattern": "^path\\.[a-z][a-z0-9_]*(\\.[a-z0-9_]+)+$"
+    },
+    "masteryId": {
+      "type": "string",
+      "pattern": "^mastery\\.[a-z][a-z0-9_]*(\\.[a-z0-9_]+)+$"
+    },
+    "audioId": {
+      "type": "string",
+      "pattern": "^audio\\.[a-z0-9_]+(\\.[a-z0-9_]+)+$"
+    },
+    "imageId": {
+      "type": "string",
+      "pattern": "^image\\.[a-z0-9_]+(\\.[a-z0-9_]+)+$"
+    },
+    "traceId": {
+      "type": "string",
+      "pattern": "^trace\\.[a-z0-9_]+(\\.[a-z0-9_]+)+$"
+    },
+    "levelId": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 8
+    },
+    "contentDifficulty": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 3
+    },
+    "CurriculumBundleMeta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "id", "title", "description", "notProductionCurriculum"],
+      "properties": {
+        "kind": { "type": "string", "enum": ["fixture", "production"] },
+        "id": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "description": { "type": "string", "minLength": 1 },
+        "notProductionCurriculum": { "type": "boolean" }
+      }
+    },
+    "CurriculumLevel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "nameAr"],
+      "properties": {
+        "id": { "$ref": "#/$defs/levelId" },
+        "nameAr": { "type": "string", "minLength": 1 },
+        "nameEn": { "type": "string" },
+        "descriptionAr": { "type": "string" }
+      }
+    },
+    "AssetReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind"],
+      "properties": {
+        "id": { "$ref": "#/$defs/curriculumId" },
+        "kind": { "type": "string", "enum": ["audio", "image", "trace"] },
+        "hint": { "type": "string" }
+      }
+    },
+    "SkillDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "domain", "nameAr", "prereqSkillIds"],
+      "properties": {
+        "id": { "$ref": "#/$defs/skillId" },
+        "domain": {
+          "type": "string",
+          "enum": [
+            "letter_recognition",
+            "letter_sounds",
+            "similar_letter_discrimination",
+            "letter_forms",
+            "handwriting",
+            "short_vowels",
+            "long_vowels",
+            "sukun",
+            "tanween",
+            "shadda",
+            "syllable_blending",
+            "word_decoding",
+            "vocabulary_comprehension",
+            "spelling",
+            "sentence_reading",
+            "sentence_construction",
+            "listening_comprehension",
+            "reading_comprehension",
+            "story_comprehension",
+            "independent_reading",
+            "informational_reading",
+            "grammar_usage"
+          ]
+        },
+        "nameAr": { "type": "string", "minLength": 1 },
+        "nameEn": { "type": "string" },
+        "childLabelAr": { "type": "string" },
+        "prereqSkillIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/skillId" }
+        },
+        "learnerLevelHint": { "$ref": "#/$defs/levelId" },
+        "vocabBandHint": { "type": "string", "enum": ["A", "B", "C", "D"] },
+        "modality": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["listen", "read", "write", "speak"] }
+        },
+        "masteryHint": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "LetterForms": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["isolated", "initial", "medial", "final"],
+      "properties": {
+        "isolated": { "type": "string", "minLength": 1 },
+        "initial": { "type": "string", "minLength": 1 },
+        "medial": { "type": "string", "minLength": 1 },
+        "final": { "type": "string", "minLength": 1 }
+      }
+    },
+    "LetterDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "char", "nameAr", "forms"],
+      "properties": {
+        "id": { "$ref": "#/$defs/letterId" },
+        "legacyId": { "type": "string", "minLength": 1 },
+        "char": { "type": "string", "minLength": 1 },
+        "nameAr": { "type": "string", "minLength": 1 },
+        "phoneme": { "type": "string" },
+        "phonemeNoteAr": { "type": "string" },
+        "forms": { "$ref": "#/$defs/LetterForms" },
+        "nonConnecting": { "type": "boolean" },
+        "abjadOrder": { "type": "integer", "minimum": 1, "maximum": 28 },
+        "wave": { "type": "integer", "minimum": 1 },
+        "teachOrder": { "type": "integer", "minimum": 1 },
+        "similarLetterIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/letterId" }
+        },
+        "exampleWordIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/wordId" }
+        },
+        "requiredSkillIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/skillId" }
+        },
+        "unlocksSkillIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/skillId" }
+        },
+        "audioAssetIds": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": { "$ref": "#/$defs/audioId" },
+            "phoneme": { "$ref": "#/$defs/audioId" },
+            "withFatha": { "$ref": "#/$defs/audioId" },
+            "withDamma": { "$ref": "#/$defs/audioId" },
+            "withKasra": { "$ref": "#/$defs/audioId" }
+          }
+        },
+        "traceAssetId": { "$ref": "#/$defs/traceId" },
+        "tags": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "WordDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "lemma", "diacritized"],
+      "properties": {
+        "id": { "$ref": "#/$defs/wordId" },
+        "legacyId": { "type": "string", "minLength": 1 },
+        "lemma": { "type": "string", "minLength": 1 },
+        "diacritized": { "type": "string", "minLength": 1 },
+        "teachingForm": { "type": "string", "minLength": 1 },
+        "pos": { "type": "string" },
+        "gender": { "type": "string", "enum": ["m", "f", "none"] },
+        "number": { "type": "string", "enum": ["sg", "du", "pl"] },
+        "category": { "type": "string" },
+        "categories": { "type": "array", "items": { "type": "string" } },
+        "vocabBand": { "type": "string", "enum": ["A", "B", "C", "D"] },
+        "subBand": { "type": "string", "enum": ["A1", "A2", "A3", "A4"] },
+        "learnerLevel": { "$ref": "#/$defs/levelId" },
+        "difficulty": { "$ref": "#/$defs/contentDifficulty" },
+        "concreteness": { "type": "string", "enum": ["concrete", "abstract"] },
+        "msaStatus": {
+          "type": "string",
+          "enum": [
+            "STANDARD_MSA",
+            "ACCEPTABLE_MSA",
+            "LOANWORD_ACCEPTED",
+            "LOANWORD_REVIEW",
+            "REGIONAL_STANDARD",
+            "NONSTANDARD",
+            "UNCERTAIN",
+            "DIALECTAL"
+          ]
+        },
+        "curriculumAction": {
+          "type": "string",
+          "enum": ["KEEP", "KEEP_ADVANCED", "MOVE_CATEGORY", "HUMAN_REVIEW", "REPLACE", "REMOVE"]
+        },
+        "syllableCount": { "type": "integer", "minimum": 1 },
+        "syllablePattern": { "type": "string" },
+        "syllables": { "type": "array", "items": { "type": "string" } },
+        "letterIds": { "type": "array", "items": { "$ref": "#/$defs/letterId" } },
+        "requiredSkillIds": { "type": "array", "items": { "$ref": "#/$defs/skillId" } },
+        "phonicsSkillIds": { "type": "array", "items": { "$ref": "#/$defs/skillId" } },
+        "packId": { "type": "string" },
+        "frequencyBand": { "type": "string", "enum": ["core", "common", "topic", "rare"] },
+        "highFrequency": { "type": "boolean" },
+        "reviewPriority": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "imageAssetId": { "$ref": "#/$defs/imageId" },
+        "audioAssetIds": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "citation": { "$ref": "#/$defs/audioId" },
+            "slow": { "$ref": "#/$defs/audioId" }
+          }
+        },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "homographGroup": { "type": ["string", "null"] },
+        "status": {
+          "type": "string",
+          "enum": ["active", "deprecated", "needs_review", "fixture"]
+        },
+        "requiredLetterForms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/LetterFormRef" }
+        }
+      }
+    },
+    "SentenceDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "diacritized", "wordIds"],
+      "properties": {
+        "id": { "$ref": "#/$defs/sentenceId" },
+        "diacritized": { "type": "string", "minLength": 1 },
+        "text": { "type": "string" },
+        "wordIds": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/wordId" }
+        },
+        "targetSkillIds": { "type": "array", "items": { "$ref": "#/$defs/skillId" } },
+        "requiredSkillIds": { "type": "array", "items": { "$ref": "#/$defs/skillId" } },
+        "learnerLevel": { "$ref": "#/$defs/levelId" },
+        "difficulty": { "$ref": "#/$defs/contentDifficulty" },
+        "audioAssetId": { "$ref": "#/$defs/audioId" },
+        "imageAssetId": { "$ref": "#/$defs/imageId" },
+        "tags": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "ReadingPage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "sentenceId"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "sentenceId": { "$ref": "#/$defs/sentenceId" },
+        "imageAssetId": { "$ref": "#/$defs/imageId" },
+        "audioAssetId": { "$ref": "#/$defs/audioId" }
+      }
+    },
+    "ComprehensionItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "promptAr"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "type": {
+          "type": "string",
+          "enum": ["picture_match", "wh_picture", "sequence", "fact_picture"]
+        },
+        "promptAr": { "type": "string", "minLength": 1 },
+        "choiceAssetIds": { "type": "array", "items": { "$ref": "#/$defs/imageId" } },
+        "correctAssetId": { "$ref": "#/$defs/imageId" },
+        "choiceWordIds": { "type": "array", "items": { "$ref": "#/$defs/wordId" } },
+        "correctWordId": { "$ref": "#/$defs/wordId" },
+        "pageIds": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "StoryDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "titleAr", "learnerLevel", "pages"],
+      "properties": {
+        "id": { "$ref": "#/$defs/storyId" },
+        "kind": { "const": "story" },
+        "titleAr": { "type": "string", "minLength": 1 },
+        "learnerLevel": { "$ref": "#/$defs/levelId" },
+        "difficulty": { "$ref": "#/$defs/contentDifficulty" },
+        "targetSkillIds": { "type": "array", "items": { "$ref": "#/$defs/skillId" } },
+        "vocabularyWordIds": { "type": "array", "items": { "$ref": "#/$defs/wordId" } },
+        "newWordIds": { "type": "array", "items": { "$ref": "#/$defs/wordId" } },
+        "recycledWordIds": { "type": "array", "items": { "$ref": "#/$defs/wordId" } },
+        "pages": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/ReadingPage" }
+        },
+        "coverAssetId": { "$ref": "#/$defs/imageId" },
+        "audioAssetId": { "$ref": "#/$defs/audioId" },
+        "comprehension": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/ComprehensionItem" }
+        },
+        "tags": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "InformationalTextDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "titleAr", "topic", "learnerLevel", "pages"],
+      "properties": {
+        "id": { "$ref": "#/$defs/textId" },
+        "kind": { "const": "informational" },
+        "titleAr": { "type": "string", "minLength": 1 },
+        "topic": { "type": "string", "minLength": 1 },
+        "learnerLevel": { "$ref": "#/$defs/levelId" },
+        "difficulty": { "$ref": "#/$defs/contentDifficulty" },
+        "targetSkillIds": { "type": "array", "items": { "$ref": "#/$defs/skillId" } },
+        "vocabularyWordIds": { "type": "array", "items": { "$ref": "#/$defs/wordId" } },
+        "newWordIds": { "type": "array", "items": { "$ref": "#/$defs/wordId" } },
+        "recycledWordIds": { "type": "array", "items": { "$ref": "#/$defs/wordId" } },
+        "pages": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/ReadingPage" }
+        },
+        "coverAssetId": { "$ref": "#/$defs/imageId" },
+        "audioAssetId": { "$ref": "#/$defs/audioId" },
+        "comprehension": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/ComprehensionItem" }
+        },
+        "tags": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "ExerciseChoice": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "label": { "type": "string" },
+        "assetId": { "$ref": "#/$defs/curriculumId" }
+      }
+    },
+    "letterFormSlot": {
+      "type": "string",
+      "enum": ["isolated", "initial", "medial", "final"]
+    },
+    "LetterFormRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["letterId", "form"],
+      "properties": {
+        "letterId": { "$ref": "#/$defs/letterId" },
+        "form": { "$ref": "#/$defs/letterFormSlot" }
+      }
+    },
+    "ExerciseMasteryTarget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "skillId"],
+      "properties": {
+        "id": { "$ref": "#/$defs/masteryId" },
+        "skillId": { "$ref": "#/$defs/skillId" },
+        "letterId": { "$ref": "#/$defs/letterId" },
+        "letterForm": { "$ref": "#/$defs/letterFormSlot" },
+        "syllableId": { "$ref": "#/$defs/syllableId" },
+        "wordId": { "$ref": "#/$defs/wordId" }
+      }
+    },
+    "ExerciseSuccess": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["correct_choice", "trace_coverage", "ordered_ids", "exact_text"]
+        },
+        "correctChoiceId": { "type": "string" },
+        "orderedIds": { "type": "array", "items": { "type": "string" } },
+        "exactText": { "type": "string" },
+        "coverageThreshold": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "MasteryEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "reading": { "type": "array", "items": { "$ref": "#/$defs/skillId" } },
+        "writing": { "type": "array", "items": { "$ref": "#/$defs/skillId" } },
+        "listening": { "type": "array", "items": { "$ref": "#/$defs/skillId" } }
+      }
+    },
+    "ExerciseDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "skillIds", "contentIds", "difficulty", "success"],
+      "properties": {
+        "id": { "$ref": "#/$defs/exerciseId" },
+        "type": {
+          "type": "string",
+          "enum": [
+            "letter_recognition",
+            "sound_to_letter",
+            "similar_letter_discrimination",
+            "tracing",
+            "picture_to_word",
+            "word_to_picture",
+            "audio_to_word",
+            "audio_to_picture",
+            "missing_letter",
+            "missing_haraka",
+            "syllable_blending",
+            "word_order",
+            "sentence_order",
+            "dictation",
+            "comprehension",
+            "story_sequence"
+          ]
+        },
+        "skillIds": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/skillId" }
+        },
+        "contentIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/curriculumId" }
+        },
+        "difficulty": { "type": "string", "enum": ["easy", "normal", "hard"] },
+        "prereqSkillIds": { "type": "array", "items": { "$ref": "#/$defs/skillId" } },
+        "success": { "$ref": "#/$defs/ExerciseSuccess" },
+        "masteryEvidence": { "$ref": "#/$defs/MasteryEvidence" },
+        "learningObjectiveAr": { "type": "string", "minLength": 1 },
+        "learningObjectiveEn": { "type": "string", "minLength": 1 },
+        "masteryTargets": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/ExerciseMasteryTarget" }
+        },
+        "promptAssetId": { "$ref": "#/$defs/curriculumId" },
+        "promptText": { "type": "string" },
+        "choices": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/ExerciseChoice" }
+        },
+        "config": { "type": "object" },
+        "tags": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "SyllableDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "text", "letterId", "vowelSkillId", "pattern", "requiredSkillIds"],
+      "properties": {
+        "id": { "$ref": "#/$defs/syllableId" },
+        "text": { "type": "string", "minLength": 1 },
+        "letterId": { "$ref": "#/$defs/letterId" },
+        "vowelSkillId": { "$ref": "#/$defs/skillId" },
+        "pattern": { "type": "string", "enum": ["CV", "CVC"] },
+        "requiredSkillIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/skillId" }
+        },
+        "requiredLetterIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/letterId" }
+        },
+        "letterForm": { "$ref": "#/$defs/letterFormSlot" },
+        "audioAssetId": { "$ref": "#/$defs/audioId" },
+        "tags": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "UnitMasteryCriteria": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["minAttempts", "minAccuracy"],
+      "properties": {
+        "minAttempts": { "type": "integer", "minimum": 1 },
+        "minAccuracy": { "type": "number", "minimum": 0, "maximum": 1 },
+        "minStreak": { "type": "integer", "minimum": 1 },
+        "minSessions": { "type": "integer", "minimum": 1 },
+        "requiredSkillIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/skillId" }
+        },
+        "reviewAfterDays": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "LearningUnitDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "order", "titleAr", "skillIds", "prereqUnitIds", "mastery"],
+      "properties": {
+        "id": { "$ref": "#/$defs/unitId" },
+        "order": { "type": "integer", "minimum": 1 },
+        "titleAr": { "type": "string", "minLength": 1 },
+        "titleEn": { "type": "string" },
+        "learnerLevel": { "$ref": "#/$defs/levelId" },
+        "skillIds": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/skillId" }
+        },
+        "letterIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/letterId" }
+        },
+        "letterForms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/LetterFormRef" }
+        },
+        "syllableIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/syllableId" }
+        },
+        "wordIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/wordId" }
+        },
+        "exerciseIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/exerciseId" }
+        },
+        "prereqUnitIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/unitId" }
+        },
+        "reviewContentIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/curriculumId" }
+        },
+        "mastery": { "$ref": "#/$defs/UnitMasteryCriteria" },
+        "tags": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "LearningPathDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "titleAr", "unitIds"],
+      "properties": {
+        "id": { "$ref": "#/$defs/pathId" },
+        "titleAr": { "type": "string", "minLength": 1 },
+        "titleEn": { "type": "string" },
+        "descriptionAr": { "type": "string" },
+        "learnerLevel": { "$ref": "#/$defs/levelId" },
+        "unitIds": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/unitId" }
+        },
+        "tags": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

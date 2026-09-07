@@ -1,0 +1,6843 @@
+{
+  "meta": {
+    "kind": "production",
+    "id": "hurufi.production.band-a.v1",
+    "title": "Band A v1 — foundational vocabulary",
+    "description": "Approved production Band A lexicon (135 words). Scope only; teaching order is letter/phonics/mastery gated. Not connected to the live React word browser.",
+    "notProductionCurriculum": false
+  },
+  "levels": [
+    {
+      "id": 1,
+      "nameAr": "أَتَعَرَّفُ عَلَى الْحُرُوف",
+      "nameEn": "Letters I can see, hear, and trace"
+    },
+    {
+      "id": 2,
+      "nameAr": "أَشْكَالٌ وَحَرَكَات",
+      "nameEn": "Forms and short vowels"
+    },
+    {
+      "id": 3,
+      "nameAr": "أَدْمُجُ الْأَصْوَات",
+      "nameEn": "I can blend"
+    },
+    {
+      "id": 4,
+      "nameAr": "كَلِمَاتِي الْأُولَى",
+      "nameEn": "First real word bank"
+    },
+    {
+      "id": 5,
+      "nameAr": "أَسْتَعْمِلُ الْكَلِمَات",
+      "nameEn": "Words I can use"
+    },
+    {
+      "id": 6,
+      "nameAr": "لُغَةُ كُلِّ يَوْم",
+      "nameEn": "Everyday language"
+    },
+    {
+      "id": 7,
+      "nameAr": "أَفْهَمُ مَا أَقْرَأ",
+      "nameEn": "I understand what I read"
+    },
+    {
+      "id": 8,
+      "nameAr": "قِصَصٌ وَاسْتِقْلَال",
+      "nameEn": "Stories and independence"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill.short_vowel.fatha",
+      "domain": "short_vowels",
+      "nameAr": "الْفَتْحَة",
+      "nameEn": "Fatha",
+      "prereqSkillIds": [],
+      "vocabBandHint": "A",
+      "modality": [
+        "listen",
+        "read"
+      ]
+    },
+    {
+      "id": "skill.short_vowel.kasra",
+      "domain": "short_vowels",
+      "nameAr": "الْكَسْرَة",
+      "nameEn": "Kasra",
+      "prereqSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "vocabBandHint": "A",
+      "modality": [
+        "listen",
+        "read"
+      ]
+    },
+    {
+      "id": "skill.short_vowel.damma",
+      "domain": "short_vowels",
+      "nameAr": "الضَّمَّة",
+      "nameEn": "Damma",
+      "prereqSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "vocabBandHint": "A",
+      "modality": [
+        "listen",
+        "read"
+      ]
+    },
+    {
+      "id": "skill.sukun.basic",
+      "domain": "sukun",
+      "nameAr": "السُّكُون",
+      "nameEn": "Sukun",
+      "prereqSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "vocabBandHint": "A",
+      "modality": [
+        "listen",
+        "read"
+      ]
+    },
+    {
+      "id": "skill.long_vowel.madd",
+      "domain": "long_vowels",
+      "nameAr": "الْمَدّ",
+      "nameEn": "Long vowel / madd",
+      "prereqSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "vocabBandHint": "A",
+      "modality": [
+        "listen",
+        "read"
+      ]
+    },
+    {
+      "id": "skill.shadda.basic",
+      "domain": "shadda",
+      "nameAr": "الشَّدَّة",
+      "nameEn": "Shadda",
+      "prereqSkillIds": [
+        "skill.sukun.basic"
+      ],
+      "vocabBandHint": "A",
+      "modality": [
+        "listen",
+        "read"
+      ]
+    },
+    {
+      "id": "skill.hamza.reading",
+      "domain": "letter_sounds",
+      "nameAr": "قِرَاءَةُ الْهَمْزَة",
+      "nameEn": "Hamza reading",
+      "prereqSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "vocabBandHint": "A",
+      "modality": [
+        "listen",
+        "read"
+      ]
+    },
+    {
+      "id": "skill.taa_marbuta.reading",
+      "domain": "letter_forms",
+      "nameAr": "التَّاءُ الْمَرْبُوطَة",
+      "nameEn": "Taa marbuta",
+      "prereqSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "vocabBandHint": "A",
+      "modality": [
+        "listen",
+        "read"
+      ]
+    },
+    {
+      "id": "skill.alif_maqsura.reading",
+      "domain": "letter_forms",
+      "nameAr": "الْأَلِفُ الْمَقْصُورَة",
+      "nameEn": "Alif maqsura",
+      "prereqSkillIds": [
+        "skill.long_vowel.madd"
+      ],
+      "vocabBandHint": "A",
+      "modality": [
+        "listen",
+        "read"
+      ]
+    }
+  ],
+  "letters": [
+    {
+      "id": "letter.alif",
+      "legacyId": "alif",
+      "char": "ا",
+      "nameAr": "أَلِف",
+      "forms": {
+        "isolated": "ا",
+        "initial": "ا",
+        "medial": "ـا",
+        "final": "ـا"
+      },
+      "nonConnecting": true,
+      "abjadOrder": 1
+    },
+    {
+      "id": "letter.ba",
+      "legacyId": "ba",
+      "char": "ب",
+      "nameAr": "بَاء",
+      "forms": {
+        "isolated": "ب",
+        "initial": "بـ",
+        "medial": "ـبـ",
+        "final": "ـب"
+      },
+      "abjadOrder": 2,
+      "similarLetterIds": [
+        "letter.ta",
+        "letter.tha"
+      ]
+    },
+    {
+      "id": "letter.ta",
+      "legacyId": "ta",
+      "char": "ت",
+      "nameAr": "تَاء",
+      "forms": {
+        "isolated": "ت",
+        "initial": "تـ",
+        "medial": "ـتـ",
+        "final": "ـت"
+      },
+      "abjadOrder": 3,
+      "similarLetterIds": [
+        "letter.ba",
+        "letter.tha"
+      ]
+    },
+    {
+      "id": "letter.tha",
+      "legacyId": "tha",
+      "char": "ث",
+      "nameAr": "ثَاء",
+      "forms": {
+        "isolated": "ث",
+        "initial": "ثـ",
+        "medial": "ـثـ",
+        "final": "ـث"
+      },
+      "abjadOrder": 4,
+      "similarLetterIds": [
+        "letter.ba",
+        "letter.ta"
+      ]
+    },
+    {
+      "id": "letter.jim",
+      "legacyId": "jim",
+      "char": "ج",
+      "nameAr": "جِيم",
+      "forms": {
+        "isolated": "ج",
+        "initial": "جـ",
+        "medial": "ـجـ",
+        "final": "ـج"
+      },
+      "abjadOrder": 5,
+      "similarLetterIds": [
+        "letter.ha",
+        "letter.kha"
+      ]
+    },
+    {
+      "id": "letter.ha",
+      "legacyId": "ha",
+      "char": "ح",
+      "nameAr": "حَاء",
+      "forms": {
+        "isolated": "ح",
+        "initial": "حـ",
+        "medial": "ـحـ",
+        "final": "ـح"
+      },
+      "abjadOrder": 6,
+      "similarLetterIds": [
+        "letter.jim",
+        "letter.kha"
+      ]
+    },
+    {
+      "id": "letter.kha",
+      "legacyId": "kha",
+      "char": "خ",
+      "nameAr": "خَاء",
+      "forms": {
+        "isolated": "خ",
+        "initial": "خـ",
+        "medial": "ـخـ",
+        "final": "ـخ"
+      },
+      "abjadOrder": 7,
+      "similarLetterIds": [
+        "letter.jim",
+        "letter.ha"
+      ]
+    },
+    {
+      "id": "letter.dal",
+      "legacyId": "dal",
+      "char": "د",
+      "nameAr": "دَال",
+      "forms": {
+        "isolated": "د",
+        "initial": "د",
+        "medial": "ـد",
+        "final": "ـد"
+      },
+      "nonConnecting": true,
+      "abjadOrder": 8,
+      "similarLetterIds": [
+        "letter.thal"
+      ]
+    },
+    {
+      "id": "letter.thal",
+      "legacyId": "thal",
+      "char": "ذ",
+      "nameAr": "ذَال",
+      "forms": {
+        "isolated": "ذ",
+        "initial": "ذ",
+        "medial": "ـذ",
+        "final": "ـذ"
+      },
+      "nonConnecting": true,
+      "abjadOrder": 9,
+      "similarLetterIds": [
+        "letter.dal"
+      ]
+    },
+    {
+      "id": "letter.ra",
+      "legacyId": "ra",
+      "char": "ر",
+      "nameAr": "رَاء",
+      "forms": {
+        "isolated": "ر",
+        "initial": "ر",
+        "medial": "ـر",
+        "final": "ـر"
+      },
+      "nonConnecting": true,
+      "abjadOrder": 10,
+      "similarLetterIds": [
+        "letter.zay"
+      ]
+    },
+    {
+      "id": "letter.zay",
+      "legacyId": "zay",
+      "char": "ز",
+      "nameAr": "زَاي",
+      "forms": {
+        "isolated": "ز",
+        "initial": "ز",
+        "medial": "ـز",
+        "final": "ـز"
+      },
+      "nonConnecting": true,
+      "abjadOrder": 11,
+      "similarLetterIds": [
+        "letter.ra"
+      ]
+    },
+    {
+      "id": "letter.sin",
+      "legacyId": "sin",
+      "char": "س",
+      "nameAr": "سِين",
+      "forms": {
+        "isolated": "س",
+        "initial": "سـ",
+        "medial": "ـسـ",
+        "final": "ـس"
+      },
+      "abjadOrder": 12,
+      "similarLetterIds": [
+        "letter.shin"
+      ]
+    },
+    {
+      "id": "letter.shin",
+      "legacyId": "shin",
+      "char": "ش",
+      "nameAr": "شِين",
+      "forms": {
+        "isolated": "ش",
+        "initial": "شـ",
+        "medial": "ـشـ",
+        "final": "ـش"
+      },
+      "abjadOrder": 13,
+      "similarLetterIds": [
+        "letter.sin"
+      ]
+    },
+    {
+      "id": "letter.sad",
+      "legacyId": "sad",
+      "char": "ص",
+      "nameAr": "صَاد",
+      "forms": {
+        "isolated": "ص",
+        "initial": "صـ",
+        "medial": "ـصـ",
+        "final": "ـص"
+      },
+      "abjadOrder": 14,
+      "similarLetterIds": [
+        "letter.dad"
+      ]
+    },
+    {
+      "id": "letter.dad",
+      "legacyId": "dad",
+      "char": "ض",
+      "nameAr": "ضَاد",
+      "forms": {
+        "isolated": "ض",
+        "initial": "ضـ",
+        "medial": "ـضـ",
+        "final": "ـض"
+      },
+      "abjadOrder": 15,
+      "similarLetterIds": [
+        "letter.sad"
+      ]
+    },
+    {
+      "id": "letter.tah",
+      "legacyId": "tah",
+      "char": "ط",
+      "nameAr": "طَاء",
+      "forms": {
+        "isolated": "ط",
+        "initial": "طـ",
+        "medial": "ـطـ",
+        "final": "ـط"
+      },
+      "abjadOrder": 16,
+      "similarLetterIds": [
+        "letter.zah"
+      ]
+    },
+    {
+      "id": "letter.zah",
+      "legacyId": "zah",
+      "char": "ظ",
+      "nameAr": "ظَاء",
+      "forms": {
+        "isolated": "ظ",
+        "initial": "ظـ",
+        "medial": "ـظـ",
+        "final": "ـظ"
+      },
+      "abjadOrder": 17,
+      "similarLetterIds": [
+        "letter.tah"
+      ]
+    },
+    {
+      "id": "letter.ain",
+      "legacyId": "ain",
+      "char": "ع",
+      "nameAr": "عَيْن",
+      "forms": {
+        "isolated": "ع",
+        "initial": "عـ",
+        "medial": "ـعـ",
+        "final": "ـع"
+      },
+      "abjadOrder": 18,
+      "similarLetterIds": [
+        "letter.ghain"
+      ]
+    },
+    {
+      "id": "letter.ghain",
+      "legacyId": "ghain",
+      "char": "غ",
+      "nameAr": "غَيْن",
+      "forms": {
+        "isolated": "غ",
+        "initial": "غـ",
+        "medial": "ـغـ",
+        "final": "ـغ"
+      },
+      "abjadOrder": 19,
+      "similarLetterIds": [
+        "letter.ain"
+      ]
+    },
+    {
+      "id": "letter.fa",
+      "legacyId": "fa",
+      "char": "ف",
+      "nameAr": "فَاء",
+      "forms": {
+        "isolated": "ف",
+        "initial": "فـ",
+        "medial": "ـفـ",
+        "final": "ـف"
+      },
+      "abjadOrder": 20,
+      "similarLetterIds": [
+        "letter.qaf"
+      ]
+    },
+    {
+      "id": "letter.qaf",
+      "legacyId": "qaf",
+      "char": "ق",
+      "nameAr": "قَاف",
+      "forms": {
+        "isolated": "ق",
+        "initial": "قـ",
+        "medial": "ـقـ",
+        "final": "ـق"
+      },
+      "abjadOrder": 21,
+      "similarLetterIds": [
+        "letter.fa"
+      ]
+    },
+    {
+      "id": "letter.kaf",
+      "legacyId": "kaf",
+      "char": "ك",
+      "nameAr": "كَاف",
+      "forms": {
+        "isolated": "ك",
+        "initial": "كـ",
+        "medial": "ـكـ",
+        "final": "ـك"
+      },
+      "abjadOrder": 22
+    },
+    {
+      "id": "letter.lam",
+      "legacyId": "lam",
+      "char": "ل",
+      "nameAr": "لَام",
+      "forms": {
+        "isolated": "ل",
+        "initial": "لـ",
+        "medial": "ـلـ",
+        "final": "ـل"
+      },
+      "abjadOrder": 23
+    },
+    {
+      "id": "letter.mim",
+      "legacyId": "mim",
+      "char": "م",
+      "nameAr": "مِيم",
+      "forms": {
+        "isolated": "م",
+        "initial": "مـ",
+        "medial": "ـمـ",
+        "final": "ـم"
+      },
+      "abjadOrder": 24
+    },
+    {
+      "id": "letter.nun",
+      "legacyId": "nun",
+      "char": "ن",
+      "nameAr": "نُون",
+      "forms": {
+        "isolated": "ن",
+        "initial": "نـ",
+        "medial": "ـنـ",
+        "final": "ـن"
+      },
+      "abjadOrder": 25
+    },
+    {
+      "id": "letter.haa",
+      "legacyId": "haa",
+      "char": "ه",
+      "nameAr": "هَاء",
+      "forms": {
+        "isolated": "ه",
+        "initial": "هـ",
+        "medial": "ـهـ",
+        "final": "ـه"
+      },
+      "abjadOrder": 26
+    },
+    {
+      "id": "letter.waw",
+      "legacyId": "waw",
+      "char": "و",
+      "nameAr": "وَاو",
+      "forms": {
+        "isolated": "و",
+        "initial": "و",
+        "medial": "ـو",
+        "final": "ـو"
+      },
+      "nonConnecting": true,
+      "abjadOrder": 27
+    },
+    {
+      "id": "letter.ya",
+      "legacyId": "ya",
+      "char": "ي",
+      "nameAr": "يَاء",
+      "forms": {
+        "isolated": "ي",
+        "initial": "يـ",
+        "medial": "ـيـ",
+        "final": "ـي"
+      },
+      "abjadOrder": 28
+    }
+  ],
+  "words": [
+    {
+      "id": "word.bab",
+      "lemma": "باب",
+      "diacritized": "بَاب",
+      "teachingForm": "بَاب",
+      "pos": "noun",
+      "category": "home",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ba",
+        "letter.alif"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.bab",
+      "audioAssetIds": {
+        "citation": "audio.word.bab"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1"
+      ],
+      "status": "active",
+      "legacyId": "home-2",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.bayt",
+      "lemma": "بيت",
+      "diacritized": "بَيْت",
+      "teachingForm": "بَيْت",
+      "pos": "noun",
+      "category": "home",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ba",
+        "letter.ya",
+        "letter.ta"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.bayt",
+      "audioAssetIds": {
+        "citation": "audio.word.bayt"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1"
+      ],
+      "status": "active",
+      "legacyId": "home-1",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.yad",
+      "lemma": "يد",
+      "diacritized": "يَد",
+      "teachingForm": "يَد",
+      "pos": "noun",
+      "category": "body",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ya",
+        "letter.dal"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "imageAssetId": "image.word.yad",
+      "audioAssetIds": {
+        "citation": "audio.word.yad"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1"
+      ],
+      "status": "active",
+      "legacyId": "body-17",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.ab",
+      "lemma": "أب",
+      "diacritized": "أَب",
+      "teachingForm": "أَب",
+      "pos": "noun",
+      "category": "family",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.alif",
+        "letter.ba"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.hamza.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.hamza.reading"
+      ],
+      "imageAssetId": "image.word.ab",
+      "audioAssetIds": {
+        "citation": "audio.word.ab"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1"
+      ],
+      "status": "active",
+      "legacyId": "family-2",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.maa",
+      "lemma": "ماء",
+      "diacritized": "مَاء",
+      "teachingForm": "مَاء",
+      "pos": "noun",
+      "category": "food",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.mim",
+        "letter.alif"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd",
+        "skill.hamza.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd",
+        "skill.hamza.reading"
+      ],
+      "imageAssetId": "image.word.maa",
+      "audioAssetIds": {
+        "citation": "audio.word.maa"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1"
+      ],
+      "status": "active",
+      "legacyId": "food-47",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.kalb",
+      "lemma": "كلب",
+      "diacritized": "كَلْب",
+      "teachingForm": "كَلْب",
+      "pos": "noun",
+      "category": "animals",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.kaf",
+        "letter.lam",
+        "letter.ba"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.kalb",
+      "audioAssetIds": {
+        "citation": "audio.word.kalb"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1"
+      ],
+      "status": "active",
+      "legacyId": "animals-2",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.qalam",
+      "lemma": "قلم",
+      "diacritized": "قَلَم",
+      "teachingForm": "قَلَم",
+      "pos": "noun",
+      "category": "school",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.qaf",
+        "letter.lam",
+        "letter.mim"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "imageAssetId": "image.word.qalam",
+      "audioAssetIds": {
+        "citation": "audio.word.qalam"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1"
+      ],
+      "status": "active",
+      "legacyId": "school-8",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.shams",
+      "lemma": "شمس",
+      "diacritized": "شَمْس",
+      "teachingForm": "شَمْس",
+      "pos": "noun",
+      "category": "nature",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.shin",
+        "letter.mim",
+        "letter.sin"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.shams",
+      "audioAssetIds": {
+        "citation": "audio.word.shams"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1"
+      ],
+      "status": "active",
+      "legacyId": "sky-1"
+    },
+    {
+      "id": "word.qamar",
+      "lemma": "قمر",
+      "diacritized": "قَمَر",
+      "teachingForm": "قَمَر",
+      "pos": "noun",
+      "category": "nature",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.qaf",
+        "letter.mim",
+        "letter.ra"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "imageAssetId": "image.word.qamar",
+      "audioAssetIds": {
+        "citation": "audio.word.qamar"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1"
+      ],
+      "status": "active",
+      "legacyId": "sky-2"
+    },
+    {
+      "id": "word.nar",
+      "lemma": "نار",
+      "diacritized": "نَار",
+      "teachingForm": "نَار",
+      "pos": "noun",
+      "category": "nature",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.nun",
+        "letter.alif",
+        "letter.ra"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.nar",
+      "audioAssetIds": {
+        "citation": "audio.word.nar"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1"
+      ],
+      "status": "active",
+      "legacyId": "nature-32"
+    },
+    {
+      "id": "word.fam",
+      "lemma": "فم",
+      "diacritized": "فَم",
+      "teachingForm": "فَم",
+      "pos": "noun",
+      "category": "body",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.fa",
+        "letter.mim"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "imageAssetId": "image.word.fam",
+      "audioAssetIds": {
+        "citation": "audio.word.fam"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1"
+      ],
+      "status": "active",
+      "legacyId": "body-7"
+    },
+    {
+      "id": "word.khubz",
+      "lemma": "خبز",
+      "diacritized": "خُبْز",
+      "teachingForm": "خُبْز",
+      "pos": "noun",
+      "category": "food",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.kha",
+        "letter.ba",
+        "letter.zay"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.damma",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.damma",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.khubz",
+      "audioAssetIds": {
+        "citation": "audio.word.khubz"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1"
+      ],
+      "status": "active",
+      "legacyId": "food-1"
+    },
+    {
+      "id": "word.tamr",
+      "lemma": "تمر",
+      "diacritized": "تَمْر",
+      "teachingForm": "تَمْر",
+      "pos": "noun",
+      "category": "food",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ta",
+        "letter.mim",
+        "letter.ra"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.tamr",
+      "audioAssetIds": {
+        "citation": "audio.word.tamr"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1"
+      ],
+      "status": "active",
+      "legacyId": "food-54"
+    },
+    {
+      "id": "word.bayd",
+      "lemma": "بيض",
+      "diacritized": "بَيْض",
+      "teachingForm": "بَيْض",
+      "pos": "noun",
+      "category": "food",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ba",
+        "letter.ya",
+        "letter.dad"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.bayd",
+      "audioAssetIds": {
+        "citation": "audio.word.bayd"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1"
+      ],
+      "status": "active",
+      "legacyId": "food-6"
+    },
+    {
+      "id": "word.mawz",
+      "lemma": "موز",
+      "diacritized": "مَوْز",
+      "teachingForm": "مَوْز",
+      "pos": "noun",
+      "category": "food",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.mim",
+        "letter.waw",
+        "letter.zay"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.mawz",
+      "audioAssetIds": {
+        "citation": "audio.word.mawz"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1"
+      ],
+      "status": "active",
+      "legacyId": "fruits-2"
+    },
+    {
+      "id": "word.asal",
+      "lemma": "عسل",
+      "diacritized": "عَسَل",
+      "teachingForm": "عَسَل",
+      "pos": "noun",
+      "category": "food",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ain",
+        "letter.sin",
+        "letter.lam"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "imageAssetId": "image.word.asal",
+      "audioAssetIds": {
+        "citation": "audio.word.asal"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1"
+      ],
+      "status": "active",
+      "legacyId": "food-19"
+    },
+    {
+      "id": "word.jamal",
+      "lemma": "جمل",
+      "diacritized": "جَمَل",
+      "teachingForm": "جَمَل",
+      "pos": "noun",
+      "category": "animals",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.jim",
+        "letter.mim",
+        "letter.lam"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "imageAssetId": "image.word.jamal",
+      "audioAssetIds": {
+        "citation": "audio.word.jamal"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1"
+      ],
+      "status": "active",
+      "legacyId": "animals-9"
+    },
+    {
+      "id": "word.fil",
+      "lemma": "فيل",
+      "diacritized": "فِيل",
+      "teachingForm": "فِيل",
+      "pos": "noun",
+      "category": "animals",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.fa",
+        "letter.ya",
+        "letter.lam"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.fil",
+      "audioAssetIds": {
+        "citation": "audio.word.fil"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1"
+      ],
+      "status": "active",
+      "legacyId": "animals-4"
+    },
+    {
+      "id": "word.hajar",
+      "lemma": "حجر",
+      "diacritized": "حَجَر",
+      "teachingForm": "حَجَر",
+      "pos": "noun",
+      "category": "nature",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ha",
+        "letter.jim",
+        "letter.ra"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "imageAssetId": "image.word.hajar",
+      "audioAssetIds": {
+        "citation": "audio.word.hajar"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1"
+      ],
+      "status": "active",
+      "legacyId": "nature-16"
+    },
+    {
+      "id": "word.qadam",
+      "lemma": "قدم",
+      "diacritized": "قَدَم",
+      "teachingForm": "قَدَم",
+      "pos": "noun",
+      "category": "body",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.qaf",
+        "letter.dal",
+        "letter.mim"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "imageAssetId": "image.word.qadam",
+      "audioAssetIds": {
+        "citation": "audio.word.qadam"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1"
+      ],
+      "status": "active",
+      "legacyId": "body-27"
+    },
+    {
+      "id": "word.wajh",
+      "lemma": "وجه",
+      "diacritized": "وَجْه",
+      "teachingForm": "وَجْه",
+      "pos": "noun",
+      "category": "body",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.waw",
+        "letter.jim",
+        "letter.haa"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.wajh",
+      "audioAssetIds": {
+        "citation": "audio.word.wajh"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1"
+      ],
+      "status": "active",
+      "legacyId": "body-3"
+    },
+    {
+      "id": "word.bahr",
+      "lemma": "بحر",
+      "diacritized": "بَحْر",
+      "teachingForm": "بَحْر",
+      "pos": "noun",
+      "category": "nature",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ba",
+        "letter.ha",
+        "letter.ra"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.bahr",
+      "audioAssetIds": {
+        "citation": "audio.word.bahr"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1"
+      ],
+      "status": "active",
+      "legacyId": "sea-1"
+    },
+    {
+      "id": "word.layl",
+      "lemma": "ليل",
+      "diacritized": "لَيْل",
+      "teachingForm": "لَيْل",
+      "pos": "noun",
+      "category": "nature",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.lam",
+        "letter.ya"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.layl",
+      "audioAssetIds": {
+        "citation": "audio.word.layl"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1"
+      ],
+      "status": "active",
+      "legacyId": "sky-17"
+    },
+    {
+      "id": "word.nahr",
+      "lemma": "نهر",
+      "diacritized": "نَهْر",
+      "teachingForm": "نَهْر",
+      "pos": "noun",
+      "category": "nature",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.nun",
+        "letter.haa",
+        "letter.ra"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.nahr",
+      "audioAssetIds": {
+        "citation": "audio.word.nahr"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1"
+      ],
+      "status": "active",
+      "legacyId": "nature-18"
+    },
+    {
+      "id": "word.samak",
+      "lemma": "سمك",
+      "diacritized": "سَمَك",
+      "teachingForm": "سَمَك",
+      "pos": "noun",
+      "category": "food",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.sin",
+        "letter.mim",
+        "letter.kaf"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "imageAssetId": "image.word.samak",
+      "audioAssetIds": {
+        "citation": "audio.word.samak"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1"
+      ],
+      "status": "active",
+      "legacyId": "food-9"
+    },
+    {
+      "id": "word.raml",
+      "lemma": "رمل",
+      "diacritized": "رَمْل",
+      "teachingForm": "رَمْل",
+      "pos": "noun",
+      "category": "nature",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ra",
+        "letter.mim",
+        "letter.lam"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.raml",
+      "audioAssetIds": {
+        "citation": "audio.word.raml"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1"
+      ],
+      "status": "active",
+      "legacyId": "nature-15"
+    },
+    {
+      "id": "word.kitab",
+      "lemma": "كتاب",
+      "diacritized": "كِتَاب",
+      "teachingForm": "كِتَاب",
+      "pos": "noun",
+      "category": "school",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.kaf",
+        "letter.ta",
+        "letter.alif",
+        "letter.ba"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.kitab",
+      "audioAssetIds": {
+        "citation": "audio.word.kitab"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1"
+      ],
+      "status": "active",
+      "legacyId": "school-6",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.asad",
+      "lemma": "أسد",
+      "diacritized": "أَسَد",
+      "teachingForm": "أَسَد",
+      "pos": "noun",
+      "category": "animals",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.alif",
+        "letter.sin",
+        "letter.dal"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.hamza.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.hamza.reading"
+      ],
+      "imageAssetId": "image.word.asad",
+      "audioAssetIds": {
+        "citation": "audio.word.asad"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1"
+      ],
+      "status": "active",
+      "legacyId": "animals-3"
+    },
+    {
+      "id": "word.umm",
+      "lemma": "أم",
+      "diacritized": "أُمّ",
+      "teachingForm": "أُمّ",
+      "pos": "noun",
+      "category": "family",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.alif",
+        "letter.mim"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.damma",
+        "skill.shadda.basic",
+        "skill.hamza.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.damma",
+        "skill.shadda.basic",
+        "skill.hamza.reading"
+      ],
+      "imageAssetId": "image.word.umm",
+      "audioAssetIds": {
+        "citation": "audio.word.umm"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "family-1",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.akh",
+      "lemma": "أخ",
+      "diacritized": "أَخ",
+      "teachingForm": "أَخ",
+      "pos": "noun",
+      "category": "family",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.alif",
+        "letter.kha"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.hamza.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.hamza.reading"
+      ],
+      "imageAssetId": "image.word.akh",
+      "audioAssetIds": {
+        "citation": "audio.word.akh"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "family-3"
+    },
+    {
+      "id": "word.ukht",
+      "lemma": "أخت",
+      "diacritized": "أُخْت",
+      "teachingForm": "أُخْت",
+      "pos": "noun",
+      "category": "family",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.alif",
+        "letter.kha",
+        "letter.ta"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.damma",
+        "skill.sukun.basic",
+        "skill.hamza.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.damma",
+        "skill.sukun.basic",
+        "skill.hamza.reading"
+      ],
+      "imageAssetId": "image.word.ukht",
+      "audioAssetIds": {
+        "citation": "audio.word.ukht"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "family-4"
+    },
+    {
+      "id": "word.bint",
+      "lemma": "بنت",
+      "diacritized": "بِنْت",
+      "teachingForm": "بِنْت",
+      "pos": "noun",
+      "category": "family",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ba",
+        "letter.nun",
+        "letter.ta"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.kasra",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.kasra",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.bint",
+      "audioAssetIds": {
+        "citation": "audio.word.bint"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.walad",
+      "lemma": "ولد",
+      "diacritized": "وَلَد",
+      "teachingForm": "وَلَد",
+      "pos": "noun",
+      "category": "family",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.waw",
+        "letter.lam",
+        "letter.dal"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "imageAssetId": "image.word.walad",
+      "audioAssetIds": {
+        "citation": "audio.word.walad"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.jadd",
+      "lemma": "جد",
+      "diacritized": "جَدّ",
+      "teachingForm": "جَدّ",
+      "pos": "noun",
+      "category": "family",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.jim",
+        "letter.dal"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.shadda.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.shadda.basic"
+      ],
+      "imageAssetId": "image.word.jadd",
+      "audioAssetIds": {
+        "citation": "audio.word.jadd"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "family-5"
+    },
+    {
+      "id": "word.jadda",
+      "lemma": "جدة",
+      "diacritized": "جَدَّة",
+      "teachingForm": "جَدَّة",
+      "pos": "noun",
+      "category": "family",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.jim",
+        "letter.dal",
+        "letter.ta"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.shadda.basic",
+        "skill.taa_marbuta.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.shadda.basic",
+        "skill.taa_marbuta.reading"
+      ],
+      "imageAssetId": "image.word.jadda",
+      "audioAssetIds": {
+        "citation": "audio.word.jadda"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "family-6"
+    },
+    {
+      "id": "word.qitt",
+      "lemma": "قط",
+      "diacritized": "قِطّ",
+      "teachingForm": "قِطّ",
+      "pos": "noun",
+      "category": "animals",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.qaf",
+        "letter.tah"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.kasra",
+        "skill.shadda.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.kasra",
+        "skill.shadda.basic"
+      ],
+      "imageAssetId": "image.word.qitt",
+      "audioAssetIds": {
+        "citation": "audio.word.qitt"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "animals-1",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.qitta",
+      "lemma": "قطة",
+      "diacritized": "قِطَّة",
+      "teachingForm": "قِطَّة",
+      "pos": "noun",
+      "category": "animals",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.qaf",
+        "letter.tah",
+        "letter.ta"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.shadda.basic",
+        "skill.taa_marbuta.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.shadda.basic",
+        "skill.taa_marbuta.reading"
+      ],
+      "imageAssetId": "image.word.qitta",
+      "audioAssetIds": {
+        "citation": "audio.word.qitta"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.arnab",
+      "lemma": "أرنب",
+      "diacritized": "أَرْنَب",
+      "teachingForm": "أَرْنَب",
+      "pos": "noun",
+      "category": "animals",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.alif",
+        "letter.ra",
+        "letter.nun",
+        "letter.ba"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.hamza.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.hamza.reading"
+      ],
+      "imageAssetId": "image.word.arnab",
+      "audioAssetIds": {
+        "citation": "audio.word.arnab"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "animals-10"
+    },
+    {
+      "id": "word.baqara",
+      "lemma": "بقرة",
+      "diacritized": "بَقَرَة",
+      "teachingForm": "بَقَرَة",
+      "pos": "noun",
+      "category": "animals",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ba",
+        "letter.qaf",
+        "letter.ra",
+        "letter.ta"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.taa_marbuta.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.taa_marbuta.reading"
+      ],
+      "imageAssetId": "image.word.baqara",
+      "audioAssetIds": {
+        "citation": "audio.word.baqara"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "animals-6"
+    },
+    {
+      "id": "word.dajaja",
+      "lemma": "دجاجة",
+      "diacritized": "دَجَاجَة",
+      "teachingForm": "دَجَاجَة",
+      "pos": "noun",
+      "category": "animals",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.dal",
+        "letter.jim",
+        "letter.alif",
+        "letter.ta"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd",
+        "skill.taa_marbuta.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd",
+        "skill.taa_marbuta.reading"
+      ],
+      "imageAssetId": "image.word.dajaja",
+      "audioAssetIds": {
+        "citation": "audio.word.dajaja"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "birds-12"
+    },
+    {
+      "id": "word.ayn",
+      "lemma": "عين",
+      "diacritized": "عَيْن",
+      "teachingForm": "عَيْن",
+      "pos": "noun",
+      "category": "body",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ain",
+        "letter.ya",
+        "letter.nun"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.ayn",
+      "audioAssetIds": {
+        "citation": "audio.word.ayn"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "body-4"
+    },
+    {
+      "id": "word.anf",
+      "lemma": "أنف",
+      "diacritized": "أَنْف",
+      "teachingForm": "أَنْف",
+      "pos": "noun",
+      "category": "body",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.alif",
+        "letter.nun",
+        "letter.fa"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.hamza.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.hamza.reading"
+      ],
+      "imageAssetId": "image.word.anf",
+      "audioAssetIds": {
+        "citation": "audio.word.anf"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "body-6"
+    },
+    {
+      "id": "word.udhun",
+      "lemma": "أذن",
+      "diacritized": "أُذُن",
+      "teachingForm": "أُذُن",
+      "pos": "noun",
+      "category": "body",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.alif",
+        "letter.thal",
+        "letter.nun"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.damma",
+        "skill.hamza.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.damma",
+        "skill.hamza.reading"
+      ],
+      "imageAssetId": "image.word.udhun",
+      "audioAssetIds": {
+        "citation": "audio.word.udhun"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "body-5"
+    },
+    {
+      "id": "word.shaar",
+      "lemma": "شعر",
+      "diacritized": "شَعْر",
+      "teachingForm": "شَعْر",
+      "pos": "noun",
+      "category": "body",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.shin",
+        "letter.ain",
+        "letter.ra"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.shaar",
+      "audioAssetIds": {
+        "citation": "audio.word.shaar"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "body-2"
+    },
+    {
+      "id": "word.ghurfa",
+      "lemma": "غرفة",
+      "diacritized": "غُرْفَة",
+      "teachingForm": "غُرْفَة",
+      "pos": "noun",
+      "category": "home",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ghain",
+        "letter.ra",
+        "letter.fa",
+        "letter.ta"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic",
+        "skill.taa_marbuta.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic",
+        "skill.taa_marbuta.reading"
+      ],
+      "imageAssetId": "image.word.ghurfa",
+      "audioAssetIds": {
+        "citation": "audio.word.ghurfa"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "home-4"
+    },
+    {
+      "id": "word.sarir",
+      "lemma": "سرير",
+      "diacritized": "سَرِير",
+      "teachingForm": "سَرِير",
+      "pos": "noun",
+      "category": "home",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.sin",
+        "letter.ra",
+        "letter.ya"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.sarir",
+      "audioAssetIds": {
+        "citation": "audio.word.sarir"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "home-5"
+    },
+    {
+      "id": "word.tawila",
+      "lemma": "طاولة",
+      "diacritized": "طَاوِلَة",
+      "teachingForm": "طَاوِلَة",
+      "pos": "noun",
+      "category": "home",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "LOANWORD_ACCEPTED",
+      "letterIds": [
+        "letter.tah",
+        "letter.alif",
+        "letter.waw",
+        "letter.lam",
+        "letter.ta"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd",
+        "skill.taa_marbuta.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd",
+        "skill.taa_marbuta.reading"
+      ],
+      "imageAssetId": "image.word.tawila",
+      "audioAssetIds": {
+        "citation": "audio.word.tawila"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "home-9"
+    },
+    {
+      "id": "word.kub",
+      "lemma": "كوب",
+      "diacritized": "كُوب",
+      "teachingForm": "كُوب",
+      "pos": "noun",
+      "category": "home",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.kaf",
+        "letter.waw",
+        "letter.ba"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.damma",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.damma",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.kub",
+      "audioAssetIds": {
+        "citation": "audio.word.kub"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "home-26"
+    },
+    {
+      "id": "word.halib",
+      "lemma": "حليب",
+      "diacritized": "حَلِيب",
+      "teachingForm": "حَلِيب",
+      "pos": "noun",
+      "category": "food",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ha",
+        "letter.lam",
+        "letter.ya",
+        "letter.ba"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.halib",
+      "audioAssetIds": {
+        "citation": "audio.word.halib"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "food-3"
+    },
+    {
+      "id": "word.tuffah",
+      "lemma": "تفاح",
+      "diacritized": "تُفَّاح",
+      "teachingForm": "تُفَّاح",
+      "pos": "noun",
+      "category": "food",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ta",
+        "letter.fa",
+        "letter.alif",
+        "letter.ha"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.long_vowel.madd",
+        "skill.shadda.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.long_vowel.madd",
+        "skill.shadda.basic"
+      ],
+      "imageAssetId": "image.word.tuffah",
+      "audioAssetIds": {
+        "citation": "audio.word.tuffah"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "fruits-1"
+    },
+    {
+      "id": "word.dajaj",
+      "lemma": "دجاج",
+      "diacritized": "دَجَاج",
+      "teachingForm": "دَجَاج",
+      "pos": "noun",
+      "category": "food",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.dal",
+        "letter.jim",
+        "letter.alif"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.dajaj",
+      "audioAssetIds": {
+        "citation": "audio.word.dajaj"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "food-8"
+    },
+    {
+      "id": "word.shajara",
+      "lemma": "شجرة",
+      "diacritized": "شَجَرَة",
+      "teachingForm": "شَجَرَة",
+      "pos": "noun",
+      "category": "nature",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.shin",
+        "letter.jim",
+        "letter.ra",
+        "letter.ta"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.taa_marbuta.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.taa_marbuta.reading"
+      ],
+      "imageAssetId": "image.word.shajara",
+      "audioAssetIds": {
+        "citation": "audio.word.shajara"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "nature-1"
+    },
+    {
+      "id": "word.matar",
+      "lemma": "مطر",
+      "diacritized": "مَطَر",
+      "teachingForm": "مَطَر",
+      "pos": "noun",
+      "category": "nature",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.mim",
+        "letter.tah",
+        "letter.ra"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "imageAssetId": "image.word.matar",
+      "audioAssetIds": {
+        "citation": "audio.word.matar"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "nature-21"
+    },
+    {
+      "id": "word.sama",
+      "lemma": "سماء",
+      "diacritized": "سَمَاء",
+      "teachingForm": "سَمَاء",
+      "pos": "noun",
+      "category": "nature",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.sin",
+        "letter.mim",
+        "letter.alif"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd",
+        "skill.hamza.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd",
+        "skill.hamza.reading"
+      ],
+      "imageAssetId": "image.word.sama",
+      "audioAssetIds": {
+        "citation": "audio.word.sama"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "sky-4"
+    },
+    {
+      "id": "word.yakul",
+      "lemma": "يأكل",
+      "diacritized": "يَأْكُلُ",
+      "teachingForm": "يَأْكُلُ",
+      "pos": "verb",
+      "category": "verbs",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ya",
+        "letter.alif",
+        "letter.kaf",
+        "letter.lam"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic",
+        "skill.hamza.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic",
+        "skill.hamza.reading"
+      ],
+      "imageAssetId": "image.word.yakul",
+      "audioAssetIds": {
+        "citation": "audio.word.yakul"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "verbs-1",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.yashrab",
+      "lemma": "يشرب",
+      "diacritized": "يَشْرَبُ",
+      "teachingForm": "يَشْرَبُ",
+      "pos": "verb",
+      "category": "verbs",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ya",
+        "letter.shin",
+        "letter.ra",
+        "letter.ba"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.yashrab",
+      "audioAssetIds": {
+        "citation": "audio.word.yashrab"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "verbs-2",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.yalab",
+      "lemma": "يلعب",
+      "diacritized": "يَلْعَبُ",
+      "teachingForm": "يَلْعَبُ",
+      "pos": "verb",
+      "category": "verbs",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ya",
+        "letter.lam",
+        "letter.ain",
+        "letter.ba"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.yalab",
+      "audioAssetIds": {
+        "citation": "audio.word.yalab"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "verbs-5",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.yanam",
+      "lemma": "ينام",
+      "diacritized": "يَنَامُ",
+      "teachingForm": "يَنَامُ",
+      "pos": "verb",
+      "category": "verbs",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ya",
+        "letter.nun",
+        "letter.alif",
+        "letter.mim"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.yanam",
+      "audioAssetIds": {
+        "citation": "audio.word.yanam"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "verbs-3",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.yajlis",
+      "lemma": "يجلس",
+      "diacritized": "يَجْلِسُ",
+      "teachingForm": "يَجْلِسُ",
+      "pos": "verb",
+      "category": "verbs",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ya",
+        "letter.jim",
+        "letter.lam",
+        "letter.sin"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.yajlis",
+      "audioAssetIds": {
+        "citation": "audio.word.yajlis"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "verbs-9"
+    },
+    {
+      "id": "word.ahmar",
+      "lemma": "أحمر",
+      "diacritized": "أَحْمَر",
+      "teachingForm": "أَحْمَر",
+      "pos": "adjective",
+      "category": "colors",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.alif",
+        "letter.ha",
+        "letter.mim",
+        "letter.ra"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.hamza.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.hamza.reading"
+      ],
+      "imageAssetId": "image.word.ahmar",
+      "audioAssetIds": {
+        "citation": "audio.word.ahmar"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "colors-1"
+    },
+    {
+      "id": "word.azraq",
+      "lemma": "أزرق",
+      "diacritized": "أَزْرَق",
+      "teachingForm": "أَزْرَق",
+      "pos": "adjective",
+      "category": "colors",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.alif",
+        "letter.zay",
+        "letter.ra",
+        "letter.qaf"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.hamza.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.hamza.reading"
+      ],
+      "imageAssetId": "image.word.azraq",
+      "audioAssetIds": {
+        "citation": "audio.word.azraq"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "colors-2"
+    },
+    {
+      "id": "word.asfar",
+      "lemma": "أصفر",
+      "diacritized": "أَصْفَر",
+      "teachingForm": "أَصْفَر",
+      "pos": "adjective",
+      "category": "colors",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.alif",
+        "letter.sad",
+        "letter.fa",
+        "letter.ra"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.hamza.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.hamza.reading"
+      ],
+      "imageAssetId": "image.word.asfar",
+      "audioAssetIds": {
+        "citation": "audio.word.asfar"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "colors-3"
+    },
+    {
+      "id": "word.akhdar",
+      "lemma": "أخضر",
+      "diacritized": "أَخْضَر",
+      "teachingForm": "أَخْضَر",
+      "pos": "adjective",
+      "category": "colors",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.alif",
+        "letter.kha",
+        "letter.dad",
+        "letter.ra"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.hamza.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.hamza.reading"
+      ],
+      "imageAssetId": "image.word.akhdar",
+      "audioAssetIds": {
+        "citation": "audio.word.akhdar"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2"
+      ],
+      "status": "active",
+      "legacyId": "colors-4"
+    },
+    {
+      "id": "word.ras",
+      "lemma": "رأس",
+      "diacritized": "رَأْس",
+      "teachingForm": "رَأْس",
+      "pos": "noun",
+      "category": "body",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ra",
+        "letter.alif",
+        "letter.sin"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.hamza.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.hamza.reading"
+      ],
+      "imageAssetId": "image.word.ras",
+      "audioAssetIds": {
+        "citation": "audio.word.ras"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "body-1"
+    },
+    {
+      "id": "word.jism",
+      "lemma": "جسم",
+      "diacritized": "جِسْم",
+      "teachingForm": "جِسْم",
+      "pos": "noun",
+      "category": "body",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.jim",
+        "letter.sin",
+        "letter.mim"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.kasra",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.kasra",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.jism",
+      "audioAssetIds": {
+        "citation": "audio.word.jism"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "body-40"
+    },
+    {
+      "id": "word.qalb",
+      "lemma": "قلب",
+      "diacritized": "قَلْب",
+      "teachingForm": "قَلْب",
+      "pos": "noun",
+      "category": "body",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.qaf",
+        "letter.lam",
+        "letter.ba"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.qalb",
+      "audioAssetIds": {
+        "citation": "audio.word.qalb"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "body-29"
+    },
+    {
+      "id": "word.sinn",
+      "lemma": "سن",
+      "diacritized": "سِنّ",
+      "teachingForm": "سِنّ",
+      "pos": "noun",
+      "category": "body",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.sin",
+        "letter.nun"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.kasra",
+        "skill.shadda.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.kasra",
+        "skill.shadda.basic"
+      ],
+      "imageAssetId": "image.word.sinn",
+      "audioAssetIds": {
+        "citation": "audio.word.sinn"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "body-10"
+    },
+    {
+      "id": "word.madrasa",
+      "lemma": "مدرسة",
+      "diacritized": "مَدْرَسَة",
+      "teachingForm": "مَدْرَسَة",
+      "pos": "noun",
+      "category": "school",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.mim",
+        "letter.dal",
+        "letter.ra",
+        "letter.sin",
+        "letter.ta"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.taa_marbuta.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.taa_marbuta.reading"
+      ],
+      "imageAssetId": "image.word.madrasa",
+      "audioAssetIds": {
+        "citation": "audio.word.madrasa"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "school-1",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.muallima",
+      "lemma": "معلمة",
+      "diacritized": "مُعَلِّمَة",
+      "teachingForm": "مُعَلِّمَة",
+      "pos": "noun",
+      "category": "school",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.mim",
+        "letter.ain",
+        "letter.lam",
+        "letter.ta"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.short_vowel.damma",
+        "skill.shadda.basic",
+        "skill.taa_marbuta.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.short_vowel.damma",
+        "skill.shadda.basic",
+        "skill.taa_marbuta.reading"
+      ],
+      "imageAssetId": "image.word.muallima",
+      "audioAssetIds": {
+        "citation": "audio.word.muallima"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "school-3"
+    },
+    {
+      "id": "word.daftar",
+      "lemma": "دفتر",
+      "diacritized": "دَفْتَر",
+      "teachingForm": "دَفْتَر",
+      "pos": "noun",
+      "category": "school",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.dal",
+        "letter.fa",
+        "letter.ta",
+        "letter.ra"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.daftar",
+      "audioAssetIds": {
+        "citation": "audio.word.daftar"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "school-7"
+    },
+    {
+      "id": "word.harf",
+      "lemma": "حرف",
+      "diacritized": "حَرْف",
+      "teachingForm": "حَرْف",
+      "pos": "noun",
+      "category": "school",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ha",
+        "letter.ra",
+        "letter.fa"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.harf",
+      "audioAssetIds": {
+        "citation": "audio.word.harf"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "school-24"
+    },
+    {
+      "id": "word.qissa",
+      "lemma": "قصة",
+      "diacritized": "قِصَّة",
+      "teachingForm": "قِصَّة",
+      "pos": "noun",
+      "category": "school",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.qaf",
+        "letter.sad",
+        "letter.ta"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.shadda.basic",
+        "skill.taa_marbuta.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.shadda.basic",
+        "skill.taa_marbuta.reading"
+      ],
+      "imageAssetId": "image.word.qissa",
+      "audioAssetIds": {
+        "citation": "audio.word.qissa"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "school-27"
+    },
+    {
+      "id": "word.qamis",
+      "lemma": "قميص",
+      "diacritized": "قَمِيص",
+      "teachingForm": "قَمِيص",
+      "pos": "noun",
+      "category": "clothes",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.qaf",
+        "letter.mim",
+        "letter.ya",
+        "letter.sad"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.qamis",
+      "audioAssetIds": {
+        "citation": "audio.word.qamis"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "clothes-1"
+    },
+    {
+      "id": "word.hidha",
+      "lemma": "حذاء",
+      "diacritized": "حِذَاء",
+      "teachingForm": "حِذَاء",
+      "pos": "noun",
+      "category": "clothes",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ha",
+        "letter.thal",
+        "letter.alif"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd",
+        "skill.hamza.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd",
+        "skill.hamza.reading"
+      ],
+      "imageAssetId": "image.word.hidha",
+      "audioAssetIds": {
+        "citation": "audio.word.hidha"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "clothes-9"
+    },
+    {
+      "id": "word.sayyara",
+      "lemma": "سيارة",
+      "diacritized": "سَيَّارَة",
+      "teachingForm": "سَيَّارَة",
+      "pos": "noun",
+      "category": "transport",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.sin",
+        "letter.ya",
+        "letter.alif",
+        "letter.ra",
+        "letter.ta"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd",
+        "skill.shadda.basic",
+        "skill.taa_marbuta.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd",
+        "skill.shadda.basic",
+        "skill.taa_marbuta.reading"
+      ],
+      "imageAssetId": "image.word.sayyara",
+      "audioAssetIds": {
+        "citation": "audio.word.sayyara"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "transport-1"
+    },
+    {
+      "id": "word.hafila",
+      "lemma": "حافلة",
+      "diacritized": "حَافِلَة",
+      "teachingForm": "حَافِلَة",
+      "pos": "noun",
+      "category": "transport",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ha",
+        "letter.alif",
+        "letter.fa",
+        "letter.lam",
+        "letter.ta"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd",
+        "skill.taa_marbuta.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd",
+        "skill.taa_marbuta.reading"
+      ],
+      "imageAssetId": "image.word.hafila",
+      "audioAssetIds": {
+        "citation": "audio.word.hafila"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "transport-2"
+    },
+    {
+      "id": "word.wahid",
+      "lemma": "واحد",
+      "diacritized": "وَاحِد",
+      "teachingForm": "وَاحِد",
+      "pos": "numeral",
+      "category": "numbers",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.waw",
+        "letter.alif",
+        "letter.ha",
+        "letter.dal"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.wahid",
+      "audioAssetIds": {
+        "citation": "audio.word.wahid"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "numbers-1"
+    },
+    {
+      "id": "word.thalatha",
+      "lemma": "ثلاثة",
+      "diacritized": "ثَلَاثَة",
+      "teachingForm": "ثَلَاثَة",
+      "pos": "numeral",
+      "category": "numbers",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.tha",
+        "letter.lam",
+        "letter.alif",
+        "letter.ta"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd",
+        "skill.taa_marbuta.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd",
+        "skill.taa_marbuta.reading"
+      ],
+      "imageAssetId": "image.word.thalatha",
+      "audioAssetIds": {
+        "citation": "audio.word.thalatha"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "numbers-3"
+    },
+    {
+      "id": "word.kura",
+      "lemma": "كرة",
+      "diacritized": "كُرَة",
+      "teachingForm": "كُرَة",
+      "pos": "noun",
+      "category": "toys",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.kaf",
+        "letter.ra",
+        "letter.ta"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.taa_marbuta.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.taa_marbuta.reading"
+      ],
+      "imageAssetId": "image.word.kura",
+      "audioAssetIds": {
+        "citation": "audio.word.kura"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.luba",
+      "lemma": "لعبة",
+      "diacritized": "لُعْبَة",
+      "teachingForm": "لُعْبَة",
+      "pos": "noun",
+      "category": "toys",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.lam",
+        "letter.ain",
+        "letter.ba",
+        "letter.ta"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic",
+        "skill.taa_marbuta.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic",
+        "skill.taa_marbuta.reading"
+      ],
+      "imageAssetId": "image.word.luba",
+      "audioAssetIds": {
+        "citation": "audio.word.luba"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "word.masjid",
+      "lemma": "مسجد",
+      "diacritized": "مَسْجِد",
+      "teachingForm": "مَسْجِد",
+      "pos": "noun",
+      "category": "places",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.mim",
+        "letter.sin",
+        "letter.jim",
+        "letter.dal"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.masjid",
+      "audioAssetIds": {
+        "citation": "audio.word.masjid"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "word.suq",
+      "lemma": "سوق",
+      "diacritized": "سُوق",
+      "teachingForm": "سُوق",
+      "pos": "noun",
+      "category": "places",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.sin",
+        "letter.waw",
+        "letter.qaf"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.damma",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.damma",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.suq",
+      "audioAssetIds": {
+        "citation": "audio.word.suq"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "word.yawm",
+      "lemma": "يوم",
+      "diacritized": "يَوْم",
+      "teachingForm": "يَوْم",
+      "pos": "noun",
+      "category": "time",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ya",
+        "letter.waw",
+        "letter.mim"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.yawm",
+      "audioAssetIds": {
+        "citation": "audio.word.yawm"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "word.sabah",
+      "lemma": "صباح",
+      "diacritized": "صَبَاح",
+      "teachingForm": "صَبَاح",
+      "pos": "noun",
+      "category": "time",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.sad",
+        "letter.ba",
+        "letter.alif",
+        "letter.ha"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.sabah",
+      "audioAssetIds": {
+        "citation": "audio.word.sabah"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "word.usfur",
+      "lemma": "عصفور",
+      "diacritized": "عُصْفُور",
+      "teachingForm": "عُصْفُور",
+      "pos": "noun",
+      "category": "animals",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ain",
+        "letter.sad",
+        "letter.fa",
+        "letter.waw",
+        "letter.ra"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.damma",
+        "skill.sukun.basic",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.damma",
+        "skill.sukun.basic",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.usfur",
+      "audioAssetIds": {
+        "citation": "audio.word.usfur"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "birds-1"
+    },
+    {
+      "id": "word.hisan",
+      "lemma": "حصان",
+      "diacritized": "حِصَان",
+      "teachingForm": "حِصَان",
+      "pos": "noun",
+      "category": "animals",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ha",
+        "letter.sad",
+        "letter.alif",
+        "letter.nun"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.hisan",
+      "audioAssetIds": {
+        "citation": "audio.word.hisan"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "animals-5"
+    },
+    {
+      "id": "word.inab",
+      "lemma": "عنب",
+      "diacritized": "عِنَب",
+      "teachingForm": "عِنَب",
+      "pos": "noun",
+      "category": "food",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ain",
+        "letter.nun",
+        "letter.ba"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra"
+      ],
+      "imageAssetId": "image.word.inab",
+      "audioAssetIds": {
+        "citation": "audio.word.inab"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "fruits-4"
+    },
+    {
+      "id": "word.laymun",
+      "lemma": "ليمون",
+      "diacritized": "لَيْمُون",
+      "teachingForm": "لَيْمُون",
+      "pos": "noun",
+      "category": "food",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.lam",
+        "letter.ya",
+        "letter.mim",
+        "letter.waw",
+        "letter.nun"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.laymun",
+      "audioAssetIds": {
+        "citation": "audio.word.laymun"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "fruits-14"
+    },
+    {
+      "id": "word.warda",
+      "lemma": "وردة",
+      "diacritized": "وَرْدَة",
+      "teachingForm": "وَرْدَة",
+      "pos": "noun",
+      "category": "nature",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.waw",
+        "letter.ra",
+        "letter.dal",
+        "letter.ta"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.taa_marbuta.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.taa_marbuta.reading"
+      ],
+      "imageAssetId": "image.word.warda",
+      "audioAssetIds": {
+        "citation": "audio.word.warda"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "nature-3"
+    },
+    {
+      "id": "word.miftah",
+      "lemma": "مفتاح",
+      "diacritized": "مِفْتَاح",
+      "teachingForm": "مِفْتَاح",
+      "pos": "noun",
+      "category": "home",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.mim",
+        "letter.fa",
+        "letter.ta",
+        "letter.alif",
+        "letter.ha"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.sukun.basic",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.sukun.basic",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.miftah",
+      "audioAssetIds": {
+        "citation": "audio.word.miftah"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "home-41"
+    },
+    {
+      "id": "word.yaktub",
+      "lemma": "يكتب",
+      "diacritized": "يَكْتُبُ",
+      "teachingForm": "يَكْتُبُ",
+      "pos": "verb",
+      "category": "verbs",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ya",
+        "letter.kaf",
+        "letter.ta",
+        "letter.ba"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.yaktub",
+      "audioAssetIds": {
+        "citation": "audio.word.yaktub"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "verbs-12"
+    },
+    {
+      "id": "word.yaqra",
+      "lemma": "يقرأ",
+      "diacritized": "يَقْرَأُ",
+      "teachingForm": "يَقْرَأُ",
+      "pos": "verb",
+      "category": "verbs",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ya",
+        "letter.qaf",
+        "letter.ra",
+        "letter.alif"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic",
+        "skill.hamza.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic",
+        "skill.hamza.reading"
+      ],
+      "imageAssetId": "image.word.yaqra",
+      "audioAssetIds": {
+        "citation": "audio.word.yaqra"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "verbs-11"
+    },
+    {
+      "id": "word.yaftah",
+      "lemma": "يفتح",
+      "diacritized": "يَفْتَحُ",
+      "teachingForm": "يَفْتَحُ",
+      "pos": "verb",
+      "category": "verbs",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ya",
+        "letter.fa",
+        "letter.ta",
+        "letter.ha"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.yaftah",
+      "audioAssetIds": {
+        "citation": "audio.word.yaftah"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "verbs-24"
+    },
+    {
+      "id": "word.yadhhab",
+      "lemma": "يذهب",
+      "diacritized": "يَذْهَبُ",
+      "teachingForm": "يَذْهَبُ",
+      "pos": "verb",
+      "category": "verbs",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ya",
+        "letter.thal",
+        "letter.haa",
+        "letter.ba"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.yadhhab",
+      "audioAssetIds": {
+        "citation": "audio.word.yadhhab"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.yara",
+      "lemma": "يرى",
+      "diacritized": "يَرَى",
+      "teachingForm": "يَرَى",
+      "pos": "verb",
+      "category": "verbs",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ya",
+        "letter.ra"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.alif_maqsura.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.alif_maqsura.reading"
+      ],
+      "imageAssetId": "image.word.yara",
+      "audioAssetIds": {
+        "citation": "audio.word.yara"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.yamshi",
+      "lemma": "يمشي",
+      "diacritized": "يَمْشِي",
+      "teachingForm": "يَمْشِي",
+      "pos": "verb",
+      "category": "verbs",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ya",
+        "letter.mim",
+        "letter.shin"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.sukun.basic",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.sukun.basic",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.yamshi",
+      "audioAssetIds": {
+        "citation": "audio.word.yamshi"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "verbs-7"
+    },
+    {
+      "id": "word.kabir",
+      "lemma": "كبير",
+      "diacritized": "كَبِير",
+      "teachingForm": "كَبِير",
+      "pos": "adjective",
+      "category": "adjectives",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.kaf",
+        "letter.ba",
+        "letter.ya",
+        "letter.ra"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.kabir",
+      "audioAssetIds": {
+        "citation": "audio.word.kabir"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "adjectives-1",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.saghir",
+      "lemma": "صغير",
+      "diacritized": "صَغِير",
+      "teachingForm": "صَغِير",
+      "pos": "adjective",
+      "category": "adjectives",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.sad",
+        "letter.ghain",
+        "letter.ya",
+        "letter.ra"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.saghir",
+      "audioAssetIds": {
+        "citation": "audio.word.saghir"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "adjectives-2",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.saeed",
+      "lemma": "سعيد",
+      "diacritized": "سَعِيد",
+      "teachingForm": "سَعِيد",
+      "pos": "adjective",
+      "category": "adjectives",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.sin",
+        "letter.ain",
+        "letter.ya",
+        "letter.dal"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.saeed",
+      "audioAssetIds": {
+        "citation": "audio.word.saeed"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "adjectives-14",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.hazin",
+      "lemma": "حزين",
+      "diacritized": "حَزِين",
+      "teachingForm": "حَزِين",
+      "pos": "adjective",
+      "category": "adjectives",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ha",
+        "letter.zay",
+        "letter.ya",
+        "letter.nun"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.hazin",
+      "audioAssetIds": {
+        "citation": "audio.word.hazin"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3"
+      ],
+      "status": "active",
+      "legacyId": "adjectives-15"
+    },
+    {
+      "id": "word.hadha",
+      "lemma": "هذا",
+      "diacritized": "هَذَا",
+      "teachingForm": "هَذَا",
+      "pos": "function",
+      "category": "function",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.haa",
+        "letter.thal",
+        "letter.alif"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.hadha",
+      "audioAssetIds": {
+        "citation": "audio.word.hadha"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.hadhihi",
+      "lemma": "هذه",
+      "diacritized": "هَذِهِ",
+      "teachingForm": "هَذِهِ",
+      "pos": "function",
+      "category": "function",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.haa",
+        "letter.thal"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra"
+      ],
+      "imageAssetId": "image.word.hadhihi",
+      "audioAssetIds": {
+        "citation": "audio.word.hadhihi"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.huwa",
+      "lemma": "هو",
+      "diacritized": "هُوَ",
+      "teachingForm": "هُوَ",
+      "pos": "function",
+      "category": "function",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.haa",
+        "letter.waw"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma"
+      ],
+      "imageAssetId": "image.word.huwa",
+      "audioAssetIds": {
+        "citation": "audio.word.huwa"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.hiya",
+      "lemma": "هي",
+      "diacritized": "هِيَ",
+      "teachingForm": "هِيَ",
+      "pos": "function",
+      "category": "function",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.haa",
+        "letter.ya"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra"
+      ],
+      "imageAssetId": "image.word.hiya",
+      "audioAssetIds": {
+        "citation": "audio.word.hiya"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.fi",
+      "lemma": "في",
+      "diacritized": "فِي",
+      "teachingForm": "فِي",
+      "pos": "function",
+      "category": "function",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.fa",
+        "letter.ya"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.fi",
+      "audioAssetIds": {
+        "citation": "audio.word.fi"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.ala",
+      "lemma": "على",
+      "diacritized": "عَلَى",
+      "teachingForm": "عَلَى",
+      "pos": "function",
+      "category": "function",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ain",
+        "letter.lam",
+        "letter.ya"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.alif_maqsura.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.alif_maqsura.reading"
+      ],
+      "imageAssetId": "image.word.ala",
+      "audioAssetIds": {
+        "citation": "audio.word.ala"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.huna",
+      "lemma": "هنا",
+      "diacritized": "هُنَا",
+      "teachingForm": "هُنَا",
+      "pos": "function",
+      "category": "function",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.haa",
+        "letter.nun",
+        "letter.alif"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.huna",
+      "audioAssetIds": {
+        "citation": "audio.word.huna"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.naam",
+      "lemma": "نعم",
+      "diacritized": "نَعَم",
+      "teachingForm": "نَعَم",
+      "pos": "function",
+      "category": "function",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.nun",
+        "letter.ain",
+        "letter.mim"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "imageAssetId": "image.word.naam",
+      "audioAssetIds": {
+        "citation": "audio.word.naam"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.laa",
+      "lemma": "لا",
+      "diacritized": "لَا",
+      "teachingForm": "لَا",
+      "pos": "function",
+      "category": "function",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.lam",
+        "letter.alif"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.laa",
+      "audioAssetIds": {
+        "citation": "audio.word.laa"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.arbaa",
+      "lemma": "أربعة",
+      "diacritized": "أَرْبَعَة",
+      "teachingForm": "أَرْبَعَة",
+      "pos": "numeral",
+      "category": "numbers",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.alif",
+        "letter.ra",
+        "letter.ba",
+        "letter.ain",
+        "letter.ta"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.hamza.reading",
+        "skill.taa_marbuta.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.hamza.reading",
+        "skill.taa_marbuta.reading"
+      ],
+      "imageAssetId": "image.word.arbaa",
+      "audioAssetIds": {
+        "citation": "audio.word.arbaa"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "legacyId": "numbers-4"
+    },
+    {
+      "id": "word.khamsa",
+      "lemma": "خمسة",
+      "diacritized": "خَمْسَة",
+      "teachingForm": "خَمْسَة",
+      "pos": "numeral",
+      "category": "numbers",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.kha",
+        "letter.mim",
+        "letter.sin",
+        "letter.ta"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.taa_marbuta.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.taa_marbuta.reading"
+      ],
+      "imageAssetId": "image.word.khamsa",
+      "audioAssetIds": {
+        "citation": "audio.word.khamsa"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "legacyId": "numbers-5"
+    },
+    {
+      "id": "word.aswad",
+      "lemma": "أسود",
+      "diacritized": "أَسْوَد",
+      "teachingForm": "أَسْوَد",
+      "pos": "adjective",
+      "category": "colors",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.alif",
+        "letter.sin",
+        "letter.waw",
+        "letter.dal"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.hamza.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.hamza.reading"
+      ],
+      "imageAssetId": "image.word.aswad",
+      "audioAssetIds": {
+        "citation": "audio.word.aswad"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "legacyId": "colors-9"
+    },
+    {
+      "id": "word.abyad",
+      "lemma": "أبيض",
+      "diacritized": "أَبْيَض",
+      "teachingForm": "أَبْيَض",
+      "pos": "adjective",
+      "category": "colors",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.alif",
+        "letter.ba",
+        "letter.ya",
+        "letter.dad"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.hamza.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.hamza.reading"
+      ],
+      "imageAssetId": "image.word.abyad",
+      "audioAssetIds": {
+        "citation": "audio.word.abyad"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "legacyId": "colors-10"
+    },
+    {
+      "id": "word.tawil",
+      "lemma": "طويل",
+      "diacritized": "طَوِيل",
+      "teachingForm": "طَوِيل",
+      "pos": "adjective",
+      "category": "adjectives",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.tah",
+        "letter.waw",
+        "letter.ya",
+        "letter.lam"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.tawil",
+      "audioAssetIds": {
+        "citation": "audio.word.tawil"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "legacyId": "adjectives-3"
+    },
+    {
+      "id": "word.qasir",
+      "lemma": "قصير",
+      "diacritized": "قَصِير",
+      "teachingForm": "قَصِير",
+      "pos": "adjective",
+      "category": "adjectives",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.qaf",
+        "letter.sad",
+        "letter.ya",
+        "letter.ra"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.qasir",
+      "audioAssetIds": {
+        "citation": "audio.word.qasir"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "legacyId": "adjectives-4"
+    },
+    {
+      "id": "word.harr",
+      "lemma": "حار",
+      "diacritized": "حَارّ",
+      "teachingForm": "حَارّ",
+      "pos": "adjective",
+      "category": "adjectives",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ha",
+        "letter.alif",
+        "letter.ra"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd",
+        "skill.shadda.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd",
+        "skill.shadda.basic"
+      ],
+      "imageAssetId": "image.word.harr",
+      "audioAssetIds": {
+        "citation": "audio.word.harr"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "legacyId": "adjectives-21"
+    },
+    {
+      "id": "word.barid",
+      "lemma": "بارد",
+      "diacritized": "بَارِد",
+      "teachingForm": "بَارِد",
+      "pos": "adjective",
+      "category": "adjectives",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ba",
+        "letter.alif",
+        "letter.ra",
+        "letter.dal"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.barid",
+      "audioAssetIds": {
+        "citation": "audio.word.barid"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "legacyId": "adjectives-22"
+    },
+    {
+      "id": "word.sari",
+      "lemma": "سريع",
+      "diacritized": "سَرِيع",
+      "teachingForm": "سَرِيع",
+      "pos": "adjective",
+      "category": "adjectives",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.sin",
+        "letter.ra",
+        "letter.ya",
+        "letter.ain"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.sari",
+      "audioAssetIds": {
+        "citation": "audio.word.sari"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "legacyId": "adjectives-5"
+    },
+    {
+      "id": "word.sadiq",
+      "lemma": "صديق",
+      "diacritized": "صَدِيق",
+      "teachingForm": "صَدِيق",
+      "pos": "noun",
+      "category": "family",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.sad",
+        "letter.dal",
+        "letter.ya",
+        "letter.qaf"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.sadiq",
+      "audioAssetIds": {
+        "citation": "audio.word.sadiq"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "legacyId": "family-20"
+    },
+    {
+      "id": "word.tabib",
+      "lemma": "طبيب",
+      "diacritized": "طَبِيب",
+      "teachingForm": "طَبِيب",
+      "pos": "noun",
+      "category": "jobs",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.tah",
+        "letter.ba",
+        "letter.ya"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.tabib",
+      "audioAssetIds": {
+        "citation": "audio.word.tabib"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "legacyId": "jobs-1"
+    },
+    {
+      "id": "word.darraja",
+      "lemma": "دراجة",
+      "diacritized": "دَرَّاجَة",
+      "teachingForm": "دَرَّاجَة",
+      "pos": "noun",
+      "category": "transport",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.dal",
+        "letter.ra",
+        "letter.alif",
+        "letter.jim",
+        "letter.ta"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd",
+        "skill.shadda.basic",
+        "skill.taa_marbuta.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd",
+        "skill.shadda.basic",
+        "skill.taa_marbuta.reading"
+      ],
+      "imageAssetId": "image.word.darraja",
+      "audioAssetIds": {
+        "citation": "audio.word.darraja"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "legacyId": "transport-3"
+    },
+    {
+      "id": "word.qitar",
+      "lemma": "قطار",
+      "diacritized": "قِطَار",
+      "teachingForm": "قِطَار",
+      "pos": "noun",
+      "category": "transport",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.qaf",
+        "letter.tah",
+        "letter.alif",
+        "letter.ra"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.qitar",
+      "audioAssetIds": {
+        "citation": "audio.word.qitar"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "legacyId": "transport-5"
+    },
+    {
+      "id": "word.matbakh",
+      "lemma": "مطبخ",
+      "diacritized": "مَطْبَخ",
+      "teachingForm": "مَطْبَخ",
+      "pos": "noun",
+      "category": "home",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.mim",
+        "letter.tah",
+        "letter.ba",
+        "letter.kha"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.matbakh",
+      "audioAssetIds": {
+        "citation": "audio.word.matbakh"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "legacyId": "home-20"
+    },
+    {
+      "id": "word.hammam",
+      "lemma": "حمام",
+      "diacritized": "حَمَّام",
+      "teachingForm": "حَمَّام",
+      "pos": "noun",
+      "category": "home",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ha",
+        "letter.mim",
+        "letter.alif"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd",
+        "skill.shadda.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd",
+        "skill.shadda.basic"
+      ],
+      "imageAssetId": "image.word.hammam",
+      "audioAssetIds": {
+        "citation": "audio.word.hammam"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "legacyId": "home-21"
+    },
+    {
+      "id": "word.nafidha",
+      "lemma": "نافذة",
+      "diacritized": "نَافِذَة",
+      "teachingForm": "نَافِذَة",
+      "pos": "noun",
+      "category": "home",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.nun",
+        "letter.alif",
+        "letter.fa",
+        "letter.thal",
+        "letter.ta"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd",
+        "skill.taa_marbuta.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd",
+        "skill.taa_marbuta.reading"
+      ],
+      "imageAssetId": "image.word.nafidha",
+      "audioAssetIds": {
+        "citation": "audio.word.nafidha"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "legacyId": "home-3"
+    },
+    {
+      "id": "word.kursi",
+      "lemma": "كرسي",
+      "diacritized": "كُرْسِيّ",
+      "teachingForm": "كُرْسِيّ",
+      "pos": "noun",
+      "category": "home",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.kaf",
+        "letter.ra",
+        "letter.sin",
+        "letter.ya"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.kasra",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic",
+        "skill.long_vowel.madd",
+        "skill.shadda.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.kasra",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic",
+        "skill.long_vowel.madd",
+        "skill.shadda.basic"
+      ],
+      "imageAssetId": "image.word.kursi",
+      "audioAssetIds": {
+        "citation": "audio.word.kursi"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "legacyId": "home-8"
+    },
+    {
+      "id": "word.nahla",
+      "lemma": "نحلة",
+      "diacritized": "نَحْلَة",
+      "teachingForm": "نَحْلَة",
+      "pos": "noun",
+      "category": "animals",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.nun",
+        "letter.ha",
+        "letter.lam",
+        "letter.ta"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.taa_marbuta.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.taa_marbuta.reading"
+      ],
+      "imageAssetId": "image.word.nahla",
+      "audioAssetIds": {
+        "citation": "audio.word.nahla"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "legacyId": "birds-21"
+    },
+    {
+      "id": "word.farasha",
+      "lemma": "فراشة",
+      "diacritized": "فَرَاشَة",
+      "teachingForm": "فَرَاشَة",
+      "pos": "noun",
+      "category": "animals",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.fa",
+        "letter.ra",
+        "letter.alif",
+        "letter.shin",
+        "letter.ta"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd",
+        "skill.taa_marbuta.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd",
+        "skill.taa_marbuta.reading"
+      ],
+      "imageAssetId": "image.word.farasha",
+      "audioAssetIds": {
+        "citation": "audio.word.farasha"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "legacyId": "birds-22"
+    },
+    {
+      "id": "word.yaqul",
+      "lemma": "يقول",
+      "diacritized": "يَقُولُ",
+      "teachingForm": "يَقُولُ",
+      "pos": "verb",
+      "category": "verbs",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ya",
+        "letter.qaf",
+        "letter.waw",
+        "letter.lam"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.yaqul",
+      "audioAssetIds": {
+        "citation": "audio.word.yaqul"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.yati",
+      "lemma": "يأتي",
+      "diacritized": "يَأْتِي",
+      "teachingForm": "يَأْتِي",
+      "pos": "verb",
+      "category": "verbs",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ya",
+        "letter.alif",
+        "letter.ta"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.sukun.basic",
+        "skill.long_vowel.madd",
+        "skill.hamza.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.sukun.basic",
+        "skill.long_vowel.madd",
+        "skill.hamza.reading"
+      ],
+      "imageAssetId": "image.word.yati",
+      "audioAssetIds": {
+        "citation": "audio.word.yati"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "word.yughliq",
+      "lemma": "يغلق",
+      "diacritized": "يُغْلِقُ",
+      "teachingForm": "يُغْلِقُ",
+      "pos": "verb",
+      "category": "verbs",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ya",
+        "letter.ghain",
+        "letter.lam",
+        "letter.qaf"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.kasra",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.kasra",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.yughliq",
+      "audioAssetIds": {
+        "citation": "audio.word.yughliq"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "legacyId": "verbs-25"
+    },
+    {
+      "id": "word.yalbas",
+      "lemma": "يلبس",
+      "diacritized": "يَلْبَسُ",
+      "teachingForm": "يَلْبَسُ",
+      "pos": "verb",
+      "category": "verbs",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ya",
+        "letter.lam",
+        "letter.ba",
+        "letter.sin"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.yalbas",
+      "audioAssetIds": {
+        "citation": "audio.word.yalbas"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "legacyId": "verbs-30"
+    },
+    {
+      "id": "word.yaghsil",
+      "lemma": "يغسل",
+      "diacritized": "يَغْسِلُ",
+      "teachingForm": "يَغْسِلُ",
+      "pos": "verb",
+      "category": "verbs",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ya",
+        "letter.ghain",
+        "letter.sin",
+        "letter.lam"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.yaghsil",
+      "audioAssetIds": {
+        "citation": "audio.word.yaghsil"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "legacyId": "verbs-29"
+    },
+    {
+      "id": "word.ladhidh",
+      "lemma": "لذيذ",
+      "diacritized": "لَذِيذ",
+      "teachingForm": "لَذِيذ",
+      "pos": "adjective",
+      "category": "adjectives",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.lam",
+        "letter.thal",
+        "letter.ya"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.ladhidh",
+      "audioAssetIds": {
+        "citation": "audio.word.ladhidh"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "legacyId": "adjectives-30"
+    },
+    {
+      "id": "word.shay",
+      "lemma": "شاي",
+      "diacritized": "شَاي",
+      "teachingForm": "شَاي",
+      "pos": "noun",
+      "category": "food",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "LOANWORD_ACCEPTED",
+      "letterIds": [
+        "letter.shin",
+        "letter.alif",
+        "letter.ya"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.shay",
+      "audioAssetIds": {
+        "citation": "audio.word.shay"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4"
+      ],
+      "status": "active",
+      "legacyId": "food-48"
+    }
+  ],
+  "sentences": [],
+  "stories": [],
+  "informationalTexts": [],
+  "exercises": [],
+  "assets": [
+    {
+      "id": "audio.word.bab",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.bab",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.bayt",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.bayt",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.yad",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.yad",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.ab",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.ab",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.maa",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.maa",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.kalb",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.kalb",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.qalam",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.qalam",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.shams",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.shams",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.qamar",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.qamar",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.nar",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.nar",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.fam",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.fam",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.khubz",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.khubz",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.tamr",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.tamr",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.bayd",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.bayd",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.mawz",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.mawz",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.asal",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.asal",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.jamal",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.jamal",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.fil",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.fil",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.hajar",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.hajar",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.qadam",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.qadam",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.wajh",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.wajh",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.bahr",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.bahr",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.layl",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.layl",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.nahr",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.nahr",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.samak",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.samak",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.raml",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.raml",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.kitab",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.kitab",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.asad",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.asad",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.umm",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.umm",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.akh",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.akh",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.ukht",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.ukht",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.bint",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.bint",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.walad",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.walad",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.jadd",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.jadd",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.jadda",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.jadda",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.qitt",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.qitt",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.qitta",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.qitta",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.arnab",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.arnab",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.baqara",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.baqara",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.dajaja",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.dajaja",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.ayn",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.ayn",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.anf",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.anf",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.udhun",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.udhun",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.shaar",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.shaar",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.ghurfa",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.ghurfa",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.sarir",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.sarir",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.tawila",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.tawila",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.kub",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.kub",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.halib",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.halib",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.tuffah",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.tuffah",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.dajaj",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.dajaj",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.shajara",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.shajara",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.matar",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.matar",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.sama",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.sama",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.yakul",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.yakul",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.yashrab",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.yashrab",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.yalab",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.yalab",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.yanam",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.yanam",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.yajlis",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.yajlis",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.ahmar",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.ahmar",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.azraq",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.azraq",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.asfar",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.asfar",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.akhdar",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.akhdar",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.ras",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.ras",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.jism",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.jism",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.qalb",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.qalb",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.sinn",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.sinn",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.madrasa",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.madrasa",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.muallima",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.muallima",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.daftar",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.daftar",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.harf",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.harf",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.qissa",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.qissa",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.qamis",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.qamis",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.hidha",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.hidha",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.sayyara",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.sayyara",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.hafila",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.hafila",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.wahid",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.wahid",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.thalatha",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.thalatha",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.kura",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.kura",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.luba",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.luba",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.masjid",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.masjid",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.suq",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.suq",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.yawm",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.yawm",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.sabah",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.sabah",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.usfur",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.usfur",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.hisan",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.hisan",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.inab",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.inab",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.laymun",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.laymun",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.warda",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.warda",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.miftah",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.miftah",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.yaktub",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.yaktub",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.yaqra",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.yaqra",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.yaftah",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.yaftah",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.yadhhab",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.yadhhab",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.yara",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.yara",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.yamshi",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.yamshi",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.kabir",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.kabir",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.saghir",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.saghir",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.saeed",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.saeed",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.hazin",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.hazin",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.hadha",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.hadha",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.hadhihi",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.hadhihi",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.huwa",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.huwa",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.hiya",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.hiya",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.fi",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.fi",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.ala",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.ala",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.huna",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.huna",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.naam",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.naam",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.laa",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.laa",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.arbaa",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.arbaa",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.khamsa",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.khamsa",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.aswad",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.aswad",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.abyad",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.abyad",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.tawil",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.tawil",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.qasir",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.qasir",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.harr",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.harr",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.barid",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.barid",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.sari",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.sari",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.sadiq",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.sadiq",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.tabib",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.tabib",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.darraja",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.darraja",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.qitar",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.qitar",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.matbakh",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.matbakh",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.hammam",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.hammam",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.nafidha",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.nafidha",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.kursi",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.kursi",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.nahla",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.nahla",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.farasha",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.farasha",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.yaqul",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.yaqul",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.yati",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.yati",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.yughliq",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.yughliq",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.yalbas",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.yalbas",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.yaghsil",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.yaghsil",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.ladhidh",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.ladhidh",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    },
+    {
+      "id": "audio.word.shay",
+      "kind": "audio",
+      "hint": "Logical citation audio; no file shipped in this migration"
+    },
+    {
+      "id": "image.word.shay",
+      "kind": "image",
+      "hint": "Logical picture id; no file shipped in this migration"
+    }
+  ]
+}
