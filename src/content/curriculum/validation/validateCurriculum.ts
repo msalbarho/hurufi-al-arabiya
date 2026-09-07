@@ -1313,6 +1313,7 @@ export function validateCurriculum(data: unknown): ValidationResult {
         const parsed = parseCurriculumId(choice["id"]);
         if (parsed?.namespace === "syllable") resolveSyllable(`${path}.choices[${j}].id`, choice["id"]);
         if (parsed?.namespace === "letter") resolveLetter(`${path}.choices[${j}].id`, choice["id"]);
+        if (parsed?.namespace === "word") resolveWord(`${path}.choices[${j}].id`, choice["id"]);
       });
     }
     if (row["type"] === "syllable_blending") {
@@ -1408,6 +1409,83 @@ export function validateCurriculum(data: unknown): ValidationResult {
             `letter_recognition correctChoiceId "${correctId}" is not listed in choices.`,
           );
         }
+      }
+    }
+    if (row["type"] === "audio_to_word") {
+      const success = isRecord(row["success"]) ? row["success"] : undefined;
+      const correctId = success && typeof success["correctChoiceId"] === "string" ? success["correctChoiceId"] : undefined;
+      if (correctId) {
+        const parsed = parseCurriculumId(correctId);
+        if (parsed?.namespace === "word") resolveWord(`${path}.success.correctChoiceId`, correctId);
+      }
+      const contentWordIds = (Array.isArray(row["contentIds"]) ? row["contentIds"] : []).filter(
+        (id): id is string => typeof id === "string" && id.startsWith("word."),
+      );
+      const targetWordIds = Array.isArray(row["masteryTargets"])
+        ? row["masteryTargets"].flatMap((target) =>
+            isRecord(target) && typeof target["wordId"] === "string" ? [target["wordId"]] : [],
+          )
+        : [];
+      const decodingWordIds = Array.isArray(row["masteryTargets"])
+        ? row["masteryTargets"].flatMap((target) =>
+            isRecord(target) &&
+            target["skillId"] === "skill.word_decoding.simple" &&
+            typeof target["wordId"] === "string"
+              ? [target["wordId"]]
+              : [],
+          )
+        : [];
+      const hasDecodingWithoutWord = Array.isArray(row["masteryTargets"])
+        ? row["masteryTargets"].some(
+            (target) =>
+              isRecord(target) &&
+              target["skillId"] === "skill.word_decoding.simple" &&
+              typeof target["wordId"] !== "string",
+          )
+        : false;
+      const targetId =
+        (correctId?.startsWith("word.") ? correctId : undefined) ??
+        targetWordIds[0] ??
+        contentWordIds[0];
+      if (!targetId) {
+        out.error(
+          "MISSING_FIELD",
+          `${path}.success.correctChoiceId`,
+          "audio_to_word exercise must reference a playable target word.",
+        );
+      }
+      if (hasDecodingWithoutWord) {
+        out.error(
+          "MISSING_FIELD",
+          `${path}.masteryTargets`,
+          "audio_to_word word-decoding mastery target must declare wordId.",
+        );
+      }
+      if (correctId && Array.isArray(choices) && choices.length > 0) {
+        const choiceIds = choices.flatMap((choice) =>
+          isRecord(choice) && typeof choice["id"] === "string" ? [choice["id"]] : [],
+        );
+        if (!choiceIds.includes(correctId)) {
+          out.error(
+            "MISSING_FIELD",
+            `${path}.success.correctChoiceId`,
+            `audio_to_word correctChoiceId "${correctId}" is not listed in choices.`,
+          );
+        }
+      }
+      if (correctId?.startsWith("word.") && decodingWordIds.length > 0 && decodingWordIds.some((id) => id !== correctId)) {
+        out.error(
+          "MISSING_MASTERY_TARGET",
+          `${path}.masteryTargets`,
+          `audio_to_word word-decoding target does not match scored word "${correctId}".`,
+        );
+      }
+      if (correctId?.startsWith("word.") && targetWordIds.length > 0 && !targetWordIds.includes(correctId)) {
+        out.error(
+          "MISSING_MASTERY_TARGET",
+          `${path}.masteryTargets`,
+          `audio_to_word exercise does not score its correct word "${correctId}".`,
+        );
       }
     }
     const evidence = row["masteryEvidence"];
@@ -1607,6 +1685,7 @@ export function validateCurriculum(data: unknown): ValidationResult {
       const availableSkills = accumulate(available, (uid) => unitSkillIds.get(uid));
       const availableForms = accumulate(available, (uid) => unitFormKeys.get(uid));
       const availableSyllables = accumulate(available, (uid) => unitSyllableIds.get(uid));
+      const availableWords = accumulate(available, (uid) => unitWordIds.get(uid));
 
       for (const [j, wordId] of (unitWordIds.get(id) ?? []).entries()) {
         for (const lid of wordLetterReqs.get(wordId) ?? []) {
@@ -1779,6 +1858,34 @@ export function validateCurriculum(data: unknown): ValidationResult {
                 "PREMATURE_CONTENT",
                 `units[${i}].exerciseIds[${j}]`,
                 `Exercise "${exerciseId}" uses ${formLetter} ${formSlot} form before unit "${id}" introduces it.`,
+              );
+            }
+          }
+        }
+        if (exercise["type"] === "audio_to_word" || exercise["type"] === "picture_to_word" || exercise["type"] === "word_to_picture") {
+          const usedWords = new Set<string>();
+          const addWord = (value: unknown) => {
+            if (typeof value === "string" && value.startsWith("word.")) usedWords.add(value);
+          };
+          (Array.isArray(exercise["contentIds"]) ? exercise["contentIds"] : []).forEach(addWord);
+          if (isRecord(exercise["success"])) addWord(exercise["success"]["correctChoiceId"]);
+          if (Array.isArray(exercise["masteryTargets"])) {
+            exercise["masteryTargets"].forEach((target) => {
+              if (isRecord(target)) addWord(target["wordId"]);
+            });
+          }
+          if (Array.isArray(exercise["choices"])) {
+            exercise["choices"].forEach((choice) => {
+              if (isRecord(choice)) addWord(choice["id"]);
+            });
+          }
+          for (const wordId of usedWords) {
+            if (!wordIds.has(wordId)) continue;
+            if (!availableWords.has(wordId)) {
+              out.error(
+                "PREMATURE_CONTENT",
+                `units[${i}].exerciseIds[${j}]`,
+                `Exercise "${exerciseId}" uses word "${wordId}" before unit "${id}" introduces it.`,
               );
             }
           }

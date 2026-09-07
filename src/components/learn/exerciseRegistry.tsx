@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import type { ExerciseType } from "@/content/curriculum/index.ts";
 import { isExerciseTypeReady } from "@/lib/curriculum/exerciseReadiness.ts";
 import type { ExerciseViewProps } from "./exerciseTypes.ts";
+import { AudioToWordExercise } from "./AudioToWordExercise.tsx";
 import { LetterRecognitionExercise } from "./LetterRecognitionExercise.tsx";
 import { SoundToLetterExercise } from "./SoundToLetterExercise.tsx";
 import { TracingExercise } from "./TracingExercise.tsx";
@@ -12,6 +13,7 @@ const registry: Partial<Record<ExerciseType, (props: ExerciseViewProps) => React
   tracing: TracingExercise,
   syllable_blending: SyllableBlendingExercise,
   letter_recognition: LetterRecognitionExercise,
+  audio_to_word: AudioToWordExercise,
 };
 
 if (import.meta.env.DEV) {

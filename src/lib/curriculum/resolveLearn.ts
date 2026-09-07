@@ -99,6 +99,9 @@ export function missingLearnRefs(view: LearnUnitView): string[] {
       ) {
         missing.push(`syllable ${target.syllableId} on ${target.id}`);
       }
+      if (target.wordId && !view.bundle.words.some((word) => word.id === target.wordId)) {
+        missing.push(`word ${target.wordId} on ${target.id}`);
+      }
     }
   }
   if (import.meta.env.DEV) {

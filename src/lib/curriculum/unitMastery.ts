@@ -124,12 +124,43 @@ export function getLetterFormLiveKey(args: {
   return { type: "letter", id, liveKey: `letter:${id}` };
 }
 
+/**
+ * Stable live progress key for a taught word-decoding item.
+ *
+ * Wave 1 persisted shape: `word:{slug}.decoding`
+ *   word.qalam → word:qalam.decoding
+ *
+ * Distinct from letter/syllable keys and from 720-bank ids (`school-8`).
+ * Future word-decoding exercises must go through this helper.
+ */
+export function getWordLiveKey(args: {
+  wordId?: string;
+}): { type: ItemType; id: string; liveKey: string } {
+  const raw = args.wordId && args.wordId.length > 0 ? args.wordId : "item";
+  const stem = raw.startsWith("word.") ? raw.slice("word.".length) : raw;
+  const id = `${stem}.decoding`;
+  return { type: "word", id, liveKey: `word:${id}` };
+}
+
 export function liveRefForTarget(bundle: CurriculumBundle, target: ExerciseMasteryTarget): LiveMasteryRef {
   const syllable = target.syllableId
     ? bundle.syllables?.find((row) => row.id === target.syllableId)
     : undefined;
   const letterId = target.letterId ?? syllable?.letterId;
   const letter = letterId ? bundle.letters.find((row) => row.id === letterId) : undefined;
+  if (
+    target.wordId &&
+    (target.skillId === "skill.word_decoding.simple" || (!target.syllableId && !target.letterId))
+  ) {
+    const keyed = getWordLiveKey({ wordId: target.wordId });
+    return {
+      portableMasteryId: target.id,
+      skillId: target.skillId,
+      type: keyed.type,
+      id: keyed.id,
+      liveKey: keyed.liveKey,
+    };
+  }
   if (syllable && (target.syllableId || target.skillId === "skill.syllable_blending.cv")) {
     const keyed = getSyllableLiveKey({
       syllableId: syllable.id,

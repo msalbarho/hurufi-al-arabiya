@@ -2,7 +2,7 @@
  * Maps portable mastery targets onto the existing progress store
  * without rewriting it.
  *
- * Live keys stay `letter:${id}`. Item ids encode the facet so
+ * Letter live keys stay `letter:${id}`. Item ids encode the facet so
  * tracing stays distinct from sound.
  *
  * Isolated letter recognition from sound-to-letter shares `letter:mim.sound`
@@ -10,6 +10,9 @@
  *
  * CV syllables use `getSyllableLiveKey` → `letter:{legacyId}.{vowel}` so
  * blending and short-vowel evidence on the same syllable share one live item.
+ *
+ * Word decoding uses `getWordLiveKey` → `word:{slug}.decoding`
+ * (e.g. word.qalam → word:qalam.decoding). Not a letter key.
  */
 import type { CurriculumBundle, ExerciseDefinition } from "@/content/curriculum/index.ts";
 import { useProgress } from "@/lib/progress/store";
@@ -26,6 +29,7 @@ export {
   exerciseActivitiesComplete,
   getLetterFormLiveKey,
   getSyllableLiveKey,
+  getWordLiveKey,
   liveRefForTarget,
   unitExerciseCompletion,
   unitPathStatus,

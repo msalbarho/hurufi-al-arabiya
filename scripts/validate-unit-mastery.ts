@@ -9,6 +9,7 @@ import { asCurriculumBundle, validateCurriculum, WAVE1_PATH_ID } from "../src/co
 import { unitRenderersReady } from "../src/lib/curriculum/exerciseReadiness.ts";
 import { resolveLetterRecognition } from "../src/lib/curriculum/letterRecognitionAdapter.ts";
 import { resolveSyllableBlending, shuffleWithSeed } from "../src/lib/curriculum/syllableAdapter.ts";
+import { resolveAudioToWord } from "../src/lib/curriculum/wordAdapter.ts";
 import {
   evaluateUnitMastery,
   evaluateUnitUnlock,
@@ -16,6 +17,7 @@ import {
   exercisesForUnit,
   getLetterFormLiveKey,
   getSyllableLiveKey,
+  getWordLiveKey,
   liveRefForTarget,
   resolveUnitRouteAccess,
   type LiveMasteryRef,
@@ -73,12 +75,14 @@ function main(): void {
   const unit2 = units[1];
   const unit3 = units[2];
   const unit4 = units[3];
-  if (!unit1 || !unit2 || !unit3 || !unit4) throw new Error("Wave 1 units 1–4 missing");
+  const unit5 = units[4];
+  if (!unit1 || !unit2 || !unit3 || !unit4 || !unit5) throw new Error("Wave 1 units 1–5 missing");
 
   const unit1Exercises = exercisesForUnit(bundle, unit1);
   const unit2Exercises = exercisesForUnit(bundle, unit2);
   const unit3Exercises = exercisesForUnit(bundle, unit3);
   const unit4Exercises = exercisesForUnit(bundle, unit4);
+  const unit5Exercises = exercisesForUnit(bundle, unit5);
   const unit1Refs = uniqueRefs(
     unit1Exercises.flatMap((exercise) =>
       (exercise.masteryTargets ?? []).map((target) => liveRefForTarget(bundle, target)),
@@ -526,8 +530,165 @@ function main(): void {
   });
   assert("13. Unit 4 unlocks after Unit 3 mastery", u4after.unlocked);
   assert(
-    "13. Unit 4 stays renderer-gated (no word engine in this task)",
-    resolveUnitRouteAccess(u4after.unlocked, unitRenderersReady(unit4Exercises)) === "coming_soon",
+    "2. Unit 4 becomes curriculum-playable after Unit 3 mastery",
+    resolveUnitRouteAccess(u4after.unlocked, unitRenderersReady(unit4Exercises)) === "play",
+  );
+  assert("3. audio_to_word renderer reports ready", unitRenderersReady(unit4Exercises));
+
+  const wordExercise = unit4Exercises.find((row) => row.type === "audio_to_word");
+  const resolvedWord = wordExercise ? resolveAudioToWord(bundle, wordExercise) : undefined;
+  assert("4. Unit 4 word exercise resolves", Boolean(resolvedWord));
+  assert("5. target word exists", resolvedWord?.target.id === "word.qalam" && resolvedWord.target.displayText === "قَلَم");
+  assert(
+    "6. both choices exist",
+    resolvedWord?.choices.some((row) => row.id === "word.qalam") === true &&
+      resolvedWord.choices.some((row) => row.id === "word.qadam") === true &&
+      resolvedWord.choices.length === 2,
+  );
+  assert(
+    "getWordLiveKey uses word:qalam.decoding",
+    getWordLiveKey({ wordId: "word.qalam" }).liveKey === "word:qalam.decoding",
+  );
+
+  const unit4Refs = uniqueRefs(
+    unit4Exercises.flatMap((exercise) =>
+      (exercise.masteryTargets ?? []).map((target) => liveRefForTarget(bundle, target)),
+    ),
+  );
+  const qalamRef = unit4Refs.find((ref) => ref.liveKey === "word:qalam.decoding");
+  assert("11. Unit 4 live key is word:qalam.decoding", qalamRef?.liveKey === "word:qalam.decoding");
+  assert("11. Unit 4 has one unique word-decoding ref", unit4Refs.length === 1);
+  assert("Unit 4 required skill is mapped", (unit4.mastery.requiredSkillIds ?? []).includes("skill.word_decoding.simple"));
+
+  const unknownWordBundle = JSON.parse(readFileSync(wave1Path, "utf8")) as Record<string, unknown>;
+  const unknownWordExercises = unknownWordBundle["exercises"] as Array<Record<string, unknown>>;
+  const unknownWordRow = unknownWordExercises.find((row) => row["id"] === "exercise.wave1.audio_to_word.qalam");
+  if (unknownWordRow) {
+    unknownWordRow["choices"] = [
+      ...(Array.isArray(unknownWordRow["choices"]) ? unknownWordRow["choices"] : []),
+      { id: "word.notreal", label: "?" },
+    ];
+  }
+  const unknownWordResult = validateCurriculum(unknownWordBundle);
+  assert(
+    "7. unknown word ref fails validation",
+    unknownWordResult.issues.some(
+      (issue) => issue.code === "MISSING_WORD" && issue.message.includes("word.notreal"),
+    ),
+  );
+
+  const prematureWordBundle = JSON.parse(readFileSync(wave1Path, "utf8")) as Record<string, unknown>;
+  const prematureWordExercises = prematureWordBundle["exercises"] as Array<Record<string, unknown>>;
+  const prematureWordRow = prematureWordExercises.find((row) => row["id"] === "exercise.wave1.audio_to_word.qalam");
+  if (prematureWordRow) {
+    prematureWordRow["choices"] = [
+      ...(Array.isArray(prematureWordRow["choices"]) ? prematureWordRow["choices"] : []),
+      { id: "word.walad", label: "وَلَد" },
+    ];
+  }
+  const prematureWordResult = validateCurriculum(prematureWordBundle);
+  assert(
+    "8. future/premature word fails validation",
+    prematureWordResult.issues.some(
+      (issue) =>
+        issue.code === "PREMATURE_CONTENT" &&
+        issue.message.includes("word.walad") &&
+        issue.message.includes("exercise.wave1.audio_to_word.qalam"),
+    ),
+    prematureWordResult.issues.map((issue) => `${issue.code}: ${issue.message}`).join(" | "),
+  );
+
+  const mismatchWordBundle = JSON.parse(readFileSync(wave1Path, "utf8")) as Record<string, unknown>;
+  const mismatchWordExercises = mismatchWordBundle["exercises"] as Array<Record<string, unknown>>;
+  const mismatchWordRow = mismatchWordExercises.find((row) => row["id"] === "exercise.wave1.audio_to_word.qalam");
+  if (mismatchWordRow && Array.isArray(mismatchWordRow["masteryTargets"])) {
+    const targets = mismatchWordRow["masteryTargets"] as Array<Record<string, unknown>>;
+    if (targets[0]) targets[0]["wordId"] = "word.qadam";
+  }
+  const mismatchWordResult = validateCurriculum(mismatchWordBundle);
+  assert(
+    "word-decoding target must match the scored word",
+    mismatchWordResult.issues.some(
+      (issue) =>
+        issue.code === "MISSING_MASTERY_TARGET" &&
+        issue.message.includes("word.qalam"),
+    ),
+  );
+
+  const emptyTargetBundle = JSON.parse(readFileSync(wave1Path, "utf8")) as Record<string, unknown>;
+  const emptyTargetExercises = emptyTargetBundle["exercises"] as Array<Record<string, unknown>>;
+  const emptyTargetRow = emptyTargetExercises.find((row) => row["id"] === "exercise.wave1.audio_to_word.qalam");
+  if (emptyTargetRow) {
+    emptyTargetRow["contentIds"] = [];
+    emptyTargetRow["choices"] = [];
+    emptyTargetRow["success"] = { type: "correct_choice" };
+    emptyTargetRow["masteryTargets"] = [{ id: "mastery.word.broken.decode", skillId: "skill.word_decoding.simple" }];
+  }
+  const emptyTargetResult = validateCurriculum(emptyTargetBundle);
+  assert(
+    "malformed audio_to_word with no playable target fails",
+    emptyTargetResult.issues.some(
+      (issue) =>
+        issue.code === "MISSING_FIELD" &&
+        issue.message.includes("playable target word"),
+    ),
+  );
+
+  const orderedUnit4Refs = [qalamRef!];
+  assert(
+    "9. wrong answer does not complete",
+    !exerciseActivitiesComplete(bundle, wordExercise!, itemsFrom(orderedUnit4Refs, [[false]])),
+  );
+  const wordCorrect = itemsFrom(orderedUnit4Refs, [[true]]);
+  assert("10. correct answer completes the activity step", exerciseActivitiesComplete(bundle, wordExercise!, wordCorrect));
+  assert("11. attempt writes to expected word live key", Object.keys(wordCorrect)[0] === "word:qalam.decoding");
+
+  const u4syllableOnly = evaluateUnitMastery(
+    bundle,
+    unit4,
+    unit4Exercises,
+    { ...itemsFrom(orderedUnit3Refs, [[true, true], [true]]), ...itemsFrom([{ liveKey: "letter:qaf.fatha" } as LiveMasteryRef], [[true, true, true]]) },
+  );
+  const u4letterOnly = evaluateUnitMastery(
+    bundle,
+    unit4,
+    unit4Exercises,
+    { ...itemsFrom(orderedUnit3Refs, [[true, true], [true]]), ...itemsFrom([{ liveKey: "letter:lam.form.medial" } as LiveMasteryRef], [[true, true, true]]) },
+  );
+  assert(
+    "12. syllable evidence cannot satisfy word decoding",
+    !u4syllableOnly.mastered &&
+      u4syllableOnly.blockers.some((row) => row.includes("skill.word_decoding.simple") || row.includes("targets")),
+  );
+  assert(
+    "13. letter evidence cannot satisfy word decoding",
+    !u4letterOnly.mastered &&
+      u4letterOnly.blockers.some((row) => row.includes("skill.word_decoding.simple") || row.includes("targets")),
+  );
+
+  const u4once = evaluateUnitMastery(bundle, unit4, unit4Exercises, itemsFrom(orderedUnit4Refs, [[true]]));
+  assert("14. finishing Unit 4 lesson once does not bypass mastery", !u4once.mastered);
+  assert("14. the Unit 4 activity can complete in one visit", u4once.activitiesDone === 1);
+  assert("14. attempts are 1 < 3", u4once.attempts === 1 && u4once.requiredAttempts === 3);
+
+  const u4masteredItems = itemsFrom(orderedUnit4Refs, [[true, true, true]]);
+  const u4mastered = evaluateUnitMastery(bundle, unit4, unit4Exercises, u4masteredItems);
+  assert("Unit 4 mastery after thresholds", u4mastered.mastered, u4mastered.blockers.join("; "));
+  assert("Unit 4 valid mastery has no unmapped required skills", u4mastered.unmappedRequiredSkills.length === 0);
+
+  const u3masteredItems = {
+    ...u2doneItems,
+    ...itemsFrom(orderedUnit3Refs, [[true, true], [true]]),
+  };
+  assert(
+    "15. Unit 5 remains locked until Unit 4 mastery",
+    !evaluateUnitUnlock(bundle, units, unit5, u3masteredItems).unlocked,
+  );
+  const u5after = evaluateUnitUnlock(bundle, units, unit5, { ...u3masteredItems, ...u4masteredItems });
+  assert("15. Unit 5 unlocks after Unit 4 mastery", u5after.unlocked);
+  assert(
+    "15. Unit 5 stays renderer-gated",
+    resolveUnitRouteAccess(u5after.unlocked, unitRenderersReady(unit5Exercises)) === "coming_soon",
   );
 
   const ghost = evaluateUnitUnlock(
