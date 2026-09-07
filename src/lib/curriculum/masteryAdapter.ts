@@ -8,8 +8,9 @@
  * Isolated letter recognition from sound-to-letter shares `letter:mim.sound`
  * so one tap is not counted twice. `letter:mim` remains the free-play key.
  *
- * CV syllables use `getSyllableLiveKey` → `letter:{legacyId}.{vowel}` so
- * blending and short-vowel evidence on the same syllable share one live item.
+ * CV blending uses `getSyllableLiveKey` → `letter:{legacyId}.{vowel}`.
+ * Haraka discrimination uses `getHarakaLiveKey` →
+ * `diacritic:{legacyId}.{vowel}.discrimination`. Those keys must not be shared.
  *
  * Word decoding uses `getWordLiveKey` → `word:{slug}.decoding`
  * (e.g. word.qalam → word:qalam.decoding). Not a letter key.
@@ -48,7 +49,7 @@ export function recordExerciseAttempt(
   correct: boolean,
 ): { starsGained: number; mastery: number; refs: LiveMasteryRef[] } {
   const targets = exercise.masteryTargets ?? [];
-  const refs = targets.map((target) => liveRefForTarget(bundle, target));
+  const refs = targets.map((target) => liveRefForTarget(bundle, target, exercise));
   const store = useProgress.getState();
 
   for (const target of targets) {

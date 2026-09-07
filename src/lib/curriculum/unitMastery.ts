@@ -86,15 +86,21 @@ function vowelFacetFromSkill(skillId: string | undefined): string | undefined {
 }
 
 /**
+ * Evidence-key rule:
+ * A live key identifies BOTH the content item AND the evidence facet.
+ * Two exercises may share a key only when one child action is genuinely
+ * equivalent evidence for that same facet (e.g. Unit 2 blending + fatha
+ * co-target on the same مَ tap). Discrimination is not blending.
+ *
  * Stable live progress key for a taught CV syllable.
  *
  * Wave 1 persisted shape (do not rename): `letter:{legacyId}.{vowelFacet}`
  *   syllable.mim.fatha → letter:mim.fatha
  *   syllable.lam.fatha → letter:lam.fatha
  *
- * Blending (`skill.syllable_blending.cv`) and short-vowel targets on the
- * same syllable share this key so one attempt is not counted twice.
- * Future syllables must go through this helper — do not concatenate ad hoc.
+ * On `syllable_blending` only: blending and a short-vowel co-target on the
+ * same syllable share this key so one tap is not counted twice.
+ * `missing_haraka` must use `getHarakaLiveKey`, not this helper.
  */
 export function getSyllableLiveKey(args: {
   syllableId?: string;
@@ -142,25 +148,66 @@ export function getWordLiveKey(args: {
   return { type: "word", id, liveKey: `word:${id}` };
 }
 
+function letterStem(args: { letterLegacyId?: string; letterId?: string }): string {
+  const raw = args.letterLegacyId ?? args.letterId ?? "item";
+  return raw.startsWith("letter.") ? raw.slice("letter.".length) : raw;
+}
+
 /**
  * Short-vowel / haraka discrimination on a taught letter.
- * Persisted shape matches `getSyllableLiveKey` (`letter:mim.fatha`).
- * Kasra and damma use their own facets; they do not collapse onto fatha.
+ *
+ * Distinct from syllable blending. Persisted shape uses the existing
+ * `diacritic` store type (not `letter:`) so Unit 2 `letter:mim.fatha`
+ * progress is not reused:
+ *   mim + fatha → `diacritic:mim.fatha.discrimination`
+ *   mim + kasra → `diacritic:mim.kasra.discrimination`
+ *   mim + damma → `diacritic:mim.damma.discrimination`
+ *
+ * Kasra and damma never collapse onto fatha. No letter is hardcoded.
  */
 export function getHarakaLiveKey(args: {
   letterLegacyId?: string;
   letterId?: string;
   vowelSkillId: string;
 }): { type: ItemType; id: string; liveKey: string } {
-  return getSyllableLiveKey(args);
+  const stem = letterStem(args);
+  const facet = vowelFacetFromSkill(args.vowelSkillId) ?? "vowel";
+  const id = `${stem}.${facet}.discrimination`;
+  return { type: "diacritic", id, liveKey: `diacritic:${id}` };
 }
 
-export function liveRefForTarget(bundle: CurriculumBundle, target: ExerciseMasteryTarget): LiveMasteryRef {
+function isShortVowelSkill(skillId: string): boolean {
+  return (
+    skillId === "skill.short_vowel.fatha" ||
+    skillId === "skill.short_vowel.kasra" ||
+    skillId === "skill.short_vowel.damma"
+  );
+}
+
+export function liveRefForTarget(
+  bundle: CurriculumBundle,
+  target: ExerciseMasteryTarget,
+  exercise?: Pick<ExerciseDefinition, "type">,
+): LiveMasteryRef {
   const syllable = target.syllableId
     ? bundle.syllables?.find((row) => row.id === target.syllableId)
     : undefined;
   const letterId = target.letterId ?? syllable?.letterId;
   const letter = letterId ? bundle.letters.find((row) => row.id === letterId) : undefined;
+  if (exercise?.type === "missing_haraka" && isShortVowelSkill(target.skillId)) {
+    const keyed = getHarakaLiveKey({
+      ...(letter?.legacyId ? { letterLegacyId: letter.legacyId } : {}),
+      ...(letterId ? { letterId } : {}),
+      vowelSkillId: target.skillId,
+    });
+    return {
+      portableMasteryId: target.id,
+      skillId: target.skillId,
+      type: keyed.type,
+      id: keyed.id,
+      liveKey: keyed.liveKey,
+    };
+  }
   if (
     target.wordId &&
     (target.skillId === "skill.word_decoding.simple" || (!target.syllableId && !target.letterId))
@@ -228,11 +275,12 @@ export function exercisesForUnit(bundle: CurriculumBundle, unit: LearningUnitDef
 function uniqueRefsForTargets(
   bundle: CurriculumBundle,
   targets: ExerciseMasteryTarget[],
+  exercise?: Pick<ExerciseDefinition, "type">,
 ): LiveMasteryRef[] {
   const seen = new Set<string>();
   const refs: LiveMasteryRef[] = [];
   for (const target of targets) {
-    const ref = liveRefForTarget(bundle, target);
+    const ref = liveRefForTarget(bundle, target, exercise);
     if (seen.has(ref.liveKey)) continue;
     seen.add(ref.liveKey);
     refs.push(ref);
@@ -241,10 +289,17 @@ function uniqueRefsForTargets(
 }
 
 function uniqueRefsForExercises(bundle: CurriculumBundle, exercises: ExerciseDefinition[]): LiveMasteryRef[] {
-  return uniqueRefsForTargets(
-    bundle,
-    exercises.flatMap((exercise) => exercise.masteryTargets ?? []),
-  );
+  const seen = new Set<string>();
+  const refs: LiveMasteryRef[] = [];
+  for (const exercise of exercises) {
+    for (const target of exercise.masteryTargets ?? []) {
+      const ref = liveRefForTarget(bundle, target, exercise);
+      if (seen.has(ref.liveKey)) continue;
+      seen.add(ref.liveKey);
+      refs.push(ref);
+    }
+  }
+  return refs;
 }
 
 function warnUnmappedRequiredSkills(unitId: string, skillIds: readonly string[]): void {
@@ -270,7 +325,7 @@ export function exerciseActivitiesComplete(
   exercise: ExerciseDefinition,
   items: Record<string, ItemProgress>,
 ): boolean {
-  const refs = uniqueRefsForTargets(bundle, exercise.masteryTargets ?? []);
+  const refs = uniqueRefsForTargets(bundle, exercise.masteryTargets ?? [], exercise);
   if (refs.length === 0) return false;
   return refs.every((ref) => targetHasCorrect(items, ref));
 }
@@ -370,9 +425,13 @@ export function evaluateUnitMastery(
     blockers.push(`sessions ${stats.sessions} < ${criteria.minSessions} (per-item correct days)`);
   }
   for (const skillId of criteria.requiredSkillIds ?? []) {
-    const matching = allTargets.filter((target) => target.skillId === skillId);
+    const matching = exercises.flatMap((exercise) =>
+      (exercise.masteryTargets ?? [])
+        .filter((target) => target.skillId === skillId)
+        .map((target) => liveRefForTarget(bundle, target, exercise)),
+    );
     if (matching.length === 0) continue;
-    if (!matching.every((target) => targetHasCorrect(items, liveRefForTarget(bundle, target)))) {
+    if (!matching.every((ref) => targetHasCorrect(items, ref))) {
       blockers.push(`required skill ${skillId} incomplete`);
     }
   }

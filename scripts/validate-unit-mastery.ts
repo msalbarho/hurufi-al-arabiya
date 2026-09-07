@@ -39,6 +39,17 @@ function uniqueRefs(refs: LiveMasteryRef[]): LiveMasteryRef[] {
   return [...seen.values()];
 }
 
+function refsForExercises(
+  bundle: ReturnType<typeof asCurriculumBundle>,
+  exercises: ReturnType<typeof exercisesForUnit>,
+): LiveMasteryRef[] {
+  return uniqueRefs(
+    exercises.flatMap((exercise) =>
+      (exercise.masteryTargets ?? []).map((target) => liveRefForTarget(bundle, target, exercise)),
+    ),
+  );
+}
+
 function assert(name: string, condition: boolean, detail?: string): void {
   if (condition) {
     console.log(`ok  ${name}`);
@@ -87,16 +98,8 @@ function main(): void {
   const unit4Exercises = exercisesForUnit(bundle, unit4);
   const unit5Exercises = exercisesForUnit(bundle, unit5);
   const unit6Exercises = exercisesForUnit(bundle, unit6);
-  const unit1Refs = uniqueRefs(
-    unit1Exercises.flatMap((exercise) =>
-      (exercise.masteryTargets ?? []).map((target) => liveRefForTarget(bundle, target)),
-    ),
-  );
-  const unit2Refs = uniqueRefs(
-    unit2Exercises.flatMap((exercise) =>
-      (exercise.masteryTargets ?? []).map((target) => liveRefForTarget(bundle, target)),
-    ),
-  );
+  const unit1Refs = refsForExercises(bundle, unit1Exercises);
+  const unit2Refs = refsForExercises(bundle, unit2Exercises);
   assert("unit 1 has two unique live refs (sound + tracing)", unit1Refs.length === 2, String(unit1Refs.length));
   assert("unit 1 recognition shares the sound live key", unit1Refs.some((ref) => ref.liveKey === "letter:mim.sound"));
   assert("unit 1 has no prereqs", (unit1.prereqUnitIds ?? []).length === 0);
@@ -243,11 +246,15 @@ function main(): void {
 
   assert(
     "8. expected live key for mim blending is letter:mim.fatha",
-    liveRefForTarget(bundle, mimExercise!.masteryTargets![0]!).liveKey === "letter:mim.fatha",
+    liveRefForTarget(bundle, mimExercise!.masteryTargets![0]!, mimExercise).liveKey === "letter:mim.fatha",
   );
   assert(
     "8. expected live key for lam blending is letter:lam.fatha",
-    liveRefForTarget(bundle, lamExercise!.masteryTargets![0]!).liveKey === "letter:lam.fatha",
+    liveRefForTarget(bundle, lamExercise!.masteryTargets![0]!, lamExercise).liveKey === "letter:lam.fatha",
+  );
+  assert(
+    "1. Unit 2 fatha co-target still uses the blending live key",
+    liveRefForTarget(bundle, mimExercise!.masteryTargets![1]!, mimExercise).liveKey === "letter:mim.fatha",
   );
 
   const conflictBundle = JSON.parse(readFileSync(wave1Path, "utf8")) as Record<string, unknown>;
@@ -315,11 +322,7 @@ function main(): void {
   assert("9. unique refs were not double-counted", u2mastered.attempts === 3);
   assert("unit 2 required skills remain mapped", u2mastered.unmappedRequiredSkills.length === 0);
 
-  const unit3Refs = uniqueRefs(
-    unit3Exercises.flatMap((exercise) =>
-      (exercise.masteryTargets ?? []).map((target) => liveRefForTarget(bundle, target)),
-    ),
-  );
+  const unit3Refs = refsForExercises(bundle, unit3Exercises);
   const formExercise = unit3Exercises.find((row) => row.type === "letter_recognition");
   const qafBlend = unit3Exercises.find((row) => row.type === "syllable_blending");
   const resolvedForm = formExercise ? resolveLetterRecognition(bundle, formExercise) : undefined;
@@ -554,11 +557,7 @@ function main(): void {
     getWordLiveKey({ wordId: "word.qalam" }).liveKey === "word:qalam.decoding",
   );
 
-  const unit4Refs = uniqueRefs(
-    unit4Exercises.flatMap((exercise) =>
-      (exercise.masteryTargets ?? []).map((target) => liveRefForTarget(bundle, target)),
-    ),
-  );
+  const unit4Refs = refsForExercises(bundle, unit4Exercises);
   const qalamRef = unit4Refs.find((ref) => ref.liveKey === "word:qalam.decoding");
   assert("11. Unit 4 live key is word:qalam.decoding", qalamRef?.liveKey === "word:qalam.decoding");
   assert("11. Unit 4 has one unique word-decoding ref", unit4Refs.length === 1);
@@ -732,31 +731,73 @@ function main(): void {
     "picture visual is prototype emoji",
     resolvedPicture?.visual.kind === "emoji" && resolvedPicture.visual.source === "category",
   );
+  const harakaLiveKey = getHarakaLiveKey({
+    letterLegacyId: "mim",
+    vowelSkillId: "skill.short_vowel.fatha",
+  }).liveKey;
+  const blendingLiveKey = getSyllableLiveKey({
+    letterLegacyId: "mim",
+    vowelSkillId: "skill.short_vowel.fatha",
+  }).liveKey;
+  assert("1. Unit 2 syllable evidence key remains letter:mim.fatha", blendingLiveKey === "letter:mim.fatha");
   assert(
-    "getHarakaLiveKey keeps letter:mim.fatha",
-    getHarakaLiveKey({ letterLegacyId: "mim", vowelSkillId: "skill.short_vowel.fatha" }).liveKey === "letter:mim.fatha",
+    "2. missing_haraka uses a distinct haraka live key",
+    harakaLiveKey === "diacritic:mim.fatha.discrimination",
+  );
+  assert("2. haraka helper does not alias syllable blending", harakaLiveKey !== blendingLiveKey);
+  assert(
+    "kasra discrimination does not collapse onto fatha",
+    getHarakaLiveKey({ letterLegacyId: "mim", vowelSkillId: "skill.short_vowel.kasra" }).liveKey ===
+      "diacritic:mim.kasra.discrimination",
   );
   assert(
-    "kasra does not collapse onto fatha",
-    getHarakaLiveKey({ letterLegacyId: "mim", vowelSkillId: "skill.short_vowel.kasra" }).liveKey === "letter:mim.kasra",
+    "damma discrimination does not collapse onto fatha",
+    getHarakaLiveKey({ letterLegacyId: "mim", vowelSkillId: "skill.short_vowel.damma" }).liveKey ===
+      "diacritic:mim.damma.discrimination",
   );
 
-  const unit5Refs = uniqueRefs(
-    unit5Exercises.flatMap((exercise) =>
-      (exercise.masteryTargets ?? []).map((target) => liveRefForTarget(bundle, target)),
-    ),
-  );
-  const harakaRef = unit5Refs.find((ref) => ref.liveKey === "letter:mim.fatha");
+  const unit5Refs = refsForExercises(bundle, unit5Exercises);
+  const harakaRef = unit5Refs.find((ref) => ref.liveKey === harakaLiveKey);
   const waladRef = unit5Refs.find((ref) => ref.liveKey === "word:walad.decoding");
-  assert("13. haraka live key is letter:mim.fatha", harakaRef?.liveKey === "letter:mim.fatha");
+  assert(
+    "2. Unit 5 missing_haraka live key is diacritic:mim.fatha.discrimination",
+    harakaRef?.liveKey === "diacritic:mim.fatha.discrimination" && harakaRef.type === "diacritic",
+  );
+  assert("missing_haraka does not use the blending key", harakaRef?.liveKey !== "letter:mim.fatha");
   assert("13. walad live key is word:walad.decoding", waladRef?.liveKey === "word:walad.decoding");
-  assert("Unit 5 unique refs are fatha + walad", unit5Refs.length === 2);
+  assert("Unit 5 unique refs are haraka + walad", unit5Refs.length === 2);
   assert(
     "Unit 5 required skills are mapped",
     (unit5.mastery.requiredSkillIds ?? []).includes("skill.short_vowel.fatha") &&
       (unit5.mastery.requiredSkillIds ?? []).includes("skill.word_decoding.simple") &&
       !(unit5.mastery.requiredSkillIds ?? []).includes("skill.short_vowel.kasra") &&
       !(unit5.mastery.requiredSkillIds ?? []).includes("skill.short_vowel.damma"),
+  );
+  assert(
+    "2. missing_haraka does not resolve through the syllable-blending helper",
+    liveRefForTarget(bundle, harakaExercise!.masteryTargets![0]!, harakaExercise).liveKey === harakaLiveKey,
+  );
+  assert(
+    "picture_to_word still uses a word live key",
+    liveRefForTarget(bundle, pictureExercise!.masteryTargets![0]!, pictureExercise).liveKey === "word:walad.decoding",
+  );
+
+  const u5fromUnit2 = evaluateUnitMastery(bundle, unit5, unit5Exercises, u2doneItems);
+  assert(
+    "3. Unit 2 blending progress cannot satisfy Unit 5 fatha discrimination",
+    !u5fromUnit2.mastered &&
+      u5fromUnit2.blockers.some((row) => row.includes("skill.short_vowel.fatha")),
+    u5fromUnit2.blockers.join("; "),
+  );
+  const u5fromUnit2PlusWalad = evaluateUnitMastery(bundle, unit5, unit5Exercises, {
+    ...u2doneItems,
+    ...itemsFrom([waladRef!], [[true, true, true]]),
+  });
+  assert(
+    "3. Unit 2 blending plus walad still cannot master Unit 5",
+    !u5fromUnit2PlusWalad.mastered &&
+      u5fromUnit2PlusWalad.blockers.some((row) => row.includes("skill.short_vowel.fatha")),
+    u5fromUnit2PlusWalad.blockers.join("; "),
   );
 
   const unknownHarakaBundle = JSON.parse(readFileSync(wave1Path, "utf8")) as Record<string, unknown>;
@@ -876,8 +917,9 @@ function main(): void {
   assert("12. correct haraka completes that activity", exerciseActivitiesComplete(bundle, harakaExercise!, harakaCorrect));
   assert("12. picture step still incomplete", !exerciseActivitiesComplete(bundle, pictureExercise!, harakaCorrect));
   assert("12. correct picture completes that activity", exerciseActivitiesComplete(bundle, pictureExercise!, pictureCorrect));
-  assert("13. haraka attempt writes letter:mim.fatha", Object.keys(harakaCorrect)[0] === "letter:mim.fatha");
+  assert("13. haraka attempt writes diacritic:mim.fatha.discrimination", Object.keys(harakaCorrect)[0] === harakaLiveKey);
   assert("13. picture attempt writes word:walad.decoding", Object.keys(pictureCorrect)[1] === "word:walad.decoding");
+  assert("13. haraka write is not letter:mim.fatha", Object.keys(harakaCorrect)[0] !== "letter:mim.fatha");
 
   const harakaOnly = itemsFrom(orderedUnit5Refs, [[true, true, true], []]);
   const waladOnly = itemsFrom(orderedUnit5Refs, [[], [true, true, true]]);
