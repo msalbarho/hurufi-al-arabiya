@@ -1358,6 +1358,58 @@ export function validateCurriculum(data: unknown): ValidationResult {
         );
       }
     }
+    if (row["type"] === "letter_recognition") {
+      const success = isRecord(row["success"]) ? row["success"] : undefined;
+      const correctId = success && typeof success["correctChoiceId"] === "string" ? success["correctChoiceId"] : undefined;
+      if (correctId) {
+        const parsed = parseCurriculumId(correctId);
+        if (parsed?.namespace === "letter") resolveLetter(`${path}.success.correctChoiceId`, correctId);
+      }
+      const config = isRecord(row["config"]) ? row["config"] : undefined;
+      const configLetterId = config && typeof config["letterId"] === "string" ? config["letterId"] : undefined;
+      if (configLetterId) resolveLetter(`${path}.config.letterId`, configLetterId);
+      const configForm = config && typeof config["targetForm"] === "string" ? config["targetForm"] : undefined;
+      if (configForm && !LETTER_FORM_SLOTS.has(configForm)) {
+        out.error("UNKNOWN_ENUM", `${path}.config.targetForm`, `Unknown letter form "${configForm}".`);
+      }
+      const targetLetterId =
+        configLetterId ??
+        (Array.isArray(row["masteryTargets"])
+          ? row["masteryTargets"].flatMap((target) =>
+              isRecord(target) && typeof target["letterId"] === "string" ? [target["letterId"]] : [],
+            )[0]
+          : undefined) ??
+        (correctId?.startsWith("letter.") ? correctId : undefined);
+      const targetForm =
+        configForm ??
+        (Array.isArray(row["masteryTargets"])
+          ? row["masteryTargets"].flatMap((target) =>
+              isRecord(target) && typeof target["letterForm"] === "string" ? [target["letterForm"]] : [],
+            )[0]
+          : undefined);
+      if (!targetLetterId) {
+        out.error(
+          "MISSING_FIELD",
+          `${path}.config.letterId`,
+          "letter_recognition exercise must reference a letter.",
+        );
+      }
+      if (targetLetterId && targetForm && LETTER_FORM_SLOTS.has(targetForm)) {
+        checkImpossibleForm(out, `${path}.config.targetForm`, targetLetterId, targetForm, letterNonConnecting);
+      }
+      if (correctId && Array.isArray(choices) && choices.length > 0) {
+        const choiceIds = choices.flatMap((choice) =>
+          isRecord(choice) && typeof choice["id"] === "string" ? [choice["id"]] : [],
+        );
+        if (!choiceIds.includes(correctId)) {
+          out.error(
+            "MISSING_FIELD",
+            `${path}.success.correctChoiceId`,
+            `letter_recognition correctChoiceId "${correctId}" is not listed in choices.`,
+          );
+        }
+      }
+    }
     const evidence = row["masteryEvidence"];
     if (isRecord(evidence)) {
       for (const key of ["reading", "writing", "listening"] as const) {
@@ -1420,6 +1472,44 @@ export function validateCurriculum(data: unknown): ValidationResult {
           resolveSkill(`${path}.mastery.requiredSkillIds[${j}]`, id);
       });
     }
+  });
+
+  const exerciseMeasuredSkills = new Map<string, Set<string>>();
+  exercises.forEach((row) => {
+    if (!isRecord(row) || typeof row["id"] !== "string") return;
+    const measured = new Set<string>();
+    const targets = row["masteryTargets"];
+    if (Array.isArray(targets)) {
+      for (const target of targets) {
+        if (isRecord(target) && typeof target["skillId"] === "string") {
+          measured.add(target["skillId"]);
+        }
+      }
+    }
+    exerciseMeasuredSkills.set(row["id"], measured);
+  });
+  units.forEach((row, i) => {
+    if (!isRecord(row) || typeof row["id"] !== "string") return;
+    if (!isRecord(row["mastery"])) return;
+    const required = row["mastery"]["requiredSkillIds"];
+    if (!Array.isArray(required) || required.length === 0) return;
+    const measured = new Set<string>();
+    const listed = Array.isArray(row["exerciseIds"]) ? row["exerciseIds"] : [];
+    for (const exerciseId of listed) {
+      if (typeof exerciseId !== "string") continue;
+      for (const skillId of exerciseMeasuredSkills.get(exerciseId) ?? []) {
+        measured.add(skillId);
+      }
+    }
+    required.forEach((skillId, j) => {
+      if (typeof skillId !== "string") return;
+      if (measured.has(skillId)) return;
+      out.error(
+        "UNMAPPED_REQUIRED_SKILL",
+        `units[${i}].mastery.requiredSkillIds[${j}]`,
+        `Unit "${row["id"]}" requires skill "${skillId}" but no exercise mastery target in this unit measures it.`,
+      );
+    });
   });
 
   const unitsOnAPath = new Set<string>();
@@ -1632,6 +1722,63 @@ export function validateCurriculum(data: unknown): ValidationResult {
                 "PREMATURE_CONTENT",
                 `units[${i}].exerciseIds[${j}]`,
                 `Syllable "${syllableId}" needs skill "${sid}" before unit "${id}" teaches it.`,
+              );
+            }
+          }
+        }
+        if (exercise["type"] === "letter_recognition") {
+          const usedLetters = new Set<string>();
+          const addLetter = (value: unknown) => {
+            if (typeof value === "string" && value.startsWith("letter.")) usedLetters.add(value);
+          };
+          (Array.isArray(exercise["contentIds"]) ? exercise["contentIds"] : []).forEach(addLetter);
+          if (isRecord(exercise["success"])) addLetter(exercise["success"]["correctChoiceId"]);
+          if (Array.isArray(exercise["masteryTargets"])) {
+            exercise["masteryTargets"].forEach((target) => {
+              if (isRecord(target)) addLetter(target["letterId"]);
+            });
+          }
+          if (isRecord(exercise["config"])) addLetter(exercise["config"]["letterId"]);
+          if (Array.isArray(exercise["choices"])) {
+            exercise["choices"].forEach((choice) => {
+              if (isRecord(choice)) addLetter(choice["id"]);
+            });
+          }
+          for (const letterId of usedLetters) {
+            if (!letterIds.has(letterId)) continue;
+            if (!availableLetters.has(letterId)) {
+              out.error(
+                "PREMATURE_CONTENT",
+                `units[${i}].exerciseIds[${j}]`,
+                `Exercise "${exerciseId}" uses letter "${letterId}" before unit "${id}" introduces it.`,
+              );
+            }
+          }
+          const formLetter =
+            (isRecord(exercise["config"]) && typeof exercise["config"]["letterId"] === "string"
+              ? exercise["config"]["letterId"]
+              : undefined) ??
+            (Array.isArray(exercise["masteryTargets"])
+              ? exercise["masteryTargets"].flatMap((target) =>
+                  isRecord(target) && typeof target["letterId"] === "string" ? [target["letterId"]] : [],
+                )[0]
+              : undefined);
+          const formSlot =
+            (isRecord(exercise["config"]) && typeof exercise["config"]["targetForm"] === "string"
+              ? exercise["config"]["targetForm"]
+              : undefined) ??
+            (Array.isArray(exercise["masteryTargets"])
+              ? exercise["masteryTargets"].flatMap((target) =>
+                  isRecord(target) && typeof target["letterForm"] === "string" ? [target["letterForm"]] : [],
+                )[0]
+              : undefined);
+          if (formLetter && formSlot) {
+            const key = formKey(formLetter, formSlot);
+            if (!availableForms.has(key)) {
+              out.error(
+                "PREMATURE_CONTENT",
+                `units[${i}].exerciseIds[${j}]`,
+                `Exercise "${exerciseId}" uses ${formLetter} ${formSlot} form before unit "${id}" introduces it.`,
               );
             }
           }

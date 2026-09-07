@@ -40,7 +40,10 @@ export interface UnitMasteryEvaluation {
   activitiesDone: number;
   activitiesTotal: number;
   blockers: string[];
-  /** Skills listed on the unit that no exercise target measures. Not used as blockers. */
+  /**
+   * Required skills with no mastery target on this unit.
+   * Production validation should reject this shape. Runtime still fail-closes.
+   */
   unmappedRequiredSkills: string[];
 }
 
@@ -105,6 +108,22 @@ export function getSyllableLiveKey(args: {
   return { type: "letter", id, liveKey: `letter:${id}` };
 }
 
+/**
+ * Stable live progress key for a taught positional letter form.
+ *
+ * Wave 1 persisted shape (do not rename): `letter:{legacyId}.form.{slot}`
+ *   letter.lam medial → letter:lam.form.medial
+ */
+export function getLetterFormLiveKey(args: {
+  letterLegacyId?: string;
+  letterId?: string;
+  form: string;
+}): { type: ItemType; id: string; liveKey: string } {
+  const stem = args.letterLegacyId ?? args.letterId ?? "item";
+  const id = `${stem}.form.${args.form}`;
+  return { type: "letter", id, liveKey: `letter:${id}` };
+}
+
 export function liveRefForTarget(bundle: CurriculumBundle, target: ExerciseMasteryTarget): LiveMasteryRef {
   const syllable = target.syllableId
     ? bundle.syllables?.find((row) => row.id === target.syllableId)
@@ -117,6 +136,23 @@ export function liveRefForTarget(bundle: CurriculumBundle, target: ExerciseMaste
       ...(letter?.legacyId ? { letterLegacyId: letter.legacyId } : {}),
       ...(letterId ? { letterId } : {}),
       ...(syllable.vowelSkillId ? { vowelSkillId: syllable.vowelSkillId } : {}),
+    });
+    return {
+      portableMasteryId: target.id,
+      skillId: target.skillId,
+      type: keyed.type,
+      id: keyed.id,
+      liveKey: keyed.liveKey,
+    };
+  }
+  if (
+    target.letterForm &&
+    (target.skillId === "skill.letter_forms.positional" || target.skillId === "skill.letter_recognition.core")
+  ) {
+    const keyed = getLetterFormLiveKey({
+      ...(letter?.legacyId ? { letterLegacyId: letter.legacyId } : {}),
+      ...(letterId ? { letterId } : {}),
+      form: target.letterForm,
     });
     return {
       portableMasteryId: target.id,
@@ -164,6 +200,16 @@ function uniqueRefsForExercises(bundle: CurriculumBundle, exercises: ExerciseDef
   return uniqueRefsForTargets(
     bundle,
     exercises.flatMap((exercise) => exercise.masteryTargets ?? []),
+  );
+}
+
+function warnUnmappedRequiredSkills(unitId: string, skillIds: readonly string[]): void {
+  const dev =
+    typeof import.meta !== "undefined" &&
+    Boolean((import.meta as { env?: { DEV?: boolean } }).env?.DEV);
+  if (!dev) return;
+  console.warn(
+    `[unitMastery] unit "${unitId}" required skill(s) have no measurable mastery target: ${skillIds.join(", ")}`,
   );
 }
 
@@ -255,6 +301,13 @@ export function evaluateUnitMastery(
   const allTargets = exercises.flatMap((exercise) => exercise.masteryTargets ?? []);
   const mappedSkills = new Set(allTargets.map((target) => target.skillId));
   const unmappedRequiredSkills = (criteria.requiredSkillIds ?? []).filter((skillId) => !mappedSkills.has(skillId));
+
+  if (unmappedRequiredSkills.length > 0) {
+    for (const skillId of unmappedRequiredSkills) {
+      blockers.push(`required skill ${skillId} has no mastery target`);
+    }
+    warnUnmappedRequiredSkills(unit.id, unmappedRequiredSkills);
+  }
 
   if (refs.length === 0) blockers.push("no mastery targets");
   if (stats.completedTargets < refs.length) {

@@ -2,15 +2,19 @@ import { useEffect, useState } from "react";
 import { Volume2 } from "lucide-react";
 import { BigButton } from "@/components/kids/ui";
 import { playCurriculumAudio } from "@/lib/curriculum/audioAdapter.ts";
-import { hashString, resolveSyllableBlending, shuffleWithSeed } from "@/lib/curriculum/syllableAdapter.ts";
+import { resolveSyllableBlending } from "@/lib/curriculum/syllableAdapter.ts";
 import { AudioManager } from "@/lib/audio/AudioManager";
 import { cn } from "@/lib/utils";
+import { useMountedChoiceOrder } from "./useMountedChoiceOrder.ts";
 import type { ExerciseViewProps } from "./exerciseTypes.ts";
 
 export function SyllableBlendingExercise({ exercise, bundle, onResult, locked }: ExerciseViewProps) {
   const [wrongId, setWrongId] = useState<string | null>(null);
-  const [choiceOrder, setChoiceOrder] = useState<{ exerciseId: string; ids: string[] } | null>(null);
   const resolved = resolveSyllableBlending(bundle, exercise);
+  const orderedIds = useMountedChoiceOrder(
+    exercise.id,
+    resolved?.choices.map((row) => row.id) ?? [],
+  );
 
   const playLetter = () => {
     if (!resolved) return;
@@ -39,31 +43,16 @@ export function SyllableBlendingExercise({ exercise, bundle, onResult, locked }:
 
   useEffect(() => {
     setWrongId(null);
-    if (!resolved) {
-      setChoiceOrder(null);
-      return;
-    }
-    const seed = (Date.now() ^ hashString(exercise.id)) >>> 0 || 1;
-    setChoiceOrder({
-      exerciseId: exercise.id,
-      ids: shuffleWithSeed(resolved.choices, seed).map((row) => row.id),
-    });
-    // Shuffle once after mount / when the activity changes. JSON order is used
-    // for SSR + the first client paint so hydration matches.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [exercise.id]);
 
   if (!resolved) {
     return <p className="text-center font-display text-2xl font-extrabold">تَعَذَّرَ تَحْمِيلُ الْمَقْطَع.</p>;
   }
 
-  const displayChoices =
-    choiceOrder?.exerciseId === exercise.id
-      ? choiceOrder.ids.flatMap((id) => {
-          const row = resolved.choices.find((choice) => choice.id === id);
-          return row ? [row] : [];
-        })
-      : resolved.choices;
+  const displayChoices = orderedIds.flatMap((id) => {
+    const row = resolved.choices.find((choice) => choice.id === id);
+    return row ? [row] : [];
+  });
 
   const pick = (choiceId: string) => {
     if (locked) return;

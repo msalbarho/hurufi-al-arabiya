@@ -916,7 +916,7 @@
       "skillIds": [
         "skill.letter_recognition.core",
         "skill.letter_forms.positional",
-        "skill.word_decoding.simple"
+        "skill.syllable_blending.cv"
       ],
       "letterIds": ["letter.qaf"],
       "letterForms": [
@@ -938,7 +938,7 @@
         "minAccuracy": 0.7,
         "minStreak": 2,
         "minSessions": 1,
-        "requiredSkillIds": ["skill.word_decoding.simple"],
+        "requiredSkillIds": ["skill.letter_forms.positional", "skill.syllable_blending.cv"],
         "reviewAfterDays": 2
       },
       "tags": ["wave-1"]
@@ -1005,11 +1005,7 @@
         "minAccuracy": 0.7,
         "minStreak": 2,
         "minSessions": 1,
-        "requiredSkillIds": [
-          "skill.short_vowel.kasra",
-          "skill.short_vowel.damma",
-          "skill.word_decoding.simple"
-        ],
+        "requiredSkillIds": ["skill.word_decoding.simple"],
         "reviewAfterDays": 2
       },
       "tags": ["wave-1"]
@@ -1046,7 +1042,7 @@
         "minAccuracy": 0.7,
         "minStreak": 2,
         "minSessions": 2,
-        "requiredSkillIds": ["skill.word_decoding.simple", "skill.letter_recognition.core"],
+        "requiredSkillIds": ["skill.word_decoding.simple"],
         "reviewAfterDays": 2
       },
       "tags": ["wave-1"]

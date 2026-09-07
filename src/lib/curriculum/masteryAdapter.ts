@@ -24,6 +24,7 @@ export {
   evaluateUnitMastery,
   evaluateUnitUnlock,
   exerciseActivitiesComplete,
+  getLetterFormLiveKey,
   getSyllableLiveKey,
   liveRefForTarget,
   unitExerciseCompletion,

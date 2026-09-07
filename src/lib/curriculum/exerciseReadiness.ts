@@ -9,6 +9,7 @@ export const READY_EXERCISE_TYPES: ReadonlySet<ExerciseType> = new Set([
   "sound_to_letter",
   "tracing",
   "syllable_blending",
+  "letter_recognition",
 ]);
 
 export function isExerciseTypeReady(type: ExerciseType): boolean {
