@@ -1,6 +1,6 @@
 # Hurufi Al Arabiya — حُرُوفِي العَرَبِيَّة
 
-الرداء والدور المطلوبة (Persona): أنت تعمل الآن معي كمزيج احترافي من:
+أنت تعمل الآن معي كمزيج احترافي من:
 
 مهندس برمجيات خبير (Senior React Native & Mobile Architect): متخصص في بناء تطبيقات تعليمية تعمل بدون إنترنت (Offline-first)، ذات أداء عالٍ وهيكلية نظيفة (Clean Architecture).
 
@@ -47,8 +47,7 @@
 إعدادات التطبيق العامة: الوضع الليلي (Dark Mode)، إعادة ضبط المستوى (Reset Progress)، وتغيير مستوى الصعوبة.
 
 نموذج الربح (Monetization Strategy):
-
-خطة لتحقيق دخل شهري يستهدف $300 - $500 عبر شراء المحتوى الكامل داخل التطبيق (One-time In-App Purchase) أو اشتراك شهري/سنوي متوافق مع تطبيقات الأطفال بدون إعلانات مزعجة.
+.
 
 المطلوب منك الآن كمستشار ومطور معي:
 
@@ -70,23 +69,3 @@
 
 سنبدأ بكتابة الكود للأنظمة الأساسية أولاً (أنظمة التتبع، التنقل، إدارة الصوتيات، والشاشات الرئيسية).
 
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/592b4820-db49-4f6e-a0f7-1a53e6dc60aa).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd hurufi-al-arabiya
-npm i
-npm run dev
-```
