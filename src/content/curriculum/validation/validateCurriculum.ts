@@ -24,6 +24,121 @@ import {
   isLiteracyWave1Bundle,
   validateLiteracyWave1Production,
 } from "./validateLiteracyWave1.ts";
+import {
+  isLiteracyWave2Bundle,
+  validateLiteracyWave2Production,
+  WAVE2_EXTERNAL_PREREQ_UNIT_IDS,
+} from "./validateLiteracyWave2.ts";
+import {
+  isLiteracyWave3Bundle,
+  validateLiteracyWave3Production,
+  WAVE3_EXTERNAL_PREREQ_UNIT_IDS,
+} from "./validateLiteracyWave3.ts";
+import {
+  isLiteracyWave4Bundle,
+  validateLiteracyWave4Production,
+  WAVE4_EXTERNAL_PREREQ_UNIT_IDS,
+} from "./validateLiteracyWave4.ts";
+import {
+  isLiteracyWave5Bundle,
+  validateLiteracyWave5Production,
+  WAVE5_EXTERNAL_PREREQ_UNIT_IDS,
+} from "./validateLiteracyWave5.ts";
+import {
+  isLiteracyWave6Bundle,
+  validateLiteracyWave6Production,
+  WAVE6_EXTERNAL_PREREQ_UNIT_IDS,
+} from "./validateLiteracyWave6.ts";
+import {
+  isLiteracyWave7Bundle,
+  validateLiteracyWave7Production,
+  WAVE7_EXTERNAL_PREREQ_UNIT_IDS,
+} from "./validateLiteracyWave7.ts";
+import {
+  isLiteracyWave8Bundle,
+  validateLiteracyWave8Production,
+  WAVE8_EXTERNAL_PREREQ_UNIT_IDS,
+} from "./validateLiteracyWave8.ts";
+import {
+  isLiteracyWave9Bundle,
+  validateLiteracyWave9Production,
+  WAVE9_EXTERNAL_PREREQ_UNIT_IDS,
+} from "./validateLiteracyWave9.ts";
+import {
+  isLiteracyWave10Bundle,
+  validateLiteracyWave10Production,
+  WAVE10_EXTERNAL_PREREQ_UNIT_IDS,
+} from "./validateLiteracyWave10.ts";
+import {
+  isLiteracyWave11Bundle,
+  validateLiteracyWave11Production,
+  WAVE11_EXTERNAL_PREREQ_UNIT_IDS,
+} from "./validateLiteracyWave11.ts";
+import {
+  isLiteracyWave12Bundle,
+  validateLiteracyWave12Production,
+  WAVE12_EXTERNAL_PREREQ_UNIT_IDS,
+} from "./validateLiteracyWave12.ts";
+import {
+  isLiteracyWave13Bundle,
+  validateLiteracyWave13Production,
+  WAVE13_EXTERNAL_PREREQ_UNIT_IDS,
+} from "./validateLiteracyWave13.ts";
+import {
+  isLiteracyWave14Bundle,
+  validateLiteracyWave14Production,
+  WAVE14_EXTERNAL_PREREQ_UNIT_IDS,
+} from "./validateLiteracyWave14.ts";
+import {
+  isLiteracyWave15Bundle,
+  validateLiteracyWave15Production,
+  WAVE15_EXTERNAL_PREREQ_UNIT_IDS,
+} from "./validateLiteracyWave15.ts";
+import {
+  isLiteracyWave16Bundle,
+  validateLiteracyWave16Production,
+  WAVE16_EXTERNAL_PREREQ_UNIT_IDS,
+} from "./validateLiteracyWave16.ts";
+import {
+  isLiteracyWave17Bundle,
+  validateLiteracyWave17Production,
+  WAVE17_EXTERNAL_PREREQ_UNIT_IDS,
+} from "./validateLiteracyWave17.ts";
+import {
+  isLiteracyWave18Bundle,
+  validateLiteracyWave18Production,
+  WAVE18_EXTERNAL_PREREQ_UNIT_IDS,
+} from "./validateLiteracyWave18.ts";
+import {
+  isLiteracyWave19Bundle,
+  validateLiteracyWave19Production,
+  WAVE19_EXTERNAL_PREREQ_UNIT_IDS,
+} from "./validateLiteracyWave19.ts";
+import {
+  isLiteracyWave20Bundle,
+  validateLiteracyWave20Production,
+  WAVE20_EXTERNAL_PREREQ_UNIT_IDS,
+} from "./validateLiteracyWave20.ts";
+import {
+  isLiteracyWave21Bundle,
+  validateLiteracyWave21Production,
+  WAVE21_EXTERNAL_PREREQ_UNIT_IDS,
+} from "./validateLiteracyWave21.ts";
+import {
+  isLiteracyWave22Bundle,
+  validateLiteracyWave22Production,
+  WAVE22_EXTERNAL_PREREQ_UNIT_IDS,
+} from "./validateLiteracyWave22.ts";
+import {
+  isReadingFoundationsBundle,
+  validateReadingFoundationsModule,
+  READING_FOUNDATIONS_EXTERNAL_PREREQ_UNIT_IDS,
+} from "./validateReadingFoundationsModule.ts";
+import {
+  isOrthographicFoundationsBundle,
+  validateOrthographicFoundationsModule,
+  ORTHOGRAPHIC_FOUNDATIONS_EXTERNAL_PREREQ_UNIT_IDS,
+} from "./validateOrthographicFoundationsModule.ts";
 export {
   BAND_A_PRODUCTION_META_ID,
   BAND_A_V1_WORD_COUNT,
@@ -34,11 +149,340 @@ export {
   LITERACY_WAVE1_META_ID,
   WAVE1_LETTER_IDS,
   WAVE1_PATH_ID,
+  WAVE1_FINAL_UNIT_ID,
   WAVE1_WORD_IDS,
   isLiteracyWave1Bundle,
   validateLiteracyWave1Production,
   validateLiteracyWordsAgainstBandA,
 } from "./validateLiteracyWave1.ts";
+export {
+  LITERACY_WAVE2_META_ID,
+  WAVE2_BAND_A_WORD_IDS,
+  WAVE2_EXTERNAL_PREREQ_UNIT_IDS,
+  WAVE2_FINAL_UNIT_ID,
+  WAVE2_LETTER_IDS,
+  WAVE2_PATH_ID,
+  WAVE2_UNIT_IDS,
+  WAVE2_WORD_IDS,
+  isLiteracyWave2Bundle,
+  validateLiteracyWave2Production,
+  validateWave2WordsAgainstBandA,
+} from "./validateLiteracyWave2.ts";
+export {
+  LITERACY_WAVE3_META_ID,
+  WAVE3_BAND_A_WORD_IDS,
+  WAVE3_EXTERNAL_PREREQ_UNIT_IDS,
+  WAVE3_FINAL_UNIT_ID,
+  WAVE3_LETTER_IDS,
+  WAVE3_PATH_ID,
+  WAVE3_UNIT_IDS,
+  WAVE3_WORD_IDS,
+  isLiteracyWave3Bundle,
+  validateLiteracyWave3Production,
+  validateWave3WordsAgainstBandA,
+} from "./validateLiteracyWave3.ts";
+export {
+  LITERACY_WAVE4_META_ID,
+  WAVE4_BAND_A_WORD_IDS,
+  WAVE4_EXTERNAL_PREREQ_UNIT_IDS,
+  WAVE4_FINAL_UNIT_ID,
+  WAVE4_FIRST_UNIT_ID,
+  WAVE4_LETTER_IDS,
+  WAVE4_PATH_ID,
+  WAVE4_UNIT_IDS,
+  WAVE4_WORD_IDS,
+  isLiteracyWave4Bundle,
+  validateLiteracyWave4Production,
+  validateWave4WordsAgainstBandA,
+} from "./validateLiteracyWave4.ts";
+export {
+  LITERACY_WAVE5_META_ID,
+  WAVE5_BAND_A_WORD_IDS,
+  WAVE5_EXTERNAL_PREREQ_UNIT_IDS,
+  WAVE5_FINAL_UNIT_ID,
+  WAVE5_FIRST_UNIT_ID,
+  WAVE5_LETTER_IDS,
+  WAVE5_PATH_ID,
+  WAVE5_UNIT_IDS,
+  WAVE5_WORD_IDS,
+  isLiteracyWave5Bundle,
+  validateLiteracyWave5Production,
+  validateWave5WordsAgainstBandA,
+} from "./validateLiteracyWave5.ts";
+export {
+  LITERACY_WAVE6_META_ID,
+  WAVE6_BAND_A_WORD_IDS,
+  WAVE6_EXTERNAL_PREREQ_UNIT_IDS,
+  WAVE6_FINAL_UNIT_ID,
+  WAVE6_FIRST_UNIT_ID,
+  WAVE6_LETTER_IDS,
+  WAVE6_PATH_ID,
+  WAVE6_UNIT_IDS,
+  WAVE6_WORD_IDS,
+  isLiteracyWave6Bundle,
+  validateLiteracyWave6Production,
+  validateWave6WordsAgainstBandA,
+} from "./validateLiteracyWave6.ts";
+export {
+  LITERACY_WAVE7_META_ID,
+  WAVE7_BAND_A_WORD_IDS,
+  WAVE7_EXTERNAL_PREREQ_UNIT_IDS,
+  WAVE7_FINAL_UNIT_ID,
+  WAVE7_FIRST_UNIT_ID,
+  WAVE7_LETTER_IDS,
+  WAVE7_PATH_ID,
+  WAVE7_UNIT_IDS,
+  WAVE7_WORD_IDS,
+  isLiteracyWave7Bundle,
+  validateLiteracyWave7Production,
+  validateWave7WordsAgainstBandA,
+} from "./validateLiteracyWave7.ts";
+export {
+  LITERACY_WAVE8_META_ID,
+  WAVE8_BAND_A_WORD_IDS,
+  WAVE8_EXTERNAL_PREREQ_UNIT_IDS,
+  WAVE8_FINAL_UNIT_ID,
+  WAVE8_FIRST_UNIT_ID,
+  WAVE8_LETTER_IDS,
+  WAVE8_PATH_ID,
+  WAVE8_UNIT_IDS,
+  WAVE8_WORD_IDS,
+  isLiteracyWave8Bundle,
+  validateLiteracyWave8Production,
+  validateWave8WordsAgainstBandA,
+} from "./validateLiteracyWave8.ts";
+export {
+  LITERACY_WAVE9_META_ID,
+  WAVE9_BAND_A_WORD_IDS,
+  WAVE9_EXTERNAL_PREREQ_UNIT_IDS,
+  WAVE9_FINAL_UNIT_ID,
+  WAVE9_FIRST_UNIT_ID,
+  WAVE9_LETTER_IDS,
+  WAVE9_PATH_ID,
+  WAVE9_REQUIRES_LAM_FINAL,
+  WAVE9_UNIT_IDS,
+  WAVE9_WORD_IDS,
+  isLiteracyWave9Bundle,
+  validateLiteracyWave9Production,
+  validateWave9WordsAgainstBandA,
+} from "./validateLiteracyWave9.ts";
+export {
+  LITERACY_WAVE10_META_ID,
+  WAVE10_BAND_A_WORD_IDS,
+  WAVE10_EXTERNAL_PREREQ_UNIT_IDS,
+  WAVE10_FINAL_UNIT_ID,
+  WAVE10_FIRST_UNIT_ID,
+  WAVE10_LETTER_IDS,
+  WAVE10_PATH_ID,
+  WAVE10_UNIT_IDS,
+  WAVE10_WORD_IDS,
+  isLiteracyWave10Bundle,
+  validateLiteracyWave10Production,
+  validateWave10WordsAgainstBandA,
+} from "./validateLiteracyWave10.ts";
+export {
+  LITERACY_WAVE11_META_ID,
+  WAVE11_BAND_A_WORD_IDS,
+  WAVE11_EXTERNAL_PREREQ_UNIT_IDS,
+  WAVE11_FINAL_UNIT_ID,
+  WAVE11_FIRST_UNIT_ID,
+  WAVE11_LETTER_IDS,
+  WAVE11_PATH_ID,
+  WAVE11_UNIT_IDS,
+  WAVE11_WORD_IDS,
+  isLiteracyWave11Bundle,
+  validateLiteracyWave11Production,
+  validateWave11WordsAgainstBandA,
+} from "./validateLiteracyWave11.ts";
+export {
+  LITERACY_WAVE12_META_ID,
+  WAVE12_BAND_A_WORD_IDS,
+  WAVE12_EXTERNAL_PREREQ_UNIT_IDS,
+  WAVE12_FINAL_UNIT_ID,
+  WAVE12_FIRST_UNIT_ID,
+  WAVE12_LETTER_IDS,
+  WAVE12_PATH_ID,
+  WAVE12_UNIT_IDS,
+  WAVE12_WORD_IDS,
+  isLiteracyWave12Bundle,
+  validateLiteracyWave12Production,
+  validateWave12WordsAgainstBandA,
+} from "./validateLiteracyWave12.ts";
+export {
+  LITERACY_WAVE13_META_ID,
+  WAVE13_BAND_A_WORD_IDS,
+  WAVE13_EXTERNAL_PREREQ_UNIT_IDS,
+  WAVE13_FINAL_UNIT_ID,
+  WAVE13_FIRST_UNIT_ID,
+  WAVE13_LETTER_IDS,
+  WAVE13_PATH_ID,
+  WAVE13_UNIT_IDS,
+  WAVE13_WORD_IDS,
+  isLiteracyWave13Bundle,
+  validateLiteracyWave13Production,
+  validateWave13WordsAgainstBandA,
+} from "./validateLiteracyWave13.ts";
+export {
+  LITERACY_WAVE14_META_ID,
+  WAVE14_BAND_A_WORD_IDS,
+  WAVE14_EXTERNAL_PREREQ_UNIT_IDS,
+  WAVE14_FINAL_UNIT_ID,
+  WAVE14_FIRST_UNIT_ID,
+  WAVE14_LETTER_IDS,
+  WAVE14_PATH_ID,
+  WAVE14_UNIT_IDS,
+  WAVE14_WORD_IDS,
+  isLiteracyWave14Bundle,
+  validateLiteracyWave14Production,
+  validateWave14WordsAgainstBandA,
+} from "./validateLiteracyWave14.ts";
+export {
+  LITERACY_WAVE15_META_ID,
+  WAVE15_BAND_A_WORD_IDS,
+  WAVE15_EXTERNAL_PREREQ_UNIT_IDS,
+  WAVE15_FINAL_UNIT_ID,
+  WAVE15_FIRST_UNIT_ID,
+  WAVE15_LETTER_IDS,
+  WAVE15_PATH_ID,
+  WAVE15_UNIT_IDS,
+  WAVE15_WORD_IDS,
+  isLiteracyWave15Bundle,
+  validateLiteracyWave15Production,
+  validateWave15WordsAgainstBandA,
+} from "./validateLiteracyWave15.ts";
+export {
+  LITERACY_WAVE16_META_ID,
+  WAVE16_BAND_A_WORD_IDS,
+  WAVE16_EXTERNAL_PREREQ_UNIT_IDS,
+  WAVE16_FINAL_UNIT_ID,
+  WAVE16_FIRST_UNIT_ID,
+  WAVE16_LETTER_IDS,
+  WAVE16_PATH_ID,
+  WAVE16_UNIT_IDS,
+  WAVE16_WORD_IDS,
+  isLiteracyWave16Bundle,
+  validateLiteracyWave16Production,
+  validateWave16WordsAgainstBandA,
+} from "./validateLiteracyWave16.ts";
+export {
+  LITERACY_WAVE17_META_ID,
+  WAVE17_BAND_A_WORD_IDS,
+  WAVE17_EXTERNAL_PREREQ_UNIT_IDS,
+  WAVE17_FINAL_UNIT_ID,
+  WAVE17_FIRST_UNIT_ID,
+  WAVE17_LETTER_IDS,
+  WAVE17_PATH_ID,
+  WAVE17_UNIT_IDS,
+  WAVE17_WORD_IDS,
+  isLiteracyWave17Bundle,
+  validateLiteracyWave17Production,
+  validateWave17WordsAgainstBandA,
+} from "./validateLiteracyWave17.ts";
+export {
+  LITERACY_WAVE18_META_ID,
+  WAVE18_EXTERNAL_PREREQ_UNIT_IDS,
+  WAVE18_FINAL_UNIT_ID,
+  WAVE18_FIRST_UNIT_ID,
+  WAVE18_LETTER_IDS,
+  WAVE18_PATH_ID,
+  WAVE18_UNIT_IDS,
+  WAVE18_WORD_IDS,
+  isLiteracyWave18Bundle,
+  validateLiteracyWave18Production,
+} from "./validateLiteracyWave18.ts";
+export {
+  LITERACY_WAVE19_META_ID,
+  WAVE19_EXTERNAL_PREREQ_UNIT_IDS,
+  WAVE19_FINAL_UNIT_ID,
+  WAVE19_FIRST_UNIT_ID,
+  WAVE19_LETTER_IDS,
+  WAVE19_PATH_ID,
+  WAVE19_UNIT_IDS,
+  WAVE19_WORD_IDS,
+  isLiteracyWave19Bundle,
+  validateLiteracyWave19Production,
+} from "./validateLiteracyWave19.ts";
+export {
+  LITERACY_WAVE20_META_ID,
+  WAVE20_BAND_A_WORD_IDS,
+  WAVE20_EXTERNAL_PREREQ_UNIT_IDS,
+  WAVE20_FINAL_UNIT_ID,
+  WAVE20_FIRST_UNIT_ID,
+  WAVE20_LETTER_IDS,
+  WAVE20_PATH_ID,
+  WAVE20_UNIT_IDS,
+  WAVE20_WORD_IDS,
+  isLiteracyWave20Bundle,
+  validateLiteracyWave20Production,
+  validateWave20WordsAgainstBandA,
+} from "./validateLiteracyWave20.ts";
+export {
+  LITERACY_WAVE21_META_ID,
+  WAVE21_BAND_A_WORD_IDS,
+  WAVE21_EXTERNAL_PREREQ_UNIT_IDS,
+  WAVE21_FINAL_UNIT_ID,
+  WAVE21_FIRST_UNIT_ID,
+  WAVE21_LETTER_IDS,
+  WAVE21_PATH_ID,
+  WAVE21_SENTENCE_AUDIO_ID,
+  WAVE21_SENTENCE_ID,
+  WAVE21_UNIT_IDS,
+  WAVE21_WORD_IDS,
+  isLiteracyWave21Bundle,
+  validateLiteracyWave21Production,
+  validateWave21WordsAgainstBandA,
+} from "./validateLiteracyWave21.ts";
+export {
+  LITERACY_WAVE22_META_ID,
+  WAVE22_BAND_A_WORD_IDS,
+  WAVE22_EXTERNAL_PREREQ_UNIT_IDS,
+  WAVE22_FINAL_UNIT_ID,
+  WAVE22_FIRST_UNIT_ID,
+  WAVE22_LETTER_IDS,
+  WAVE22_PATH_ID,
+  WAVE22_REQUIRED_LIVE_KEY,
+  WAVE22_UNIT_IDS,
+  WAVE22_WORD_IDS,
+  isLiteracyWave22Bundle,
+  validateLiteracyWave22Production,
+  validateWave22WordsAgainstBandA,
+} from "./validateLiteracyWave22.ts";
+export {
+  READING_FOUNDATIONS_META_ID,
+  READING_FOUNDATIONS_MODULE_ID,
+  READING_FOUNDATIONS_PATH_ID,
+  READING_FOUNDATIONS_UNIT_IDS,
+  READING_FOUNDATIONS_FIRST_UNIT_ID,
+  READING_FOUNDATIONS_FINAL_UNIT_ID,
+  READING_FOUNDATIONS_EXTERNAL_PREREQ_UNIT_IDS,
+  READING_FOUNDATIONS_LETTER_IDS,
+  READING_FOUNDATIONS_WORD_IDS,
+  READING_FOUNDATIONS_BAND_A_WORD_IDS,
+  READING_FOUNDATIONS_REQUIRED_LIVE_KEYS,
+  KITABUN_SENTENCE_ID,
+  WALADUN_YALABU_SENTENCE_ID,
+  ALKITABU_KABIRUN_SENTENCE_ID,
+  isReadingFoundationsBundle,
+  validateReadingFoundationsModule,
+  validateReadingFoundationsWordsAgainstBandA,
+} from "./validateReadingFoundationsModule.ts";
+export {
+  ORTHOGRAPHIC_FOUNDATIONS_META_ID,
+  ORTHOGRAPHIC_FOUNDATIONS_MODULE_ID,
+  ORTHOGRAPHIC_FOUNDATIONS_PATH_ID,
+  ORTHOGRAPHIC_FOUNDATIONS_UNIT_IDS,
+  ORTHOGRAPHIC_FOUNDATIONS_FIRST_UNIT_ID,
+  ORTHOGRAPHIC_FOUNDATIONS_FINAL_UNIT_ID,
+  ORTHOGRAPHIC_FOUNDATIONS_EXTERNAL_PREREQ_UNIT_IDS,
+  ORTHOGRAPHIC_FOUNDATIONS_LETTER_IDS,
+  ORTHOGRAPHIC_FOUNDATIONS_WORD_IDS,
+  ORTHOGRAPHIC_FOUNDATIONS_BAND_A_WORD_IDS,
+  ORTHOGRAPHIC_FOUNDATIONS_LOCAL_WORD_IDS,
+  ORTHOGRAPHIC_FOUNDATIONS_REQUIRED_LIVE_KEYS,
+  isOrthographicFoundationsBundle,
+  validateOrthographicFoundationsModule,
+  validateOrthographicFoundationsWordsAgainstBandA,
+} from "./validateOrthographicFoundationsModule.ts";
 export {
   SHARED_SKILLS_CATALOG_ID,
   catalogSkillsFrom,
@@ -95,6 +539,7 @@ const EXERCISE_TYPES = new Set<ExerciseType>([
   "picture_to_word",
   "word_to_picture",
   "audio_to_word",
+  "audio_to_sentence",
   "audio_to_picture",
   "missing_letter",
   "missing_haraka",
@@ -104,6 +549,7 @@ const EXERCISE_TYPES = new Set<ExerciseType>([
   "dictation",
   "comprehension",
   "story_sequence",
+  "presentation",
 ]);
 
 const MSA_STATUSES = new Set<MsaStatus>([
@@ -134,6 +580,7 @@ const SUCCESS_TYPES = new Set<SuccessType>([
   "trace_coverage",
   "ordered_ids",
   "exact_text",
+  "continue",
 ]);
 const COMPREHENSION_TYPES = new Set<ComprehensionType>([
   "picture_match",
@@ -143,7 +590,7 @@ const COMPREHENSION_TYPES = new Set<ComprehensionType>([
 ]);
 const ASSET_KINDS = new Set<AssetKind>(["audio", "image", "trace"]);
 const MODALITIES = new Set<SkillModality>(["listen", "read", "write", "speak"]);
-const SYLLABLE_PATTERNS = new Set(["CV", "CVC"]);
+const SYLLABLE_PATTERNS = new Set(["CV", "CVC", "CVV"]);
 const LETTER_FORM_SLOTS = new Set(["isolated", "initial", "medial", "final"]);
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -879,16 +1326,45 @@ export function validateCurriculum(data: unknown): ValidationResult {
     if (letterId) checkId(out, `${path}.letterId`, letterId, "letter");
     const vowelSkillId = expectString(out, `${path}.vowelSkillId`, row["vowelSkillId"], true);
     if (vowelSkillId) checkId(out, `${path}.vowelSkillId`, vowelSkillId, "skill");
-    if (vowelSkillId && !vowelSkillId.startsWith("skill.short_vowel.")) {
+    if (
+      vowelSkillId &&
+      !vowelSkillId.startsWith("skill.short_vowel.") &&
+      vowelSkillId !== "skill.sukun.basic" &&
+      vowelSkillId !== "skill.long_vowel.madd"
+    ) {
       out.error(
         "INVALID_TYPE",
         `${path}.vowelSkillId`,
-        `Syllable vowelSkillId must be a short-vowel skill, got "${vowelSkillId}".`,
+        `Syllable vowelSkillId must be a short-vowel, sukun, or madd skill, got "${vowelSkillId}".`,
       );
     }
     const pattern = expectString(out, `${path}.pattern`, row["pattern"], true);
     if (pattern && !SYLLABLE_PATTERNS.has(pattern)) {
       out.error("UNKNOWN_ENUM", `${path}.pattern`, `Unknown syllable pattern "${pattern}".`);
+    }
+    if (vowelSkillId === "skill.long_vowel.madd" && pattern && pattern !== "CVV") {
+      out.error(
+        "INVALID_TYPE",
+        `${path}.pattern`,
+        `Madd-alif syllables must use pattern "CVV", got "${pattern}".`,
+      );
+    }
+    if (pattern === "CVV" && vowelSkillId && vowelSkillId !== "skill.long_vowel.madd") {
+      out.error(
+        "INVALID_TYPE",
+        `${path}.vowelSkillId`,
+        `CVV syllables must use skill.long_vowel.madd, got "${vowelSkillId}".`,
+      );
+    }
+    if (pattern === "CVC") {
+      const closedLetters = Array.isArray(row["requiredLetterIds"]) ? row["requiredLetterIds"] : [];
+      if (closedLetters.length < 2) {
+        out.error(
+          "MISSING_FIELD",
+          `${path}.requiredLetterIds`,
+          `CVC syllable "${id ?? path}" must list at least two requiredLetterIds.`,
+        );
+      }
     }
     const requiredSkills =
       expectArray(out, `${path}.requiredSkillIds`, row["requiredSkillIds"], true) ?? [];
@@ -1067,6 +1543,16 @@ export function validateCurriculum(data: unknown): ValidationResult {
       if (!isRecord(row) || typeof row["id"] !== "string") return;
       if (!exercisesInUnits.has(row["id"])) return;
       const targets = row["masteryTargets"];
+      if (row["type"] === "presentation") {
+        if (Array.isArray(targets) && targets.length > 0) {
+          out.error(
+            "INVALID_STRUCTURE",
+            `exercises[${i}].masteryTargets`,
+            `Presentation "${row["id"]}" must not declare mastery targets (demos are unscored).`,
+          );
+        }
+        return;
+      }
       if (!Array.isArray(targets) || targets.length === 0) {
         out.error(
           "MISSING_MASTERY_TARGET",
@@ -1114,7 +1600,59 @@ export function validateCurriculum(data: unknown): ValidationResult {
   };
   const resolveUnit = (path: string, id: string) => {
     if (typeof id !== "string") return;
-    if (!unitIds.has(id)) missing("MISSING_UNIT", path, id, "unit");
+    if (unitIds.has(id)) return;
+    if (
+      path.includes(".prereqUnitIds") &&
+      ((isLiteracyWave2Bundle(data) &&
+        (WAVE2_EXTERNAL_PREREQ_UNIT_IDS as readonly string[]).includes(id)) ||
+        (isLiteracyWave3Bundle(data) &&
+          (WAVE3_EXTERNAL_PREREQ_UNIT_IDS as readonly string[]).includes(id)) ||
+        (isLiteracyWave4Bundle(data) &&
+          (WAVE4_EXTERNAL_PREREQ_UNIT_IDS as readonly string[]).includes(id)) ||
+        (isLiteracyWave5Bundle(data) &&
+          (WAVE5_EXTERNAL_PREREQ_UNIT_IDS as readonly string[]).includes(id)) ||
+        (isLiteracyWave6Bundle(data) &&
+          (WAVE6_EXTERNAL_PREREQ_UNIT_IDS as readonly string[]).includes(id)) ||
+        (isLiteracyWave7Bundle(data) &&
+          (WAVE7_EXTERNAL_PREREQ_UNIT_IDS as readonly string[]).includes(id)) ||
+        (isLiteracyWave8Bundle(data) &&
+          (WAVE8_EXTERNAL_PREREQ_UNIT_IDS as readonly string[]).includes(id)) ||
+        (isLiteracyWave9Bundle(data) &&
+          (WAVE9_EXTERNAL_PREREQ_UNIT_IDS as readonly string[]).includes(id)) ||
+        (isLiteracyWave10Bundle(data) &&
+          (WAVE10_EXTERNAL_PREREQ_UNIT_IDS as readonly string[]).includes(id)) ||
+        (isLiteracyWave11Bundle(data) &&
+          (WAVE11_EXTERNAL_PREREQ_UNIT_IDS as readonly string[]).includes(id)) ||
+        (isLiteracyWave12Bundle(data) &&
+          (WAVE12_EXTERNAL_PREREQ_UNIT_IDS as readonly string[]).includes(id)) ||
+        (isLiteracyWave13Bundle(data) &&
+          (WAVE13_EXTERNAL_PREREQ_UNIT_IDS as readonly string[]).includes(id)) ||
+        (isLiteracyWave14Bundle(data) &&
+          (WAVE14_EXTERNAL_PREREQ_UNIT_IDS as readonly string[]).includes(id)) ||
+        (isLiteracyWave15Bundle(data) &&
+          (WAVE15_EXTERNAL_PREREQ_UNIT_IDS as readonly string[]).includes(id)) ||
+        (isLiteracyWave16Bundle(data) &&
+          (WAVE16_EXTERNAL_PREREQ_UNIT_IDS as readonly string[]).includes(id)) ||
+        (isLiteracyWave17Bundle(data) &&
+          (WAVE17_EXTERNAL_PREREQ_UNIT_IDS as readonly string[]).includes(id)) ||
+        (isLiteracyWave18Bundle(data) &&
+          (WAVE18_EXTERNAL_PREREQ_UNIT_IDS as readonly string[]).includes(id)) ||
+        (isLiteracyWave19Bundle(data) &&
+          (WAVE19_EXTERNAL_PREREQ_UNIT_IDS as readonly string[]).includes(id)) ||
+        (isLiteracyWave20Bundle(data) &&
+          (WAVE20_EXTERNAL_PREREQ_UNIT_IDS as readonly string[]).includes(id)) ||
+        (isLiteracyWave21Bundle(data) &&
+          (WAVE21_EXTERNAL_PREREQ_UNIT_IDS as readonly string[]).includes(id)) ||
+        (isLiteracyWave22Bundle(data) &&
+          (WAVE22_EXTERNAL_PREREQ_UNIT_IDS as readonly string[]).includes(id)) ||
+        (isReadingFoundationsBundle(data) &&
+          (READING_FOUNDATIONS_EXTERNAL_PREREQ_UNIT_IDS as readonly string[]).includes(id)) ||
+        (isOrthographicFoundationsBundle(data) &&
+          (ORTHOGRAPHIC_FOUNDATIONS_EXTERNAL_PREREQ_UNIT_IDS as readonly string[]).includes(id)))
+    ) {
+      return;
+    }
+    missing("MISSING_UNIT", path, id, "unit");
   };
   const resolveExercise = (path: string, id: string) => {
     if (typeof id !== "string") return;
@@ -1302,6 +1840,8 @@ export function validateCurriculum(data: unknown): ValidationResult {
           resolveSyllable(`${path}.masteryTargets[${j}].syllableId`, target["syllableId"]);
         if (typeof target["wordId"] === "string")
           resolveWord(`${path}.masteryTargets[${j}].wordId`, target["wordId"]);
+        if (typeof target["sentenceId"] === "string")
+          resolveSentence(`${path}.masteryTargets[${j}].sentenceId`, target["sentenceId"]);
       });
     }
     const choices = row["choices"];
@@ -1314,6 +1854,7 @@ export function validateCurriculum(data: unknown): ValidationResult {
         if (parsed?.namespace === "syllable") resolveSyllable(`${path}.choices[${j}].id`, choice["id"]);
         if (parsed?.namespace === "letter") resolveLetter(`${path}.choices[${j}].id`, choice["id"]);
         if (parsed?.namespace === "word") resolveWord(`${path}.choices[${j}].id`, choice["id"]);
+        if (parsed?.namespace === "sentence") resolveSentence(`${path}.choices[${j}].id`, choice["id"]);
       });
     }
     if (row["type"] === "syllable_blending") {
@@ -1488,6 +2029,96 @@ export function validateCurriculum(data: unknown): ValidationResult {
         );
       }
     }
+    if (row["type"] === "audio_to_sentence") {
+      const success = isRecord(row["success"]) ? row["success"] : undefined;
+      const correctId = success && typeof success["correctChoiceId"] === "string" ? success["correctChoiceId"] : undefined;
+      if (correctId) {
+        const parsed = parseCurriculumId(correctId);
+        if (parsed?.namespace === "sentence") resolveSentence(`${path}.success.correctChoiceId`, correctId);
+      }
+      const contentSentenceIds = (Array.isArray(row["contentIds"]) ? row["contentIds"] : []).filter(
+        (id): id is string => typeof id === "string" && id.startsWith("sentence."),
+      );
+      const targetSentenceIds = Array.isArray(row["masteryTargets"])
+        ? row["masteryTargets"].flatMap((target) =>
+            isRecord(target) && typeof target["sentenceId"] === "string" ? [target["sentenceId"]] : [],
+          )
+        : [];
+      const readingSentenceIds = Array.isArray(row["masteryTargets"])
+        ? row["masteryTargets"].flatMap((target) =>
+            isRecord(target) &&
+            typeof target["skillId"] === "string" &&
+            String(target["skillId"]).startsWith("skill.sentence_reading.") &&
+            typeof target["sentenceId"] === "string"
+              ? [target["sentenceId"]]
+              : [],
+          )
+        : [];
+      const hasReadingWithoutSentence = Array.isArray(row["masteryTargets"])
+        ? row["masteryTargets"].some(
+            (target) =>
+              isRecord(target) &&
+              typeof target["skillId"] === "string" &&
+              String(target["skillId"]).startsWith("skill.sentence_reading.") &&
+              typeof target["sentenceId"] !== "string",
+          )
+        : false;
+      const targetId =
+        (correctId?.startsWith("sentence.") ? correctId : undefined) ??
+        targetSentenceIds[0] ??
+        contentSentenceIds[0];
+      if (!targetId) {
+        out.error(
+          "MISSING_FIELD",
+          `${path}.success.correctChoiceId`,
+          "audio_to_sentence exercise must reference a playable target sentence.",
+        );
+      }
+      if (hasReadingWithoutSentence) {
+        out.error(
+          "MISSING_FIELD",
+          `${path}.masteryTargets`,
+          "audio_to_sentence sentence-reading mastery target must declare sentenceId.",
+        );
+      }
+      if (correctId && Array.isArray(choices) && choices.length > 0) {
+        const choiceIds = choices.flatMap((choice) =>
+          isRecord(choice) && typeof choice["id"] === "string" ? [choice["id"]] : [],
+        );
+        if (!choiceIds.includes(correctId)) {
+          out.error(
+            "MISSING_FIELD",
+            `${path}.success.correctChoiceId`,
+            `audio_to_sentence correctChoiceId "${correctId}" is not listed in choices.`,
+          );
+        }
+        if (choiceIds.length < 2) {
+          out.error(
+            "MISSING_FIELD",
+            `${path}.choices`,
+            "audio_to_sentence must list at least two authored choices.",
+          );
+        }
+      }
+      if (
+        correctId?.startsWith("sentence.") &&
+        readingSentenceIds.length > 0 &&
+        readingSentenceIds.some((id) => id !== correctId)
+      ) {
+        out.error(
+          "MISSING_MASTERY_TARGET",
+          `${path}.masteryTargets`,
+          `audio_to_sentence sentence-reading target does not match scored sentence "${correctId}".`,
+        );
+      }
+      if (correctId?.startsWith("sentence.") && targetSentenceIds.length > 0 && !targetSentenceIds.includes(correctId)) {
+        out.error(
+          "MISSING_MASTERY_TARGET",
+          `${path}.masteryTargets`,
+          `audio_to_sentence exercise does not score its correct sentence "${correctId}".`,
+        );
+      }
+    }
     if (row["type"] === "missing_haraka") {
       const success = isRecord(row["success"]) ? row["success"] : undefined;
       const correctId = success && typeof success["correctChoiceId"] === "string" ? success["correctChoiceId"] : undefined;
@@ -1505,7 +2136,9 @@ export function validateCurriculum(data: unknown): ValidationResult {
         : [];
       const vowelTargetSkills = Array.isArray(row["masteryTargets"])
         ? row["masteryTargets"].flatMap((target) =>
-            isRecord(target) && typeof target["skillId"] === "string" && target["skillId"].startsWith("skill.short_vowel.")
+            isRecord(target) &&
+            typeof target["skillId"] === "string" &&
+            (target["skillId"].startsWith("skill.short_vowel.") || target["skillId"] === "skill.sukun.basic")
               ? [target["skillId"]]
               : [],
           )
@@ -1531,18 +2164,19 @@ export function validateCurriculum(data: unknown): ValidationResult {
         out.error(
           "MISSING_FIELD",
           `${path}.success.correctChoiceId`,
-          `missing_haraka target "${targetId}" has no short-vowel skill.`,
+          `missing_haraka target "${targetId}" has no haraka skill.`,
         );
       } else if (
         targetVowel &&
         targetVowel !== "skill.short_vowel.fatha" &&
         targetVowel !== "skill.short_vowel.kasra" &&
-        targetVowel !== "skill.short_vowel.damma"
+        targetVowel !== "skill.short_vowel.damma" &&
+        targetVowel !== "skill.sukun.basic"
       ) {
         out.error(
           "UNKNOWN_ENUM",
           `${path}.success.correctChoiceId`,
-          `missing_haraka target "${targetId}" uses unsupported vowel "${targetVowel}".`,
+          `missing_haraka target "${targetId}" uses unsupported haraka "${targetVowel}".`,
         );
       }
       if (correctId && Array.isArray(choices) && choices.length > 0) {
@@ -1573,12 +2207,13 @@ export function validateCurriculum(data: unknown): ValidationResult {
             vowel &&
             vowel !== "skill.short_vowel.fatha" &&
             vowel !== "skill.short_vowel.kasra" &&
-            vowel !== "skill.short_vowel.damma"
+            vowel !== "skill.short_vowel.damma" &&
+            vowel !== "skill.sukun.basic"
           ) {
             out.error(
               "UNKNOWN_ENUM",
               `${path}.choices[${j}].id`,
-              `missing_haraka choice "${choice["id"]}" is not a short-vowel haraka.`,
+              `missing_haraka choice "${choice["id"]}" is not a supported haraka.`,
             );
           }
         });
@@ -1587,7 +2222,7 @@ export function validateCurriculum(data: unknown): ValidationResult {
         out.error(
           "MISSING_MASTERY_TARGET",
           `${path}.masteryTargets`,
-          `missing_haraka mastery skill does not match scored vowel "${targetVowel}".`,
+          `missing_haraka mastery skill does not match scored haraka "${targetVowel}".`,
         );
       }
       if (correctId?.startsWith("syllable.") && targetSyllableIds.length > 0 && !targetSyllableIds.includes(correctId)) {
@@ -2126,7 +2761,7 @@ export function validateCurriculum(data: unknown): ValidationResult {
             }
           }
         }
-        if (exercise["type"] === "audio_to_word" || exercise["type"] === "picture_to_word" || exercise["type"] === "word_to_picture") {
+        if (exercise["type"] === "audio_to_word" || exercise["type"] === "audio_to_sentence" || exercise["type"] === "picture_to_word" || exercise["type"] === "word_to_picture") {
           const usedWords = new Set<string>();
           const addWord = (value: unknown) => {
             if (typeof value === "string" && value.startsWith("word.")) usedWords.add(value);
@@ -2178,6 +2813,167 @@ export function validateCurriculum(data: unknown): ValidationResult {
 
   if (isLiteracyWave1Bundle(data)) {
     validateLiteracyWave1Production(data, (issue) => {
+      if (issue.severity === "warning") out.warn(issue.code, issue.path, issue.message);
+      else out.error(issue.code, issue.path, issue.message);
+    });
+  }
+
+  if (isLiteracyWave2Bundle(data)) {
+    validateLiteracyWave2Production(data, (issue) => {
+      if (issue.severity === "warning") out.warn(issue.code, issue.path, issue.message);
+      else out.error(issue.code, issue.path, issue.message);
+    });
+  }
+
+  if (isLiteracyWave3Bundle(data)) {
+    validateLiteracyWave3Production(data, (issue) => {
+      if (issue.severity === "warning") out.warn(issue.code, issue.path, issue.message);
+      else out.error(issue.code, issue.path, issue.message);
+    });
+  }
+
+  if (isLiteracyWave4Bundle(data)) {
+    validateLiteracyWave4Production(data, (issue) => {
+      if (issue.severity === "warning") out.warn(issue.code, issue.path, issue.message);
+      else out.error(issue.code, issue.path, issue.message);
+    });
+  }
+
+  if (isLiteracyWave5Bundle(data)) {
+    validateLiteracyWave5Production(data, (issue) => {
+      if (issue.severity === "warning") out.warn(issue.code, issue.path, issue.message);
+      else out.error(issue.code, issue.path, issue.message);
+    });
+  }
+
+  if (isLiteracyWave6Bundle(data)) {
+    validateLiteracyWave6Production(data, (issue) => {
+      if (issue.severity === "warning") out.warn(issue.code, issue.path, issue.message);
+      else out.error(issue.code, issue.path, issue.message);
+    });
+  }
+
+  if (isLiteracyWave7Bundle(data)) {
+    validateLiteracyWave7Production(data, (issue) => {
+      if (issue.severity === "warning") out.warn(issue.code, issue.path, issue.message);
+      else out.error(issue.code, issue.path, issue.message);
+    });
+  }
+
+  if (isLiteracyWave8Bundle(data)) {
+    validateLiteracyWave8Production(data, (issue) => {
+      if (issue.severity === "warning") out.warn(issue.code, issue.path, issue.message);
+      else out.error(issue.code, issue.path, issue.message);
+    });
+  }
+
+  if (isLiteracyWave9Bundle(data)) {
+    validateLiteracyWave9Production(data, (issue) => {
+      if (issue.severity === "warning") out.warn(issue.code, issue.path, issue.message);
+      else out.error(issue.code, issue.path, issue.message);
+    });
+  }
+
+  if (isLiteracyWave10Bundle(data)) {
+    validateLiteracyWave10Production(data, (issue) => {
+      if (issue.severity === "warning") out.warn(issue.code, issue.path, issue.message);
+      else out.error(issue.code, issue.path, issue.message);
+    });
+  }
+
+  if (isLiteracyWave11Bundle(data)) {
+    validateLiteracyWave11Production(data, (issue) => {
+      if (issue.severity === "warning") out.warn(issue.code, issue.path, issue.message);
+      else out.error(issue.code, issue.path, issue.message);
+    });
+  }
+
+  if (isLiteracyWave12Bundle(data)) {
+    validateLiteracyWave12Production(data, (issue) => {
+      if (issue.severity === "warning") out.warn(issue.code, issue.path, issue.message);
+      else out.error(issue.code, issue.path, issue.message);
+    });
+  }
+
+  if (isLiteracyWave13Bundle(data)) {
+    validateLiteracyWave13Production(data, (issue) => {
+      if (issue.severity === "warning") out.warn(issue.code, issue.path, issue.message);
+      else out.error(issue.code, issue.path, issue.message);
+    });
+  }
+
+  if (isLiteracyWave14Bundle(data)) {
+    validateLiteracyWave14Production(data, (issue) => {
+      if (issue.severity === "warning") out.warn(issue.code, issue.path, issue.message);
+      else out.error(issue.code, issue.path, issue.message);
+    });
+  }
+
+  if (isLiteracyWave15Bundle(data)) {
+    validateLiteracyWave15Production(data, (issue) => {
+      if (issue.severity === "warning") out.warn(issue.code, issue.path, issue.message);
+      else out.error(issue.code, issue.path, issue.message);
+    });
+  }
+
+  if (isLiteracyWave16Bundle(data)) {
+    validateLiteracyWave16Production(data, (issue) => {
+      if (issue.severity === "warning") out.warn(issue.code, issue.path, issue.message);
+      else out.error(issue.code, issue.path, issue.message);
+    });
+  }
+
+  if (isLiteracyWave17Bundle(data)) {
+    validateLiteracyWave17Production(data, (issue) => {
+      if (issue.severity === "warning") out.warn(issue.code, issue.path, issue.message);
+      else out.error(issue.code, issue.path, issue.message);
+    });
+  }
+
+  if (isLiteracyWave18Bundle(data)) {
+    validateLiteracyWave18Production(data, (issue) => {
+      if (issue.severity === "warning") out.warn(issue.code, issue.path, issue.message);
+      else out.error(issue.code, issue.path, issue.message);
+    });
+  }
+
+  if (isLiteracyWave19Bundle(data)) {
+    validateLiteracyWave19Production(data, (issue) => {
+      if (issue.severity === "warning") out.warn(issue.code, issue.path, issue.message);
+      else out.error(issue.code, issue.path, issue.message);
+    });
+  }
+
+  if (isLiteracyWave20Bundle(data)) {
+    validateLiteracyWave20Production(data, (issue) => {
+      if (issue.severity === "warning") out.warn(issue.code, issue.path, issue.message);
+      else out.error(issue.code, issue.path, issue.message);
+    });
+  }
+
+  if (isLiteracyWave21Bundle(data)) {
+    validateLiteracyWave21Production(data, (issue) => {
+      if (issue.severity === "warning") out.warn(issue.code, issue.path, issue.message);
+      else out.error(issue.code, issue.path, issue.message);
+    });
+  }
+
+  if (isLiteracyWave22Bundle(data)) {
+    validateLiteracyWave22Production(data, (issue) => {
+      if (issue.severity === "warning") out.warn(issue.code, issue.path, issue.message);
+      else out.error(issue.code, issue.path, issue.message);
+    });
+  }
+
+  if (isReadingFoundationsBundle(data)) {
+    validateReadingFoundationsModule(data, (issue) => {
+      if (issue.severity === "warning") out.warn(issue.code, issue.path, issue.message);
+      else out.error(issue.code, issue.path, issue.message);
+    });
+  }
+
+  if (isOrthographicFoundationsBundle(data)) {
+    validateOrthographicFoundationsModule(data, (issue) => {
       if (issue.severity === "warning") out.warn(issue.code, issue.path, issue.message);
       else out.error(issue.code, issue.path, issue.message);
     });

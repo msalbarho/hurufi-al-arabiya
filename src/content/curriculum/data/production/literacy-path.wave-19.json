@@ -1,0 +1,388 @@
+{
+  "meta": {
+    "kind": "production",
+    "id": "hurufi.production.literacy.wave19",
+    "title": "Literacy path — Wave 19",
+    "description": "Nineteenth production literacy slice: one-unit CLOSED DAMMA CVC proof. Score the phonics chunk بُلْ. No vocabulary word, no verb, no sentence, no ال, no tanween, no new letter, no Wave 20.",
+    "notProductionCurriculum": false
+  },
+  "levels": [
+    {
+      "id": 1,
+      "nameAr": "أَتَعَرَّفُ عَلَى الْحُرُوف",
+      "nameEn": "Letters I can see, hear, and trace"
+    },
+    {
+      "id": 2,
+      "nameAr": "أَشْكَالٌ وَحَرَكَات",
+      "nameEn": "Forms and short vowels"
+    },
+    {
+      "id": 3,
+      "nameAr": "أَدْمُجُ الْأَصْوَات",
+      "nameEn": "I can blend"
+    },
+    {
+      "id": 4,
+      "nameAr": "كَلِمَاتِي الْأُولَى",
+      "nameEn": "First real word bank"
+    },
+    {
+      "id": 5,
+      "nameAr": "أَسْتَعْمِلُ الْكَلِمَات",
+      "nameEn": "Words I can use"
+    },
+    {
+      "id": 6,
+      "nameAr": "لُغَةُ كُلِّ يَوْم",
+      "nameEn": "Everyday language"
+    },
+    {
+      "id": 7,
+      "nameAr": "أَفْهَمُ مَا أَقْرَأ",
+      "nameEn": "I understand what I read"
+    },
+    {
+      "id": 8,
+      "nameAr": "قِصَصٌ وَاسْتِقْلَال",
+      "nameEn": "Stories and independence"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill.letter_recognition.core",
+      "domain": "letter_recognition",
+      "nameAr": "التَّعَرُّفُ عَلَى الْحَرْف",
+      "nameEn": "Recognize a letter",
+      "childLabelAr": "نَعْرِفُ الْحَرْف",
+      "prereqSkillIds": [],
+      "learnerLevelHint": 1,
+      "vocabBandHint": "A",
+      "modality": ["read", "listen"],
+      "masteryHint": "Generic skill. Which letter is mastered is the item (letterId), not a separate SkillDefinition."
+    },
+    {
+      "id": "skill.short_vowel.fatha",
+      "domain": "short_vowels",
+      "nameAr": "الْفَتْحَة",
+      "nameEn": "Fatha",
+      "childLabelAr": "فَتْحَة",
+      "prereqSkillIds": [],
+      "learnerLevelHint": 2,
+      "vocabBandHint": "A",
+      "modality": ["listen", "read"]
+    },
+    {
+      "id": "skill.short_vowel.damma",
+      "domain": "short_vowels",
+      "nameAr": "الضَّمَّة",
+      "nameEn": "Damma",
+      "childLabelAr": "ضَمَّة",
+      "prereqSkillIds": ["skill.short_vowel.fatha"],
+      "learnerLevelHint": 2,
+      "vocabBandHint": "A",
+      "modality": ["listen", "read"]
+    },
+    {
+      "id": "skill.sukun.basic",
+      "domain": "sukun",
+      "nameAr": "السُّكُون",
+      "nameEn": "Sukun",
+      "childLabelAr": "سُكُون",
+      "prereqSkillIds": ["skill.short_vowel.fatha"],
+      "learnerLevelHint": 3,
+      "vocabBandHint": "A",
+      "modality": ["listen", "read"]
+    },
+    {
+      "id": "skill.syllable_blending.cv",
+      "domain": "syllable_blending",
+      "nameAr": "دَمْجُ مَقْطَعٍ قَصِير",
+      "nameEn": "Blend a CV syllable",
+      "childLabelAr": "نَقْرَأُ مَعًا",
+      "prereqSkillIds": ["skill.short_vowel.fatha"],
+      "learnerLevelHint": 3,
+      "vocabBandHint": "A",
+      "modality": ["read", "listen"]
+    },
+    {
+      "id": "skill.syllable_blending.cvc",
+      "domain": "syllable_blending",
+      "nameAr": "دَمْجُ مَقْطَعٍ مُغْلَق",
+      "nameEn": "Blend a closed chunk",
+      "childLabelAr": "نَقْرَأُ مَعًا",
+      "prereqSkillIds": ["skill.sukun.basic", "skill.syllable_blending.cv"],
+      "learnerLevelHint": 3,
+      "vocabBandHint": "A",
+      "modality": ["read", "listen"]
+    }
+  ],
+  "letters": [
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.ba",
+      "legacyId": "ba",
+      "char": "ب",
+      "nameAr": "بَاء",
+      "phoneme": "b",
+      "forms": {
+        "isolated": "ب",
+        "initial": "بـ",
+        "medial": "ـبـ",
+        "final": "ـب"
+      },
+      "abjadOrder": 2,
+      "wave": 2,
+      "teachOrder": 2,
+      "audioAssetIds": {
+        "name": "audio.letter.ba.name",
+        "phoneme": "audio.letter.ba.sound"
+      },
+      "tags": ["wave-2", "recycled"]
+    },
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.lam",
+      "legacyId": "lam",
+      "char": "ل",
+      "nameAr": "لَام",
+      "phoneme": "l",
+      "forms": {
+        "isolated": "ل",
+        "initial": "لـ",
+        "medial": "ـلـ",
+        "final": "ـل"
+      },
+      "abjadOrder": 23,
+      "wave": 1,
+      "teachOrder": 2,
+      "audioAssetIds": {
+        "name": "audio.letter.lam.name",
+        "phoneme": "audio.letter.lam.sound"
+      },
+      "tags": ["wave-1", "recycled"]
+    },
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.ra",
+      "legacyId": "ra",
+      "char": "ر",
+      "nameAr": "رَاء",
+      "phoneme": "r",
+      "forms": {
+        "isolated": "ر",
+        "initial": "ر",
+        "medial": "ـر",
+        "final": "ـر"
+      },
+      "nonConnecting": true,
+      "abjadOrder": 10,
+      "wave": 2,
+      "teachOrder": 1,
+      "audioAssetIds": {
+        "name": "audio.letter.ra.name",
+        "phoneme": "audio.letter.ra.sound"
+      },
+      "tags": ["wave-2", "recycled"]
+    },
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.mim",
+      "legacyId": "mim",
+      "char": "م",
+      "nameAr": "مِيم",
+      "phoneme": "m",
+      "forms": {
+        "isolated": "م",
+        "initial": "مـ",
+        "medial": "ـمـ",
+        "final": "ـم"
+      },
+      "abjadOrder": 24,
+      "wave": 1,
+      "teachOrder": 1,
+      "audioAssetIds": {
+        "name": "audio.letter.mim.name",
+        "phoneme": "audio.letter.mim.sound"
+      },
+      "tags": ["wave-1", "recycled"]
+    }
+  ],
+  "words": [],
+  "sentences": [],
+  "stories": [],
+  "informationalTexts": [],
+  "syllables": [
+    {
+      "id": "syllable.ba.damma",
+      "text": "بُ",
+      "letterId": "letter.ba",
+      "vowelSkillId": "skill.short_vowel.damma",
+      "pattern": "CV",
+      "requiredSkillIds": ["skill.short_vowel.damma"],
+      "letterForm": "isolated",
+      "audioAssetId": "audio.syllable.ba.damma",
+      "tags": ["cv", "wave-18", "recycled"]
+    },
+    {
+      "id": "syllable.bul.closed",
+      "text": "بُلْ",
+      "letterId": "letter.ba",
+      "vowelSkillId": "skill.short_vowel.damma",
+      "pattern": "CVC",
+      "requiredLetterIds": ["letter.ba", "letter.lam"],
+      "requiredSkillIds": ["skill.short_vowel.damma", "skill.sukun.basic"],
+      "letterForm": "isolated",
+      "audioAssetId": "audio.syllable.bul.closed",
+      "tags": ["cvc", "closed-chunk", "wave-19"]
+    },
+    {
+      "id": "syllable.ram.closed",
+      "text": "رَمْ",
+      "letterId": "letter.ra",
+      "vowelSkillId": "skill.short_vowel.fatha",
+      "pattern": "CVC",
+      "requiredLetterIds": ["letter.ra", "letter.mim"],
+      "requiredSkillIds": ["skill.short_vowel.fatha", "skill.sukun.basic"],
+      "letterForm": "isolated",
+      "audioAssetId": "audio.syllable.ram.closed",
+      "tags": ["cvc", "closed-chunk", "wave-4", "foil"]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "exercise.wave19.presentation.ba_damma",
+      "type": "presentation",
+      "skillIds": ["skill.short_vowel.damma"],
+      "contentIds": ["syllable.ba.damma"],
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "learningObjectiveEn": "See familiar بُ",
+      "success": { "type": "continue" },
+      "promptAssetId": "audio.syllable.ba.damma",
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "config": {
+        "show": "cv",
+        "syllableId": "syllable.ba.damma"
+      },
+      "tags": ["wave-19"]
+    },
+    {
+      "id": "exercise.wave19.presentation.bul_closed",
+      "type": "presentation",
+      "skillIds": ["skill.syllable_blending.cvc"],
+      "contentIds": ["syllable.bul.closed"],
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "learningObjectiveEn": "See بُ + لْ → بُلْ",
+      "success": { "type": "continue" },
+      "promptAssetId": "audio.syllable.bul.closed",
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "config": {
+        "show": "chunk",
+        "left": "بُ",
+        "right": "لْ",
+        "result": "بُلْ"
+      },
+      "tags": ["wave-19"]
+    },
+    {
+      "id": "exercise.wave19.syllable_blending.bul_closed",
+      "type": "syllable_blending",
+      "skillIds": ["skill.syllable_blending.cvc"],
+      "contentIds": ["syllable.bul.closed", "syllable.ba.damma", "syllable.ram.closed"],
+      "difficulty": "easy",
+      "prereqSkillIds": ["skill.syllable_blending.cvc"],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرِ الْمَقْطَع",
+      "learningObjectiveEn": "Hear بُلْ and distinguish it from بُ and رَمْ",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "syllable.bul.closed"
+      },
+      "masteryEvidence": {
+        "reading": ["skill.syllable_blending.cvc"],
+        "listening": ["skill.syllable_blending.cvc"]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.letter.bul.closed",
+          "skillId": "skill.syllable_blending.cvc",
+          "syllableId": "syllable.bul.closed"
+        }
+      ],
+      "promptAssetId": "audio.syllable.bul.closed",
+      "promptText": "اِسْتَمِعْ وَاخْتَرِ الْمَقْطَع",
+      "choices": [
+        { "id": "syllable.bul.closed", "label": "بُلْ" },
+        { "id": "syllable.ba.damma", "label": "بُ" },
+        { "id": "syllable.ram.closed", "label": "رَمْ" }
+      ],
+      "tags": ["wave-19"]
+    }
+  ],
+  "units": [
+    {
+      "id": "unit.literacy.wave19.bul_closed",
+      "order": 1,
+      "titleAr": "بُلْ",
+      "titleEn": "Closed ba-damma chunk",
+      "childGoalAr": "بُلْ",
+      "learnerLevel": 5,
+      "skillIds": [
+        "skill.syllable_blending.cvc",
+        "skill.short_vowel.damma",
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.syllable_blending.cv"
+      ],
+      "letterIds": ["letter.ba", "letter.lam", "letter.ra", "letter.mim"],
+      "letterForms": [
+        { "letterId": "letter.ba", "form": "isolated" },
+        { "letterId": "letter.lam", "form": "isolated" },
+        { "letterId": "letter.ra", "form": "isolated" },
+        { "letterId": "letter.mim", "form": "isolated" }
+      ],
+      "syllableIds": ["syllable.ba.damma", "syllable.bul.closed", "syllable.ram.closed"],
+      "exerciseIds": [
+        "exercise.wave19.presentation.ba_damma",
+        "exercise.wave19.presentation.bul_closed",
+        "exercise.wave19.syllable_blending.bul_closed"
+      ],
+      "prereqUnitIds": ["unit.literacy.wave18.kaf_damma"],
+      "reviewContentIds": ["syllable.ba.damma", "syllable.ram.closed"],
+      "mastery": {
+        "minAttempts": 3,
+        "minAccuracy": 0.7,
+        "minStreak": 2,
+        "minSessions": 1,
+        "reviewAfterDays": 2,
+        "requiredSkillIds": ["skill.syllable_blending.cvc"]
+      },
+      "tags": ["wave-19"]
+    }
+  ],
+  "paths": [
+    {
+      "id": "path.literacy.wave19",
+      "titleAr": "بُلْ",
+      "titleEn": "Closed damma CVC",
+      "descriptionAr": "بُلْ",
+      "learnerLevel": 5,
+      "unitIds": ["unit.literacy.wave19.bul_closed"],
+      "tags": ["wave-19", "literacy"]
+    }
+  ],
+  "assets": [
+    { "id": "audio.letter.ba.name", "kind": "audio" },
+    { "id": "audio.letter.ba.sound", "kind": "audio" },
+    { "id": "audio.letter.lam.name", "kind": "audio" },
+    { "id": "audio.letter.lam.sound", "kind": "audio" },
+    { "id": "audio.letter.ra.name", "kind": "audio" },
+    { "id": "audio.letter.ra.sound", "kind": "audio" },
+    { "id": "audio.letter.mim.name", "kind": "audio" },
+    { "id": "audio.letter.mim.sound", "kind": "audio" },
+    { "id": "audio.syllable.ba.damma", "kind": "audio" },
+    { "id": "audio.syllable.bul.closed", "kind": "audio" },
+    { "id": "audio.syllable.ram.closed", "kind": "audio" }
+  ]
+}

@@ -1,0 +1,863 @@
+{
+  "meta": {
+    "kind": "production",
+    "id": "hurufi.production.literacy.wave7",
+    "title": "Literacy path — Wave 7",
+    "description": "Seventh production literacy slice: letter س on the established SHOW → PRACTICE → TEST pattern. Compact two-unit wave. Reuses fatha only. سَمَك is the single new Band A word. Final ك form is prepared because Wave 5 scored only initial ك. No ش, ع, ن, ه, خ, ط, madd, kasra, damma, hamza, or Wave 8.",
+    "notProductionCurriculum": false
+  },
+  "levels": [
+    {
+      "id": 1,
+      "nameAr": "أَتَعَرَّفُ عَلَى الْحُرُوف",
+      "nameEn": "Letters I can see, hear, and trace"
+    },
+    {
+      "id": 2,
+      "nameAr": "أَشْكَالٌ وَحَرَكَات",
+      "nameEn": "Forms and short vowels"
+    },
+    {
+      "id": 3,
+      "nameAr": "أَدْمُجُ الْأَصْوَات",
+      "nameEn": "I can blend"
+    },
+    {
+      "id": 4,
+      "nameAr": "كَلِمَاتِي الْأُولَى",
+      "nameEn": "First real word bank"
+    },
+    {
+      "id": 5,
+      "nameAr": "أَسْتَعْمِلُ الْكَلِمَات",
+      "nameEn": "Words I can use"
+    },
+    {
+      "id": 6,
+      "nameAr": "لُغَةُ كُلِّ يَوْم",
+      "nameEn": "Everyday language"
+    },
+    {
+      "id": 7,
+      "nameAr": "أَفْهَمُ مَا أَقْرَأ",
+      "nameEn": "I understand what I read"
+    },
+    {
+      "id": 8,
+      "nameAr": "قِصَصٌ وَاسْتِقْلَال",
+      "nameEn": "Stories and independence"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill.letter_recognition.core",
+      "domain": "letter_recognition",
+      "nameAr": "التَّعَرُّفُ عَلَى الْحَرْف",
+      "nameEn": "Recognize a letter",
+      "childLabelAr": "نَعْرِفُ الْحَرْف",
+      "prereqSkillIds": [],
+      "learnerLevelHint": 1,
+      "vocabBandHint": "A",
+      "modality": ["read", "listen"],
+      "masteryHint": "Generic skill. Which letter is mastered is the item (letterId), not a separate SkillDefinition."
+    },
+    {
+      "id": "skill.letter_sounds.core",
+      "domain": "letter_sounds",
+      "nameAr": "صَوْتُ الْحَرْف",
+      "nameEn": "Letter sound",
+      "childLabelAr": "نَسْمَعُ الْحَرْف",
+      "prereqSkillIds": [],
+      "learnerLevelHint": 1,
+      "vocabBandHint": "A",
+      "modality": ["listen", "speak"],
+      "masteryHint": "Generic skill. Pair with letterId for per-letter sound mastery."
+    },
+    {
+      "id": "skill.letter_forms.positional",
+      "domain": "letter_forms",
+      "nameAr": "أَشْكَالُ الْحَرْفِ الْمَوْضِعِيَّة",
+      "nameEn": "Positional letter forms",
+      "prereqSkillIds": ["skill.letter_recognition.core"],
+      "learnerLevelHint": 2,
+      "vocabBandHint": "A",
+      "modality": ["read"],
+      "masteryHint": "Generic skill. Pair with letterId + letterForm (isolated/initial/medial/final)."
+    },
+    {
+      "id": "skill.handwriting.isolated",
+      "domain": "handwriting",
+      "nameAr": "رَسْمُ الْحَرْفِ الْمُنْفَرِد",
+      "nameEn": "Trace the isolated letter",
+      "prereqSkillIds": ["skill.letter_recognition.core"],
+      "learnerLevelHint": 1,
+      "vocabBandHint": "A",
+      "modality": ["write"],
+      "masteryHint": "Generic isolated tracing. Pair with letterId. Prototype TracingCanvas; stroke order later."
+    },
+    {
+      "id": "skill.short_vowel.fatha",
+      "domain": "short_vowels",
+      "nameAr": "الْفَتْحَة",
+      "nameEn": "Fatha",
+      "childLabelAr": "فَتْحَة",
+      "prereqSkillIds": [],
+      "learnerLevelHint": 2,
+      "vocabBandHint": "A",
+      "modality": ["listen", "read"]
+    },
+    {
+      "id": "skill.short_vowel.kasra",
+      "domain": "short_vowels",
+      "nameAr": "الْكَسْرَة",
+      "nameEn": "Kasra",
+      "childLabelAr": "كَسْرَة",
+      "prereqSkillIds": ["skill.short_vowel.fatha"],
+      "learnerLevelHint": 2,
+      "vocabBandHint": "A",
+      "modality": ["listen", "read"]
+    },
+    {
+      "id": "skill.short_vowel.damma",
+      "domain": "short_vowels",
+      "nameAr": "الضَّمَّة",
+      "nameEn": "Damma",
+      "childLabelAr": "ضَمَّة",
+      "prereqSkillIds": ["skill.short_vowel.fatha"],
+      "learnerLevelHint": 2,
+      "vocabBandHint": "A",
+      "modality": ["listen", "read"]
+    },
+    {
+      "id": "skill.sukun.basic",
+      "domain": "sukun",
+      "nameAr": "السُّكُون",
+      "nameEn": "Sukun",
+      "childLabelAr": "سُكُون",
+      "prereqSkillIds": ["skill.short_vowel.fatha"],
+      "learnerLevelHint": 3,
+      "vocabBandHint": "A",
+      "modality": ["listen", "read"]
+    },
+    {
+      "id": "skill.syllable_blending.cv",
+      "domain": "syllable_blending",
+      "nameAr": "دَمْجُ مَقْطَعٍ قَصِير",
+      "nameEn": "Blend a CV syllable",
+      "childLabelAr": "نَقْرَأُ مَعًا",
+      "prereqSkillIds": ["skill.short_vowel.fatha"],
+      "learnerLevelHint": 3,
+      "vocabBandHint": "A",
+      "modality": ["read", "listen"]
+    },
+    {
+      "id": "skill.word_decoding.simple",
+      "domain": "word_decoding",
+      "nameAr": "قِرَاءَةُ كَلِمَةٍ بَسِيطَة",
+      "nameEn": "Simple word decoding",
+      "prereqSkillIds": ["skill.syllable_blending.cv"],
+      "learnerLevelHint": 4,
+      "vocabBandHint": "A",
+      "modality": ["read", "listen"]
+    }
+  ],
+  "letters": [
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.sin",
+      "legacyId": "sin",
+      "char": "س",
+      "nameAr": "سِين",
+      "phoneme": "s",
+      "forms": {
+        "isolated": "س",
+        "initial": "سـ",
+        "medial": "ـسـ",
+        "final": "ـس"
+      },
+      "abjadOrder": 12,
+      "wave": 7,
+      "teachOrder": 1,
+      "exampleWordIds": ["word.samak"],
+      "unlocksSkillIds": ["skill.letter_sounds.core"],
+      "audioAssetIds": {
+        "name": "audio.letter.sin.name",
+        "phoneme": "audio.letter.sin.sound"
+      },
+      "traceAssetId": "trace.letter.sin.isolated",
+      "tags": ["wave-7"]
+    },
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.mim",
+      "legacyId": "mim",
+      "char": "م",
+      "nameAr": "مِيم",
+      "phoneme": "m",
+      "forms": {
+        "isolated": "م",
+        "initial": "مـ",
+        "medial": "ـمـ",
+        "final": "ـم"
+      },
+      "abjadOrder": 24,
+      "wave": 1,
+      "teachOrder": 1,
+      "exampleWordIds": ["word.samak", "word.qalam"],
+      "audioAssetIds": {
+        "name": "audio.letter.mim.name",
+        "phoneme": "audio.letter.mim.sound"
+      },
+      "tags": ["wave-1", "recycled"]
+    },
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.ta",
+      "legacyId": "ta",
+      "char": "ت",
+      "nameAr": "تَاء",
+      "phoneme": "t",
+      "forms": {
+        "isolated": "ت",
+        "initial": "تـ",
+        "medial": "ـتـ",
+        "final": "ـت"
+      },
+      "abjadOrder": 3,
+      "wave": 6,
+      "teachOrder": 1,
+      "exampleWordIds": [],
+      "audioAssetIds": {
+        "name": "audio.letter.ta.name",
+        "phoneme": "audio.letter.ta.sound"
+      },
+      "tags": ["wave-6", "recycled"]
+    },
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.kaf",
+      "legacyId": "kaf",
+      "char": "ك",
+      "nameAr": "كَاف",
+      "phoneme": "k",
+      "forms": {
+        "isolated": "ك",
+        "initial": "كـ",
+        "medial": "ـكـ",
+        "final": "ـك"
+      },
+      "abjadOrder": 22,
+      "wave": 5,
+      "teachOrder": 1,
+      "exampleWordIds": ["word.kalb", "word.samak"],
+      "audioAssetIds": {
+        "name": "audio.letter.kaf.name",
+        "phoneme": "audio.letter.kaf.sound"
+      },
+      "tags": ["wave-5", "recycled"]
+    },
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.qaf",
+      "legacyId": "qaf",
+      "char": "ق",
+      "nameAr": "قَاف",
+      "phoneme": "q",
+      "forms": {
+        "isolated": "ق",
+        "initial": "قـ",
+        "medial": "ـقـ",
+        "final": "ـق"
+      },
+      "abjadOrder": 21,
+      "wave": 1,
+      "teachOrder": 3,
+      "exampleWordIds": ["word.qalam"],
+      "audioAssetIds": {
+        "name": "audio.letter.qaf.name",
+        "phoneme": "audio.letter.qaf.sound"
+      },
+      "tags": ["wave-1", "recycled"]
+    },
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.lam",
+      "legacyId": "lam",
+      "char": "ل",
+      "nameAr": "لَام",
+      "phoneme": "l",
+      "forms": {
+        "isolated": "ل",
+        "initial": "لـ",
+        "medial": "ـلـ",
+        "final": "ـل"
+      },
+      "abjadOrder": 23,
+      "wave": 1,
+      "teachOrder": 2,
+      "exampleWordIds": ["word.qalam", "word.kalb"],
+      "audioAssetIds": {
+        "name": "audio.letter.lam.name",
+        "phoneme": "audio.letter.lam.sound"
+      },
+      "tags": ["wave-1", "recycled"]
+    },
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.ba",
+      "legacyId": "ba",
+      "char": "ب",
+      "nameAr": "بَاء",
+      "phoneme": "b",
+      "forms": {
+        "isolated": "ب",
+        "initial": "بـ",
+        "medial": "ـبـ",
+        "final": "ـب"
+      },
+      "abjadOrder": 2,
+      "wave": 2,
+      "teachOrder": 2,
+      "exampleWordIds": ["word.kalb"],
+      "audioAssetIds": {
+        "name": "audio.letter.ba.name",
+        "phoneme": "audio.letter.ba.sound"
+      },
+      "tags": ["wave-2", "recycled"]
+    }
+  ],
+  "words": [
+    {
+      "id": "word.samak",
+      "lemma": "سمك",
+      "diacritized": "سَمَك",
+      "teachingForm": "سَمَك",
+      "pos": "noun",
+      "category": "food",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": ["letter.sin", "letter.mim", "letter.kaf"],
+      "requiredSkillIds": ["skill.short_vowel.fatha"],
+      "phonicsSkillIds": ["skill.short_vowel.fatha"],
+      "requiredLetterForms": [
+        { "letterId": "letter.sin", "form": "initial" },
+        { "letterId": "letter.mim", "form": "medial" },
+        { "letterId": "letter.kaf", "form": "final" }
+      ],
+      "imageAssetId": "image.word.samak",
+      "audioAssetIds": {
+        "citation": "audio.word.samak"
+      },
+      "tags": ["band-a", "cluster-a1", "wave-7"],
+      "status": "active",
+      "legacyId": "food-9"
+    },
+    {
+      "id": "word.kalb",
+      "lemma": "كلب",
+      "diacritized": "كَلْب",
+      "teachingForm": "كَلْب",
+      "pos": "noun",
+      "category": "animals",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": ["letter.kaf", "letter.lam", "letter.ba"],
+      "requiredSkillIds": ["skill.short_vowel.fatha", "skill.sukun.basic"],
+      "phonicsSkillIds": ["skill.short_vowel.fatha", "skill.sukun.basic"],
+      "imageAssetId": "image.word.kalb",
+      "audioAssetIds": {
+        "citation": "audio.word.kalb"
+      },
+      "tags": ["band-a", "cluster-a1", "wave-5", "recycled"],
+      "status": "active",
+      "legacyId": "animals-2",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "pos": "noun",
+      "msaStatus": "STANDARD_MSA",
+      "requiredSkillIds": ["skill.short_vowel.fatha"],
+      "phonicsSkillIds": ["skill.short_vowel.fatha"],
+      "status": "active",
+      "id": "word.qalam",
+      "lemma": "قلم",
+      "diacritized": "قَلَم",
+      "teachingForm": "قَلَم",
+      "category": "school",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "letterIds": ["letter.qaf", "letter.lam", "letter.mim"],
+      "requiredLetterForms": [
+        { "letterId": "letter.qaf", "form": "initial" },
+        { "letterId": "letter.lam", "form": "medial" },
+        { "letterId": "letter.mim", "form": "final" }
+      ],
+      "imageAssetId": "image.word.qalam",
+      "audioAssetIds": { "citation": "audio.word.qalam" },
+      "tags": ["band-a", "cluster-a1", "wave-1", "recycled"],
+      "legacyId": "school-8",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    }
+  ],
+  "sentences": [],
+  "stories": [],
+  "informationalTexts": [],
+  "syllables": [
+    {
+      "id": "syllable.sin.fatha",
+      "text": "سَ",
+      "letterId": "letter.sin",
+      "vowelSkillId": "skill.short_vowel.fatha",
+      "pattern": "CV",
+      "requiredSkillIds": ["skill.short_vowel.fatha"],
+      "letterForm": "isolated",
+      "audioAssetId": "audio.syllable.sin.fatha",
+      "tags": ["cv", "wave-7"]
+    },
+    {
+      "id": "syllable.mim.fatha",
+      "text": "مَ",
+      "letterId": "letter.mim",
+      "vowelSkillId": "skill.short_vowel.fatha",
+      "pattern": "CV",
+      "requiredSkillIds": ["skill.short_vowel.fatha"],
+      "letterForm": "isolated",
+      "audioAssetId": "audio.syllable.mim.fatha",
+      "tags": ["cv", "recycled"]
+    },
+    {
+      "id": "syllable.ta.fatha",
+      "text": "تَ",
+      "letterId": "letter.ta",
+      "vowelSkillId": "skill.short_vowel.fatha",
+      "pattern": "CV",
+      "requiredSkillIds": ["skill.short_vowel.fatha"],
+      "letterForm": "isolated",
+      "audioAssetId": "audio.syllable.ta.fatha",
+      "tags": ["cv", "recycled"]
+    },
+    {
+      "id": "syllable.kaf.fatha",
+      "text": "كَ",
+      "letterId": "letter.kaf",
+      "vowelSkillId": "skill.short_vowel.fatha",
+      "pattern": "CV",
+      "requiredSkillIds": ["skill.short_vowel.fatha"],
+      "letterForm": "isolated",
+      "audioAssetId": "audio.syllable.kaf.fatha",
+      "tags": ["cv", "recycled"]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "exercise.wave7.presentation.sin",
+      "type": "presentation",
+      "skillIds": ["skill.letter_recognition.core"],
+      "contentIds": ["letter.sin"],
+      "difficulty": "easy",
+      "learningObjectiveAr": "تَعَلَّمْ حَرْفَ س",
+      "learningObjectiveEn": "See and hear س",
+      "success": { "type": "continue" },
+      "promptAssetId": "audio.letter.sin.sound",
+      "promptText": "هَذَا حَرْفُ س",
+      "config": {
+        "show": "letter",
+        "letterId": "letter.sin"
+      },
+      "tags": ["wave-7"]
+    },
+    {
+      "id": "exercise.wave7.presentation.sin_fatha",
+      "type": "presentation",
+      "skillIds": ["skill.letter_recognition.core"],
+      "contentIds": ["syllable.sin.fatha"],
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "learningObjectiveEn": "See letter + fatha",
+      "success": { "type": "continue" },
+      "promptAssetId": "audio.syllable.sin.fatha",
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "config": {
+        "show": "cv",
+        "syllableId": "syllable.sin.fatha"
+      },
+      "tags": ["wave-7"]
+    },
+    {
+      "id": "exercise.wave7.sound_to_letter.sin",
+      "type": "sound_to_letter",
+      "skillIds": ["skill.letter_sounds.core", "skill.letter_recognition.core"],
+      "contentIds": ["letter.sin", "letter.mim", "letter.ta", "letter.kaf"],
+      "difficulty": "easy",
+      "prereqSkillIds": ["skill.letter_recognition.core"],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose س",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "letter.sin"
+      },
+      "masteryEvidence": {
+        "listening": ["skill.letter_sounds.core"]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.letter.sin.sound",
+          "skillId": "skill.letter_sounds.core",
+          "letterId": "letter.sin"
+        },
+        {
+          "id": "mastery.letter.sin.recognition",
+          "skillId": "skill.letter_recognition.core",
+          "letterId": "letter.sin"
+        }
+      ],
+      "promptAssetId": "audio.letter.sin.sound",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        { "id": "letter.sin", "label": "س" },
+        { "id": "letter.mim", "label": "م" },
+        { "id": "letter.ta", "label": "ت" },
+        { "id": "letter.kaf", "label": "ك" }
+      ],
+      "tags": ["wave-7"]
+    },
+    {
+      "id": "exercise.wave7.syllable_blending.sin_fatha",
+      "type": "syllable_blending",
+      "skillIds": ["skill.syllable_blending.cv", "skill.short_vowel.fatha"],
+      "contentIds": ["syllable.sin.fatha", "syllable.mim.fatha", "syllable.ta.fatha", "syllable.kaf.fatha"],
+      "difficulty": "easy",
+      "prereqSkillIds": ["skill.short_vowel.fatha"],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرِ الْمَقْطَع",
+      "learningObjectiveEn": "Decode سَ",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "syllable.sin.fatha"
+      },
+      "masteryEvidence": {
+        "reading": ["skill.syllable_blending.cv"]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.syllable.sin_fatha",
+          "skillId": "skill.syllable_blending.cv",
+          "syllableId": "syllable.sin.fatha",
+          "letterId": "letter.sin"
+        },
+        {
+          "id": "mastery.syllable.sin_fatha.vowel",
+          "skillId": "skill.short_vowel.fatha",
+          "syllableId": "syllable.sin.fatha",
+          "letterId": "letter.sin"
+        }
+      ],
+      "promptAssetId": "audio.syllable.sin.fatha",
+      "promptText": "اِسْتَمِعْ وَاخْتَرِ الْمَقْطَع",
+      "choices": [
+        { "id": "syllable.sin.fatha", "label": "سَ" },
+        { "id": "syllable.mim.fatha", "label": "مَ" },
+        { "id": "syllable.ta.fatha", "label": "تَ" },
+        { "id": "syllable.kaf.fatha", "label": "كَ" }
+      ],
+      "tags": ["wave-7"]
+    },
+    {
+      "id": "exercise.wave7.tracing.sin",
+      "type": "tracing",
+      "skillIds": ["skill.handwriting.isolated"],
+      "contentIds": ["letter.sin", "trace.letter.sin.isolated"],
+      "difficulty": "easy",
+      "prereqSkillIds": ["skill.letter_recognition.core"],
+      "learningObjectiveAr": "تَتَبَّعْ حَرْفَ س",
+      "learningObjectiveEn": "Trace isolated س",
+      "success": {
+        "type": "trace_coverage",
+        "coverageThreshold": 0.7
+      },
+      "promptText": "تَتَبَّعْ حَرْفَ س",
+      "masteryEvidence": {
+        "writing": ["skill.handwriting.isolated"]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.letter.sin.tracing",
+          "skillId": "skill.handwriting.isolated",
+          "letterId": "letter.sin",
+          "letterForm": "isolated"
+        }
+      ],
+      "config": {
+        "activity": "trace_isolated",
+        "letterId": "letter.sin"
+      },
+      "tags": ["wave-7"]
+    },
+    {
+      "id": "exercise.wave7.letter_forms.sin_initial",
+      "type": "letter_recognition",
+      "skillIds": ["skill.letter_forms.positional", "skill.letter_recognition.core"],
+      "contentIds": ["letter.sin", "letter.mim", "letter.ta"],
+      "difficulty": "easy",
+      "prereqSkillIds": ["skill.letter_recognition.core"],
+      "learningObjectiveAr": "اِخْتَرِ الْحَرْفَ",
+      "learningObjectiveEn": "Match initial form سـ",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "letter.sin"
+      },
+      "masteryEvidence": {
+        "reading": ["skill.letter_forms.positional"]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.letter.sin.form.initial",
+          "skillId": "skill.letter_forms.positional",
+          "letterId": "letter.sin",
+          "letterForm": "initial"
+        }
+      ],
+      "promptText": "اِخْتَرِ الْحَرْفَ",
+      "config": {
+        "task": "match_form",
+        "targetForm": "initial",
+        "letterId": "letter.sin"
+      },
+      "choices": [
+        { "id": "letter.sin", "label": "س" },
+        { "id": "letter.mim", "label": "م" },
+        { "id": "letter.ta", "label": "ت" }
+      ],
+      "tags": ["wave-7"]
+    },
+    {
+      "id": "exercise.wave7.letter_forms.kaf_final",
+      "type": "letter_recognition",
+      "skillIds": ["skill.letter_forms.positional", "skill.letter_recognition.core"],
+      "contentIds": ["letter.kaf", "letter.mim", "letter.ta"],
+      "difficulty": "easy",
+      "prereqSkillIds": ["skill.letter_recognition.core"],
+      "learningObjectiveAr": "اِخْتَرِ الْحَرْفَ",
+      "learningObjectiveEn": "Match final form ـك",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "letter.kaf"
+      },
+      "masteryEvidence": {
+        "reading": ["skill.letter_forms.positional"]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.letter.kaf.form.final",
+          "skillId": "skill.letter_forms.positional",
+          "letterId": "letter.kaf",
+          "letterForm": "final"
+        }
+      ],
+      "promptText": "اِخْتَرِ الْحَرْفَ",
+      "config": {
+        "task": "match_form",
+        "targetForm": "final",
+        "letterId": "letter.kaf"
+      },
+      "choices": [
+        { "id": "letter.kaf", "label": "ك" },
+        { "id": "letter.mim", "label": "م" },
+        { "id": "letter.ta", "label": "ت" }
+      ],
+      "tags": ["wave-7"]
+    },
+    {
+      "id": "exercise.wave7.audio_to_word.samak",
+      "type": "audio_to_word",
+      "skillIds": ["skill.word_decoding.simple"],
+      "contentIds": ["word.samak", "word.kalb", "word.qalam"],
+      "difficulty": "easy",
+      "prereqSkillIds": ["skill.letter_forms.positional"],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose سَمَك. Contrast with already-decoded كَلْب.",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "word.samak"
+      },
+      "masteryEvidence": {
+        "reading": ["skill.word_decoding.simple"],
+        "listening": ["skill.word_decoding.simple"]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.word.samak.decode",
+          "skillId": "skill.word_decoding.simple",
+          "wordId": "word.samak"
+        }
+      ],
+      "promptAssetId": "audio.word.samak",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        { "id": "word.samak", "label": "سَمَك" },
+        { "id": "word.kalb", "label": "كَلْب" },
+        { "id": "word.qalam", "label": "قَلَم" }
+      ],
+      "tags": ["wave-7"]
+    },
+    {
+      "id": "exercise.wave7.word_to_picture.samak",
+      "type": "word_to_picture",
+      "skillIds": ["skill.word_decoding.simple"],
+      "contentIds": ["word.samak", "word.kalb", "word.qalam"],
+      "difficulty": "normal",
+      "prereqSkillIds": ["skill.word_decoding.simple"],
+      "learningObjectiveAr": "اِخْتَرِ الصُّورَةَ",
+      "learningObjectiveEn": "Picture reinforcement after decoding سَمَك",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "word.samak"
+      },
+      "masteryEvidence": {
+        "reading": ["skill.word_decoding.simple"]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.word.samak.decode.picture",
+          "skillId": "skill.word_decoding.simple",
+          "wordId": "word.samak"
+        }
+      ],
+      "promptText": "اِخْتَرِ الصُّورَةَ",
+      "choices": [
+        { "id": "word.samak", "assetId": "image.word.samak" },
+        { "id": "word.kalb", "assetId": "image.word.kalb" },
+        { "id": "word.qalam", "assetId": "image.word.qalam" }
+      ],
+      "tags": ["wave-7", "reinforcement"]
+    }
+  ],
+  "units": [
+    {
+      "id": "unit.literacy.wave7.sin",
+      "order": 1,
+      "titleAr": "تَعَلَّمْ حَرْفَ س",
+      "titleEn": "Sin",
+      "childGoalAr": "تَعَلَّمْ حَرْفَ س",
+      "learnerLevel": 4,
+      "skillIds": [
+        "skill.letter_recognition.core",
+        "skill.letter_sounds.core",
+        "skill.short_vowel.fatha",
+        "skill.syllable_blending.cv",
+        "skill.handwriting.isolated"
+      ],
+      "letterIds": ["letter.sin", "letter.mim", "letter.ta", "letter.kaf"],
+      "letterForms": [
+        { "letterId": "letter.sin", "form": "isolated" },
+        { "letterId": "letter.mim", "form": "isolated" },
+        { "letterId": "letter.ta", "form": "isolated" },
+        { "letterId": "letter.kaf", "form": "isolated" }
+      ],
+      "syllableIds": ["syllable.sin.fatha", "syllable.mim.fatha", "syllable.ta.fatha", "syllable.kaf.fatha"],
+      "exerciseIds": [
+        "exercise.wave7.presentation.sin",
+        "exercise.wave7.presentation.sin_fatha",
+        "exercise.wave7.sound_to_letter.sin",
+        "exercise.wave7.syllable_blending.sin_fatha",
+        "exercise.wave7.tracing.sin"
+      ],
+      "prereqUnitIds": ["unit.literacy.wave6.daftar"],
+      "reviewContentIds": ["letter.mim", "syllable.mim.fatha"],
+      "mastery": {
+        "minAttempts": 3,
+        "minAccuracy": 0.7,
+        "minStreak": 2,
+        "minSessions": 1,
+        "reviewAfterDays": 2,
+        "requiredSkillIds": ["skill.letter_sounds.core", "skill.syllable_blending.cv"]
+      },
+      "tags": ["wave-7"]
+    },
+    {
+      "id": "unit.literacy.wave7.samak",
+      "order": 2,
+      "titleAr": "نَقْرَأُ مَعًا",
+      "titleEn": "We read together",
+      "childGoalAr": "نَقْرَأُ مَعًا",
+      "learnerLevel": 4,
+      "skillIds": [
+        "skill.letter_forms.positional",
+        "skill.word_decoding.simple",
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "letterIds": ["letter.sin", "letter.mim", "letter.kaf", "letter.ta", "letter.qaf", "letter.lam", "letter.ba"],
+      "letterForms": [
+        { "letterId": "letter.sin", "form": "initial" },
+        { "letterId": "letter.kaf", "form": "final" },
+        { "letterId": "letter.mim", "form": "medial" },
+        { "letterId": "letter.mim", "form": "final" },
+        { "letterId": "letter.qaf", "form": "initial" },
+        { "letterId": "letter.lam", "form": "medial" }
+      ],
+      "wordIds": ["word.samak", "word.kalb", "word.qalam"],
+      "exerciseIds": [
+        "exercise.wave7.letter_forms.sin_initial",
+        "exercise.wave7.letter_forms.kaf_final",
+        "exercise.wave7.audio_to_word.samak",
+        "exercise.wave7.word_to_picture.samak"
+      ],
+      "prereqUnitIds": ["unit.literacy.wave7.sin"],
+      "reviewContentIds": ["word.kalb", "word.qalam"],
+      "mastery": {
+        "minAttempts": 3,
+        "minAccuracy": 0.7,
+        "minStreak": 2,
+        "minSessions": 1,
+        "reviewAfterDays": 2,
+        "requiredSkillIds": ["skill.letter_forms.positional", "skill.word_decoding.simple"]
+      },
+      "tags": ["wave-7"]
+    }
+  ],
+  "paths": [
+    {
+      "id": "path.literacy.wave7",
+      "titleAr": "نَقْرَأُ أَكْثَر",
+      "titleEn": "We read more",
+      "descriptionAr": "حَرْفٌ جَدِيدٌ وَكَلِمَة",
+      "learnerLevel": 4,
+      "unitIds": [
+        "unit.literacy.wave7.sin",
+        "unit.literacy.wave7.samak"
+      ],
+      "tags": ["wave-7", "literacy"]
+    }
+  ],
+  "assets": [
+    { "id": "audio.letter.sin.name", "kind": "audio" },
+    { "id": "audio.letter.sin.sound", "kind": "audio" },
+    { "id": "audio.letter.mim.name", "kind": "audio" },
+    { "id": "audio.letter.mim.sound", "kind": "audio" },
+    { "id": "audio.letter.ta.name", "kind": "audio" },
+    { "id": "audio.letter.ta.sound", "kind": "audio" },
+    { "id": "audio.letter.kaf.name", "kind": "audio" },
+    { "id": "audio.letter.kaf.sound", "kind": "audio" },
+    { "id": "audio.letter.qaf.name", "kind": "audio" },
+    { "id": "audio.letter.qaf.sound", "kind": "audio" },
+    { "id": "audio.letter.lam.name", "kind": "audio" },
+    { "id": "audio.letter.lam.sound", "kind": "audio" },
+    { "id": "audio.letter.ba.name", "kind": "audio" },
+    { "id": "audio.letter.ba.sound", "kind": "audio" },
+    { "id": "audio.syllable.sin.fatha", "kind": "audio" },
+    { "id": "audio.syllable.mim.fatha", "kind": "audio" },
+    { "id": "audio.syllable.ta.fatha", "kind": "audio" },
+    { "id": "audio.syllable.kaf.fatha", "kind": "audio" },
+    { "id": "audio.word.samak", "kind": "audio" },
+    { "id": "audio.word.kalb", "kind": "audio" },
+    { "id": "audio.word.qalam", "kind": "audio" },
+    { "id": "image.word.samak", "kind": "image" },
+    { "id": "image.word.kalb", "kind": "image" },
+    { "id": "image.word.qalam", "kind": "image" },
+    { "id": "trace.letter.sin.isolated", "kind": "trace" }
+  ]
+}

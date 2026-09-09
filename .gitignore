@@ -20,6 +20,9 @@ dist-ssr
 .wrangler/
 .dev.vars
 
+# Headed-walk / one-off verification artifacts
+.tmp-*
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

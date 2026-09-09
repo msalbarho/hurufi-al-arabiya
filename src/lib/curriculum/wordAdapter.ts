@@ -6,7 +6,11 @@
 import type { CurriculumBundle, ExerciseDefinition, WordDefinition } from "../../content/curriculum/index.ts";
 import { prototypeVisualForWord, type PrototypeWordVisual } from "./prototypeWordVisual.ts";
 
-export { prototypeVisualForWord, type PrototypeWordVisual } from "./prototypeWordVisual.ts";
+export {
+  prototypeVisualForWord,
+  type PrototypeVisualSource,
+  type PrototypeWordVisual,
+} from "./prototypeWordVisual.ts";
 
 export function wordIdFromExercise(exercise: ExerciseDefinition): string | undefined {
   if (exercise.success.correctChoiceId?.startsWith("word.")) return exercise.success.correctChoiceId;

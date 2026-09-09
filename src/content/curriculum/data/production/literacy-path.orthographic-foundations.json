@@ -1,0 +1,5538 @@
+{
+  "meta": {
+    "kind": "production",
+    "id": "hurufi.production.literacy.orthographic_foundations",
+    "title": "Literacy path — Remaining Letters & Orthographic Forms",
+    "description": "Post-wave Module 2: remaining consonants, shadda, initial hamza, ة, and ى. Not a wave. No Wave 23. No Module 3 frames, writing, ـٍ, or ـً.",
+    "notProductionCurriculum": false
+  },
+  "levels": [
+    {
+      "id": 1,
+      "nameAr": "أَتَعَرَّفُ عَلَى الْحُرُوف",
+      "nameEn": "Letters I can see, hear, and trace"
+    },
+    {
+      "id": 2,
+      "nameAr": "أَشْكَالٌ وَحَرَكَات",
+      "nameEn": "Forms and short vowels"
+    },
+    {
+      "id": 3,
+      "nameAr": "أَدْمُجُ الْأَصْوَات",
+      "nameEn": "I can blend"
+    },
+    {
+      "id": 4,
+      "nameAr": "كَلِمَاتِي الْأُولَى",
+      "nameEn": "First real word bank"
+    },
+    {
+      "id": 5,
+      "nameAr": "أَسْتَعْمِلُ الْكَلِمَات",
+      "nameEn": "Words I can use"
+    },
+    {
+      "id": 6,
+      "nameAr": "لُغَةُ كُلِّ يَوْم",
+      "nameEn": "Everyday language"
+    },
+    {
+      "id": 7,
+      "nameAr": "أَفْهَمُ مَا أَقْرَأ",
+      "nameEn": "I understand what I read"
+    },
+    {
+      "id": 8,
+      "nameAr": "قِصَصٌ وَاسْتِقْلَال",
+      "nameEn": "Stories and independence"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill.letter_recognition.core",
+      "domain": "letter_recognition",
+      "nameAr": "التَّعَرُّفُ عَلَى الْحَرْف",
+      "nameEn": "Recognize a letter",
+      "prereqSkillIds": [],
+      "vocabBandHint": "A",
+      "modality": [
+        "read",
+        "listen"
+      ],
+      "masteryHint": "Generic skill. Which letter is mastered is the item (letterId), not a separate SkillDefinition."
+    },
+    {
+      "id": "skill.letter_sounds.core",
+      "domain": "letter_sounds",
+      "nameAr": "صَوْتُ الْحَرْف",
+      "nameEn": "Letter sound",
+      "prereqSkillIds": [],
+      "vocabBandHint": "A",
+      "modality": [
+        "listen",
+        "speak"
+      ],
+      "masteryHint": "Generic skill. Pair with letterId for per-letter sound mastery."
+    },
+    {
+      "id": "skill.short_vowel.fatha",
+      "domain": "short_vowels",
+      "nameAr": "الْفَتْحَة",
+      "nameEn": "Fatha",
+      "prereqSkillIds": [],
+      "vocabBandHint": "A",
+      "modality": [
+        "listen",
+        "read"
+      ]
+    },
+    {
+      "id": "skill.short_vowel.kasra",
+      "domain": "short_vowels",
+      "nameAr": "الْكَسْرَة",
+      "nameEn": "Kasra",
+      "prereqSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "vocabBandHint": "A",
+      "modality": [
+        "listen",
+        "read"
+      ]
+    },
+    {
+      "id": "skill.short_vowel.damma",
+      "domain": "short_vowels",
+      "nameAr": "الضَّمَّة",
+      "nameEn": "Damma",
+      "prereqSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "vocabBandHint": "A",
+      "modality": [
+        "listen",
+        "read"
+      ]
+    },
+    {
+      "id": "skill.sukun.basic",
+      "domain": "sukun",
+      "nameAr": "السُّكُون",
+      "nameEn": "Sukun",
+      "prereqSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "vocabBandHint": "A",
+      "modality": [
+        "listen",
+        "read"
+      ]
+    },
+    {
+      "id": "skill.syllable_blending.cv",
+      "domain": "syllable_blending",
+      "nameAr": "دَمْجُ مَقْطَعٍ قَصِير",
+      "nameEn": "Blend a CV syllable",
+      "prereqSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "vocabBandHint": "A",
+      "modality": [
+        "read",
+        "listen"
+      ]
+    },
+    {
+      "id": "skill.word_decoding.simple",
+      "domain": "word_decoding",
+      "nameAr": "قِرَاءَةُ كَلِمَةٍ بَسِيطَة",
+      "nameEn": "Simple word decoding",
+      "prereqSkillIds": [
+        "skill.syllable_blending.cv"
+      ],
+      "vocabBandHint": "A",
+      "modality": [
+        "read",
+        "listen"
+      ]
+    },
+    {
+      "id": "skill.long_vowel.madd",
+      "domain": "long_vowels",
+      "nameAr": "الْمَدّ",
+      "nameEn": "Long vowel / madd",
+      "prereqSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "vocabBandHint": "A",
+      "modality": [
+        "listen",
+        "read"
+      ]
+    },
+    {
+      "id": "skill.shadda.basic",
+      "domain": "shadda",
+      "nameAr": "الشَّدَّة",
+      "nameEn": "Shadda",
+      "prereqSkillIds": [
+        "skill.sukun.basic"
+      ],
+      "vocabBandHint": "A",
+      "modality": [
+        "listen",
+        "read"
+      ]
+    },
+    {
+      "id": "skill.hamza.reading",
+      "domain": "letter_sounds",
+      "nameAr": "قِرَاءَةُ الْهَمْزَة",
+      "nameEn": "Hamza reading",
+      "prereqSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "vocabBandHint": "A",
+      "modality": [
+        "listen",
+        "read"
+      ]
+    },
+    {
+      "id": "skill.taa_marbuta.reading",
+      "domain": "letter_forms",
+      "nameAr": "التَّاءُ الْمَرْبُوطَة",
+      "nameEn": "Taa marbuta",
+      "prereqSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "vocabBandHint": "A",
+      "modality": [
+        "listen",
+        "read"
+      ]
+    },
+    {
+      "id": "skill.alif_maqsura.reading",
+      "domain": "letter_forms",
+      "nameAr": "الْأَلِفُ الْمَقْصُورَة",
+      "nameEn": "Alif maqsura",
+      "prereqSkillIds": [
+        "skill.long_vowel.madd"
+      ],
+      "vocabBandHint": "A",
+      "modality": [
+        "listen",
+        "read"
+      ]
+    }
+  ],
+  "letters": [
+    {
+      "requiredSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "id": "letter.alif",
+      "legacyId": "alif",
+      "char": "ا",
+      "nameAr": "أَلِف",
+      "forms": {
+        "isolated": "ا",
+        "initial": "ا",
+        "medial": "ـا",
+        "final": "ـا"
+      },
+      "nonConnecting": true,
+      "abjadOrder": 1,
+      "audioAssetIds": {
+        "name": "audio.letter.alif.name",
+        "phoneme": "audio.letter.alif.sound"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "recycled"
+      ]
+    },
+    {
+      "requiredSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "id": "letter.ba",
+      "legacyId": "ba",
+      "char": "ب",
+      "nameAr": "بَاء",
+      "forms": {
+        "isolated": "ب",
+        "initial": "بـ",
+        "medial": "ـبـ",
+        "final": "ـب"
+      },
+      "abjadOrder": 2,
+      "similarLetterIds": [
+        "letter.ta",
+        "letter.tha"
+      ],
+      "audioAssetIds": {
+        "name": "audio.letter.ba.name",
+        "phoneme": "audio.letter.ba.sound"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "recycled"
+      ]
+    },
+    {
+      "requiredSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "id": "letter.ta",
+      "legacyId": "ta",
+      "char": "ت",
+      "nameAr": "تَاء",
+      "forms": {
+        "isolated": "ت",
+        "initial": "تـ",
+        "medial": "ـتـ",
+        "final": "ـت"
+      },
+      "abjadOrder": 3,
+      "similarLetterIds": [
+        "letter.ba",
+        "letter.tha"
+      ],
+      "audioAssetIds": {
+        "name": "audio.letter.ta.name",
+        "phoneme": "audio.letter.ta.sound"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "recycled"
+      ]
+    },
+    {
+      "requiredSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "id": "letter.tha",
+      "legacyId": "tha",
+      "char": "ث",
+      "nameAr": "ثَاء",
+      "forms": {
+        "isolated": "ث",
+        "initial": "ثـ",
+        "medial": "ـثـ",
+        "final": "ـث"
+      },
+      "abjadOrder": 4,
+      "similarLetterIds": [
+        "letter.ba",
+        "letter.ta"
+      ],
+      "audioAssetIds": {
+        "name": "audio.letter.tha.name",
+        "phoneme": "audio.letter.tha.sound"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "new-letter"
+      ]
+    },
+    {
+      "requiredSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "id": "letter.jim",
+      "legacyId": "jim",
+      "char": "ج",
+      "nameAr": "جِيم",
+      "forms": {
+        "isolated": "ج",
+        "initial": "جـ",
+        "medial": "ـجـ",
+        "final": "ـج"
+      },
+      "abjadOrder": 5,
+      "similarLetterIds": [
+        "letter.ha",
+        "letter.kha"
+      ],
+      "audioAssetIds": {
+        "name": "audio.letter.jim.name",
+        "phoneme": "audio.letter.jim.sound"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "recycled"
+      ]
+    },
+    {
+      "requiredSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "id": "letter.ha",
+      "legacyId": "ha",
+      "char": "ح",
+      "nameAr": "حَاء",
+      "forms": {
+        "isolated": "ح",
+        "initial": "حـ",
+        "medial": "ـحـ",
+        "final": "ـح"
+      },
+      "abjadOrder": 6,
+      "similarLetterIds": [
+        "letter.jim",
+        "letter.kha"
+      ],
+      "audioAssetIds": {
+        "name": "audio.letter.ha.name",
+        "phoneme": "audio.letter.ha.sound"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "recycled"
+      ]
+    },
+    {
+      "requiredSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "id": "letter.kha",
+      "legacyId": "kha",
+      "char": "خ",
+      "nameAr": "خَاء",
+      "forms": {
+        "isolated": "خ",
+        "initial": "خـ",
+        "medial": "ـخـ",
+        "final": "ـخ"
+      },
+      "abjadOrder": 7,
+      "similarLetterIds": [
+        "letter.jim",
+        "letter.ha"
+      ],
+      "audioAssetIds": {
+        "name": "audio.letter.kha.name",
+        "phoneme": "audio.letter.kha.sound"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "new-letter"
+      ]
+    },
+    {
+      "requiredSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "id": "letter.dal",
+      "legacyId": "dal",
+      "char": "د",
+      "nameAr": "دَال",
+      "forms": {
+        "isolated": "د",
+        "initial": "د",
+        "medial": "ـد",
+        "final": "ـد"
+      },
+      "nonConnecting": true,
+      "abjadOrder": 8,
+      "similarLetterIds": [
+        "letter.thal"
+      ],
+      "audioAssetIds": {
+        "name": "audio.letter.dal.name",
+        "phoneme": "audio.letter.dal.sound"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "recycled"
+      ]
+    },
+    {
+      "requiredSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "id": "letter.thal",
+      "legacyId": "thal",
+      "char": "ذ",
+      "nameAr": "ذَال",
+      "forms": {
+        "isolated": "ذ",
+        "initial": "ذ",
+        "medial": "ـذ",
+        "final": "ـذ"
+      },
+      "nonConnecting": true,
+      "abjadOrder": 9,
+      "similarLetterIds": [
+        "letter.dal"
+      ],
+      "audioAssetIds": {
+        "name": "audio.letter.thal.name",
+        "phoneme": "audio.letter.thal.sound"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "new-letter"
+      ]
+    },
+    {
+      "requiredSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "id": "letter.ra",
+      "legacyId": "ra",
+      "char": "ر",
+      "nameAr": "رَاء",
+      "forms": {
+        "isolated": "ر",
+        "initial": "ر",
+        "medial": "ـر",
+        "final": "ـر"
+      },
+      "nonConnecting": true,
+      "abjadOrder": 10,
+      "similarLetterIds": [
+        "letter.zay"
+      ],
+      "audioAssetIds": {
+        "name": "audio.letter.ra.name",
+        "phoneme": "audio.letter.ra.sound"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "recycled"
+      ]
+    },
+    {
+      "requiredSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "id": "letter.zay",
+      "legacyId": "zay",
+      "char": "ز",
+      "nameAr": "زَاي",
+      "forms": {
+        "isolated": "ز",
+        "initial": "ز",
+        "medial": "ـز",
+        "final": "ـز"
+      },
+      "nonConnecting": true,
+      "abjadOrder": 11,
+      "similarLetterIds": [
+        "letter.ra"
+      ],
+      "audioAssetIds": {
+        "name": "audio.letter.zay.name",
+        "phoneme": "audio.letter.zay.sound"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "new-letter"
+      ]
+    },
+    {
+      "requiredSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "id": "letter.sin",
+      "legacyId": "sin",
+      "char": "س",
+      "nameAr": "سِين",
+      "forms": {
+        "isolated": "س",
+        "initial": "سـ",
+        "medial": "ـسـ",
+        "final": "ـس"
+      },
+      "abjadOrder": 12,
+      "similarLetterIds": [
+        "letter.shin"
+      ],
+      "audioAssetIds": {
+        "name": "audio.letter.sin.name",
+        "phoneme": "audio.letter.sin.sound"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "recycled"
+      ]
+    },
+    {
+      "requiredSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "id": "letter.shin",
+      "legacyId": "shin",
+      "char": "ش",
+      "nameAr": "شِين",
+      "forms": {
+        "isolated": "ش",
+        "initial": "شـ",
+        "medial": "ـشـ",
+        "final": "ـش"
+      },
+      "abjadOrder": 13,
+      "similarLetterIds": [
+        "letter.sin"
+      ],
+      "audioAssetIds": {
+        "name": "audio.letter.shin.name",
+        "phoneme": "audio.letter.shin.sound"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "recycled"
+      ]
+    },
+    {
+      "requiredSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "id": "letter.sad",
+      "legacyId": "sad",
+      "char": "ص",
+      "nameAr": "صَاد",
+      "forms": {
+        "isolated": "ص",
+        "initial": "صـ",
+        "medial": "ـصـ",
+        "final": "ـص"
+      },
+      "abjadOrder": 14,
+      "similarLetterIds": [
+        "letter.dad"
+      ],
+      "audioAssetIds": {
+        "name": "audio.letter.sad.name",
+        "phoneme": "audio.letter.sad.sound"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "new-letter"
+      ]
+    },
+    {
+      "requiredSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "id": "letter.dad",
+      "legacyId": "dad",
+      "char": "ض",
+      "nameAr": "ضَاد",
+      "forms": {
+        "isolated": "ض",
+        "initial": "ضـ",
+        "medial": "ـضـ",
+        "final": "ـض"
+      },
+      "abjadOrder": 15,
+      "similarLetterIds": [
+        "letter.sad"
+      ],
+      "audioAssetIds": {
+        "name": "audio.letter.dad.name",
+        "phoneme": "audio.letter.dad.sound"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "new-letter"
+      ]
+    },
+    {
+      "requiredSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "id": "letter.tah",
+      "legacyId": "tah",
+      "char": "ط",
+      "nameAr": "طَاء",
+      "forms": {
+        "isolated": "ط",
+        "initial": "طـ",
+        "medial": "ـطـ",
+        "final": "ـط"
+      },
+      "abjadOrder": 16,
+      "similarLetterIds": [
+        "letter.zah"
+      ],
+      "audioAssetIds": {
+        "name": "audio.letter.tah.name",
+        "phoneme": "audio.letter.tah.sound"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "new-letter"
+      ]
+    },
+    {
+      "requiredSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "id": "letter.zah",
+      "legacyId": "zah",
+      "char": "ظ",
+      "nameAr": "ظَاء",
+      "forms": {
+        "isolated": "ظ",
+        "initial": "ظـ",
+        "medial": "ـظـ",
+        "final": "ـظ"
+      },
+      "abjadOrder": 17,
+      "similarLetterIds": [
+        "letter.tah"
+      ],
+      "audioAssetIds": {
+        "name": "audio.letter.zah.name",
+        "phoneme": "audio.letter.zah.sound"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "new-letter"
+      ]
+    },
+    {
+      "requiredSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "id": "letter.ain",
+      "legacyId": "ain",
+      "char": "ع",
+      "nameAr": "عَيْن",
+      "forms": {
+        "isolated": "ع",
+        "initial": "عـ",
+        "medial": "ـعـ",
+        "final": "ـع"
+      },
+      "abjadOrder": 18,
+      "similarLetterIds": [
+        "letter.ghain"
+      ],
+      "audioAssetIds": {
+        "name": "audio.letter.ain.name",
+        "phoneme": "audio.letter.ain.sound"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "recycled"
+      ]
+    },
+    {
+      "requiredSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "id": "letter.ghain",
+      "legacyId": "ghain",
+      "char": "غ",
+      "nameAr": "غَيْن",
+      "forms": {
+        "isolated": "غ",
+        "initial": "غـ",
+        "medial": "ـغـ",
+        "final": "ـغ"
+      },
+      "abjadOrder": 19,
+      "similarLetterIds": [
+        "letter.ain"
+      ],
+      "audioAssetIds": {
+        "name": "audio.letter.ghain.name",
+        "phoneme": "audio.letter.ghain.sound"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "new-letter"
+      ]
+    },
+    {
+      "requiredSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "id": "letter.fa",
+      "legacyId": "fa",
+      "char": "ف",
+      "nameAr": "فَاء",
+      "forms": {
+        "isolated": "ف",
+        "initial": "فـ",
+        "medial": "ـفـ",
+        "final": "ـف"
+      },
+      "abjadOrder": 20,
+      "similarLetterIds": [
+        "letter.qaf"
+      ],
+      "audioAssetIds": {
+        "name": "audio.letter.fa.name",
+        "phoneme": "audio.letter.fa.sound"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "recycled"
+      ]
+    },
+    {
+      "requiredSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "id": "letter.qaf",
+      "legacyId": "qaf",
+      "char": "ق",
+      "nameAr": "قَاف",
+      "forms": {
+        "isolated": "ق",
+        "initial": "قـ",
+        "medial": "ـقـ",
+        "final": "ـق"
+      },
+      "abjadOrder": 21,
+      "similarLetterIds": [
+        "letter.fa"
+      ],
+      "audioAssetIds": {
+        "name": "audio.letter.qaf.name",
+        "phoneme": "audio.letter.qaf.sound"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "recycled"
+      ]
+    },
+    {
+      "requiredSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "id": "letter.kaf",
+      "legacyId": "kaf",
+      "char": "ك",
+      "nameAr": "كَاف",
+      "forms": {
+        "isolated": "ك",
+        "initial": "كـ",
+        "medial": "ـكـ",
+        "final": "ـك"
+      },
+      "abjadOrder": 22,
+      "audioAssetIds": {
+        "name": "audio.letter.kaf.name",
+        "phoneme": "audio.letter.kaf.sound"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "recycled"
+      ]
+    },
+    {
+      "requiredSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "id": "letter.lam",
+      "legacyId": "lam",
+      "char": "ل",
+      "nameAr": "لَام",
+      "forms": {
+        "isolated": "ل",
+        "initial": "لـ",
+        "medial": "ـلـ",
+        "final": "ـل"
+      },
+      "abjadOrder": 23,
+      "audioAssetIds": {
+        "name": "audio.letter.lam.name",
+        "phoneme": "audio.letter.lam.sound"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "recycled"
+      ]
+    },
+    {
+      "requiredSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "id": "letter.mim",
+      "legacyId": "mim",
+      "char": "م",
+      "nameAr": "مِيم",
+      "forms": {
+        "isolated": "م",
+        "initial": "مـ",
+        "medial": "ـمـ",
+        "final": "ـم"
+      },
+      "abjadOrder": 24,
+      "audioAssetIds": {
+        "name": "audio.letter.mim.name",
+        "phoneme": "audio.letter.mim.sound"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "recycled"
+      ]
+    },
+    {
+      "requiredSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "id": "letter.nun",
+      "legacyId": "nun",
+      "char": "ن",
+      "nameAr": "نُون",
+      "forms": {
+        "isolated": "ن",
+        "initial": "نـ",
+        "medial": "ـنـ",
+        "final": "ـن"
+      },
+      "abjadOrder": 25,
+      "audioAssetIds": {
+        "name": "audio.letter.nun.name",
+        "phoneme": "audio.letter.nun.sound"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "recycled"
+      ]
+    },
+    {
+      "requiredSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "id": "letter.haa",
+      "legacyId": "haa",
+      "char": "ه",
+      "nameAr": "هَاء",
+      "forms": {
+        "isolated": "ه",
+        "initial": "هـ",
+        "medial": "ـهـ",
+        "final": "ـه"
+      },
+      "abjadOrder": 26,
+      "audioAssetIds": {
+        "name": "audio.letter.haa.name",
+        "phoneme": "audio.letter.haa.sound"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "new-letter"
+      ]
+    },
+    {
+      "requiredSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "id": "letter.waw",
+      "legacyId": "waw",
+      "char": "و",
+      "nameAr": "وَاو",
+      "forms": {
+        "isolated": "و",
+        "initial": "و",
+        "medial": "ـو",
+        "final": "ـو"
+      },
+      "nonConnecting": true,
+      "abjadOrder": 27,
+      "audioAssetIds": {
+        "name": "audio.letter.waw.name",
+        "phoneme": "audio.letter.waw.sound"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "recycled"
+      ]
+    },
+    {
+      "requiredSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "id": "letter.ya",
+      "legacyId": "ya",
+      "char": "ي",
+      "nameAr": "يَاء",
+      "forms": {
+        "isolated": "ي",
+        "initial": "يـ",
+        "medial": "ـيـ",
+        "final": "ـي"
+      },
+      "abjadOrder": 28,
+      "audioAssetIds": {
+        "name": "audio.letter.ya.name",
+        "phoneme": "audio.letter.ya.sound"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "recycled"
+      ]
+    }
+  ],
+  "words": [
+    {
+      "id": "word.nahr",
+      "lemma": "نهر",
+      "diacritized": "نَهْر",
+      "teachingForm": "نَهْر",
+      "pos": "noun",
+      "category": "nature",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.nun",
+        "letter.haa",
+        "letter.ra"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.nahr",
+      "audioAssetIds": {
+        "citation": "audio.word.nahr"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1",
+        "orthographic-foundations"
+      ],
+      "status": "active",
+      "legacyId": "nature-18"
+    },
+    {
+      "id": "word.wajh",
+      "lemma": "وجه",
+      "diacritized": "وَجْه",
+      "teachingForm": "وَجْه",
+      "pos": "noun",
+      "category": "body",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.waw",
+        "letter.jim",
+        "letter.haa"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.wajh",
+      "audioAssetIds": {
+        "citation": "audio.word.wajh"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1",
+        "orthographic-foundations"
+      ],
+      "status": "active",
+      "legacyId": "body-3"
+    },
+    {
+      "id": "word.ladhidh",
+      "lemma": "لذيذ",
+      "diacritized": "لَذِيذ",
+      "teachingForm": "لَذِيذ",
+      "pos": "adjective",
+      "category": "adjectives",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.lam",
+        "letter.thal",
+        "letter.ya"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.ladhidh",
+      "audioAssetIds": {
+        "citation": "audio.word.ladhidh"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4",
+        "orthographic-foundations"
+      ],
+      "status": "active",
+      "legacyId": "adjectives-30"
+    },
+    {
+      "id": "word.mawz",
+      "lemma": "موز",
+      "diacritized": "مَوْز",
+      "teachingForm": "مَوْز",
+      "pos": "noun",
+      "category": "food",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.mim",
+        "letter.waw",
+        "letter.zay"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.mawz",
+      "audioAssetIds": {
+        "citation": "audio.word.mawz"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1",
+        "orthographic-foundations"
+      ],
+      "status": "active",
+      "legacyId": "fruits-2"
+    },
+    {
+      "id": "word.khubz",
+      "lemma": "خبز",
+      "diacritized": "خُبْز",
+      "teachingForm": "خُبْز",
+      "pos": "noun",
+      "category": "food",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.kha",
+        "letter.ba",
+        "letter.zay"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.damma",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.damma",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.khubz",
+      "audioAssetIds": {
+        "citation": "audio.word.khubz"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1",
+        "orthographic-foundations"
+      ],
+      "status": "active",
+      "legacyId": "food-1"
+    },
+    {
+      "id": "word.hisan",
+      "lemma": "حصان",
+      "diacritized": "حِصَان",
+      "teachingForm": "حِصَان",
+      "pos": "noun",
+      "category": "animals",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ha",
+        "letter.sad",
+        "letter.alif",
+        "letter.nun"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.hisan",
+      "audioAssetIds": {
+        "citation": "audio.word.hisan"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3",
+        "orthographic-foundations"
+      ],
+      "status": "active",
+      "legacyId": "animals-5"
+    },
+    {
+      "id": "word.bayd",
+      "lemma": "بيض",
+      "diacritized": "بَيْض",
+      "teachingForm": "بَيْض",
+      "pos": "noun",
+      "category": "food",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ba",
+        "letter.ya",
+        "letter.dad"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.bayd",
+      "audioAssetIds": {
+        "citation": "audio.word.bayd"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1",
+        "orthographic-foundations"
+      ],
+      "status": "active",
+      "legacyId": "food-6"
+    },
+    {
+      "id": "word.saghir",
+      "lemma": "صغير",
+      "diacritized": "صَغِير",
+      "teachingForm": "صَغِير",
+      "pos": "adjective",
+      "category": "adjectives",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.sad",
+        "letter.ghain",
+        "letter.ya",
+        "letter.ra"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "imageAssetId": "image.word.saghir",
+      "audioAssetIds": {
+        "citation": "audio.word.saghir"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3",
+        "orthographic-foundations"
+      ],
+      "status": "active",
+      "legacyId": "adjectives-2",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.matar",
+      "lemma": "مطر",
+      "diacritized": "مَطَر",
+      "teachingForm": "مَطَر",
+      "pos": "noun",
+      "category": "nature",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.mim",
+        "letter.tah",
+        "letter.ra"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "imageAssetId": "image.word.matar",
+      "audioAssetIds": {
+        "citation": "audio.word.matar"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2",
+        "orthographic-foundations"
+      ],
+      "status": "active",
+      "legacyId": "nature-21"
+    },
+    {
+      "id": "word.sinn",
+      "lemma": "سن",
+      "diacritized": "سِنّ",
+      "teachingForm": "سِنّ",
+      "pos": "noun",
+      "category": "body",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.sin",
+        "letter.nun"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.kasra",
+        "skill.shadda.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.kasra",
+        "skill.shadda.basic"
+      ],
+      "imageAssetId": "image.word.sinn",
+      "audioAssetIds": {
+        "citation": "audio.word.sinn"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3",
+        "orthographic-foundations"
+      ],
+      "status": "active",
+      "legacyId": "body-10"
+    },
+    {
+      "id": "word.qitt",
+      "lemma": "قط",
+      "diacritized": "قِطّ",
+      "teachingForm": "قِطّ",
+      "pos": "noun",
+      "category": "animals",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.qaf",
+        "letter.tah"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.kasra",
+        "skill.shadda.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.kasra",
+        "skill.shadda.basic"
+      ],
+      "imageAssetId": "image.word.qitt",
+      "audioAssetIds": {
+        "citation": "audio.word.qitt"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2",
+        "orthographic-foundations"
+      ],
+      "status": "active",
+      "legacyId": "animals-1",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.ab",
+      "lemma": "أب",
+      "diacritized": "أَب",
+      "teachingForm": "أَب",
+      "pos": "noun",
+      "category": "family",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.alif",
+        "letter.ba"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.hamza.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.hamza.reading"
+      ],
+      "imageAssetId": "image.word.ab",
+      "audioAssetIds": {
+        "citation": "audio.word.ab"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1",
+        "orthographic-foundations"
+      ],
+      "status": "active",
+      "legacyId": "family-2",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.asad",
+      "lemma": "أسد",
+      "diacritized": "أَسَد",
+      "teachingForm": "أَسَد",
+      "pos": "noun",
+      "category": "animals",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.alif",
+        "letter.sin",
+        "letter.dal"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.hamza.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.hamza.reading"
+      ],
+      "imageAssetId": "image.word.asad",
+      "audioAssetIds": {
+        "citation": "audio.word.asad"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1",
+        "orthographic-foundations"
+      ],
+      "status": "active",
+      "legacyId": "animals-3"
+    },
+    {
+      "id": "word.kura",
+      "lemma": "كرة",
+      "diacritized": "كُرَة",
+      "teachingForm": "كُرَة",
+      "pos": "noun",
+      "category": "toys",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.kaf",
+        "letter.ra",
+        "letter.ta"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.taa_marbuta.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.taa_marbuta.reading"
+      ],
+      "imageAssetId": "image.word.kura",
+      "audioAssetIds": {
+        "citation": "audio.word.kura"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3",
+        "orthographic-foundations"
+      ],
+      "status": "active",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.madrasa",
+      "lemma": "مدرسة",
+      "diacritized": "مَدْرَسَة",
+      "teachingForm": "مَدْرَسَة",
+      "pos": "noun",
+      "category": "school",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.mim",
+        "letter.dal",
+        "letter.ra",
+        "letter.sin",
+        "letter.ta"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.taa_marbuta.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.taa_marbuta.reading"
+      ],
+      "imageAssetId": "image.word.madrasa",
+      "audioAssetIds": {
+        "citation": "audio.word.madrasa"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3",
+        "orthographic-foundations"
+      ],
+      "status": "active",
+      "legacyId": "school-1",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.yara",
+      "lemma": "يرى",
+      "diacritized": "يَرَى",
+      "teachingForm": "يَرَى",
+      "pos": "verb",
+      "category": "verbs",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ya",
+        "letter.ra"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.alif_maqsura.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.alif_maqsura.reading"
+      ],
+      "imageAssetId": "image.word.yara",
+      "audioAssetIds": {
+        "citation": "audio.word.yara"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a3",
+        "orthographic-foundations"
+      ],
+      "status": "active",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.ala",
+      "lemma": "على",
+      "diacritized": "عَلَى",
+      "teachingForm": "عَلَى",
+      "pos": "function",
+      "category": "function",
+      "vocabBand": "A",
+      "subBand": "A4",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.ain",
+        "letter.lam",
+        "letter.ya"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.alif_maqsura.reading"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.alif_maqsura.reading"
+      ],
+      "imageAssetId": "image.word.ala",
+      "audioAssetIds": {
+        "citation": "audio.word.ala"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a4",
+        "orthographic-foundations"
+      ],
+      "status": "active",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.shams",
+      "lemma": "شمس",
+      "diacritized": "شَمْس",
+      "teachingForm": "شَمْس",
+      "pos": "noun",
+      "category": "nature",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.shin",
+        "letter.mim",
+        "letter.sin"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.shams",
+      "audioAssetIds": {
+        "citation": "audio.word.shams"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a1",
+        "orthographic-foundations"
+      ],
+      "status": "active",
+      "legacyId": "sky-1"
+    },
+    {
+      "id": "word.walad",
+      "lemma": "ولد",
+      "diacritized": "وَلَد",
+      "teachingForm": "وَلَد",
+      "pos": "noun",
+      "category": "family",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.waw",
+        "letter.lam",
+        "letter.dal"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha"
+      ],
+      "imageAssetId": "image.word.walad",
+      "audioAssetIds": {
+        "citation": "audio.word.walad"
+      },
+      "tags": [
+        "band-a",
+        "cluster-a2",
+        "orthographic-foundations"
+      ],
+      "status": "active",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.thalj",
+      "lemma": "ثلج",
+      "diacritized": "ثَلْج",
+      "teachingForm": "ثَلْج",
+      "pos": "noun",
+      "category": "nature",
+      "vocabBand": "A",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.tha",
+        "letter.lam",
+        "letter.jim"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.thalj",
+      "audioAssetIds": {
+        "citation": "audio.word.thalj"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "module-local"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "word.zahr",
+      "lemma": "ظهر",
+      "diacritized": "ظَهْر",
+      "teachingForm": "ظَهْر",
+      "pos": "noun",
+      "category": "body",
+      "vocabBand": "A",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": [
+        "letter.zah",
+        "letter.haa",
+        "letter.ra"
+      ],
+      "requiredSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "phonicsSkillIds": [
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "imageAssetId": "image.word.zahr",
+      "audioAssetIds": {
+        "citation": "audio.word.zahr"
+      },
+      "tags": [
+        "orthographic-foundations",
+        "module-local"
+      ],
+      "status": "active"
+    }
+  ],
+  "sentences": [
+    {
+      "id": "sentence.orthographic_foundations.alshamsu",
+      "diacritized": "الشَّمْس",
+      "wordIds": [
+        "word.shams"
+      ],
+      "targetSkillIds": [
+        "skill.shadda.basic"
+      ],
+      "requiredSkillIds": [
+        "skill.word_decoding.simple"
+      ],
+      "learnerLevel": 6,
+      "difficulty": 1,
+      "audioAssetId": "audio.sentence.orthographic_foundations.alshamsu",
+      "tags": [
+        "orthographic-foundations",
+        "show-only",
+        "sun-article"
+      ]
+    }
+  ],
+  "stories": [],
+  "informationalTexts": [],
+  "syllables": [],
+  "exercises": [
+    {
+      "id": "exercise.orthographic_foundations.presentation.haa_isolated",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.haa"
+      ],
+      "learningObjectiveEn": "See ه",
+      "config": {
+        "show": "letter",
+        "letterId": "letter.haa"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.haa_forms",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.haa"
+      ],
+      "learningObjectiveEn": "See ه هـ ـهـ ـه",
+      "config": {
+        "show": "glyph",
+        "glyph": "ه  هـ  ـهـ  ـه"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.ha_vs_haa",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.ha",
+        "letter.haa"
+      ],
+      "learningObjectiveEn": "See ح vs ه",
+      "config": {
+        "show": "contrast",
+        "left": "ح",
+        "right": "ه"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.nahr",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.word_decoding.simple"
+      ],
+      "contentIds": [
+        "word.nahr"
+      ],
+      "learningObjectiveEn": "See نَهْر",
+      "promptAssetId": "audio.word.nahr",
+      "config": {
+        "show": "word",
+        "wordId": "word.nahr"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.wajh",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.word_decoding.simple"
+      ],
+      "contentIds": [
+        "word.wajh"
+      ],
+      "learningObjectiveEn": "See وَجْه",
+      "promptAssetId": "audio.word.wajh",
+      "config": {
+        "show": "word",
+        "wordId": "word.wajh"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.sound_to_letter.haa",
+      "type": "sound_to_letter",
+      "skillIds": [
+        "skill.letter_sounds.core",
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.haa",
+        "letter.ha",
+        "letter.mim"
+      ],
+      "difficulty": "easy",
+      "prereqSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose ه",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "letter.haa"
+      },
+      "masteryEvidence": {
+        "listening": [
+          "skill.letter_sounds.core"
+        ]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.letter.haa.sound",
+          "skillId": "skill.letter_sounds.core",
+          "letterId": "letter.haa"
+        }
+      ],
+      "promptAssetId": "audio.letter.haa.sound",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        {
+          "id": "letter.haa",
+          "label": "ه"
+        },
+        {
+          "id": "letter.ha",
+          "label": "ح"
+        },
+        {
+          "id": "letter.mim",
+          "label": "م"
+        }
+      ],
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "exercise.orthographic_foundations.audio_to_word.nahr",
+      "type": "audio_to_word",
+      "skillIds": [
+        "skill.word_decoding.simple"
+      ],
+      "contentIds": [
+        "word.nahr",
+        "word.walad",
+        "word.wajh"
+      ],
+      "difficulty": "easy",
+      "prereqSkillIds": [
+        "skill.syllable_blending.cv"
+      ],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose نَهْر",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "word.nahr"
+      },
+      "masteryEvidence": {
+        "reading": [
+          "skill.word_decoding.simple"
+        ],
+        "listening": [
+          "skill.word_decoding.simple"
+        ]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.word.nahr.decoding",
+          "skillId": "skill.word_decoding.simple",
+          "wordId": "word.nahr"
+        }
+      ],
+      "promptAssetId": "audio.word.nahr",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        {
+          "id": "word.nahr",
+          "label": "نَهْر"
+        },
+        {
+          "id": "word.walad",
+          "label": "وَلَد"
+        },
+        {
+          "id": "word.wajh",
+          "label": "وَجْه"
+        }
+      ],
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.dal_vs_thal",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.dal",
+        "letter.thal"
+      ],
+      "learningObjectiveEn": "See د vs ذ",
+      "config": {
+        "show": "contrast",
+        "left": "د",
+        "right": "ذ"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.thal_forms",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.thal"
+      ],
+      "learningObjectiveEn": "See ذ ـذ",
+      "config": {
+        "show": "glyph",
+        "glyph": "ذ  ـذ"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.nonconnecting",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.dal",
+        "letter.thal",
+        "letter.ra",
+        "letter.zay"
+      ],
+      "learningObjectiveEn": "Some letters do not connect onward",
+      "config": {
+        "show": "glyph",
+        "glyph": "د ذ ر ز و ا"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.ladhidh",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.word_decoding.simple"
+      ],
+      "contentIds": [
+        "word.ladhidh"
+      ],
+      "learningObjectiveEn": "See لَذِيذ",
+      "promptAssetId": "audio.word.ladhidh",
+      "config": {
+        "show": "word",
+        "wordId": "word.ladhidh"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.ra_vs_zay",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.ra",
+        "letter.zay"
+      ],
+      "learningObjectiveEn": "See ر vs ز",
+      "config": {
+        "show": "contrast",
+        "left": "ر",
+        "right": "ز"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.zay_forms",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.zay"
+      ],
+      "learningObjectiveEn": "See ز ـز",
+      "config": {
+        "show": "glyph",
+        "glyph": "ز  ـز"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.mawz",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.word_decoding.simple"
+      ],
+      "contentIds": [
+        "word.mawz"
+      ],
+      "learningObjectiveEn": "See مَوْز",
+      "promptAssetId": "audio.word.mawz",
+      "config": {
+        "show": "word",
+        "wordId": "word.mawz"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.sound_to_letter.thal",
+      "type": "sound_to_letter",
+      "skillIds": [
+        "skill.letter_sounds.core",
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.thal",
+        "letter.dal",
+        "letter.ra"
+      ],
+      "difficulty": "easy",
+      "prereqSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose ذ",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "letter.thal"
+      },
+      "masteryEvidence": {
+        "listening": [
+          "skill.letter_sounds.core"
+        ]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.letter.thal.sound",
+          "skillId": "skill.letter_sounds.core",
+          "letterId": "letter.thal"
+        }
+      ],
+      "promptAssetId": "audio.letter.thal.sound",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        {
+          "id": "letter.thal",
+          "label": "ذ"
+        },
+        {
+          "id": "letter.dal",
+          "label": "د"
+        },
+        {
+          "id": "letter.ra",
+          "label": "ر"
+        }
+      ],
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "exercise.orthographic_foundations.audio_to_word.ladhidh",
+      "type": "audio_to_word",
+      "skillIds": [
+        "skill.word_decoding.simple"
+      ],
+      "contentIds": [
+        "word.ladhidh",
+        "word.nahr",
+        "word.walad"
+      ],
+      "difficulty": "easy",
+      "prereqSkillIds": [
+        "skill.syllable_blending.cv"
+      ],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose لَذِيذ",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "word.ladhidh"
+      },
+      "masteryEvidence": {
+        "reading": [
+          "skill.word_decoding.simple"
+        ],
+        "listening": [
+          "skill.word_decoding.simple"
+        ]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.word.ladhidh.decoding",
+          "skillId": "skill.word_decoding.simple",
+          "wordId": "word.ladhidh"
+        }
+      ],
+      "promptAssetId": "audio.word.ladhidh",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        {
+          "id": "word.ladhidh",
+          "label": "لَذِيذ"
+        },
+        {
+          "id": "word.nahr",
+          "label": "نَهْر"
+        },
+        {
+          "id": "word.walad",
+          "label": "وَلَد"
+        }
+      ],
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "exercise.orthographic_foundations.sound_to_letter.zay",
+      "type": "sound_to_letter",
+      "skillIds": [
+        "skill.letter_sounds.core",
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.zay",
+        "letter.ra",
+        "letter.dal"
+      ],
+      "difficulty": "easy",
+      "prereqSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose ز",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "letter.zay"
+      },
+      "masteryEvidence": {
+        "listening": [
+          "skill.letter_sounds.core"
+        ]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.letter.zay.sound",
+          "skillId": "skill.letter_sounds.core",
+          "letterId": "letter.zay"
+        }
+      ],
+      "promptAssetId": "audio.letter.zay.sound",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        {
+          "id": "letter.zay",
+          "label": "ز"
+        },
+        {
+          "id": "letter.ra",
+          "label": "ر"
+        },
+        {
+          "id": "letter.dal",
+          "label": "د"
+        }
+      ],
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "exercise.orthographic_foundations.audio_to_word.mawz",
+      "type": "audio_to_word",
+      "skillIds": [
+        "skill.word_decoding.simple"
+      ],
+      "contentIds": [
+        "word.mawz",
+        "word.ladhidh",
+        "word.nahr"
+      ],
+      "difficulty": "easy",
+      "prereqSkillIds": [
+        "skill.syllable_blending.cv"
+      ],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose مَوْز",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "word.mawz"
+      },
+      "masteryEvidence": {
+        "reading": [
+          "skill.word_decoding.simple"
+        ],
+        "listening": [
+          "skill.word_decoding.simple"
+        ]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.word.mawz.decoding",
+          "skillId": "skill.word_decoding.simple",
+          "wordId": "word.mawz"
+        }
+      ],
+      "promptAssetId": "audio.word.mawz",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        {
+          "id": "word.mawz",
+          "label": "مَوْز"
+        },
+        {
+          "id": "word.ladhidh",
+          "label": "لَذِيذ"
+        },
+        {
+          "id": "word.nahr",
+          "label": "نَهْر"
+        }
+      ],
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.ha_vs_kha",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.ha",
+        "letter.kha"
+      ],
+      "learningObjectiveEn": "See ح vs خ",
+      "config": {
+        "show": "contrast",
+        "left": "ح",
+        "right": "خ"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.kha_forms",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.kha"
+      ],
+      "learningObjectiveEn": "See خ خـ ـخـ ـخ",
+      "config": {
+        "show": "glyph",
+        "glyph": "خ  خـ  ـخـ  ـخ"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.khubz",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.word_decoding.simple"
+      ],
+      "contentIds": [
+        "word.khubz"
+      ],
+      "learningObjectiveEn": "See خُبْز",
+      "promptAssetId": "audio.word.khubz",
+      "config": {
+        "show": "word",
+        "wordId": "word.khubz"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.ta_vs_tha",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.ta",
+        "letter.tha"
+      ],
+      "learningObjectiveEn": "See ت vs ث",
+      "config": {
+        "show": "contrast",
+        "left": "ت",
+        "right": "ث"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.tha_forms",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.tha"
+      ],
+      "learningObjectiveEn": "See ث ثـ ـثـ ـث",
+      "config": {
+        "show": "glyph",
+        "glyph": "ث  ثـ  ـثـ  ـث"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.thalj",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.word_decoding.simple"
+      ],
+      "contentIds": [
+        "word.thalj"
+      ],
+      "learningObjectiveEn": "See ثَلْج",
+      "promptAssetId": "audio.word.thalj",
+      "config": {
+        "show": "word",
+        "wordId": "word.thalj"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.sound_to_letter.kha",
+      "type": "sound_to_letter",
+      "skillIds": [
+        "skill.letter_sounds.core",
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.kha",
+        "letter.ha",
+        "letter.jim"
+      ],
+      "difficulty": "easy",
+      "prereqSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose خ",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "letter.kha"
+      },
+      "masteryEvidence": {
+        "listening": [
+          "skill.letter_sounds.core"
+        ]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.letter.kha.sound",
+          "skillId": "skill.letter_sounds.core",
+          "letterId": "letter.kha"
+        }
+      ],
+      "promptAssetId": "audio.letter.kha.sound",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        {
+          "id": "letter.kha",
+          "label": "خ"
+        },
+        {
+          "id": "letter.ha",
+          "label": "ح"
+        },
+        {
+          "id": "letter.jim",
+          "label": "ج"
+        }
+      ],
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "exercise.orthographic_foundations.audio_to_word.khubz",
+      "type": "audio_to_word",
+      "skillIds": [
+        "skill.word_decoding.simple"
+      ],
+      "contentIds": [
+        "word.khubz",
+        "word.mawz",
+        "word.nahr"
+      ],
+      "difficulty": "easy",
+      "prereqSkillIds": [
+        "skill.syllable_blending.cv"
+      ],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose خُبْز",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "word.khubz"
+      },
+      "masteryEvidence": {
+        "reading": [
+          "skill.word_decoding.simple"
+        ],
+        "listening": [
+          "skill.word_decoding.simple"
+        ]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.word.khubz.decoding",
+          "skillId": "skill.word_decoding.simple",
+          "wordId": "word.khubz"
+        }
+      ],
+      "promptAssetId": "audio.word.khubz",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        {
+          "id": "word.khubz",
+          "label": "خُبْز"
+        },
+        {
+          "id": "word.mawz",
+          "label": "مَوْز"
+        },
+        {
+          "id": "word.nahr",
+          "label": "نَهْر"
+        }
+      ],
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "exercise.orthographic_foundations.sound_to_letter.tha",
+      "type": "sound_to_letter",
+      "skillIds": [
+        "skill.letter_sounds.core",
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.tha",
+        "letter.ta",
+        "letter.ba"
+      ],
+      "difficulty": "easy",
+      "prereqSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose ث",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "letter.tha"
+      },
+      "masteryEvidence": {
+        "listening": [
+          "skill.letter_sounds.core"
+        ]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.letter.tha.sound",
+          "skillId": "skill.letter_sounds.core",
+          "letterId": "letter.tha"
+        }
+      ],
+      "promptAssetId": "audio.letter.tha.sound",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        {
+          "id": "letter.tha",
+          "label": "ث"
+        },
+        {
+          "id": "letter.ta",
+          "label": "ت"
+        },
+        {
+          "id": "letter.ba",
+          "label": "ب"
+        }
+      ],
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "exercise.orthographic_foundations.audio_to_word.thalj",
+      "type": "audio_to_word",
+      "skillIds": [
+        "skill.word_decoding.simple"
+      ],
+      "contentIds": [
+        "word.thalj",
+        "word.khubz",
+        "word.mawz"
+      ],
+      "difficulty": "easy",
+      "prereqSkillIds": [
+        "skill.syllable_blending.cv"
+      ],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose ثَلْج",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "word.thalj"
+      },
+      "masteryEvidence": {
+        "reading": [
+          "skill.word_decoding.simple"
+        ],
+        "listening": [
+          "skill.word_decoding.simple"
+        ]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.word.thalj.decoding",
+          "skillId": "skill.word_decoding.simple",
+          "wordId": "word.thalj"
+        }
+      ],
+      "promptAssetId": "audio.word.thalj",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        {
+          "id": "word.thalj",
+          "label": "ثَلْج"
+        },
+        {
+          "id": "word.khubz",
+          "label": "خُبْز"
+        },
+        {
+          "id": "word.mawz",
+          "label": "مَوْز"
+        }
+      ],
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.sad_forms",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.sad"
+      ],
+      "learningObjectiveEn": "See ص صـ ـصـ ـص",
+      "config": {
+        "show": "glyph",
+        "glyph": "ص  صـ  ـصـ  ـص"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.sin_vs_sad",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.sin",
+        "letter.sad"
+      ],
+      "learningObjectiveEn": "See س vs ص",
+      "config": {
+        "show": "contrast",
+        "left": "س",
+        "right": "ص"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.hisan",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.word_decoding.simple"
+      ],
+      "contentIds": [
+        "word.hisan"
+      ],
+      "learningObjectiveEn": "See حِصَان",
+      "promptAssetId": "audio.word.hisan",
+      "config": {
+        "show": "word",
+        "wordId": "word.hisan"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.sad_vs_dad",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.sad",
+        "letter.dad"
+      ],
+      "learningObjectiveEn": "See ص vs ض",
+      "config": {
+        "show": "contrast",
+        "left": "ص",
+        "right": "ض"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.dad_forms",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.dad"
+      ],
+      "learningObjectiveEn": "See ض ضـ ـضـ ـض",
+      "config": {
+        "show": "glyph",
+        "glyph": "ض  ضـ  ـضـ  ـض"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.bayd",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.word_decoding.simple"
+      ],
+      "contentIds": [
+        "word.bayd"
+      ],
+      "learningObjectiveEn": "See بَيْض",
+      "promptAssetId": "audio.word.bayd",
+      "config": {
+        "show": "word",
+        "wordId": "word.bayd"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.sound_to_letter.sad",
+      "type": "sound_to_letter",
+      "skillIds": [
+        "skill.letter_sounds.core",
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.sad",
+        "letter.sin",
+        "letter.shin"
+      ],
+      "difficulty": "easy",
+      "prereqSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose ص",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "letter.sad"
+      },
+      "masteryEvidence": {
+        "listening": [
+          "skill.letter_sounds.core"
+        ]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.letter.sad.sound",
+          "skillId": "skill.letter_sounds.core",
+          "letterId": "letter.sad"
+        }
+      ],
+      "promptAssetId": "audio.letter.sad.sound",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        {
+          "id": "letter.sad",
+          "label": "ص"
+        },
+        {
+          "id": "letter.sin",
+          "label": "س"
+        },
+        {
+          "id": "letter.shin",
+          "label": "ش"
+        }
+      ],
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "exercise.orthographic_foundations.audio_to_word.hisan",
+      "type": "audio_to_word",
+      "skillIds": [
+        "skill.word_decoding.simple"
+      ],
+      "contentIds": [
+        "word.hisan",
+        "word.khubz",
+        "word.nahr"
+      ],
+      "difficulty": "easy",
+      "prereqSkillIds": [
+        "skill.syllable_blending.cv"
+      ],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose حِصَان",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "word.hisan"
+      },
+      "masteryEvidence": {
+        "reading": [
+          "skill.word_decoding.simple"
+        ],
+        "listening": [
+          "skill.word_decoding.simple"
+        ]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.word.hisan.decoding",
+          "skillId": "skill.word_decoding.simple",
+          "wordId": "word.hisan"
+        }
+      ],
+      "promptAssetId": "audio.word.hisan",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        {
+          "id": "word.hisan",
+          "label": "حِصَان"
+        },
+        {
+          "id": "word.khubz",
+          "label": "خُبْز"
+        },
+        {
+          "id": "word.nahr",
+          "label": "نَهْر"
+        }
+      ],
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "exercise.orthographic_foundations.sound_to_letter.dad",
+      "type": "sound_to_letter",
+      "skillIds": [
+        "skill.letter_sounds.core",
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.dad",
+        "letter.sad",
+        "letter.dal"
+      ],
+      "difficulty": "easy",
+      "prereqSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose ض",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "letter.dad"
+      },
+      "masteryEvidence": {
+        "listening": [
+          "skill.letter_sounds.core"
+        ]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.letter.dad.sound",
+          "skillId": "skill.letter_sounds.core",
+          "letterId": "letter.dad"
+        }
+      ],
+      "promptAssetId": "audio.letter.dad.sound",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        {
+          "id": "letter.dad",
+          "label": "ض"
+        },
+        {
+          "id": "letter.sad",
+          "label": "ص"
+        },
+        {
+          "id": "letter.dal",
+          "label": "د"
+        }
+      ],
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "exercise.orthographic_foundations.audio_to_word.bayd",
+      "type": "audio_to_word",
+      "skillIds": [
+        "skill.word_decoding.simple"
+      ],
+      "contentIds": [
+        "word.bayd",
+        "word.hisan",
+        "word.mawz"
+      ],
+      "difficulty": "easy",
+      "prereqSkillIds": [
+        "skill.syllable_blending.cv"
+      ],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose بَيْض",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "word.bayd"
+      },
+      "masteryEvidence": {
+        "reading": [
+          "skill.word_decoding.simple"
+        ],
+        "listening": [
+          "skill.word_decoding.simple"
+        ]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.word.bayd.decoding",
+          "skillId": "skill.word_decoding.simple",
+          "wordId": "word.bayd"
+        }
+      ],
+      "promptAssetId": "audio.word.bayd",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        {
+          "id": "word.bayd",
+          "label": "بَيْض"
+        },
+        {
+          "id": "word.hisan",
+          "label": "حِصَان"
+        },
+        {
+          "id": "word.mawz",
+          "label": "مَوْز"
+        }
+      ],
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.ain_vs_ghain",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.ain",
+        "letter.ghain"
+      ],
+      "learningObjectiveEn": "See ع vs غ",
+      "config": {
+        "show": "contrast",
+        "left": "ع",
+        "right": "غ"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.ghain_forms",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.ghain"
+      ],
+      "learningObjectiveEn": "See غ غـ ـغـ ـغ",
+      "config": {
+        "show": "glyph",
+        "glyph": "غ  غـ  ـغـ  ـغ"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.saghir",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.word_decoding.simple"
+      ],
+      "contentIds": [
+        "word.saghir"
+      ],
+      "learningObjectiveEn": "See صَغِير",
+      "promptAssetId": "audio.word.saghir",
+      "config": {
+        "show": "word",
+        "wordId": "word.saghir"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.sound_to_letter.ghain",
+      "type": "sound_to_letter",
+      "skillIds": [
+        "skill.letter_sounds.core",
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.ghain",
+        "letter.ain",
+        "letter.ha"
+      ],
+      "difficulty": "easy",
+      "prereqSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose غ",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "letter.ghain"
+      },
+      "masteryEvidence": {
+        "listening": [
+          "skill.letter_sounds.core"
+        ]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.letter.ghain.sound",
+          "skillId": "skill.letter_sounds.core",
+          "letterId": "letter.ghain"
+        }
+      ],
+      "promptAssetId": "audio.letter.ghain.sound",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        {
+          "id": "letter.ghain",
+          "label": "غ"
+        },
+        {
+          "id": "letter.ain",
+          "label": "ع"
+        },
+        {
+          "id": "letter.ha",
+          "label": "ح"
+        }
+      ],
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "exercise.orthographic_foundations.audio_to_word.saghir",
+      "type": "audio_to_word",
+      "skillIds": [
+        "skill.word_decoding.simple"
+      ],
+      "contentIds": [
+        "word.saghir",
+        "word.hisan",
+        "word.bayd"
+      ],
+      "difficulty": "easy",
+      "prereqSkillIds": [
+        "skill.syllable_blending.cv"
+      ],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose صَغِير",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "word.saghir"
+      },
+      "masteryEvidence": {
+        "reading": [
+          "skill.word_decoding.simple"
+        ],
+        "listening": [
+          "skill.word_decoding.simple"
+        ]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.word.saghir.decoding",
+          "skillId": "skill.word_decoding.simple",
+          "wordId": "word.saghir"
+        }
+      ],
+      "promptAssetId": "audio.word.saghir",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        {
+          "id": "word.saghir",
+          "label": "صَغِير"
+        },
+        {
+          "id": "word.hisan",
+          "label": "حِصَان"
+        },
+        {
+          "id": "word.bayd",
+          "label": "بَيْض"
+        }
+      ],
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.tah_forms",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.tah"
+      ],
+      "learningObjectiveEn": "See ط طـ ـطـ ـط",
+      "config": {
+        "show": "glyph",
+        "glyph": "ط  طـ  ـطـ  ـط"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.ta_vs_tah",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.ta",
+        "letter.tah"
+      ],
+      "learningObjectiveEn": "See ت vs ط",
+      "config": {
+        "show": "contrast",
+        "left": "ت",
+        "right": "ط"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.matar",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.word_decoding.simple"
+      ],
+      "contentIds": [
+        "word.matar"
+      ],
+      "learningObjectiveEn": "See مَطَر",
+      "promptAssetId": "audio.word.matar",
+      "config": {
+        "show": "word",
+        "wordId": "word.matar"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.tah_vs_zah",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.tah",
+        "letter.zah"
+      ],
+      "learningObjectiveEn": "See ط vs ظ",
+      "config": {
+        "show": "contrast",
+        "left": "ط",
+        "right": "ظ"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.zah_forms",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.zah"
+      ],
+      "learningObjectiveEn": "See ظ ظـ ـظـ ـظ",
+      "config": {
+        "show": "glyph",
+        "glyph": "ظ  ظـ  ـظـ  ـظ"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.zahr",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.word_decoding.simple"
+      ],
+      "contentIds": [
+        "word.zahr"
+      ],
+      "learningObjectiveEn": "See ظَهْر",
+      "promptAssetId": "audio.word.zahr",
+      "config": {
+        "show": "word",
+        "wordId": "word.zahr"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.sound_to_letter.tah",
+      "type": "sound_to_letter",
+      "skillIds": [
+        "skill.letter_sounds.core",
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.tah",
+        "letter.ta",
+        "letter.sad"
+      ],
+      "difficulty": "easy",
+      "prereqSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose ط",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "letter.tah"
+      },
+      "masteryEvidence": {
+        "listening": [
+          "skill.letter_sounds.core"
+        ]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.letter.tah.sound",
+          "skillId": "skill.letter_sounds.core",
+          "letterId": "letter.tah"
+        }
+      ],
+      "promptAssetId": "audio.letter.tah.sound",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        {
+          "id": "letter.tah",
+          "label": "ط"
+        },
+        {
+          "id": "letter.ta",
+          "label": "ت"
+        },
+        {
+          "id": "letter.sad",
+          "label": "ص"
+        }
+      ],
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "exercise.orthographic_foundations.audio_to_word.matar",
+      "type": "audio_to_word",
+      "skillIds": [
+        "skill.word_decoding.simple"
+      ],
+      "contentIds": [
+        "word.matar",
+        "word.saghir",
+        "word.nahr"
+      ],
+      "difficulty": "easy",
+      "prereqSkillIds": [
+        "skill.syllable_blending.cv"
+      ],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose مَطَر",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "word.matar"
+      },
+      "masteryEvidence": {
+        "reading": [
+          "skill.word_decoding.simple"
+        ],
+        "listening": [
+          "skill.word_decoding.simple"
+        ]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.word.matar.decoding",
+          "skillId": "skill.word_decoding.simple",
+          "wordId": "word.matar"
+        }
+      ],
+      "promptAssetId": "audio.word.matar",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        {
+          "id": "word.matar",
+          "label": "مَطَر"
+        },
+        {
+          "id": "word.saghir",
+          "label": "صَغِير"
+        },
+        {
+          "id": "word.nahr",
+          "label": "نَهْر"
+        }
+      ],
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "exercise.orthographic_foundations.sound_to_letter.zah",
+      "type": "sound_to_letter",
+      "skillIds": [
+        "skill.letter_sounds.core",
+        "skill.letter_recognition.core"
+      ],
+      "contentIds": [
+        "letter.zah",
+        "letter.tah",
+        "letter.zay"
+      ],
+      "difficulty": "easy",
+      "prereqSkillIds": [
+        "skill.letter_recognition.core"
+      ],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose ظ",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "letter.zah"
+      },
+      "masteryEvidence": {
+        "listening": [
+          "skill.letter_sounds.core"
+        ]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.letter.zah.sound",
+          "skillId": "skill.letter_sounds.core",
+          "letterId": "letter.zah"
+        }
+      ],
+      "promptAssetId": "audio.letter.zah.sound",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        {
+          "id": "letter.zah",
+          "label": "ظ"
+        },
+        {
+          "id": "letter.tah",
+          "label": "ط"
+        },
+        {
+          "id": "letter.zay",
+          "label": "ز"
+        }
+      ],
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "exercise.orthographic_foundations.audio_to_word.zahr",
+      "type": "audio_to_word",
+      "skillIds": [
+        "skill.word_decoding.simple"
+      ],
+      "contentIds": [
+        "word.zahr",
+        "word.matar",
+        "word.nahr"
+      ],
+      "difficulty": "easy",
+      "prereqSkillIds": [
+        "skill.syllable_blending.cv"
+      ],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose ظَهْر",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "word.zahr"
+      },
+      "masteryEvidence": {
+        "reading": [
+          "skill.word_decoding.simple"
+        ],
+        "listening": [
+          "skill.word_decoding.simple"
+        ]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.word.zahr.decoding",
+          "skillId": "skill.word_decoding.simple",
+          "wordId": "word.zahr"
+        }
+      ],
+      "promptAssetId": "audio.word.zahr",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        {
+          "id": "word.zahr",
+          "label": "ظَهْر"
+        },
+        {
+          "id": "word.matar",
+          "label": "مَطَر"
+        },
+        {
+          "id": "word.nahr",
+          "label": "نَهْر"
+        }
+      ],
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.shadda_glyph",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.shadda.basic"
+      ],
+      "contentIds": [
+        "word.sinn"
+      ],
+      "learningObjectiveEn": "See ّ",
+      "config": {
+        "show": "glyph",
+        "glyph": "ّ"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.sin_vs_sinn",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.shadda.basic"
+      ],
+      "contentIds": [
+        "word.sinn"
+      ],
+      "learningObjectiveEn": "See سِن vs سِنّ",
+      "promptAssetId": "audio.word.sinn",
+      "config": {
+        "show": "contrast",
+        "left": "سِن",
+        "right": "سِنّ"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.sinn_word",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.word_decoding.simple",
+        "skill.shadda.basic"
+      ],
+      "contentIds": [
+        "word.sinn"
+      ],
+      "learningObjectiveEn": "See سِنّ",
+      "promptAssetId": "audio.word.sinn",
+      "config": {
+        "show": "word",
+        "wordId": "word.sinn"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.qitt",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.shadda.basic"
+      ],
+      "contentIds": [
+        "word.qitt"
+      ],
+      "learningObjectiveEn": "See قِطّ",
+      "promptAssetId": "audio.word.qitt",
+      "config": {
+        "show": "word",
+        "wordId": "word.qitt"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.alshamsu",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.shadda.basic"
+      ],
+      "contentIds": [
+        "sentence.orthographic_foundations.alshamsu",
+        "word.shams"
+      ],
+      "learningObjectiveEn": "See الشَّمْس",
+      "promptAssetId": "audio.sentence.orthographic_foundations.alshamsu",
+      "config": {
+        "show": "glyph",
+        "glyph": "الشَّمْس"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.sun_vs_moon",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.shadda.basic"
+      ],
+      "contentIds": [
+        "sentence.orthographic_foundations.alshamsu",
+        "word.walad"
+      ],
+      "learningObjectiveEn": "See الشَّمْس vs الْوَلَدُ",
+      "config": {
+        "show": "contrast",
+        "left": "الشَّمْس",
+        "right": "الْوَلَدُ"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.audio_to_word.sinn",
+      "type": "audio_to_word",
+      "skillIds": [
+        "skill.word_decoding.simple"
+      ],
+      "contentIds": [
+        "word.sinn",
+        "word.matar",
+        "word.nahr"
+      ],
+      "difficulty": "easy",
+      "prereqSkillIds": [
+        "skill.syllable_blending.cv"
+      ],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose سِنّ",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "word.sinn"
+      },
+      "masteryEvidence": {
+        "reading": [
+          "skill.word_decoding.simple"
+        ],
+        "listening": [
+          "skill.word_decoding.simple"
+        ]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.word.sinn.decoding",
+          "skillId": "skill.word_decoding.simple",
+          "wordId": "word.sinn"
+        }
+      ],
+      "promptAssetId": "audio.word.sinn",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        {
+          "id": "word.sinn",
+          "label": "سِنّ"
+        },
+        {
+          "id": "word.matar",
+          "label": "مَطَر"
+        },
+        {
+          "id": "word.nahr",
+          "label": "نَهْر"
+        }
+      ],
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.alif_vs_hamza",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.hamza.reading"
+      ],
+      "contentIds": [
+        "letter.alif",
+        "word.ab"
+      ],
+      "learningObjectiveEn": "See ا vs أ",
+      "config": {
+        "show": "contrast",
+        "left": "ا",
+        "right": "أ"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.ab",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.word_decoding.simple",
+        "skill.hamza.reading"
+      ],
+      "contentIds": [
+        "word.ab"
+      ],
+      "learningObjectiveEn": "See أَب",
+      "promptAssetId": "audio.word.ab",
+      "config": {
+        "show": "word",
+        "wordId": "word.ab"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.asad",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.hamza.reading"
+      ],
+      "contentIds": [
+        "word.asad"
+      ],
+      "learningObjectiveEn": "See أَسَد",
+      "promptAssetId": "audio.word.asad",
+      "config": {
+        "show": "word",
+        "wordId": "word.asad"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.audio_to_word.ab",
+      "type": "audio_to_word",
+      "skillIds": [
+        "skill.word_decoding.simple"
+      ],
+      "contentIds": [
+        "word.ab",
+        "word.sinn",
+        "word.nahr"
+      ],
+      "difficulty": "easy",
+      "prereqSkillIds": [
+        "skill.syllable_blending.cv"
+      ],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose أَب",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "word.ab"
+      },
+      "masteryEvidence": {
+        "reading": [
+          "skill.word_decoding.simple"
+        ],
+        "listening": [
+          "skill.word_decoding.simple"
+        ]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.word.ab.decoding",
+          "skillId": "skill.word_decoding.simple",
+          "wordId": "word.ab"
+        }
+      ],
+      "promptAssetId": "audio.word.ab",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        {
+          "id": "word.ab",
+          "label": "أَب"
+        },
+        {
+          "id": "word.sinn",
+          "label": "سِنّ"
+        },
+        {
+          "id": "word.nahr",
+          "label": "نَهْر"
+        }
+      ],
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.taa_marbuta",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.taa_marbuta.reading"
+      ],
+      "contentIds": [
+        "word.kura"
+      ],
+      "learningObjectiveEn": "See ة",
+      "config": {
+        "show": "glyph",
+        "glyph": "ة"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.taa_vs_haa",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.taa_marbuta.reading"
+      ],
+      "contentIds": [
+        "letter.haa",
+        "letter.ta"
+      ],
+      "learningObjectiveEn": "See ة vs ه",
+      "config": {
+        "show": "contrast",
+        "left": "ة",
+        "right": "ه"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.taa_vs_ta",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.taa_marbuta.reading"
+      ],
+      "contentIds": [
+        "letter.ta"
+      ],
+      "learningObjectiveEn": "See ة vs ت",
+      "config": {
+        "show": "contrast",
+        "left": "ة",
+        "right": "ت"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.kura",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.word_decoding.simple",
+        "skill.taa_marbuta.reading"
+      ],
+      "contentIds": [
+        "word.kura"
+      ],
+      "learningObjectiveEn": "See كُرَة",
+      "promptAssetId": "audio.word.kura",
+      "config": {
+        "show": "word",
+        "wordId": "word.kura"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.madrasa",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.word_decoding.simple",
+        "skill.taa_marbuta.reading"
+      ],
+      "contentIds": [
+        "word.madrasa"
+      ],
+      "learningObjectiveEn": "See مَدْرَسَة",
+      "promptAssetId": "audio.word.madrasa",
+      "config": {
+        "show": "word",
+        "wordId": "word.madrasa"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.maqsura",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.alif_maqsura.reading"
+      ],
+      "contentIds": [
+        "word.yara"
+      ],
+      "learningObjectiveEn": "See ى",
+      "config": {
+        "show": "glyph",
+        "glyph": "ى"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.maqsura_vs_ya",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.alif_maqsura.reading"
+      ],
+      "contentIds": [
+        "letter.ya"
+      ],
+      "learningObjectiveEn": "See ى vs ي",
+      "config": {
+        "show": "contrast",
+        "left": "ى",
+        "right": "ي"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.yara",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.word_decoding.simple",
+        "skill.alif_maqsura.reading"
+      ],
+      "contentIds": [
+        "word.yara"
+      ],
+      "learningObjectiveEn": "See يَرَى",
+      "promptAssetId": "audio.word.yara",
+      "config": {
+        "show": "word",
+        "wordId": "word.yara"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.presentation.ala",
+      "type": "presentation",
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "success": {
+        "type": "continue"
+      },
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "tags": [
+        "orthographic-foundations"
+      ],
+      "skillIds": [
+        "skill.alif_maqsura.reading"
+      ],
+      "contentIds": [
+        "word.ala"
+      ],
+      "learningObjectiveEn": "See عَلَى",
+      "promptAssetId": "audio.word.ala",
+      "config": {
+        "show": "word",
+        "wordId": "word.ala"
+      }
+    },
+    {
+      "id": "exercise.orthographic_foundations.audio_to_word.kura",
+      "type": "audio_to_word",
+      "skillIds": [
+        "skill.word_decoding.simple"
+      ],
+      "contentIds": [
+        "word.kura",
+        "word.ab",
+        "word.nahr"
+      ],
+      "difficulty": "easy",
+      "prereqSkillIds": [
+        "skill.syllable_blending.cv"
+      ],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose كُرَة",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "word.kura"
+      },
+      "masteryEvidence": {
+        "reading": [
+          "skill.word_decoding.simple"
+        ],
+        "listening": [
+          "skill.word_decoding.simple"
+        ]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.word.kura.decoding",
+          "skillId": "skill.word_decoding.simple",
+          "wordId": "word.kura"
+        }
+      ],
+      "promptAssetId": "audio.word.kura",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        {
+          "id": "word.kura",
+          "label": "كُرَة"
+        },
+        {
+          "id": "word.ab",
+          "label": "أَب"
+        },
+        {
+          "id": "word.nahr",
+          "label": "نَهْر"
+        }
+      ],
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "exercise.orthographic_foundations.audio_to_word.madrasa",
+      "type": "audio_to_word",
+      "skillIds": [
+        "skill.word_decoding.simple"
+      ],
+      "contentIds": [
+        "word.madrasa",
+        "word.kura",
+        "word.ab"
+      ],
+      "difficulty": "easy",
+      "prereqSkillIds": [
+        "skill.syllable_blending.cv"
+      ],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose مَدْرَسَة",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "word.madrasa"
+      },
+      "masteryEvidence": {
+        "reading": [
+          "skill.word_decoding.simple"
+        ],
+        "listening": [
+          "skill.word_decoding.simple"
+        ]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.word.madrasa.decoding",
+          "skillId": "skill.word_decoding.simple",
+          "wordId": "word.madrasa"
+        }
+      ],
+      "promptAssetId": "audio.word.madrasa",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        {
+          "id": "word.madrasa",
+          "label": "مَدْرَسَة"
+        },
+        {
+          "id": "word.kura",
+          "label": "كُرَة"
+        },
+        {
+          "id": "word.ab",
+          "label": "أَب"
+        }
+      ],
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "exercise.orthographic_foundations.audio_to_word.yara",
+      "type": "audio_to_word",
+      "skillIds": [
+        "skill.word_decoding.simple"
+      ],
+      "contentIds": [
+        "word.yara",
+        "word.kura",
+        "word.madrasa"
+      ],
+      "difficulty": "easy",
+      "prereqSkillIds": [
+        "skill.syllable_blending.cv"
+      ],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose يَرَى",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "word.yara"
+      },
+      "masteryEvidence": {
+        "reading": [
+          "skill.word_decoding.simple"
+        ],
+        "listening": [
+          "skill.word_decoding.simple"
+        ]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.word.yara.decoding",
+          "skillId": "skill.word_decoding.simple",
+          "wordId": "word.yara"
+        }
+      ],
+      "promptAssetId": "audio.word.yara",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        {
+          "id": "word.yara",
+          "label": "يَرَى"
+        },
+        {
+          "id": "word.kura",
+          "label": "كُرَة"
+        },
+        {
+          "id": "word.madrasa",
+          "label": "مَدْرَسَة"
+        }
+      ],
+      "tags": [
+        "orthographic-foundations"
+      ]
+    }
+  ],
+  "units": [
+    {
+      "id": "unit.literacy.orthographic_foundations.haa",
+      "order": 1,
+      "titleAr": "نَقْرَأُ ه",
+      "titleEn": "Read haa",
+      "childGoalAr": "ه · نَهْر",
+      "learnerLevel": 6,
+      "skillIds": [
+        "skill.letter_sounds.core",
+        "skill.letter_recognition.core",
+        "skill.word_decoding.simple",
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "letterIds": [
+        "letter.haa",
+        "letter.ha",
+        "letter.mim",
+        "letter.nun",
+        "letter.ra",
+        "letter.waw",
+        "letter.jim",
+        "letter.lam",
+        "letter.dal"
+      ],
+      "letterForms": [
+        {
+          "letterId": "letter.haa",
+          "form": "isolated"
+        },
+        {
+          "letterId": "letter.haa",
+          "form": "initial"
+        },
+        {
+          "letterId": "letter.haa",
+          "form": "medial"
+        },
+        {
+          "letterId": "letter.haa",
+          "form": "final"
+        }
+      ],
+      "wordIds": [
+        "word.nahr",
+        "word.wajh",
+        "word.walad"
+      ],
+      "exerciseIds": [
+        "exercise.orthographic_foundations.presentation.haa_isolated",
+        "exercise.orthographic_foundations.presentation.haa_forms",
+        "exercise.orthographic_foundations.presentation.ha_vs_haa",
+        "exercise.orthographic_foundations.presentation.nahr",
+        "exercise.orthographic_foundations.presentation.wajh",
+        "exercise.orthographic_foundations.sound_to_letter.haa",
+        "exercise.orthographic_foundations.audio_to_word.nahr"
+      ],
+      "prereqUnitIds": [
+        "unit.literacy.reading_foundations.sentence_transfer"
+      ],
+      "reviewContentIds": [],
+      "mastery": {
+        "minAttempts": 3,
+        "minAccuracy": 0.7,
+        "minStreak": 2,
+        "minSessions": 1,
+        "reviewAfterDays": 2,
+        "requiredSkillIds": [
+          "skill.letter_sounds.core",
+          "skill.word_decoding.simple"
+        ]
+      },
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "unit.literacy.orthographic_foundations.thal_zay",
+      "order": 2,
+      "titleAr": "ذ وَ ز",
+      "titleEn": "Read thal and zay",
+      "childGoalAr": "ذ · لَذِيذ · ز · مَوْز",
+      "learnerLevel": 6,
+      "skillIds": [
+        "skill.letter_sounds.core",
+        "skill.letter_recognition.core",
+        "skill.word_decoding.simple",
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.sukun.basic",
+        "skill.long_vowel.madd"
+      ],
+      "letterIds": [
+        "letter.thal",
+        "letter.zay",
+        "letter.dal",
+        "letter.ra",
+        "letter.lam",
+        "letter.ya",
+        "letter.mim",
+        "letter.waw"
+      ],
+      "letterForms": [
+        {
+          "letterId": "letter.thal",
+          "form": "isolated"
+        },
+        {
+          "letterId": "letter.thal",
+          "form": "final"
+        },
+        {
+          "letterId": "letter.zay",
+          "form": "isolated"
+        },
+        {
+          "letterId": "letter.zay",
+          "form": "final"
+        }
+      ],
+      "wordIds": [
+        "word.ladhidh",
+        "word.mawz",
+        "word.nahr",
+        "word.walad"
+      ],
+      "exerciseIds": [
+        "exercise.orthographic_foundations.presentation.dal_vs_thal",
+        "exercise.orthographic_foundations.presentation.thal_forms",
+        "exercise.orthographic_foundations.presentation.nonconnecting",
+        "exercise.orthographic_foundations.presentation.ladhidh",
+        "exercise.orthographic_foundations.presentation.ra_vs_zay",
+        "exercise.orthographic_foundations.presentation.zay_forms",
+        "exercise.orthographic_foundations.presentation.mawz",
+        "exercise.orthographic_foundations.sound_to_letter.thal",
+        "exercise.orthographic_foundations.audio_to_word.ladhidh",
+        "exercise.orthographic_foundations.sound_to_letter.zay",
+        "exercise.orthographic_foundations.audio_to_word.mawz"
+      ],
+      "prereqUnitIds": [
+        "unit.literacy.orthographic_foundations.haa"
+      ],
+      "reviewContentIds": [],
+      "mastery": {
+        "minAttempts": 3,
+        "minAccuracy": 0.7,
+        "minStreak": 2,
+        "minSessions": 1,
+        "reviewAfterDays": 2,
+        "requiredSkillIds": [
+          "skill.letter_sounds.core",
+          "skill.word_decoding.simple"
+        ]
+      },
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "unit.literacy.orthographic_foundations.kha_tha",
+      "order": 3,
+      "titleAr": "خ وَ ث",
+      "titleEn": "Read kha and tha",
+      "childGoalAr": "خ · خُبْز · ث · ثَلْج",
+      "learnerLevel": 6,
+      "skillIds": [
+        "skill.letter_sounds.core",
+        "skill.letter_recognition.core",
+        "skill.word_decoding.simple",
+        "skill.short_vowel.damma",
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "letterIds": [
+        "letter.kha",
+        "letter.tha",
+        "letter.ha",
+        "letter.jim",
+        "letter.ta",
+        "letter.ba",
+        "letter.zay",
+        "letter.lam"
+      ],
+      "letterForms": [
+        {
+          "letterId": "letter.kha",
+          "form": "isolated"
+        },
+        {
+          "letterId": "letter.kha",
+          "form": "initial"
+        },
+        {
+          "letterId": "letter.kha",
+          "form": "medial"
+        },
+        {
+          "letterId": "letter.kha",
+          "form": "final"
+        },
+        {
+          "letterId": "letter.tha",
+          "form": "isolated"
+        },
+        {
+          "letterId": "letter.tha",
+          "form": "initial"
+        },
+        {
+          "letterId": "letter.tha",
+          "form": "medial"
+        },
+        {
+          "letterId": "letter.tha",
+          "form": "final"
+        }
+      ],
+      "wordIds": [
+        "word.khubz",
+        "word.thalj",
+        "word.mawz",
+        "word.nahr"
+      ],
+      "exerciseIds": [
+        "exercise.orthographic_foundations.presentation.ha_vs_kha",
+        "exercise.orthographic_foundations.presentation.kha_forms",
+        "exercise.orthographic_foundations.presentation.khubz",
+        "exercise.orthographic_foundations.presentation.ta_vs_tha",
+        "exercise.orthographic_foundations.presentation.tha_forms",
+        "exercise.orthographic_foundations.presentation.thalj",
+        "exercise.orthographic_foundations.sound_to_letter.kha",
+        "exercise.orthographic_foundations.audio_to_word.khubz",
+        "exercise.orthographic_foundations.sound_to_letter.tha",
+        "exercise.orthographic_foundations.audio_to_word.thalj"
+      ],
+      "prereqUnitIds": [
+        "unit.literacy.orthographic_foundations.thal_zay"
+      ],
+      "reviewContentIds": [],
+      "mastery": {
+        "minAttempts": 3,
+        "minAccuracy": 0.7,
+        "minStreak": 2,
+        "minSessions": 1,
+        "reviewAfterDays": 2,
+        "requiredSkillIds": [
+          "skill.letter_sounds.core",
+          "skill.word_decoding.simple"
+        ]
+      },
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "unit.literacy.orthographic_foundations.sad_dad",
+      "order": 4,
+      "titleAr": "ص وَ ض",
+      "titleEn": "Read sad and dad",
+      "childGoalAr": "ص · حِصَان · ض · بَيْض",
+      "learnerLevel": 6,
+      "skillIds": [
+        "skill.letter_sounds.core",
+        "skill.letter_recognition.core",
+        "skill.word_decoding.simple",
+        "skill.short_vowel.kasra",
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.long_vowel.madd"
+      ],
+      "letterIds": [
+        "letter.sad",
+        "letter.dad",
+        "letter.sin",
+        "letter.shin",
+        "letter.ha",
+        "letter.alif",
+        "letter.nun",
+        "letter.ba",
+        "letter.ya",
+        "letter.dal"
+      ],
+      "letterForms": [
+        {
+          "letterId": "letter.sad",
+          "form": "isolated"
+        },
+        {
+          "letterId": "letter.sad",
+          "form": "initial"
+        },
+        {
+          "letterId": "letter.sad",
+          "form": "medial"
+        },
+        {
+          "letterId": "letter.sad",
+          "form": "final"
+        },
+        {
+          "letterId": "letter.dad",
+          "form": "isolated"
+        },
+        {
+          "letterId": "letter.dad",
+          "form": "initial"
+        },
+        {
+          "letterId": "letter.dad",
+          "form": "medial"
+        },
+        {
+          "letterId": "letter.dad",
+          "form": "final"
+        }
+      ],
+      "wordIds": [
+        "word.hisan",
+        "word.bayd",
+        "word.khubz",
+        "word.mawz",
+        "word.nahr"
+      ],
+      "exerciseIds": [
+        "exercise.orthographic_foundations.presentation.sad_forms",
+        "exercise.orthographic_foundations.presentation.sin_vs_sad",
+        "exercise.orthographic_foundations.presentation.hisan",
+        "exercise.orthographic_foundations.presentation.sad_vs_dad",
+        "exercise.orthographic_foundations.presentation.dad_forms",
+        "exercise.orthographic_foundations.presentation.bayd",
+        "exercise.orthographic_foundations.sound_to_letter.sad",
+        "exercise.orthographic_foundations.audio_to_word.hisan",
+        "exercise.orthographic_foundations.sound_to_letter.dad",
+        "exercise.orthographic_foundations.audio_to_word.bayd"
+      ],
+      "prereqUnitIds": [
+        "unit.literacy.orthographic_foundations.kha_tha"
+      ],
+      "reviewContentIds": [],
+      "mastery": {
+        "minAttempts": 3,
+        "minAccuracy": 0.7,
+        "minStreak": 2,
+        "minSessions": 1,
+        "reviewAfterDays": 2,
+        "requiredSkillIds": [
+          "skill.letter_sounds.core",
+          "skill.word_decoding.simple"
+        ]
+      },
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "unit.literacy.orthographic_foundations.ghain",
+      "order": 5,
+      "titleAr": "نَقْرَأُ غ",
+      "titleEn": "Read ghain",
+      "childGoalAr": "غ · صَغِير",
+      "learnerLevel": 6,
+      "skillIds": [
+        "skill.letter_sounds.core",
+        "skill.letter_recognition.core",
+        "skill.word_decoding.simple",
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.kasra",
+        "skill.long_vowel.madd"
+      ],
+      "letterIds": [
+        "letter.ghain",
+        "letter.ain",
+        "letter.ha",
+        "letter.sad",
+        "letter.ya"
+      ],
+      "letterForms": [
+        {
+          "letterId": "letter.ghain",
+          "form": "isolated"
+        },
+        {
+          "letterId": "letter.ghain",
+          "form": "initial"
+        },
+        {
+          "letterId": "letter.ghain",
+          "form": "medial"
+        },
+        {
+          "letterId": "letter.ghain",
+          "form": "final"
+        }
+      ],
+      "wordIds": [
+        "word.saghir",
+        "word.hisan",
+        "word.bayd"
+      ],
+      "exerciseIds": [
+        "exercise.orthographic_foundations.presentation.ain_vs_ghain",
+        "exercise.orthographic_foundations.presentation.ghain_forms",
+        "exercise.orthographic_foundations.presentation.saghir",
+        "exercise.orthographic_foundations.sound_to_letter.ghain",
+        "exercise.orthographic_foundations.audio_to_word.saghir"
+      ],
+      "prereqUnitIds": [
+        "unit.literacy.orthographic_foundations.sad_dad"
+      ],
+      "reviewContentIds": [],
+      "mastery": {
+        "minAttempts": 3,
+        "minAccuracy": 0.7,
+        "minStreak": 2,
+        "minSessions": 1,
+        "reviewAfterDays": 2,
+        "requiredSkillIds": [
+          "skill.letter_sounds.core",
+          "skill.word_decoding.simple"
+        ]
+      },
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "unit.literacy.orthographic_foundations.tah_zah",
+      "order": 6,
+      "titleAr": "ط وَ ظ",
+      "titleEn": "Read tah and zah",
+      "childGoalAr": "ط · مَطَر · ظ · ظَهْر",
+      "learnerLevel": 6,
+      "skillIds": [
+        "skill.letter_sounds.core",
+        "skill.letter_recognition.core",
+        "skill.word_decoding.simple",
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic"
+      ],
+      "letterIds": [
+        "letter.tah",
+        "letter.zah",
+        "letter.ta",
+        "letter.sad",
+        "letter.zay",
+        "letter.mim",
+        "letter.ra",
+        "letter.haa"
+      ],
+      "letterForms": [
+        {
+          "letterId": "letter.tah",
+          "form": "isolated"
+        },
+        {
+          "letterId": "letter.tah",
+          "form": "initial"
+        },
+        {
+          "letterId": "letter.tah",
+          "form": "medial"
+        },
+        {
+          "letterId": "letter.tah",
+          "form": "final"
+        },
+        {
+          "letterId": "letter.zah",
+          "form": "isolated"
+        },
+        {
+          "letterId": "letter.zah",
+          "form": "initial"
+        },
+        {
+          "letterId": "letter.zah",
+          "form": "medial"
+        },
+        {
+          "letterId": "letter.zah",
+          "form": "final"
+        }
+      ],
+      "wordIds": [
+        "word.matar",
+        "word.zahr",
+        "word.saghir",
+        "word.nahr"
+      ],
+      "exerciseIds": [
+        "exercise.orthographic_foundations.presentation.tah_forms",
+        "exercise.orthographic_foundations.presentation.ta_vs_tah",
+        "exercise.orthographic_foundations.presentation.matar",
+        "exercise.orthographic_foundations.presentation.tah_vs_zah",
+        "exercise.orthographic_foundations.presentation.zah_forms",
+        "exercise.orthographic_foundations.presentation.zahr",
+        "exercise.orthographic_foundations.sound_to_letter.tah",
+        "exercise.orthographic_foundations.audio_to_word.matar",
+        "exercise.orthographic_foundations.sound_to_letter.zah",
+        "exercise.orthographic_foundations.audio_to_word.zahr"
+      ],
+      "prereqUnitIds": [
+        "unit.literacy.orthographic_foundations.ghain"
+      ],
+      "reviewContentIds": [],
+      "mastery": {
+        "minAttempts": 3,
+        "minAccuracy": 0.7,
+        "minStreak": 2,
+        "minSessions": 1,
+        "reviewAfterDays": 2,
+        "requiredSkillIds": [
+          "skill.letter_sounds.core",
+          "skill.word_decoding.simple"
+        ]
+      },
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "unit.literacy.orthographic_foundations.shadda",
+      "order": 7,
+      "titleAr": "نَقْرَأُ ّ",
+      "titleEn": "Read shadda",
+      "childGoalAr": "سِنّ",
+      "learnerLevel": 6,
+      "skillIds": [
+        "skill.shadda.basic",
+        "skill.word_decoding.simple",
+        "skill.short_vowel.kasra"
+      ],
+      "letterIds": [
+        "letter.sin",
+        "letter.nun",
+        "letter.qaf",
+        "letter.tah",
+        "letter.shin",
+        "letter.mim"
+      ],
+      "letterForms": [],
+      "wordIds": [
+        "word.sinn",
+        "word.qitt",
+        "word.shams",
+        "word.matar",
+        "word.nahr",
+        "word.walad"
+      ],
+      "exerciseIds": [
+        "exercise.orthographic_foundations.presentation.shadda_glyph",
+        "exercise.orthographic_foundations.presentation.sin_vs_sinn",
+        "exercise.orthographic_foundations.presentation.sinn_word",
+        "exercise.orthographic_foundations.presentation.qitt",
+        "exercise.orthographic_foundations.presentation.alshamsu",
+        "exercise.orthographic_foundations.presentation.sun_vs_moon",
+        "exercise.orthographic_foundations.audio_to_word.sinn"
+      ],
+      "prereqUnitIds": [
+        "unit.literacy.orthographic_foundations.tah_zah"
+      ],
+      "reviewContentIds": [
+        "sentence.orthographic_foundations.alshamsu"
+      ],
+      "mastery": {
+        "minAttempts": 3,
+        "minAccuracy": 0.7,
+        "minStreak": 2,
+        "minSessions": 1,
+        "reviewAfterDays": 2,
+        "requiredSkillIds": [
+          "skill.word_decoding.simple"
+        ]
+      },
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "unit.literacy.orthographic_foundations.hamza",
+      "order": 8,
+      "titleAr": "نَقْرَأُ أ",
+      "titleEn": "Read initial hamza",
+      "childGoalAr": "أَب",
+      "learnerLevel": 6,
+      "skillIds": [
+        "skill.hamza.reading",
+        "skill.word_decoding.simple",
+        "skill.short_vowel.fatha"
+      ],
+      "letterIds": [
+        "letter.alif",
+        "letter.ba",
+        "letter.sin",
+        "letter.dal"
+      ],
+      "letterForms": [],
+      "wordIds": [
+        "word.ab",
+        "word.asad",
+        "word.sinn",
+        "word.nahr"
+      ],
+      "exerciseIds": [
+        "exercise.orthographic_foundations.presentation.alif_vs_hamza",
+        "exercise.orthographic_foundations.presentation.ab",
+        "exercise.orthographic_foundations.presentation.asad",
+        "exercise.orthographic_foundations.audio_to_word.ab"
+      ],
+      "prereqUnitIds": [
+        "unit.literacy.orthographic_foundations.shadda"
+      ],
+      "reviewContentIds": [],
+      "mastery": {
+        "minAttempts": 3,
+        "minAccuracy": 0.7,
+        "minStreak": 2,
+        "minSessions": 1,
+        "reviewAfterDays": 2,
+        "requiredSkillIds": [
+          "skill.word_decoding.simple"
+        ]
+      },
+      "tags": [
+        "orthographic-foundations"
+      ]
+    },
+    {
+      "id": "unit.literacy.orthographic_foundations.taa_maqsura",
+      "order": 9,
+      "titleAr": "ة وَ ى",
+      "titleEn": "Read taa marbuta and alif maqsura",
+      "childGoalAr": "كُرَة · مَدْرَسَة · يَرَى",
+      "learnerLevel": 6,
+      "skillIds": [
+        "skill.taa_marbuta.reading",
+        "skill.alif_maqsura.reading",
+        "skill.word_decoding.simple",
+        "skill.short_vowel.fatha",
+        "skill.short_vowel.damma",
+        "skill.sukun.basic",
+        "skill.long_vowel.madd"
+      ],
+      "letterIds": [
+        "letter.ta",
+        "letter.haa",
+        "letter.ya",
+        "letter.kaf",
+        "letter.ra",
+        "letter.mim",
+        "letter.dal",
+        "letter.sin",
+        "letter.ain",
+        "letter.lam"
+      ],
+      "letterForms": [],
+      "wordIds": [
+        "word.kura",
+        "word.madrasa",
+        "word.yara",
+        "word.ala",
+        "word.ab",
+        "word.nahr"
+      ],
+      "exerciseIds": [
+        "exercise.orthographic_foundations.presentation.taa_marbuta",
+        "exercise.orthographic_foundations.presentation.taa_vs_haa",
+        "exercise.orthographic_foundations.presentation.taa_vs_ta",
+        "exercise.orthographic_foundations.presentation.kura",
+        "exercise.orthographic_foundations.presentation.madrasa",
+        "exercise.orthographic_foundations.presentation.maqsura",
+        "exercise.orthographic_foundations.presentation.maqsura_vs_ya",
+        "exercise.orthographic_foundations.presentation.yara",
+        "exercise.orthographic_foundations.presentation.ala",
+        "exercise.orthographic_foundations.audio_to_word.kura",
+        "exercise.orthographic_foundations.audio_to_word.madrasa",
+        "exercise.orthographic_foundations.audio_to_word.yara"
+      ],
+      "prereqUnitIds": [
+        "unit.literacy.orthographic_foundations.hamza"
+      ],
+      "reviewContentIds": [],
+      "mastery": {
+        "minAttempts": 3,
+        "minAccuracy": 0.7,
+        "minStreak": 2,
+        "minSessions": 1,
+        "reviewAfterDays": 2,
+        "requiredSkillIds": [
+          "skill.word_decoding.simple"
+        ]
+      },
+      "tags": [
+        "orthographic-foundations"
+      ]
+    }
+  ],
+  "paths": [
+    {
+      "id": "path.literacy.orthographic_foundations",
+      "titleAr": "الْحُرُوفُ وَالْعَلَامَات",
+      "titleEn": "Remaining Letters & Orthographic Forms",
+      "descriptionAr": "نُكْمِلُ الْحُرُوفَ وَنَقْرَأُ الْعَلَامَات",
+      "learnerLevel": 6,
+      "unitIds": [
+        "unit.literacy.orthographic_foundations.haa",
+        "unit.literacy.orthographic_foundations.thal_zay",
+        "unit.literacy.orthographic_foundations.kha_tha",
+        "unit.literacy.orthographic_foundations.sad_dad",
+        "unit.literacy.orthographic_foundations.ghain",
+        "unit.literacy.orthographic_foundations.tah_zah",
+        "unit.literacy.orthographic_foundations.shadda",
+        "unit.literacy.orthographic_foundations.hamza",
+        "unit.literacy.orthographic_foundations.taa_maqsura"
+      ],
+      "tags": [
+        "orthographic-foundations",
+        "module.orthographic_foundations",
+        "literacy"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "id": "audio.letter.ain.name",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.ain.sound",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.alif.name",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.alif.sound",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.ba.name",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.ba.sound",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.dad.name",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.dad.sound",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.dal.name",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.dal.sound",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.fa.name",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.fa.sound",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.ghain.name",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.ghain.sound",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.ha.name",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.ha.sound",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.haa.name",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.haa.sound",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.jim.name",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.jim.sound",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.kaf.name",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.kaf.sound",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.kha.name",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.kha.sound",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.lam.name",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.lam.sound",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.mim.name",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.mim.sound",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.nun.name",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.nun.sound",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.qaf.name",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.qaf.sound",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.ra.name",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.ra.sound",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.sad.name",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.sad.sound",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.shin.name",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.shin.sound",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.sin.name",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.sin.sound",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.ta.name",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.ta.sound",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.tah.name",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.tah.sound",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.tha.name",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.tha.sound",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.thal.name",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.thal.sound",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.waw.name",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.waw.sound",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.ya.name",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.ya.sound",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.zah.name",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.zah.sound",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.zay.name",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.letter.zay.sound",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.sentence.orthographic_foundations.alshamsu",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.word.ab",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.word.ala",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.word.asad",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.word.bayd",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.word.hisan",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.word.khubz",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.word.kura",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.word.ladhidh",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.word.madrasa",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.word.matar",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.word.mawz",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.word.nahr",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.word.qitt",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.word.saghir",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.word.shams",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.word.sinn",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.word.thalj",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.word.wajh",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.word.walad",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.word.yara",
+      "kind": "audio"
+    },
+    {
+      "id": "audio.word.zahr",
+      "kind": "audio"
+    },
+    {
+      "id": "image.word.ab",
+      "kind": "image"
+    },
+    {
+      "id": "image.word.ala",
+      "kind": "image"
+    },
+    {
+      "id": "image.word.asad",
+      "kind": "image"
+    },
+    {
+      "id": "image.word.bayd",
+      "kind": "image"
+    },
+    {
+      "id": "image.word.hisan",
+      "kind": "image"
+    },
+    {
+      "id": "image.word.khubz",
+      "kind": "image"
+    },
+    {
+      "id": "image.word.kura",
+      "kind": "image"
+    },
+    {
+      "id": "image.word.ladhidh",
+      "kind": "image"
+    },
+    {
+      "id": "image.word.madrasa",
+      "kind": "image"
+    },
+    {
+      "id": "image.word.matar",
+      "kind": "image"
+    },
+    {
+      "id": "image.word.mawz",
+      "kind": "image"
+    },
+    {
+      "id": "image.word.nahr",
+      "kind": "image"
+    },
+    {
+      "id": "image.word.qitt",
+      "kind": "image"
+    },
+    {
+      "id": "image.word.saghir",
+      "kind": "image"
+    },
+    {
+      "id": "image.word.shams",
+      "kind": "image"
+    },
+    {
+      "id": "image.word.sinn",
+      "kind": "image"
+    },
+    {
+      "id": "image.word.thalj",
+      "kind": "image"
+    },
+    {
+      "id": "image.word.wajh",
+      "kind": "image"
+    },
+    {
+      "id": "image.word.walad",
+      "kind": "image"
+    },
+    {
+      "id": "image.word.yara",
+      "kind": "image"
+    },
+    {
+      "id": "image.word.zahr",
+      "kind": "image"
+    }
+  ]
+}

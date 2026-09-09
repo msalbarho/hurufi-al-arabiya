@@ -11,12 +11,14 @@ import type {
 const FATHA = "\u064E";
 const DAMMA = "\u064F";
 const KASRA = "\u0650";
+const SUKUN = "\u0652";
 const TATWEEL = "\u0640";
 
 const VOWEL_MARK: Record<string, string> = {
   "skill.short_vowel.fatha": FATHA,
   "skill.short_vowel.kasra": KASRA,
   "skill.short_vowel.damma": DAMMA,
+  "skill.sukun.basic": SUKUN,
 };
 
 export function portableSyllable(
@@ -57,6 +59,48 @@ export interface ResolvedSyllableChoice {
   syllableAudioId?: string;
 }
 
+/** Neutral scored instruction. Does not name the target syllable. */
+export const SYLLABLE_LISTEN_PROMPT = "اِسْتَمِعْ وَاخْتَرِ الْمَقْطَع";
+
+function promptTokens(promptText: string): string[] {
+  return promptText.split(/[\s:：،,.!?؟]+/u).filter((token) => token.length > 0);
+}
+
+/**
+ * True when a prompt prints the complete target syllable as its own token
+ * (for example after a colon). A naive substring check is wrong: the word
+ * الْمَقْطَع contains the letters of مَ.
+ */
+export function syllablePromptExposesTarget(promptText: string | undefined, targetText: string): boolean {
+  if (!promptText || !targetText) return false;
+  return promptTokens(promptText).includes(targetText);
+}
+
+/**
+ * Child-facing scored prompt. If content prints the target syllable, replace it
+ * with a generic listen instruction. Does not branch on unit or letter ids.
+ */
+export function scoredSyllablePromptText(promptText: string | undefined, targetText: string): string {
+  const raw = promptText?.trim();
+  if (!raw || syllablePromptExposesTarget(raw, targetText)) return SYLLABLE_LISTEN_PROMPT;
+  return raw;
+}
+
+export interface ResolvedSyllableBlending {
+  target: ResolvedSyllableChoice;
+  choices: ResolvedSyllableChoice[];
+  /** Scored prompt. Never includes the complete target syllable. */
+  promptText: string;
+  promptAssetId?: string;
+  /**
+   * Glyphs shown in the scored prompt area (not choice buttons).
+   * Empty for listen-and-choose so the target is not printed before answering.
+   * LessonPlayer has no separate demo step; a later native UI can fill this
+   * without changing live keys.
+   */
+  promptGlyphs: readonly string[];
+}
+
 function letterAudioId(bundle: CurriculumBundle, letterId: string): string | undefined {
   const letter = bundle.letters.find((row) => row.id === letterId);
   return letter?.audioAssetIds?.phoneme ?? letter?.audioAssetIds?.name;
@@ -72,13 +116,15 @@ export function resolveSyllableChoice(
   const letterGlyph = letter?.forms.isolated ?? letter?.char ?? "";
   if (!letterGlyph) return undefined;
   const letterAudio = letterAudioId(bundle, syllable.letterId);
+  const usesCombiningMark =
+    syllable.pattern !== "CVV" && syllable.vowelSkillId !== "skill.long_vowel.madd";
   return {
     id: syllable.id,
     text: syllable.text,
     letterId: syllable.letterId,
     letterGlyph,
     vowelSkillId: syllable.vowelSkillId,
-    harakaCarrier: harakaCarrier(syllable.vowelSkillId),
+    harakaCarrier: usesCombiningMark ? harakaCarrier(syllable.vowelSkillId) : "",
     ...(letterAudio ? { letterAudioId: letterAudio } : {}),
     ...(syllable.audioAssetId ? { syllableAudioId: syllable.audioAssetId } : {}),
   };
@@ -95,11 +141,16 @@ function syllableIdFromExercise(exercise: ExerciseDefinition): string | undefine
  * Target + distractors from the exercise JSON.
  * If choices are omitted, other `syllable.*` contentIds on the same exercise are used.
  * Never invents syllables from the rest of the alphabet.
+ *
+ * Scored presentation is listen-and-choose: audio prompt, printed choices,
+ * no complete target glyph outside those choices. The schema has no separate
+ * demo-vs-assessment type; LessonPlayer scores the same exercise record, so
+ * this adapter does not emit a teaching assembly that would leak the answer.
  */
 export function resolveSyllableBlending(
   bundle: CurriculumBundle,
   exercise: ExerciseDefinition,
-): { target: ResolvedSyllableChoice; choices: ResolvedSyllableChoice[] } | undefined {
+): ResolvedSyllableBlending | undefined {
   const targetId = syllableIdFromExercise(exercise);
   const target = targetId ? resolveSyllableChoice(bundle, targetId) : undefined;
   if (!target) return undefined;
@@ -125,7 +176,15 @@ export function resolveSyllableBlending(
   if (!choices.some((row) => row.id === target.id)) {
     choices = [...choices.slice(0, 2), target];
   }
-  return { target, choices };
+
+  const promptAssetId = exercise.promptAssetId ?? target.syllableAudioId;
+  return {
+    target,
+    choices,
+    promptText: scoredSyllablePromptText(exercise.promptText, target.text),
+    ...(promptAssetId ? { promptAssetId } : {}),
+    promptGlyphs: [],
+  };
 }
 
 export { hashString, shuffleWithSeed } from "./choiceOrder.ts";

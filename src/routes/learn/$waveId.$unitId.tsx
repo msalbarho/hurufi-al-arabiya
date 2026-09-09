@@ -6,10 +6,10 @@ import { LessonPlayer } from "@/components/learn/LessonPlayer.tsx";
 import { unitRenderersReady } from "@/lib/curriculum/exerciseReadiness.ts";
 import {
   evaluateUnitUnlock,
+  lessonEntry,
   resolveUnitRouteAccess,
-  unitExerciseCompletion,
 } from "@/lib/curriculum/unitMastery.ts";
-import { missingLearnRefs, resolveLearnUnit } from "@/lib/curriculum/resolveLearn.ts";
+import { missingLearnRefs, resolveLearnUnit, lookupLearnPrereq, waveLabelAr } from "@/lib/curriculum/resolveLearn.ts";
 import { useProgress } from "@/lib/progress/store";
 
 export const Route = createFileRoute("/learn/$waveId/$unitId")({
@@ -38,9 +38,8 @@ function LearnUnitScreen() {
   const items = useProgress((s) => s.items);
   const hydrated = useProgress((s) => s.hydrated);
   const missing = missingLearnRefs(view);
-  const progress = unitExerciseCompletion(view.bundle, view.unit, view.exercises, items);
-  const startAt = progress.done >= progress.total ? 0 : progress.firstIncomplete;
-  const unlock = evaluateUnitUnlock(view.bundle, view.units, view.unit, items);
+  const entry = lessonEntry(view.bundle, view.unit, view.exercises, items);
+  const unlock = evaluateUnitUnlock(view.bundle, view.units, view.unit, items, lookupLearnPrereq);
   const hasPrereqs = (view.unit.prereqUnitIds ?? []).length > 0;
   const unlocked = hasPrereqs ? hydrated && unlock.unlocked : unlock.unlocked;
   if (import.meta.env.DEV && unlock.missingPrereqs.length) {
@@ -54,7 +53,7 @@ function LearnUnitScreen() {
         <div className="flex items-center gap-4">
           <BackButton to="/learn" />
           <div>
-            <p className="text-xs font-bold text-coral">الْمَوْجَةُ الْأُولَى</p>
+            <p className="text-xs font-bold text-coral">{waveLabelAr(view.waveSlug)}</p>
             <h1 className="font-display text-3xl font-extrabold leading-none">{view.unit.titleAr}</h1>
           </div>
         </div>
@@ -67,7 +66,12 @@ function LearnUnitScreen() {
         ) : access === "coming_soon" ? (
           <UnitComingSoonCard title={view.unit.titleAr} />
         ) : (
-          <LessonPlayer key={hydrated ? "ready" : "pending"} view={view} startAt={hydrated ? startAt : 0} />
+          <LessonPlayer
+            key={hydrated ? "ready" : "pending"}
+            view={view}
+            startAt={hydrated ? entry.startAt : 0}
+            startFinished={hydrated ? entry.startFinished : false}
+          />
         )}
       </main>
     </PageShell>

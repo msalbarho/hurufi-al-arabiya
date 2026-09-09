@@ -1,0 +1,772 @@
+{
+  "meta": {
+    "kind": "production",
+    "id": "hurufi.production.literacy.wave15",
+    "title": "Literacy path — Wave 15",
+    "description": "Fifteenth production literacy slice: kasra+sukun transfer onto jim, first kasra-onset closed chunk جِسْ, then decode jism. Compact two-unit wave. No new phonics rule, no new consonant, no damma, madd-yaa, madd-waw, hamza, sentences, or Wave 16.",
+    "notProductionCurriculum": false
+  },
+  "levels": [
+    {
+      "id": 1,
+      "nameAr": "أَتَعَرَّفُ عَلَى الْحُرُوف",
+      "nameEn": "Letters I can see, hear, and trace"
+    },
+    {
+      "id": 2,
+      "nameAr": "أَشْكَالٌ وَحَرَكَات",
+      "nameEn": "Forms and short vowels"
+    },
+    {
+      "id": 3,
+      "nameAr": "أَدْمُجُ الْأَصْوَات",
+      "nameEn": "I can blend"
+    },
+    {
+      "id": 4,
+      "nameAr": "كَلِمَاتِي الْأُولَى",
+      "nameEn": "First real word bank"
+    },
+    {
+      "id": 5,
+      "nameAr": "أَسْتَعْمِلُ الْكَلِمَات",
+      "nameEn": "Words I can use"
+    },
+    {
+      "id": 6,
+      "nameAr": "لُغَةُ كُلِّ يَوْم",
+      "nameEn": "Everyday language"
+    },
+    {
+      "id": 7,
+      "nameAr": "أَفْهَمُ مَا أَقْرَأ",
+      "nameEn": "I understand what I read"
+    },
+    {
+      "id": 8,
+      "nameAr": "قِصَصٌ وَاسْتِقْلَال",
+      "nameEn": "Stories and independence"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill.letter_recognition.core",
+      "domain": "letter_recognition",
+      "nameAr": "التَّعَرُّفُ عَلَى الْحَرْف",
+      "nameEn": "Recognize a letter",
+      "childLabelAr": "نَعْرِفُ الْحَرْف",
+      "prereqSkillIds": [],
+      "learnerLevelHint": 1,
+      "vocabBandHint": "A",
+      "modality": ["read", "listen"],
+      "masteryHint": "Generic skill. Which letter is mastered is the item (letterId), not a separate SkillDefinition."
+    },
+    {
+      "id": "skill.letter_forms.positional",
+      "domain": "letter_forms",
+      "nameAr": "أَشْكَالُ الْحَرْفِ الْمَوْضِعِيَّة",
+      "nameEn": "Positional letter forms",
+      "childLabelAr": "أَشْكَالُ الْحَرْف",
+      "prereqSkillIds": ["skill.letter_recognition.core"],
+      "learnerLevelHint": 2,
+      "vocabBandHint": "A",
+      "modality": ["read"],
+      "masteryHint": "Generic skill. Pair with letterId + letterForm (isolated/initial/medial/final)."
+    },
+    {
+      "id": "skill.short_vowel.fatha",
+      "domain": "short_vowels",
+      "nameAr": "الْفَتْحَة",
+      "nameEn": "Fatha",
+      "childLabelAr": "فَتْحَة",
+      "prereqSkillIds": [],
+      "learnerLevelHint": 2,
+      "vocabBandHint": "A",
+      "modality": ["listen", "read"]
+    },
+    {
+      "id": "skill.short_vowel.kasra",
+      "domain": "short_vowels",
+      "nameAr": "الْكَسْرَة",
+      "nameEn": "Kasra",
+      "childLabelAr": "كَسْرَة",
+      "prereqSkillIds": ["skill.short_vowel.fatha"],
+      "learnerLevelHint": 2,
+      "vocabBandHint": "A",
+      "modality": ["listen", "read"]
+    },
+    {
+      "id": "skill.sukun.basic",
+      "domain": "sukun",
+      "nameAr": "السُّكُون",
+      "nameEn": "Sukun",
+      "childLabelAr": "سُكُون",
+      "prereqSkillIds": ["skill.short_vowel.fatha"],
+      "learnerLevelHint": 3,
+      "vocabBandHint": "A",
+      "modality": ["listen", "read"]
+    },
+    {
+      "id": "skill.syllable_blending.cv",
+      "domain": "syllable_blending",
+      "nameAr": "دَمْجُ مَقْطَعٍ قَصِير",
+      "nameEn": "Blend a CV syllable",
+      "childLabelAr": "نَقْرَأُ مَعًا",
+      "prereqSkillIds": ["skill.short_vowel.fatha"],
+      "learnerLevelHint": 3,
+      "vocabBandHint": "A",
+      "modality": ["read", "listen"]
+    },
+    {
+      "id": "skill.syllable_blending.cvc",
+      "domain": "syllable_blending",
+      "nameAr": "دَمْجُ مَقْطَعٍ مُغْلَق",
+      "nameEn": "Blend a closed chunk",
+      "childLabelAr": "نَقْرَأُ مَعًا",
+      "prereqSkillIds": ["skill.sukun.basic", "skill.syllable_blending.cv"],
+      "learnerLevelHint": 3,
+      "vocabBandHint": "A",
+      "modality": ["read", "listen"]
+    },
+    {
+      "id": "skill.word_decoding.simple",
+      "domain": "word_decoding",
+      "nameAr": "قِرَاءَةُ كَلِمَةٍ بَسِيطَة",
+      "nameEn": "Simple word decoding",
+      "prereqSkillIds": ["skill.syllable_blending.cv"],
+      "learnerLevelHint": 4,
+      "vocabBandHint": "A",
+      "modality": ["read", "listen"]
+    }
+  ],
+  "letters": [
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.jim",
+      "legacyId": "jim",
+      "char": "ج",
+      "nameAr": "جِيم",
+      "phoneme": "j",
+      "forms": {
+        "isolated": "ج",
+        "initial": "جـ",
+        "medial": "ـجـ",
+        "final": "ـج"
+      },
+      "abjadOrder": 5,
+      "wave": 1,
+      "teachOrder": 6,
+      "exampleWordIds": ["word.jism", "word.jamal"],
+      "audioAssetIds": {
+        "name": "audio.letter.jim.name",
+        "phoneme": "audio.letter.jim.sound"
+      },
+      "tags": ["wave-1", "recycled"]
+    },
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.sin",
+      "legacyId": "sin",
+      "char": "س",
+      "nameAr": "سِين",
+      "phoneme": "s",
+      "forms": {
+        "isolated": "س",
+        "initial": "سـ",
+        "medial": "ـسـ",
+        "final": "ـس"
+      },
+      "abjadOrder": 12,
+      "wave": 7,
+      "teachOrder": 1,
+      "exampleWordIds": ["word.jism", "word.shams"],
+      "audioAssetIds": {
+        "name": "audio.letter.sin.name",
+        "phoneme": "audio.letter.sin.sound"
+      },
+      "tags": ["wave-7", "recycled"]
+    },
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.mim",
+      "legacyId": "mim",
+      "char": "م",
+      "nameAr": "مِيم",
+      "phoneme": "m",
+      "forms": {
+        "isolated": "م",
+        "initial": "مـ",
+        "medial": "ـمـ",
+        "final": "ـم"
+      },
+      "abjadOrder": 24,
+      "wave": 1,
+      "teachOrder": 1,
+      "exampleWordIds": ["word.jism", "word.jamal", "word.shams"],
+      "audioAssetIds": {
+        "name": "audio.letter.mim.name",
+        "phoneme": "audio.letter.mim.sound"
+      },
+      "tags": ["wave-1", "recycled"]
+    },
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.ain",
+      "legacyId": "ain",
+      "char": "ع",
+      "nameAr": "عَيْن",
+      "phoneme": "3",
+      "forms": {
+        "isolated": "ع",
+        "initial": "عـ",
+        "medial": "ـعـ",
+        "final": "ـع"
+      },
+      "abjadOrder": 18,
+      "wave": 9,
+      "teachOrder": 1,
+      "exampleWordIds": [],
+      "audioAssetIds": {
+        "name": "audio.letter.ain.name",
+        "phoneme": "audio.letter.ain.sound"
+      },
+      "tags": ["wave-9", "recycled"]
+    },
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.ra",
+      "legacyId": "ra",
+      "char": "ر",
+      "nameAr": "رَاء",
+      "phoneme": "r",
+      "forms": {
+        "isolated": "ر",
+        "initial": "ر",
+        "medial": "ـر",
+        "final": "ـر"
+      },
+      "nonConnecting": true,
+      "abjadOrder": 10,
+      "wave": 2,
+      "teachOrder": 1,
+      "exampleWordIds": [],
+      "audioAssetIds": {
+        "name": "audio.letter.ra.name",
+        "phoneme": "audio.letter.ra.sound"
+      },
+      "tags": ["wave-2", "recycled"]
+    },
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.lam",
+      "legacyId": "lam",
+      "char": "ل",
+      "nameAr": "لَام",
+      "phoneme": "l",
+      "forms": {
+        "isolated": "ل",
+        "initial": "لـ",
+        "medial": "ـلـ",
+        "final": "ـل"
+      },
+      "abjadOrder": 23,
+      "wave": 1,
+      "teachOrder": 2,
+      "exampleWordIds": ["word.jamal"],
+      "audioAssetIds": {
+        "name": "audio.letter.lam.name",
+        "phoneme": "audio.letter.lam.sound"
+      },
+      "tags": ["wave-1", "recycled"]
+    },
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.shin",
+      "legacyId": "shin",
+      "char": "ش",
+      "nameAr": "شِين",
+      "phoneme": "sh",
+      "forms": {
+        "isolated": "ش",
+        "initial": "شـ",
+        "medial": "ـشـ",
+        "final": "ـش"
+      },
+      "abjadOrder": 13,
+      "wave": 8,
+      "teachOrder": 1,
+      "exampleWordIds": ["word.shams"],
+      "audioAssetIds": {
+        "name": "audio.letter.shin.name",
+        "phoneme": "audio.letter.shin.sound"
+      },
+      "tags": ["wave-8", "recycled"]
+    }
+  ],
+  "words": [
+    {
+      "id": "word.jism",
+      "lemma": "جسم",
+      "diacritized": "جِسْم",
+      "teachingForm": "جِسْم",
+      "pos": "noun",
+      "category": "body",
+      "vocabBand": "A",
+      "subBand": "A3",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": ["letter.jim", "letter.sin", "letter.mim"],
+      "requiredSkillIds": ["skill.short_vowel.kasra", "skill.sukun.basic"],
+      "phonicsSkillIds": ["skill.short_vowel.kasra", "skill.sukun.basic"],
+      "requiredLetterForms": [
+        { "letterId": "letter.jim", "form": "initial" },
+        { "letterId": "letter.sin", "form": "medial" },
+        { "letterId": "letter.mim", "form": "final" }
+      ],
+      "imageAssetId": "image.word.jism",
+      "audioAssetIds": {
+        "citation": "audio.word.jism"
+      },
+      "tags": ["band-a", "cluster-a3", "wave-15"],
+      "status": "active",
+      "legacyId": "body-40"
+    },
+    {
+      "id": "word.jamal",
+      "lemma": "جمل",
+      "diacritized": "جَمَل",
+      "teachingForm": "جَمَل",
+      "pos": "noun",
+      "category": "animals",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": ["letter.jim", "letter.mim", "letter.lam"],
+      "requiredSkillIds": ["skill.short_vowel.fatha"],
+      "phonicsSkillIds": ["skill.short_vowel.fatha"],
+      "imageAssetId": "image.word.jamal",
+      "audioAssetIds": {
+        "citation": "audio.word.jamal"
+      },
+      "tags": ["band-a", "cluster-a1", "wave-1", "recycled"],
+      "status": "active",
+      "legacyId": "animals-9"
+    },
+    {
+      "id": "word.shams",
+      "lemma": "شمس",
+      "diacritized": "شَمْس",
+      "teachingForm": "شَمْس",
+      "pos": "noun",
+      "category": "nature",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": ["letter.shin", "letter.mim", "letter.sin"],
+      "requiredSkillIds": ["skill.short_vowel.fatha", "skill.sukun.basic"],
+      "phonicsSkillIds": ["skill.short_vowel.fatha", "skill.sukun.basic"],
+      "imageAssetId": "image.word.shams",
+      "audioAssetIds": {
+        "citation": "audio.word.shams"
+      },
+      "tags": ["band-a", "cluster-a1", "wave-8", "recycled"],
+      "status": "active",
+      "legacyId": "sky-1"
+    }
+  ],
+  "sentences": [],
+  "stories": [],
+  "informationalTexts": [],
+  "syllables": [
+    {
+      "id": "syllable.jim.fatha",
+      "text": "جَ",
+      "letterId": "letter.jim",
+      "vowelSkillId": "skill.short_vowel.fatha",
+      "pattern": "CV",
+      "requiredSkillIds": ["skill.short_vowel.fatha"],
+      "letterForm": "isolated",
+      "audioAssetId": "audio.syllable.jim.fatha",
+      "tags": ["cv", "wave-1", "recycled"]
+    },
+    {
+      "id": "syllable.jim.kasra",
+      "text": "جِ",
+      "letterId": "letter.jim",
+      "vowelSkillId": "skill.short_vowel.kasra",
+      "pattern": "CV",
+      "requiredSkillIds": ["skill.short_vowel.kasra"],
+      "letterForm": "isolated",
+      "audioAssetId": "audio.syllable.jim.kasra",
+      "tags": ["cv", "wave-15"]
+    },
+    {
+      "id": "syllable.ain.kasra",
+      "text": "عِ",
+      "letterId": "letter.ain",
+      "vowelSkillId": "skill.short_vowel.kasra",
+      "pattern": "CV",
+      "requiredSkillIds": ["skill.short_vowel.kasra"],
+      "letterForm": "isolated",
+      "audioAssetId": "audio.syllable.ain.kasra",
+      "tags": ["cv", "wave-14", "foil"]
+    },
+    {
+      "id": "syllable.jis.closed",
+      "text": "جِسْ",
+      "letterId": "letter.jim",
+      "vowelSkillId": "skill.short_vowel.kasra",
+      "pattern": "CVC",
+      "requiredLetterIds": ["letter.jim", "letter.sin"],
+      "requiredSkillIds": ["skill.short_vowel.kasra", "skill.sukun.basic"],
+      "letterForm": "isolated",
+      "audioAssetId": "audio.syllable.jis.closed",
+      "tags": ["cvc", "closed-chunk", "wave-15"]
+    },
+    {
+      "id": "syllable.ram.closed",
+      "text": "رَمْ",
+      "letterId": "letter.ra",
+      "vowelSkillId": "skill.short_vowel.fatha",
+      "pattern": "CVC",
+      "requiredLetterIds": ["letter.ra", "letter.mim"],
+      "requiredSkillIds": ["skill.short_vowel.fatha", "skill.sukun.basic"],
+      "letterForm": "isolated",
+      "audioAssetId": "audio.syllable.ram.closed",
+      "tags": ["cvc", "closed-chunk", "wave-4", "foil"]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "exercise.wave15.presentation.jim_fatha",
+      "type": "presentation",
+      "skillIds": ["skill.short_vowel.fatha"],
+      "contentIds": ["syllable.jim.fatha"],
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "learningObjectiveEn": "See familiar جَ",
+      "success": { "type": "continue" },
+      "promptAssetId": "audio.syllable.jim.fatha",
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "config": {
+        "show": "cv",
+        "syllableId": "syllable.jim.fatha"
+      },
+      "tags": ["wave-15"]
+    },
+    {
+      "id": "exercise.wave15.presentation.jim_kasra",
+      "type": "presentation",
+      "skillIds": ["skill.short_vowel.kasra"],
+      "contentIds": ["syllable.jim.kasra"],
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "learningObjectiveEn": "See ج + kasra → جِ",
+      "success": { "type": "continue" },
+      "promptAssetId": "audio.syllable.jim.kasra",
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "config": {
+        "show": "cv",
+        "syllableId": "syllable.jim.kasra"
+      },
+      "tags": ["wave-15"]
+    },
+    {
+      "id": "exercise.wave15.presentation.jis_closed",
+      "type": "presentation",
+      "skillIds": ["skill.syllable_blending.cvc"],
+      "contentIds": ["syllable.jis.closed"],
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "learningObjectiveEn": "See جِ + سْ → جِسْ",
+      "success": { "type": "continue" },
+      "promptAssetId": "audio.syllable.jis.closed",
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "config": {
+        "show": "chunk",
+        "left": "جِ",
+        "right": "سْ",
+        "result": "جِسْ"
+      },
+      "tags": ["wave-15"]
+    },
+    {
+      "id": "exercise.wave15.syllable_blending.jim_kasra",
+      "type": "syllable_blending",
+      "skillIds": ["skill.syllable_blending.cv", "skill.short_vowel.kasra"],
+      "contentIds": ["syllable.jim.kasra", "syllable.jim.fatha", "syllable.ain.kasra"],
+      "difficulty": "easy",
+      "prereqSkillIds": ["skill.short_vowel.kasra"],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرِ الْمَقْطَع",
+      "learningObjectiveEn": "Hear جِ and distinguish it from جَ and عِ",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "syllable.jim.kasra"
+      },
+      "masteryEvidence": {
+        "reading": ["skill.short_vowel.kasra"],
+        "listening": ["skill.short_vowel.kasra"]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.letter.jim.kasra",
+          "skillId": "skill.short_vowel.kasra",
+          "syllableId": "syllable.jim.kasra",
+          "letterId": "letter.jim"
+        }
+      ],
+      "promptAssetId": "audio.syllable.jim.kasra",
+      "promptText": "اِسْتَمِعْ وَاخْتَرِ الْمَقْطَع",
+      "choices": [
+        { "id": "syllable.jim.kasra", "label": "جِ" },
+        { "id": "syllable.jim.fatha", "label": "جَ" },
+        { "id": "syllable.ain.kasra", "label": "عِ" }
+      ],
+      "tags": ["wave-15"]
+    },
+    {
+      "id": "exercise.wave15.syllable_blending.jis_closed",
+      "type": "syllable_blending",
+      "skillIds": ["skill.syllable_blending.cvc"],
+      "contentIds": ["syllable.jis.closed", "syllable.jim.kasra", "syllable.ram.closed"],
+      "difficulty": "easy",
+      "prereqSkillIds": ["skill.syllable_blending.cvc", "skill.short_vowel.kasra"],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرِ الْمَقْطَع",
+      "learningObjectiveEn": "Hear جِسْ and distinguish it from جِ and رَمْ",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "syllable.jis.closed"
+      },
+      "masteryEvidence": {
+        "reading": ["skill.syllable_blending.cvc"],
+        "listening": ["skill.syllable_blending.cvc"]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.letter.jis.closed",
+          "skillId": "skill.syllable_blending.cvc",
+          "syllableId": "syllable.jis.closed"
+        }
+      ],
+      "promptAssetId": "audio.syllable.jis.closed",
+      "promptText": "اِسْتَمِعْ وَاخْتَرِ الْمَقْطَع",
+      "choices": [
+        { "id": "syllable.jis.closed", "label": "جِسْ" },
+        { "id": "syllable.jim.kasra", "label": "جِ" },
+        { "id": "syllable.ram.closed", "label": "رَمْ" }
+      ],
+      "tags": ["wave-15"]
+    },
+    {
+      "id": "exercise.wave15.presentation.jism_compose",
+      "type": "presentation",
+      "skillIds": ["skill.word_decoding.simple"],
+      "contentIds": ["word.jism"],
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "learningObjectiveEn": "See جِسْ + م → جِسْم",
+      "success": { "type": "continue" },
+      "promptAssetId": "audio.word.jism",
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "config": {
+        "show": "chunk",
+        "left": "جِسْ",
+        "right": "م",
+        "result": "جِسْم"
+      },
+      "tags": ["wave-15"]
+    },
+    {
+      "id": "exercise.wave15.audio_to_word.jism",
+      "type": "audio_to_word",
+      "skillIds": ["skill.word_decoding.simple"],
+      "contentIds": ["word.jism", "word.jamal", "word.shams"],
+      "difficulty": "easy",
+      "prereqSkillIds": ["skill.short_vowel.kasra", "skill.syllable_blending.cvc"],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose جِسْم. Contrast with already-decoded جَمَل and شَمْس.",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "word.jism"
+      },
+      "masteryEvidence": {
+        "reading": ["skill.word_decoding.simple"],
+        "listening": ["skill.word_decoding.simple"]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.word.jism.decode",
+          "skillId": "skill.word_decoding.simple",
+          "wordId": "word.jism"
+        }
+      ],
+      "promptAssetId": "audio.word.jism",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        { "id": "word.jism", "label": "جِسْم" },
+        { "id": "word.jamal", "label": "جَمَل" },
+        { "id": "word.shams", "label": "شَمْس" }
+      ],
+      "tags": ["wave-15"]
+    },
+    {
+      "id": "exercise.wave15.word_to_picture.jism",
+      "type": "word_to_picture",
+      "skillIds": ["skill.word_decoding.simple"],
+      "contentIds": ["word.jism", "word.jamal", "word.shams"],
+      "difficulty": "easy",
+      "learningObjectiveAr": "اِخْتَرِ الصُّورَةَ",
+      "learningObjectiveEn": "Match جِسْم to its picture after decoding",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "word.jism"
+      },
+      "masteryEvidence": {
+        "reading": ["skill.word_decoding.simple"]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.word.jism.decode.picture",
+          "skillId": "skill.word_decoding.simple",
+          "wordId": "word.jism"
+        }
+      ],
+      "promptText": "اِخْتَرِ الصُّورَةَ",
+      "choices": [
+        { "id": "word.jism", "assetId": "image.word.jism" },
+        { "id": "word.jamal", "assetId": "image.word.jamal" },
+        { "id": "word.shams", "assetId": "image.word.shams" }
+      ],
+      "tags": ["wave-15", "reinforcement"]
+    }
+  ],
+  "units": [
+    {
+      "id": "unit.literacy.wave15.jim_kasra_jis_closed",
+      "order": 1,
+      "titleAr": "جِ",
+      "titleEn": "Jim kasra and kasra-onset closed chunk",
+      "childGoalAr": "جِ",
+      "learnerLevel": 4,
+      "skillIds": [
+        "skill.short_vowel.kasra",
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.syllable_blending.cv",
+        "skill.syllable_blending.cvc"
+      ],
+      "letterIds": ["letter.jim", "letter.sin", "letter.ain", "letter.ra", "letter.mim"],
+      "letterForms": [
+        { "letterId": "letter.jim", "form": "isolated" },
+        { "letterId": "letter.sin", "form": "isolated" },
+        { "letterId": "letter.ain", "form": "isolated" },
+        { "letterId": "letter.ra", "form": "isolated" },
+        { "letterId": "letter.mim", "form": "isolated" }
+      ],
+      "syllableIds": [
+        "syllable.jim.kasra",
+        "syllable.jim.fatha",
+        "syllable.ain.kasra",
+        "syllable.jis.closed",
+        "syllable.ram.closed"
+      ],
+      "exerciseIds": [
+        "exercise.wave15.presentation.jim_fatha",
+        "exercise.wave15.presentation.jim_kasra",
+        "exercise.wave15.presentation.jis_closed",
+        "exercise.wave15.syllable_blending.jim_kasra",
+        "exercise.wave15.syllable_blending.jis_closed"
+      ],
+      "prereqUnitIds": ["unit.literacy.wave14.inab"],
+      "reviewContentIds": ["syllable.jim.fatha", "syllable.ram.closed"],
+      "mastery": {
+        "minAttempts": 3,
+        "minAccuracy": 0.7,
+        "minStreak": 2,
+        "minSessions": 1,
+        "reviewAfterDays": 2,
+        "requiredSkillIds": ["skill.short_vowel.kasra", "skill.syllable_blending.cvc"]
+      },
+      "tags": ["wave-15"]
+    },
+    {
+      "id": "unit.literacy.wave15.jism",
+      "order": 2,
+      "titleAr": "جِسْم",
+      "titleEn": "Body",
+      "childGoalAr": "جِسْم",
+      "learnerLevel": 4,
+      "skillIds": [
+        "skill.word_decoding.simple",
+        "skill.short_vowel.kasra",
+        "skill.short_vowel.fatha",
+        "skill.sukun.basic",
+        "skill.syllable_blending.cvc"
+      ],
+      "letterIds": ["letter.jim", "letter.sin", "letter.mim", "letter.lam", "letter.shin"],
+      "letterForms": [
+        { "letterId": "letter.jim", "form": "initial" },
+        { "letterId": "letter.sin", "form": "medial" },
+        { "letterId": "letter.mim", "form": "final" }
+      ],
+      "syllableIds": ["syllable.jis.closed", "syllable.jim.kasra"],
+      "wordIds": ["word.jism", "word.jamal", "word.shams"],
+      "exerciseIds": [
+        "exercise.wave15.presentation.jism_compose",
+        "exercise.wave15.audio_to_word.jism",
+        "exercise.wave15.word_to_picture.jism"
+      ],
+      "prereqUnitIds": ["unit.literacy.wave15.jim_kasra_jis_closed"],
+      "reviewContentIds": ["word.jamal", "word.shams"],
+      "mastery": {
+        "minAttempts": 3,
+        "minAccuracy": 0.7,
+        "minStreak": 2,
+        "minSessions": 1,
+        "reviewAfterDays": 2,
+        "requiredSkillIds": ["skill.word_decoding.simple"]
+      },
+      "tags": ["wave-15"]
+    }
+  ],
+  "paths": [
+    {
+      "id": "path.literacy.wave15",
+      "titleAr": "جِ وَجِسْم",
+      "titleEn": "Ji and jism",
+      "descriptionAr": "جِ وَجِسْم",
+      "learnerLevel": 4,
+      "unitIds": [
+        "unit.literacy.wave15.jim_kasra_jis_closed",
+        "unit.literacy.wave15.jism"
+      ],
+      "tags": ["wave-15", "literacy"]
+    }
+  ],
+  "assets": [
+    { "id": "audio.letter.jim.name", "kind": "audio" },
+    { "id": "audio.letter.jim.sound", "kind": "audio" },
+    { "id": "audio.letter.sin.name", "kind": "audio" },
+    { "id": "audio.letter.sin.sound", "kind": "audio" },
+    { "id": "audio.letter.mim.name", "kind": "audio" },
+    { "id": "audio.letter.mim.sound", "kind": "audio" },
+    { "id": "audio.letter.ain.name", "kind": "audio" },
+    { "id": "audio.letter.ain.sound", "kind": "audio" },
+    { "id": "audio.letter.ra.name", "kind": "audio" },
+    { "id": "audio.letter.ra.sound", "kind": "audio" },
+    { "id": "audio.letter.lam.name", "kind": "audio" },
+    { "id": "audio.letter.lam.sound", "kind": "audio" },
+    { "id": "audio.letter.shin.name", "kind": "audio" },
+    { "id": "audio.letter.shin.sound", "kind": "audio" },
+    { "id": "audio.syllable.jim.fatha", "kind": "audio" },
+    { "id": "audio.syllable.jim.kasra", "kind": "audio" },
+    { "id": "audio.syllable.ain.kasra", "kind": "audio" },
+    { "id": "audio.syllable.jis.closed", "kind": "audio" },
+    { "id": "audio.syllable.ram.closed", "kind": "audio" },
+    { "id": "audio.word.jism", "kind": "audio" },
+    { "id": "audio.word.jamal", "kind": "audio" },
+    { "id": "audio.word.shams", "kind": "audio" },
+    { "id": "image.word.jism", "kind": "image" },
+    { "id": "image.word.jamal", "kind": "image" },
+    { "id": "image.word.shams", "kind": "image" }
+  ]
+}

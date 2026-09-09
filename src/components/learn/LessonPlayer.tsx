@@ -1,7 +1,10 @@
 import { useMemo, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { recordExerciseAttempt } from "@/lib/curriculum/masteryAdapter.ts";
-import type { LearnUnitView } from "@/lib/curriculum/resolveLearn.ts";
+import { recordExerciseAttempt, completePresentation } from "@/lib/curriculum/masteryAdapter.ts";
+import { evaluateUnitMastery, lessonFinishMessageAr, lessonFinishKind, scheduleLesson } from "@/lib/curriculum/unitMastery.ts";
+import { isPresentationExercise, isReinforcementExercise } from "@/lib/curriculum/presentationAdapter.ts";
+import type { LearnModuleUnitView, LearnUnitView } from "@/lib/curriculum/resolveLearn.ts";
+import { useProgress } from "@/lib/progress/store";
 import { AudioManager } from "@/lib/audio/AudioManager";
 import { FeedbackBurst } from "./FeedbackBurst.tsx";
 import { renderExercise } from "./exerciseRegistry.tsx";
@@ -9,17 +12,20 @@ import { renderExercise } from "./exerciseRegistry.tsx";
 export function LessonPlayer({
   view,
   startAt,
+  startFinished = false,
 }: {
-  view: LearnUnitView;
+  view: Pick<LearnUnitView | LearnModuleUnitView, "bundle" | "unit" | "exercises">;
   startAt: number;
+  startFinished?: boolean;
 }) {
   const exercises = view.exercises;
   const total = exercises.length;
   const initial = Math.min(Math.max(0, startAt), Math.max(0, total - 1));
   const [step, setStep] = useState(initial);
+  const [visit, setVisit] = useState(0);
   const [feedback, setFeedback] = useState<"ok" | "retry" | null>(null);
   const [locked, setLocked] = useState(false);
-  const [finished, setFinished] = useState(total === 0);
+  const [finished, setFinished] = useState(startFinished || total === 0);
 
   const exercise = exercises[step];
   const progressLabel = useMemo(
@@ -28,6 +34,8 @@ export function LessonPlayer({
   );
 
   if (finished || !exercise) {
+    const items = useProgress.getState().items;
+    const mastery = evaluateUnitMastery(view.bundle, view.unit, exercises, items);
     return (
       <div className="animate-pop mx-auto max-w-lg text-center">
         <div className="rounded-[2rem] border-2 border-ink/10 bg-card p-8 shadow-chunky">
@@ -35,7 +43,7 @@ export function LessonPlayer({
             🌟
           </p>
           <h2 className="mt-4 font-display text-4xl font-extrabold">أَحْسَنْتَ!</h2>
-          <p className="mt-3 text-lg text-ink/60">أَكْمَلْتَ هَذِهِ الْوَحْدَة</p>
+          <p className="mt-3 text-lg text-ink/60">{lessonFinishMessageAr(lessonFinishKind(mastery))}</p>
           <Link
             to="/learn"
             onClick={() => AudioManager.tap()}
@@ -50,17 +58,29 @@ export function LessonPlayer({
 
   const handleResult = (correct: boolean) => {
     if (locked) return;
-    recordExerciseAttempt(view.bundle, exercise, correct);
+    const demo = isPresentationExercise(exercise);
+    if (demo) {
+      completePresentation(exercise);
+    } else {
+      recordExerciseAttempt(view.bundle, exercise, correct);
+      if (correct && isReinforcementExercise(exercise)) completePresentation(exercise);
+    }
     setLocked(true);
-    if (correct) {
-      AudioManager.success();
-      setFeedback("ok");
+    if (demo || correct) {
+      if (!demo) AudioManager.success();
+      setFeedback(demo ? null : "ok");
       window.setTimeout(() => {
         setFeedback(null);
         setLocked(false);
-        if (step + 1 >= total) setFinished(true);
-        else setStep((n) => n + 1);
-      }, 1400);
+        const items = useProgress.getState().items;
+        const next = scheduleLesson(view.bundle, view.unit, exercises, items, { fromIndex: step });
+        if (next.phase === "done") {
+          setFinished(true);
+          return;
+        }
+        setStep(next.index);
+        setVisit((n) => n + 1);
+      }, demo ? 400 : 1400);
     } else {
       AudioManager.error();
       setFeedback("retry");
@@ -82,12 +102,14 @@ export function LessonPlayer({
           />
         </div>
       </div>
-      {renderExercise(exercise.type, {
-        exercise,
-        bundle: view.bundle,
-        onResult: handleResult,
-        locked,
-      })}
+      <div key={`${exercise.id}:${visit}`}>
+        {renderExercise(exercise.type, {
+          exercise,
+          bundle: view.bundle,
+          onResult: handleResult,
+          locked,
+        })}
+      </div>
       {feedback ? <FeedbackBurst kind={feedback} /> : null}
     </div>
   );

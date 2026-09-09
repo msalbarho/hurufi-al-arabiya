@@ -1,0 +1,685 @@
+{
+  "meta": {
+    "kind": "production",
+    "id": "hurufi.production.literacy.wave11",
+    "title": "Literacy path — Wave 11",
+    "description": "Eleventh production literacy slice: madd-alif TRANSFER from ba to jim. Compact two-unit wave. Score initial jim, transfer madd onto jaa, then decode dajaj. No new consonant. No new madd rule. Function-word laa is postponed. No hamza, kasra, damma, long waw/ya, or Wave 12.",
+    "notProductionCurriculum": false
+  },
+  "levels": [
+    {
+      "id": 1,
+      "nameAr": "أَتَعَرَّفُ عَلَى الْحُرُوف",
+      "nameEn": "Letters I can see, hear, and trace"
+    },
+    {
+      "id": 2,
+      "nameAr": "أَشْكَالٌ وَحَرَكَات",
+      "nameEn": "Forms and short vowels"
+    },
+    {
+      "id": 3,
+      "nameAr": "أَدْمُجُ الْأَصْوَات",
+      "nameEn": "I can blend"
+    },
+    {
+      "id": 4,
+      "nameAr": "كَلِمَاتِي الْأُولَى",
+      "nameEn": "First real word bank"
+    },
+    {
+      "id": 5,
+      "nameAr": "أَسْتَعْمِلُ الْكَلِمَات",
+      "nameEn": "Words I can use"
+    },
+    {
+      "id": 6,
+      "nameAr": "لُغَةُ كُلِّ يَوْم",
+      "nameEn": "Everyday language"
+    },
+    {
+      "id": 7,
+      "nameAr": "أَفْهَمُ مَا أَقْرَأ",
+      "nameEn": "I understand what I read"
+    },
+    {
+      "id": 8,
+      "nameAr": "قِصَصٌ وَاسْتِقْلَال",
+      "nameEn": "Stories and independence"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill.letter_recognition.core",
+      "domain": "letter_recognition",
+      "nameAr": "التَّعَرُّفُ عَلَى الْحَرْف",
+      "nameEn": "Recognize a letter",
+      "childLabelAr": "نَعْرِفُ الْحَرْف",
+      "prereqSkillIds": [],
+      "learnerLevelHint": 1,
+      "vocabBandHint": "A",
+      "modality": ["read", "listen"],
+      "masteryHint": "Generic skill. Which letter is mastered is the item (letterId), not a separate SkillDefinition."
+    },
+    {
+      "id": "skill.letter_forms.positional",
+      "domain": "letter_forms",
+      "nameAr": "أَشْكَالُ الْحَرْفِ الْمَوْضِعِيَّة",
+      "nameEn": "Positional letter forms",
+      "prereqSkillIds": ["skill.letter_recognition.core"],
+      "learnerLevelHint": 2,
+      "vocabBandHint": "A",
+      "modality": ["read"],
+      "masteryHint": "Generic skill. Pair with letterId + letterForm (isolated/initial/medial/final)."
+    },
+    {
+      "id": "skill.short_vowel.fatha",
+      "domain": "short_vowels",
+      "nameAr": "الْفَتْحَة",
+      "nameEn": "Fatha",
+      "childLabelAr": "فَتْحَة",
+      "prereqSkillIds": [],
+      "learnerLevelHint": 2,
+      "vocabBandHint": "A",
+      "modality": ["listen", "read"]
+    },
+    {
+      "id": "skill.long_vowel.madd",
+      "domain": "long_vowels",
+      "nameAr": "الْمَدّ",
+      "nameEn": "Long vowel / madd",
+      "prereqSkillIds": ["skill.short_vowel.fatha"],
+      "learnerLevelHint": 4,
+      "vocabBandHint": "A",
+      "modality": ["listen", "read"]
+    },
+    {
+      "id": "skill.syllable_blending.cv",
+      "domain": "syllable_blending",
+      "nameAr": "دَمْجُ مَقْطَعٍ قَصِير",
+      "nameEn": "Blend a CV syllable",
+      "childLabelAr": "نَقْرَأُ مَعًا",
+      "prereqSkillIds": ["skill.short_vowel.fatha"],
+      "learnerLevelHint": 3,
+      "vocabBandHint": "A",
+      "modality": ["read", "listen"]
+    },
+    {
+      "id": "skill.word_decoding.simple",
+      "domain": "word_decoding",
+      "nameAr": "قِرَاءَةُ كَلِمَةٍ بَسِيطَة",
+      "nameEn": "Simple word decoding",
+      "prereqSkillIds": ["skill.syllable_blending.cv"],
+      "learnerLevelHint": 4,
+      "vocabBandHint": "A",
+      "modality": ["read", "listen"]
+    }
+  ],
+  "letters": [
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.jim",
+      "legacyId": "jim",
+      "char": "ج",
+      "nameAr": "جِيم",
+      "phoneme": "j",
+      "forms": {
+        "isolated": "ج",
+        "initial": "جـ",
+        "medial": "ـجـ",
+        "final": "ـج"
+      },
+      "abjadOrder": 5,
+      "wave": 1,
+      "teachOrder": 6,
+      "exampleWordIds": ["word.dajaj"],
+      "audioAssetIds": {
+        "name": "audio.letter.jim.name",
+        "phoneme": "audio.letter.jim.sound"
+      },
+      "tags": ["wave-1", "recycled"]
+    },
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.ha",
+      "legacyId": "ha",
+      "char": "ح",
+      "nameAr": "حَاء",
+      "phoneme": "h",
+      "forms": {
+        "isolated": "ح",
+        "initial": "حـ",
+        "medial": "ـحـ",
+        "final": "ـح"
+      },
+      "abjadOrder": 6,
+      "wave": 3,
+      "teachOrder": 1,
+      "similarLetterIds": ["letter.jim"],
+      "audioAssetIds": {
+        "name": "audio.letter.ha.name",
+        "phoneme": "audio.letter.ha.sound"
+      },
+      "tags": ["wave-3", "recycled"]
+    },
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.ba",
+      "legacyId": "ba",
+      "char": "ب",
+      "nameAr": "بَاء",
+      "phoneme": "b",
+      "forms": {
+        "isolated": "ب",
+        "initial": "بـ",
+        "medial": "ـبـ",
+        "final": "ـب"
+      },
+      "abjadOrder": 2,
+      "wave": 2,
+      "teachOrder": 2,
+      "exampleWordIds": ["word.bab"],
+      "audioAssetIds": {
+        "name": "audio.letter.ba.name",
+        "phoneme": "audio.letter.ba.sound"
+      },
+      "tags": ["wave-2", "recycled"]
+    },
+    {
+      "id": "letter.alif",
+      "legacyId": "alif",
+      "char": "ا",
+      "nameAr": "ا",
+      "forms": {
+        "isolated": "ا",
+        "initial": "ا",
+        "medial": "ـا",
+        "final": "ـا"
+      },
+      "nonConnecting": true,
+      "abjadOrder": 1,
+      "exampleWordIds": ["word.dajaj"],
+      "tags": ["wave-10", "madd-carrier", "recycled"]
+    },
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.dal",
+      "legacyId": "dal",
+      "char": "د",
+      "nameAr": "دَال",
+      "phoneme": "d",
+      "forms": {
+        "isolated": "د",
+        "initial": "د",
+        "medial": "ـد",
+        "final": "ـد"
+      },
+      "nonConnecting": true,
+      "abjadOrder": 8,
+      "wave": 1,
+      "teachOrder": 4,
+      "exampleWordIds": ["word.dajaj"],
+      "audioAssetIds": {
+        "name": "audio.letter.dal.name",
+        "phoneme": "audio.letter.dal.sound"
+      },
+      "tags": ["wave-1", "recycled"]
+    },
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.mim",
+      "legacyId": "mim",
+      "char": "م",
+      "nameAr": "مِيم",
+      "phoneme": "m",
+      "forms": {
+        "isolated": "م",
+        "initial": "مـ",
+        "medial": "ـمـ",
+        "final": "ـم"
+      },
+      "abjadOrder": 24,
+      "wave": 1,
+      "teachOrder": 1,
+      "exampleWordIds": ["word.jamal"],
+      "audioAssetIds": {
+        "name": "audio.letter.mim.name",
+        "phoneme": "audio.letter.mim.sound"
+      },
+      "tags": ["wave-1", "recycled"]
+    },
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.lam",
+      "legacyId": "lam",
+      "char": "ل",
+      "nameAr": "لَام",
+      "phoneme": "l",
+      "forms": {
+        "isolated": "ل",
+        "initial": "لـ",
+        "medial": "ـلـ",
+        "final": "ـل"
+      },
+      "abjadOrder": 23,
+      "wave": 1,
+      "teachOrder": 2,
+      "exampleWordIds": ["word.jamal"],
+      "audioAssetIds": {
+        "name": "audio.letter.lam.name",
+        "phoneme": "audio.letter.lam.sound"
+      },
+      "tags": ["wave-1", "recycled"]
+    }
+  ],
+  "words": [
+    {
+      "id": "word.dajaj",
+      "lemma": "دجاج",
+      "diacritized": "دَجَاج",
+      "teachingForm": "دَجَاج",
+      "pos": "noun",
+      "category": "food",
+      "vocabBand": "A",
+      "subBand": "A2",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": ["letter.dal", "letter.jim", "letter.alif"],
+      "requiredSkillIds": ["skill.short_vowel.fatha", "skill.long_vowel.madd"],
+      "phonicsSkillIds": ["skill.short_vowel.fatha", "skill.long_vowel.madd"],
+      "requiredLetterForms": [
+        { "letterId": "letter.dal", "form": "isolated" },
+        { "letterId": "letter.jim", "form": "initial" },
+        { "letterId": "letter.jim", "form": "isolated" }
+      ],
+      "imageAssetId": "image.word.dajaj",
+      "audioAssetIds": {
+        "citation": "audio.word.dajaj"
+      },
+      "tags": ["band-a", "cluster-a2", "wave-11"],
+      "status": "active",
+      "legacyId": "food-8"
+    },
+    {
+      "id": "word.bab",
+      "lemma": "باب",
+      "diacritized": "بَاب",
+      "teachingForm": "بَاب",
+      "pos": "noun",
+      "category": "home",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": ["letter.ba", "letter.alif"],
+      "requiredSkillIds": ["skill.short_vowel.fatha", "skill.long_vowel.madd"],
+      "phonicsSkillIds": ["skill.short_vowel.fatha", "skill.long_vowel.madd"],
+      "requiredLetterForms": [
+        { "letterId": "letter.ba", "form": "initial" },
+        { "letterId": "letter.ba", "form": "final" }
+      ],
+      "imageAssetId": "image.word.bab",
+      "audioAssetIds": {
+        "citation": "audio.word.bab"
+      },
+      "tags": ["band-a", "cluster-a1", "wave-10", "recycled"],
+      "status": "active",
+      "legacyId": "home-2",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.jamal",
+      "lemma": "جمل",
+      "diacritized": "جَمَل",
+      "teachingForm": "جَمَل",
+      "pos": "noun",
+      "category": "animals",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": ["letter.jim", "letter.mim", "letter.lam"],
+      "requiredSkillIds": ["skill.short_vowel.fatha"],
+      "phonicsSkillIds": ["skill.short_vowel.fatha"],
+      "requiredLetterForms": [
+        { "letterId": "letter.jim", "form": "initial" },
+        { "letterId": "letter.mim", "form": "medial" },
+        { "letterId": "letter.lam", "form": "final" }
+      ],
+      "imageAssetId": "image.word.jamal",
+      "audioAssetIds": {
+        "citation": "audio.word.jamal"
+      },
+      "tags": ["band-a", "cluster-a1", "wave-1", "recycled"],
+      "status": "active",
+      "legacyId": "animals-9"
+    }
+  ],
+  "sentences": [],
+  "stories": [],
+  "informationalTexts": [],
+  "syllables": [
+    {
+      "id": "syllable.jim.fatha",
+      "text": "جَ",
+      "letterId": "letter.jim",
+      "vowelSkillId": "skill.short_vowel.fatha",
+      "pattern": "CV",
+      "requiredSkillIds": ["skill.short_vowel.fatha"],
+      "letterForm": "isolated",
+      "audioAssetId": "audio.syllable.jim.fatha",
+      "tags": ["cv", "wave-1", "recycled"]
+    },
+    {
+      "id": "syllable.jim.madd_alif",
+      "text": "جَا",
+      "letterId": "letter.jim",
+      "vowelSkillId": "skill.long_vowel.madd",
+      "pattern": "CVV",
+      "requiredSkillIds": ["skill.short_vowel.fatha", "skill.long_vowel.madd"],
+      "requiredLetterIds": ["letter.jim", "letter.alif"],
+      "audioAssetId": "audio.syllable.jim.madd_alif",
+      "tags": ["cvv", "madd-alif", "wave-11"]
+    },
+    {
+      "id": "syllable.ba.madd_alif",
+      "text": "بَا",
+      "letterId": "letter.ba",
+      "vowelSkillId": "skill.long_vowel.madd",
+      "pattern": "CVV",
+      "requiredSkillIds": ["skill.short_vowel.fatha", "skill.long_vowel.madd"],
+      "requiredLetterIds": ["letter.ba", "letter.alif"],
+      "audioAssetId": "audio.syllable.ba.madd_alif",
+      "tags": ["cvv", "madd-alif", "wave-10", "recycled"]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "exercise.wave11.letter_forms.jim_initial",
+      "type": "letter_recognition",
+      "skillIds": ["skill.letter_forms.positional", "skill.letter_recognition.core"],
+      "contentIds": ["letter.jim", "letter.ha", "letter.ba"],
+      "difficulty": "easy",
+      "prereqSkillIds": ["skill.letter_recognition.core"],
+      "learningObjectiveAr": "اِخْتَرِ الْحَرْفَ",
+      "learningObjectiveEn": "Match initial form جـ. Contrast with taught حـ and بـ.",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "letter.jim"
+      },
+      "masteryEvidence": {
+        "reading": ["skill.letter_forms.positional"]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.letter.jim.form.initial",
+          "skillId": "skill.letter_forms.positional",
+          "letterId": "letter.jim",
+          "letterForm": "initial"
+        }
+      ],
+      "promptText": "اِخْتَرِ الْحَرْفَ",
+      "config": {
+        "task": "match_form",
+        "targetForm": "initial",
+        "letterId": "letter.jim"
+      },
+      "choices": [
+        { "id": "letter.jim", "label": "ج" },
+        { "id": "letter.ha", "label": "ح" },
+        { "id": "letter.ba", "label": "ب" }
+      ],
+      "tags": ["wave-11"]
+    },
+    {
+      "id": "exercise.wave11.presentation.jim_madd_alif",
+      "type": "presentation",
+      "skillIds": ["skill.long_vowel.madd"],
+      "contentIds": ["syllable.jim.madd_alif", "letter.alif"],
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "learningObjectiveEn": "See جَ + ا → جَا",
+      "success": { "type": "continue" },
+      "promptAssetId": "audio.syllable.jim.madd_alif",
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "config": {
+        "show": "chunk",
+        "left": "جَ",
+        "right": "ا",
+        "result": "جَا"
+      },
+      "tags": ["wave-11"]
+    },
+    {
+      "id": "exercise.wave11.syllable_blending.jim_madd_alif",
+      "type": "syllable_blending",
+      "skillIds": ["skill.long_vowel.madd", "skill.syllable_blending.cv"],
+      "contentIds": ["syllable.jim.madd_alif", "syllable.jim.fatha", "syllable.ba.madd_alif"],
+      "difficulty": "easy",
+      "prereqSkillIds": ["skill.short_vowel.fatha", "skill.letter_forms.positional"],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرِ الْمَقْطَع",
+      "learningObjectiveEn": "Hear long جَا and distinguish it from short جَ and long بَا",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "syllable.jim.madd_alif"
+      },
+      "masteryEvidence": {
+        "reading": ["skill.long_vowel.madd"],
+        "listening": ["skill.long_vowel.madd"]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.letter.jim.madd_alif",
+          "skillId": "skill.long_vowel.madd",
+          "syllableId": "syllable.jim.madd_alif",
+          "letterId": "letter.jim"
+        }
+      ],
+      "promptAssetId": "audio.syllable.jim.madd_alif",
+      "promptText": "اِسْتَمِعْ وَاخْتَرِ الْمَقْطَع",
+      "choices": [
+        { "id": "syllable.jim.madd_alif", "label": "جَا" },
+        { "id": "syllable.jim.fatha", "label": "جَ" },
+        { "id": "syllable.ba.madd_alif", "label": "بَا" }
+      ],
+      "tags": ["wave-11"]
+    },
+    {
+      "id": "exercise.wave11.presentation.dajaj_compose",
+      "type": "presentation",
+      "skillIds": ["skill.word_decoding.simple"],
+      "contentIds": ["word.dajaj"],
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "learningObjectiveEn": "See دَ + جَاج → دَجَاج",
+      "success": { "type": "continue" },
+      "promptAssetId": "audio.word.dajaj",
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "config": {
+        "show": "chunk",
+        "left": "دَ",
+        "right": "جَاج",
+        "result": "دَجَاج"
+      },
+      "tags": ["wave-11"]
+    },
+    {
+      "id": "exercise.wave11.audio_to_word.dajaj",
+      "type": "audio_to_word",
+      "skillIds": ["skill.word_decoding.simple"],
+      "contentIds": ["word.dajaj", "word.bab", "word.jamal"],
+      "difficulty": "easy",
+      "prereqSkillIds": ["skill.long_vowel.madd", "skill.letter_forms.positional"],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose دَجَاج. Contrast with already-decoded بَاب and جَمَل.",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "word.dajaj"
+      },
+      "masteryEvidence": {
+        "reading": ["skill.word_decoding.simple"],
+        "listening": ["skill.word_decoding.simple"]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.word.dajaj.decode",
+          "skillId": "skill.word_decoding.simple",
+          "wordId": "word.dajaj"
+        }
+      ],
+      "promptAssetId": "audio.word.dajaj",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        { "id": "word.dajaj", "label": "دَجَاج" },
+        { "id": "word.bab", "label": "بَاب" },
+        { "id": "word.jamal", "label": "جَمَل" }
+      ],
+      "tags": ["wave-11"]
+    },
+    {
+      "id": "exercise.wave11.word_to_picture.dajaj",
+      "type": "word_to_picture",
+      "skillIds": ["skill.word_decoding.simple"],
+      "contentIds": ["word.dajaj", "word.bab", "word.jamal"],
+      "difficulty": "easy",
+      "learningObjectiveAr": "اِخْتَرِ الصُّورَةَ",
+      "learningObjectiveEn": "Match دَجَاج to its picture after decoding",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "word.dajaj"
+      },
+      "masteryEvidence": {
+        "reading": ["skill.word_decoding.simple"]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.word.dajaj.decode.picture",
+          "skillId": "skill.word_decoding.simple",
+          "wordId": "word.dajaj"
+        }
+      ],
+      "promptText": "اِخْتَرِ الصُّورَةَ",
+      "choices": [
+        { "id": "word.dajaj", "assetId": "image.word.dajaj" },
+        { "id": "word.bab", "assetId": "image.word.bab" },
+        { "id": "word.jamal", "assetId": "image.word.jamal" }
+      ],
+      "tags": ["wave-11", "reinforcement"]
+    }
+  ],
+  "units": [
+    {
+      "id": "unit.literacy.wave11.jim_madd_alif",
+      "order": 1,
+      "titleAr": "جَا",
+      "titleEn": "Jim madd-alif",
+      "childGoalAr": "جَا",
+      "learnerLevel": 4,
+      "skillIds": [
+        "skill.letter_forms.positional",
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd",
+        "skill.syllable_blending.cv"
+      ],
+      "letterIds": ["letter.jim", "letter.ha", "letter.ba", "letter.alif"],
+      "letterForms": [
+        { "letterId": "letter.jim", "form": "initial" },
+        { "letterId": "letter.ha", "form": "initial" },
+        { "letterId": "letter.ba", "form": "initial" }
+      ],
+      "syllableIds": ["syllable.jim.fatha", "syllable.jim.madd_alif", "syllable.ba.madd_alif"],
+      "exerciseIds": [
+        "exercise.wave11.presentation.jim_madd_alif",
+        "exercise.wave11.letter_forms.jim_initial",
+        "exercise.wave11.syllable_blending.jim_madd_alif"
+      ],
+      "prereqUnitIds": ["unit.literacy.wave10.bab"],
+      "reviewContentIds": ["syllable.jim.fatha", "syllable.ba.madd_alif"],
+      "mastery": {
+        "minAttempts": 3,
+        "minAccuracy": 0.7,
+        "minStreak": 2,
+        "minSessions": 1,
+        "reviewAfterDays": 2,
+        "requiredSkillIds": ["skill.letter_forms.positional", "skill.long_vowel.madd"]
+      },
+      "tags": ["wave-11"]
+    },
+    {
+      "id": "unit.literacy.wave11.dajaj",
+      "order": 2,
+      "titleAr": "دَجَاج",
+      "titleEn": "Chicken",
+      "childGoalAr": "دَجَاج",
+      "learnerLevel": 4,
+      "skillIds": [
+        "skill.letter_forms.positional",
+        "skill.word_decoding.simple",
+        "skill.long_vowel.madd",
+        "skill.short_vowel.fatha"
+      ],
+      "letterIds": ["letter.dal", "letter.jim", "letter.alif", "letter.ba", "letter.mim", "letter.lam"],
+      "letterForms": [
+        { "letterId": "letter.dal", "form": "isolated" },
+        { "letterId": "letter.jim", "form": "initial" },
+        { "letterId": "letter.jim", "form": "isolated" },
+        { "letterId": "letter.ba", "form": "initial" },
+        { "letterId": "letter.ba", "form": "final" },
+        { "letterId": "letter.mim", "form": "medial" },
+        { "letterId": "letter.lam", "form": "final" }
+      ],
+      "wordIds": ["word.dajaj", "word.bab", "word.jamal"],
+      "exerciseIds": [
+        "exercise.wave11.presentation.dajaj_compose",
+        "exercise.wave11.audio_to_word.dajaj",
+        "exercise.wave11.word_to_picture.dajaj"
+      ],
+      "prereqUnitIds": ["unit.literacy.wave11.jim_madd_alif"],
+      "reviewContentIds": ["word.bab", "word.jamal"],
+      "mastery": {
+        "minAttempts": 3,
+        "minAccuracy": 0.7,
+        "minStreak": 2,
+        "minSessions": 1,
+        "reviewAfterDays": 2,
+        "requiredSkillIds": ["skill.word_decoding.simple"]
+      },
+      "tags": ["wave-11"]
+    }
+  ],
+  "paths": [
+    {
+      "id": "path.literacy.wave11",
+      "titleAr": "جَا وَدَجَاج",
+      "titleEn": "Jaa and dajaj",
+      "descriptionAr": "جَا وَدَجَاج",
+      "learnerLevel": 4,
+      "unitIds": [
+        "unit.literacy.wave11.jim_madd_alif",
+        "unit.literacy.wave11.dajaj"
+      ],
+      "tags": ["wave-11", "literacy"]
+    }
+  ],
+  "assets": [
+    { "id": "audio.letter.jim.name", "kind": "audio" },
+    { "id": "audio.letter.jim.sound", "kind": "audio" },
+    { "id": "audio.letter.ha.name", "kind": "audio" },
+    { "id": "audio.letter.ha.sound", "kind": "audio" },
+    { "id": "audio.letter.ba.name", "kind": "audio" },
+    { "id": "audio.letter.ba.sound", "kind": "audio" },
+    { "id": "audio.letter.dal.name", "kind": "audio" },
+    { "id": "audio.letter.dal.sound", "kind": "audio" },
+    { "id": "audio.letter.mim.name", "kind": "audio" },
+    { "id": "audio.letter.mim.sound", "kind": "audio" },
+    { "id": "audio.letter.lam.name", "kind": "audio" },
+    { "id": "audio.letter.lam.sound", "kind": "audio" },
+    { "id": "audio.syllable.jim.fatha", "kind": "audio" },
+    { "id": "audio.syllable.jim.madd_alif", "kind": "audio" },
+    { "id": "audio.syllable.ba.madd_alif", "kind": "audio" },
+    { "id": "audio.word.dajaj", "kind": "audio" },
+    { "id": "audio.word.bab", "kind": "audio" },
+    { "id": "audio.word.jamal", "kind": "audio" },
+    { "id": "image.word.dajaj", "kind": "image" },
+    { "id": "image.word.bab", "kind": "image" },
+    { "id": "image.word.jamal", "kind": "image" }
+  ]
+}

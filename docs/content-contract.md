@@ -11,7 +11,7 @@ src/content/curriculum/
   types/          TypeScript models (JSON-shaped, no React)
   schema/         JSON Schema (canonical structural contract)
   data/fixture/   Sample bundle — NOT production curriculum
-  data/production/ Production Band A v1 (`band-a.json`); literacy Wave 1 (`literacy-path.wave-1.json`); shared skill catalog (`shared-skills.json`)
+  data/production/ Production Band A v1 (`band-a.json`); literacy Wave 1 (`literacy-path.wave-1.json`); literacy Wave 2 (`literacy-path.wave-2.json`); literacy Wave 3 (`literacy-path.wave-3.json`); literacy Wave 4 (`literacy-path.wave-4.json`); literacy Wave 5 (`literacy-path.wave-5.json`); literacy Wave 6 (`literacy-path.wave-6.json`); shared skill catalog (`shared-skills.json`)
   validation/     Deterministic cross-reference validator
 ```
 
@@ -147,9 +147,9 @@ npm run check
 
 `validate:curriculum`:
 
-1. Parses `src/content/curriculum/data/fixture/curriculum.json`, `src/content/curriculum/data/production/band-a.json`, and `src/content/curriculum/data/production/literacy-path.wave-1.json`
+1. Parses `src/content/curriculum/data/fixture/curriculum.json`, `src/content/curriculum/data/production/band-a.json`, `src/content/curriculum/data/production/literacy-path.wave-1.json`, `src/content/curriculum/data/production/literacy-path.wave-2.json`, `src/content/curriculum/data/production/literacy-path.wave-3.json`, `src/content/curriculum/data/production/literacy-path.wave-4.json`, `src/content/curriculum/data/production/literacy-path.wave-5.json`, and `src/content/curriculum/data/production/literacy-path.wave-6.json`
 2. Validates each JSON against `src/content/curriculum/schema/curriculum-bundle.schema.json` (Ajv, JSON Schema Draft 2020-12)
-3. Runs TypeScript cross-reference / semantic checks (plus Band A integrity on the lexicon bundle, Wave 1 integrity on the literacy path, and a Band A word-identity cross-check)
+3. Runs TypeScript cross-reference / semantic checks (plus Band A integrity on the lexicon bundle, Wave 1–5 integrity on the literacy paths, and Band A word-identity cross-checks)
 4. Exits non-zero if any bundle fails; the CLI names the failing bundle
 
 `typecheck` type-checks the app (`tsconfig.json`) and CLI scripts (`tsconfig.scripts.json`).

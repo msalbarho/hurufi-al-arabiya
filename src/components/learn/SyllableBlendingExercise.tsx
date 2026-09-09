@@ -16,26 +16,13 @@ export function SyllableBlendingExercise({ exercise, bundle, onResult, locked }:
     resolved?.choices.map((row) => row.id) ?? [],
   );
 
-  const playLetter = () => {
+  const playPrompt = () => {
     if (!resolved) return;
-    void playCurriculumAudio(bundle, resolved.target.letterAudioId, resolved.target.letterGlyph);
-  };
-
-  const playSyllable = () => {
-    if (!resolved) return;
-    void playCurriculumAudio(bundle, resolved.target.syllableAudioId, resolved.target.text);
-  };
-
-  const playBlend = () => {
-    if (!resolved) return;
-    void (async () => {
-      await playCurriculumAudio(bundle, resolved.target.letterAudioId, resolved.target.letterGlyph);
-      await playCurriculumAudio(bundle, resolved.target.syllableAudioId, resolved.target.text);
-    })();
+    void playCurriculumAudio(bundle, resolved.promptAssetId, resolved.target.text);
   };
 
   useEffect(() => {
-    const t = setTimeout(playBlend, 450);
+    const t = setTimeout(playPrompt, 450);
     return () => clearTimeout(t);
     // Replay when this activity mounts.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -67,28 +54,10 @@ export function SyllableBlendingExercise({ exercise, bundle, onResult, locked }:
 
   return (
     <div className="animate-pop text-center">
-      <p className="mb-5 font-display text-2xl font-extrabold md:text-3xl">اِقْرَأْ</p>
-
-      <div dir="rtl" className="mx-auto mb-6 flex max-w-lg flex-wrap items-center justify-center gap-3">
-        <BlendPiece glyph={resolved.target.letterGlyph} label="الْحَرْف" onPlay={playLetter} />
-        <span className="font-display text-4xl font-extrabold text-ink/35" aria-hidden>
-          +
-        </span>
-        <BlendPiece glyph={resolved.target.harakaCarrier} label="الْحَرَكَة" onPlay={playSyllable} />
-        <span className="font-display text-4xl font-extrabold text-coral" aria-hidden>
-          ←
-        </span>
-        <BlendPiece glyph={resolved.target.text} label="الْمَقْطَع" prominent onPlay={playSyllable} />
-      </div>
-
-      <BigButton tone="sun" onClick={playBlend} className="mb-8 min-w-48" aria-label="استمع">
+      <p className="mb-5 font-display text-2xl font-extrabold md:text-3xl">{resolved.promptText}</p>
+      <BigButton tone="sun" onClick={playPrompt} className="mb-8 min-w-48" aria-label="استمع">
         <Volume2 className="size-8" /> اِسْتَمِعْ
       </BigButton>
-
-      <p className="mb-5 font-display text-2xl font-extrabold md:text-3xl">
-        {exercise.promptText ?? `أَيْنَ ${resolved.target.text}؟`}
-      </p>
-
       <div className={cn("mx-auto grid max-w-lg gap-4", displayChoices.length > 2 ? "grid-cols-3" : "grid-cols-2")}>
         {displayChoices.map((choice) => (
           <button
@@ -108,31 +77,5 @@ export function SyllableBlendingExercise({ exercise, bundle, onResult, locked }:
         ))}
       </div>
     </div>
-  );
-}
-
-function BlendPiece({
-  glyph,
-  label,
-  prominent,
-  onPlay,
-}: {
-  glyph: string;
-  label: string;
-  prominent?: boolean;
-  onPlay: () => void;
-}) {
-  return (
-    <button
-      type="button"
-      aria-label={label}
-      onClick={onPlay}
-      className={cn(
-        "press grid min-h-28 min-w-24 place-items-center rounded-3xl border-4 bg-card px-4 shadow-chunky-xs",
-        prominent ? "border-sun bg-sun/20" : "border-ink/10",
-      )}
-    >
-      <span className={cn("arabic-letter", prominent ? "text-7xl md:text-8xl" : "text-6xl md:text-7xl")}>{glyph}</span>
-    </button>
   );
 }

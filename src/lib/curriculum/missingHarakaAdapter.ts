@@ -9,10 +9,11 @@ import {
   type ResolvedSyllableChoice,
 } from "./syllableAdapter.ts";
 
-const SHORT_VOWEL_SKILLS = new Set([
+const HARAKA_SKILLS = new Set([
   "skill.short_vowel.fatha",
   "skill.short_vowel.kasra",
   "skill.short_vowel.damma",
+  "skill.sukun.basic",
 ]);
 
 function targetSyllableId(exercise: ExerciseDefinition): string | undefined {
@@ -37,17 +38,17 @@ export function resolveMissingHaraka(
 ): ResolvedMissingHaraka | undefined {
   const targetId = targetSyllableId(exercise);
   const target = targetId ? resolveSyllableChoice(bundle, targetId) : undefined;
-  if (!target || !SHORT_VOWEL_SKILLS.has(target.vowelSkillId)) return undefined;
+  if (!target || !HARAKA_SKILLS.has(target.vowelSkillId)) return undefined;
 
   const listed = (exercise.choices ?? [])
     .filter((choice) => choice.id.startsWith("syllable."))
     .map((choice) => resolveSyllableChoice(bundle, choice.id))
-    .filter((row): row is ResolvedSyllableChoice => row !== undefined && SHORT_VOWEL_SKILLS.has(row.vowelSkillId));
+    .filter((row): row is ResolvedSyllableChoice => row !== undefined && HARAKA_SKILLS.has(row.vowelSkillId));
 
   const fromContent = exercise.contentIds
     .filter((id) => id.startsWith("syllable."))
     .map((id) => resolveSyllableChoice(bundle, id))
-    .filter((row): row is ResolvedSyllableChoice => row !== undefined && SHORT_VOWEL_SKILLS.has(row.vowelSkillId));
+    .filter((row): row is ResolvedSyllableChoice => row !== undefined && HARAKA_SKILLS.has(row.vowelSkillId));
 
   const source = listed.length ? listed : fromContent;
   const byId = new Map<string, ResolvedSyllableChoice>();

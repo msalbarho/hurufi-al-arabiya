@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import type { ExerciseType } from "@/content/curriculum/index.ts";
 import { isExerciseTypeReady } from "@/lib/curriculum/exerciseReadiness.ts";
 import type { ExerciseViewProps } from "./exerciseTypes.ts";
+import { AudioToSentenceExercise } from "./AudioToSentenceExercise.tsx";
 import { AudioToWordExercise } from "./AudioToWordExercise.tsx";
 import { LetterRecognitionExercise } from "./LetterRecognitionExercise.tsx";
 import { MissingHarakaExercise } from "./MissingHarakaExercise.tsx";
@@ -10,6 +11,7 @@ import { SoundToLetterExercise } from "./SoundToLetterExercise.tsx";
 import { TracingExercise } from "./TracingExercise.tsx";
 import { SyllableBlendingExercise } from "./SyllableBlendingExercise.tsx";
 import { WordToPictureExercise } from "./WordToPictureExercise.tsx";
+import { PresentationExercise } from "./PresentationExercise.tsx";
 
 const registry: Partial<Record<ExerciseType, (props: ExerciseViewProps) => ReactNode>> = {
   sound_to_letter: SoundToLetterExercise,
@@ -17,9 +19,11 @@ const registry: Partial<Record<ExerciseType, (props: ExerciseViewProps) => React
   syllable_blending: SyllableBlendingExercise,
   letter_recognition: LetterRecognitionExercise,
   audio_to_word: AudioToWordExercise,
+  audio_to_sentence: AudioToSentenceExercise,
   missing_haraka: MissingHarakaExercise,
   picture_to_word: PictureToWordExercise,
   word_to_picture: WordToPictureExercise,
+  presentation: PresentationExercise,
 };
 
 if (import.meta.env.DEV) {

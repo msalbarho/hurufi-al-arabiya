@@ -15,13 +15,16 @@
  * Word decoding uses `getWordLiveKey` → `word:{slug}.decoding`
  * for audio_to_word, picture_to_word, and word_to_picture when they
  * score the same word. Not a letter key.
+ *
+ * Sentence reading uses `getSentenceLiveKey` → `sentence:{stem}.reading`
+ * for audio_to_sentence. Not a word key.
  */
 import type { CurriculumBundle, ExerciseDefinition } from "@/content/curriculum/index.ts";
 import { useProgress } from "@/lib/progress/store";
 import { portableLetter } from "./letterAdapter.ts";
+import { getPresentationLiveKey } from "./presentationAdapter.ts";
 import {
   liveRefForTarget,
-  unitExerciseCompletion,
   type LiveMasteryRef,
 } from "./unitMastery.ts";
 
@@ -33,16 +36,35 @@ export {
   getSyllableLiveKey,
   getHarakaLiveKey,
   getWordLiveKey,
+  getSentenceLiveKey,
   liveRefForTarget,
+  lessonEntry,
+  lessonFinishKind,
+  lessonFinishMessageAr,
+  scheduleLesson,
   unitExerciseCompletion,
+  unitPathCtaAr,
   unitPathStatus,
   resolveUnitRouteAccess,
+  type LessonFinishKind,
   type LiveMasteryRef,
   type UnitMasteryEvaluation,
   type UnitPathStatus,
   type UnitRouteAccess,
   type UnitUnlockEvaluation,
+  type UnitPrereqResolver,
 } from "./unitMastery.ts";
+export {
+  getPresentationLiveKey,
+  isPresentationExercise,
+  isReinforcementExercise,
+  isReviewExercise,
+} from "./presentationAdapter.ts";
+
+export function completePresentation(exercise: ExerciseDefinition): void {
+  const key = getPresentationLiveKey(exercise.id);
+  useProgress.getState().markSeen(key.type, key.id);
+}
 
 export function recordExerciseAttempt(
   bundle: CurriculumBundle,

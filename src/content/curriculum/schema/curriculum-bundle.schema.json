@@ -490,7 +490,8 @@
         "letterId": { "$ref": "#/$defs/letterId" },
         "letterForm": { "$ref": "#/$defs/letterFormSlot" },
         "syllableId": { "$ref": "#/$defs/syllableId" },
-        "wordId": { "$ref": "#/$defs/wordId" }
+        "wordId": { "$ref": "#/$defs/wordId" },
+        "sentenceId": { "$ref": "#/$defs/sentenceId" }
       }
     },
     "ExerciseSuccess": {
@@ -500,7 +501,7 @@
       "properties": {
         "type": {
           "type": "string",
-          "enum": ["correct_choice", "trace_coverage", "ordered_ids", "exact_text"]
+          "enum": ["correct_choice", "trace_coverage", "ordered_ids", "exact_text", "continue"]
         },
         "correctChoiceId": { "type": "string" },
         "orderedIds": { "type": "array", "items": { "type": "string" } },
@@ -533,6 +534,7 @@
             "picture_to_word",
             "word_to_picture",
             "audio_to_word",
+            "audio_to_sentence",
             "audio_to_picture",
             "missing_letter",
             "missing_haraka",
@@ -541,7 +543,8 @@
             "sentence_order",
             "dictation",
             "comprehension",
-            "story_sequence"
+            "story_sequence",
+            "presentation"
           ]
         },
         "skillIds": {
@@ -582,7 +585,7 @@
         "text": { "type": "string", "minLength": 1 },
         "letterId": { "$ref": "#/$defs/letterId" },
         "vowelSkillId": { "$ref": "#/$defs/skillId" },
-        "pattern": { "type": "string", "enum": ["CV", "CVC"] },
+        "pattern": { "type": "string", "enum": ["CV", "CVC", "CVV"] },
         "requiredSkillIds": {
           "type": "array",
           "items": { "$ref": "#/$defs/skillId" }
@@ -621,6 +624,7 @@
         "order": { "type": "integer", "minimum": 1 },
         "titleAr": { "type": "string", "minLength": 1 },
         "titleEn": { "type": "string" },
+        "childGoalAr": { "type": "string", "minLength": 1 },
         "learnerLevel": { "$ref": "#/$defs/levelId" },
         "skillIds": {
           "type": "array",

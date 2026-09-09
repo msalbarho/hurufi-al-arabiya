@@ -80,6 +80,15 @@
       "modality": ["read", "listen"]
     },
     {
+      "id": "skill.syllable_blending.cvc",
+      "domain": "syllable_blending",
+      "nameAr": "دَمْجُ مَقْطَعٍ مُغْلَق",
+      "nameEn": "Blend a closed chunk",
+      "prereqSkillIds": ["skill.sukun.basic", "skill.syllable_blending.cv"],
+      "vocabBandHint": "A",
+      "modality": ["read", "listen"]
+    },
+    {
       "id": "skill.word_decoding.simple",
       "domain": "word_decoding",
       "nameAr": "قِرَاءَةُ كَلِمَةٍ بَسِيطَة",
@@ -105,6 +114,36 @@
       "prereqSkillIds": ["skill.short_vowel.fatha"],
       "vocabBandHint": "A",
       "modality": ["listen", "read"]
+    },
+    {
+      "id": "skill.long_vowel.madd_yaa",
+      "domain": "long_vowels",
+      "nameAr": "الْمَدُّ بِالْيَاء",
+      "nameEn": "Madd with yaa",
+      "prereqSkillIds": ["skill.short_vowel.kasra", "skill.long_vowel.madd"],
+      "vocabBandHint": "A",
+      "modality": ["listen", "read"],
+      "masteryHint": "Kasra + yaa lengthener. Distinct from madd-alif evidence."
+    },
+    {
+      "id": "skill.long_vowel.madd_waw",
+      "domain": "long_vowels",
+      "nameAr": "الْمَدُّ بِالْوَاو",
+      "nameEn": "Madd with waw",
+      "prereqSkillIds": ["skill.short_vowel.damma", "skill.long_vowel.madd"],
+      "vocabBandHint": "A",
+      "modality": ["listen", "read"],
+      "masteryHint": "Damma + waw lengthener. Distinct from madd-alif evidence."
+    },
+    {
+      "id": "skill.tanween.damm",
+      "domain": "tanween",
+      "nameAr": "تَنْوِينُ الضَّمّ",
+      "nameEn": "Tanween damm",
+      "prereqSkillIds": ["skill.short_vowel.damma"],
+      "vocabBandHint": "A",
+      "modality": ["listen", "read"],
+      "masteryHint": "Read ـٌ as a light noon. Citation teachingForm stays unmarked."
     },
     {
       "id": "skill.shadda.basic",
@@ -141,6 +180,16 @@
       "prereqSkillIds": ["skill.long_vowel.madd"],
       "vocabBandHint": "A",
       "modality": ["listen", "read"]
+    },
+    {
+      "id": "skill.sentence_reading.two_word",
+      "domain": "sentence_reading",
+      "nameAr": "قِرَاءَةُ جُمْلَةٍ قَصِيرَة",
+      "nameEn": "Two-word sentence reading",
+      "prereqSkillIds": ["skill.word_decoding.simple"],
+      "vocabBandHint": "A",
+      "modality": ["read", "listen"],
+      "masteryHint": "Generic skill. Pair with sentenceId for per-sentence reading mastery."
     }
   ]
 }

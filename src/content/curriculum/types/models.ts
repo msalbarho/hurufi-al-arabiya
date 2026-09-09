@@ -66,6 +66,7 @@ export type ExerciseType =
   | "picture_to_word"
   | "word_to_picture"
   | "audio_to_word"
+  | "audio_to_sentence"
   | "audio_to_picture"
   | "missing_letter"
   | "missing_haraka"
@@ -74,11 +75,12 @@ export type ExerciseType =
   | "sentence_order"
   | "dictation"
   | "comprehension"
-  | "story_sequence";
+  | "story_sequence"
+  | "presentation";
 
 export type AssetKind = "audio" | "image" | "trace";
 
-export type SuccessType = "correct_choice" | "trace_coverage" | "ordered_ids" | "exact_text";
+export type SuccessType = "correct_choice" | "trace_coverage" | "ordered_ids" | "exact_text" | "continue";
 
 export type ComprehensionType = "picture_match" | "wh_picture" | "sequence" | "fact_picture";
 
@@ -288,7 +290,7 @@ export interface LetterFormRef {
 
 /**
  * Machine-readable mastery target for a future learner-state adapter.
- * Generic SkillDefinition + optional item (letter / form / syllable / word).
+ * Generic SkillDefinition + optional item (letter / form / syllable / word / sentence).
  * Does not rewrite live progress keys.
  */
 export interface ExerciseMasteryTarget {
@@ -298,6 +300,7 @@ export interface ExerciseMasteryTarget {
   letterForm?: LetterFormSlot;
   syllableId?: string;
   wordId?: string;
+  sentenceId?: string;
 }
 
 export interface ExerciseDefinition {
@@ -324,7 +327,7 @@ export interface ExerciseDefinition {
 }
 
 /** Pedagogical syllable actually used in a path. Not a generated CV grid. */
-export type SyllablePattern = "CV" | "CVC";
+export type SyllablePattern = "CV" | "CVC" | "CVV";
 
 export interface SyllableDefinition {
   id: string;
@@ -363,6 +366,8 @@ export interface LearningUnitDefinition {
   order: number;
   titleAr: string;
   titleEn?: string;
+  /** Short child-facing goal for the learning path. Not adult curriculum prose. */
+  childGoalAr?: string;
   learnerLevel?: CurriculumLevelId;
   skillIds: string[];
   letterIds?: string[];

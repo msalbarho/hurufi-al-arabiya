@@ -1,0 +1,640 @@
+{
+  "meta": {
+    "kind": "production",
+    "id": "hurufi.production.literacy.wave10",
+    "title": "Literacy path — Wave 10",
+    "description": "Tenth production literacy slice: madd-alif (fatha + alif). Compact two-unit wave. Contrast short ba vs long baa, then decode bab. No new consonant. Function-word laa and dajaj are postponed. No hamza, kasra, damma, long waw/ya, or Wave 11.",
+    "notProductionCurriculum": false
+  },
+  "levels": [
+    {
+      "id": 1,
+      "nameAr": "أَتَعَرَّفُ عَلَى الْحُرُوف",
+      "nameEn": "Letters I can see, hear, and trace"
+    },
+    {
+      "id": 2,
+      "nameAr": "أَشْكَالٌ وَحَرَكَات",
+      "nameEn": "Forms and short vowels"
+    },
+    {
+      "id": 3,
+      "nameAr": "أَدْمُجُ الْأَصْوَات",
+      "nameEn": "I can blend"
+    },
+    {
+      "id": 4,
+      "nameAr": "كَلِمَاتِي الْأُولَى",
+      "nameEn": "First real word bank"
+    },
+    {
+      "id": 5,
+      "nameAr": "أَسْتَعْمِلُ الْكَلِمَات",
+      "nameEn": "Words I can use"
+    },
+    {
+      "id": 6,
+      "nameAr": "لُغَةُ كُلِّ يَوْم",
+      "nameEn": "Everyday language"
+    },
+    {
+      "id": 7,
+      "nameAr": "أَفْهَمُ مَا أَقْرَأ",
+      "nameEn": "I understand what I read"
+    },
+    {
+      "id": 8,
+      "nameAr": "قِصَصٌ وَاسْتِقْلَال",
+      "nameEn": "Stories and independence"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill.letter_recognition.core",
+      "domain": "letter_recognition",
+      "nameAr": "التَّعَرُّفُ عَلَى الْحَرْف",
+      "nameEn": "Recognize a letter",
+      "childLabelAr": "نَعْرِفُ الْحَرْف",
+      "prereqSkillIds": [],
+      "learnerLevelHint": 1,
+      "vocabBandHint": "A",
+      "modality": ["read", "listen"],
+      "masteryHint": "Generic skill. Which letter is mastered is the item (letterId), not a separate SkillDefinition."
+    },
+    {
+      "id": "skill.letter_forms.positional",
+      "domain": "letter_forms",
+      "nameAr": "أَشْكَالُ الْحَرْفِ الْمَوْضِعِيَّة",
+      "nameEn": "Positional letter forms",
+      "prereqSkillIds": ["skill.letter_recognition.core"],
+      "learnerLevelHint": 2,
+      "vocabBandHint": "A",
+      "modality": ["read"],
+      "masteryHint": "Generic skill. Pair with letterId + letterForm (isolated/initial/medial/final)."
+    },
+    {
+      "id": "skill.short_vowel.fatha",
+      "domain": "short_vowels",
+      "nameAr": "الْفَتْحَة",
+      "nameEn": "Fatha",
+      "childLabelAr": "فَتْحَة",
+      "prereqSkillIds": [],
+      "learnerLevelHint": 2,
+      "vocabBandHint": "A",
+      "modality": ["listen", "read"]
+    },
+    {
+      "id": "skill.long_vowel.madd",
+      "domain": "long_vowels",
+      "nameAr": "الْمَدّ",
+      "nameEn": "Long vowel / madd",
+      "prereqSkillIds": ["skill.short_vowel.fatha"],
+      "learnerLevelHint": 4,
+      "vocabBandHint": "A",
+      "modality": ["listen", "read"]
+    },
+    {
+      "id": "skill.syllable_blending.cv",
+      "domain": "syllable_blending",
+      "nameAr": "دَمْجُ مَقْطَعٍ قَصِير",
+      "nameEn": "Blend a CV syllable",
+      "childLabelAr": "نَقْرَأُ مَعًا",
+      "prereqSkillIds": ["skill.short_vowel.fatha"],
+      "learnerLevelHint": 3,
+      "vocabBandHint": "A",
+      "modality": ["read", "listen"]
+    },
+    {
+      "id": "skill.word_decoding.simple",
+      "domain": "word_decoding",
+      "nameAr": "قِرَاءَةُ كَلِمَةٍ بَسِيطَة",
+      "nameEn": "Simple word decoding",
+      "prereqSkillIds": ["skill.syllable_blending.cv"],
+      "learnerLevelHint": 4,
+      "vocabBandHint": "A",
+      "modality": ["read", "listen"]
+    }
+  ],
+  "letters": [
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.ba",
+      "legacyId": "ba",
+      "char": "ب",
+      "nameAr": "بَاء",
+      "phoneme": "b",
+      "forms": {
+        "isolated": "ب",
+        "initial": "بـ",
+        "medial": "ـبـ",
+        "final": "ـب"
+      },
+      "abjadOrder": 2,
+      "wave": 2,
+      "teachOrder": 2,
+      "exampleWordIds": ["word.bab"],
+      "audioAssetIds": {
+        "name": "audio.letter.ba.name",
+        "phoneme": "audio.letter.ba.sound"
+      },
+      "tags": ["wave-2", "recycled"]
+    },
+    {
+      "id": "letter.alif",
+      "legacyId": "alif",
+      "char": "ا",
+      "nameAr": "ا",
+      "forms": {
+        "isolated": "ا",
+        "initial": "ا",
+        "medial": "ـا",
+        "final": "ـا"
+      },
+      "nonConnecting": true,
+      "abjadOrder": 1,
+      "exampleWordIds": ["word.bab"],
+      "tags": ["wave-10", "madd-carrier"]
+    },
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.mim",
+      "legacyId": "mim",
+      "char": "م",
+      "nameAr": "مِيم",
+      "phoneme": "m",
+      "forms": {
+        "isolated": "م",
+        "initial": "مـ",
+        "medial": "ـمـ",
+        "final": "ـم"
+      },
+      "abjadOrder": 24,
+      "wave": 1,
+      "teachOrder": 1,
+      "exampleWordIds": ["word.jamal", "word.qalam"],
+      "audioAssetIds": {
+        "name": "audio.letter.mim.name",
+        "phoneme": "audio.letter.mim.sound"
+      },
+      "tags": ["wave-1", "recycled"]
+    },
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.lam",
+      "legacyId": "lam",
+      "char": "ل",
+      "nameAr": "لَام",
+      "phoneme": "l",
+      "forms": {
+        "isolated": "ل",
+        "initial": "لـ",
+        "medial": "ـلـ",
+        "final": "ـل"
+      },
+      "abjadOrder": 23,
+      "wave": 1,
+      "teachOrder": 2,
+      "exampleWordIds": ["word.qalam", "word.jamal"],
+      "audioAssetIds": {
+        "name": "audio.letter.lam.name",
+        "phoneme": "audio.letter.lam.sound"
+      },
+      "tags": ["wave-1", "recycled"]
+    },
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.qaf",
+      "legacyId": "qaf",
+      "char": "ق",
+      "nameAr": "قَاف",
+      "phoneme": "q",
+      "forms": {
+        "isolated": "ق",
+        "initial": "قـ",
+        "medial": "ـقـ",
+        "final": "ـق"
+      },
+      "abjadOrder": 21,
+      "wave": 1,
+      "teachOrder": 3,
+      "exampleWordIds": ["word.qalam"],
+      "audioAssetIds": {
+        "name": "audio.letter.qaf.name",
+        "phoneme": "audio.letter.qaf.sound"
+      },
+      "tags": ["wave-1", "recycled"]
+    },
+    {
+      "requiredSkillIds": ["skill.letter_recognition.core"],
+      "id": "letter.jim",
+      "legacyId": "jim",
+      "char": "ج",
+      "nameAr": "جِيم",
+      "phoneme": "j",
+      "forms": {
+        "isolated": "ج",
+        "initial": "جـ",
+        "medial": "ـجـ",
+        "final": "ـج"
+      },
+      "abjadOrder": 5,
+      "wave": 1,
+      "teachOrder": 6,
+      "exampleWordIds": ["word.jamal"],
+      "audioAssetIds": {
+        "name": "audio.letter.jim.name",
+        "phoneme": "audio.letter.jim.sound"
+      },
+      "tags": ["wave-1", "recycled"]
+    }
+  ],
+  "words": [
+    {
+      "id": "word.bab",
+      "lemma": "باب",
+      "diacritized": "بَاب",
+      "teachingForm": "بَاب",
+      "pos": "noun",
+      "category": "home",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": ["letter.ba", "letter.alif"],
+      "requiredSkillIds": ["skill.short_vowel.fatha", "skill.long_vowel.madd"],
+      "phonicsSkillIds": ["skill.short_vowel.fatha", "skill.long_vowel.madd"],
+      "requiredLetterForms": [
+        { "letterId": "letter.ba", "form": "initial" },
+        { "letterId": "letter.ba", "form": "final" }
+      ],
+      "imageAssetId": "image.word.bab",
+      "audioAssetIds": {
+        "citation": "audio.word.bab"
+      },
+      "tags": ["band-a", "cluster-a1", "wave-10"],
+      "status": "active",
+      "legacyId": "home-2",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.qalam",
+      "lemma": "قلم",
+      "diacritized": "قَلَم",
+      "teachingForm": "قَلَم",
+      "pos": "noun",
+      "category": "school",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": ["letter.qaf", "letter.lam", "letter.mim"],
+      "requiredSkillIds": ["skill.short_vowel.fatha"],
+      "phonicsSkillIds": ["skill.short_vowel.fatha"],
+      "requiredLetterForms": [
+        { "letterId": "letter.qaf", "form": "initial" },
+        { "letterId": "letter.lam", "form": "medial" },
+        { "letterId": "letter.mim", "form": "final" }
+      ],
+      "imageAssetId": "image.word.qalam",
+      "audioAssetIds": {
+        "citation": "audio.word.qalam"
+      },
+      "tags": ["band-a", "cluster-a1", "wave-1", "recycled"],
+      "status": "active",
+      "legacyId": "school-8",
+      "highFrequency": true,
+      "frequencyBand": "core"
+    },
+    {
+      "id": "word.jamal",
+      "lemma": "جمل",
+      "diacritized": "جَمَل",
+      "teachingForm": "جَمَل",
+      "pos": "noun",
+      "category": "animals",
+      "vocabBand": "A",
+      "subBand": "A1",
+      "msaStatus": "STANDARD_MSA",
+      "letterIds": ["letter.jim", "letter.mim", "letter.lam"],
+      "requiredSkillIds": ["skill.short_vowel.fatha"],
+      "phonicsSkillIds": ["skill.short_vowel.fatha"],
+      "requiredLetterForms": [
+        { "letterId": "letter.jim", "form": "initial" },
+        { "letterId": "letter.mim", "form": "medial" },
+        { "letterId": "letter.lam", "form": "final" }
+      ],
+      "imageAssetId": "image.word.jamal",
+      "audioAssetIds": {
+        "citation": "audio.word.jamal"
+      },
+      "tags": ["band-a", "cluster-a1", "wave-1", "recycled"],
+      "status": "active",
+      "legacyId": "animals-9"
+    }
+  ],
+  "sentences": [],
+  "stories": [],
+  "informationalTexts": [],
+  "syllables": [
+    {
+      "id": "syllable.ba.fatha",
+      "text": "بَ",
+      "letterId": "letter.ba",
+      "vowelSkillId": "skill.short_vowel.fatha",
+      "pattern": "CV",
+      "requiredSkillIds": ["skill.short_vowel.fatha"],
+      "letterForm": "isolated",
+      "audioAssetId": "audio.syllable.ba.fatha",
+      "tags": ["cv", "wave-2", "recycled"]
+    },
+    {
+      "id": "syllable.ba.madd_alif",
+      "text": "بَا",
+      "letterId": "letter.ba",
+      "vowelSkillId": "skill.long_vowel.madd",
+      "pattern": "CVV",
+      "requiredSkillIds": ["skill.short_vowel.fatha", "skill.long_vowel.madd"],
+      "requiredLetterIds": ["letter.ba", "letter.alif"],
+      "audioAssetId": "audio.syllable.ba.madd_alif",
+      "tags": ["cvv", "madd-alif", "wave-10"]
+    },
+    {
+      "id": "syllable.mim.fatha",
+      "text": "مَ",
+      "letterId": "letter.mim",
+      "vowelSkillId": "skill.short_vowel.fatha",
+      "pattern": "CV",
+      "requiredSkillIds": ["skill.short_vowel.fatha"],
+      "letterForm": "isolated",
+      "audioAssetId": "audio.syllable.mim.fatha",
+      "tags": ["cv", "wave-1", "recycled"]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "exercise.wave10.presentation.ba_fatha",
+      "type": "presentation",
+      "skillIds": ["skill.short_vowel.fatha"],
+      "contentIds": ["syllable.ba.fatha"],
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "learningObjectiveEn": "See and hear short بَ",
+      "success": { "type": "continue" },
+      "promptAssetId": "audio.syllable.ba.fatha",
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "config": {
+        "show": "cv",
+        "syllableId": "syllable.ba.fatha"
+      },
+      "tags": ["wave-10"]
+    },
+    {
+      "id": "exercise.wave10.presentation.ba_madd_alif",
+      "type": "presentation",
+      "skillIds": ["skill.long_vowel.madd"],
+      "contentIds": ["syllable.ba.madd_alif", "letter.alif"],
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "learningObjectiveEn": "See بَ + ا → بَا",
+      "success": { "type": "continue" },
+      "promptAssetId": "audio.syllable.ba.madd_alif",
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "config": {
+        "show": "chunk",
+        "left": "بَ",
+        "right": "ا",
+        "result": "بَا"
+      },
+      "tags": ["wave-10"]
+    },
+    {
+      "id": "exercise.wave10.syllable_blending.ba_madd_alif",
+      "type": "syllable_blending",
+      "skillIds": ["skill.long_vowel.madd", "skill.syllable_blending.cv"],
+      "contentIds": ["syllable.ba.madd_alif", "syllable.ba.fatha", "syllable.mim.fatha"],
+      "difficulty": "easy",
+      "prereqSkillIds": ["skill.short_vowel.fatha"],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرِ الْمَقْطَع",
+      "learningObjectiveEn": "Hear long بَا and distinguish it from short بَ",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "syllable.ba.madd_alif"
+      },
+      "masteryEvidence": {
+        "reading": ["skill.long_vowel.madd"],
+        "listening": ["skill.long_vowel.madd"]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.letter.ba.madd_alif",
+          "skillId": "skill.long_vowel.madd",
+          "syllableId": "syllable.ba.madd_alif",
+          "letterId": "letter.ba"
+        }
+      ],
+      "promptAssetId": "audio.syllable.ba.madd_alif",
+      "promptText": "اِسْتَمِعْ وَاخْتَرِ الْمَقْطَع",
+      "choices": [
+        { "id": "syllable.ba.madd_alif", "label": "بَا" },
+        { "id": "syllable.ba.fatha", "label": "بَ" },
+        { "id": "syllable.mim.fatha", "label": "مَ" }
+      ],
+      "tags": ["wave-10"]
+    },
+    {
+      "id": "exercise.wave10.presentation.bab_compose",
+      "type": "presentation",
+      "skillIds": ["skill.word_decoding.simple"],
+      "contentIds": ["word.bab"],
+      "difficulty": "easy",
+      "learningObjectiveAr": "اُنْظُرْ وَاسْتَمِعْ",
+      "learningObjectiveEn": "See بَا + ب → بَاب",
+      "success": { "type": "continue" },
+      "promptAssetId": "audio.word.bab",
+      "promptText": "اُنْظُرْ وَاسْتَمِعْ",
+      "config": {
+        "show": "chunk",
+        "left": "بَا",
+        "right": "ب",
+        "result": "بَاب"
+      },
+      "tags": ["wave-10"]
+    },
+    {
+      "id": "exercise.wave10.audio_to_word.bab",
+      "type": "audio_to_word",
+      "skillIds": ["skill.word_decoding.simple"],
+      "contentIds": ["word.bab", "word.qalam", "word.jamal"],
+      "difficulty": "easy",
+      "prereqSkillIds": ["skill.long_vowel.madd"],
+      "learningObjectiveAr": "اِسْتَمِعْ وَاخْتَرْ",
+      "learningObjectiveEn": "Hear and choose بَاب. Contrast with already-decoded قَلَم and جَمَل.",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "word.bab"
+      },
+      "masteryEvidence": {
+        "reading": ["skill.word_decoding.simple"],
+        "listening": ["skill.word_decoding.simple"]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.word.bab.decode",
+          "skillId": "skill.word_decoding.simple",
+          "wordId": "word.bab"
+        }
+      ],
+      "promptAssetId": "audio.word.bab",
+      "promptText": "اِسْتَمِعْ وَاخْتَرْ",
+      "choices": [
+        { "id": "word.bab", "label": "بَاب" },
+        { "id": "word.qalam", "label": "قَلَم" },
+        { "id": "word.jamal", "label": "جَمَل" }
+      ],
+      "tags": ["wave-10"]
+    },
+    {
+      "id": "exercise.wave10.word_to_picture.bab",
+      "type": "word_to_picture",
+      "skillIds": ["skill.word_decoding.simple"],
+      "contentIds": ["word.bab", "word.qalam", "word.jamal"],
+      "difficulty": "easy",
+      "learningObjectiveAr": "اِخْتَرِ الصُّورَةَ",
+      "learningObjectiveEn": "Match بَاب to its picture after decoding",
+      "success": {
+        "type": "correct_choice",
+        "correctChoiceId": "word.bab"
+      },
+      "masteryEvidence": {
+        "reading": ["skill.word_decoding.simple"]
+      },
+      "masteryTargets": [
+        {
+          "id": "mastery.word.bab.decode.picture",
+          "skillId": "skill.word_decoding.simple",
+          "wordId": "word.bab"
+        }
+      ],
+      "promptText": "اِخْتَرِ الصُّورَةَ",
+      "choices": [
+        { "id": "word.bab", "assetId": "image.word.bab" },
+        { "id": "word.qalam", "assetId": "image.word.qalam" },
+        { "id": "word.jamal", "assetId": "image.word.jamal" }
+      ],
+      "tags": ["wave-10", "reinforcement"]
+    }
+  ],
+  "units": [
+    {
+      "id": "unit.literacy.wave10.madd_alif",
+      "order": 1,
+      "titleAr": "تَعَلَّمْ الْمَدّ",
+      "titleEn": "Madd-alif",
+      "childGoalAr": "تَعَلَّمْ الْمَدّ",
+      "learnerLevel": 4,
+      "skillIds": [
+        "skill.short_vowel.fatha",
+        "skill.long_vowel.madd",
+        "skill.syllable_blending.cv"
+      ],
+      "letterIds": ["letter.ba", "letter.mim", "letter.alif"],
+      "letterForms": [
+        { "letterId": "letter.ba", "form": "isolated" },
+        { "letterId": "letter.mim", "form": "isolated" }
+      ],
+      "syllableIds": ["syllable.ba.fatha", "syllable.ba.madd_alif", "syllable.mim.fatha"],
+      "exerciseIds": [
+        "exercise.wave10.presentation.ba_fatha",
+        "exercise.wave10.presentation.ba_madd_alif",
+        "exercise.wave10.syllable_blending.ba_madd_alif"
+      ],
+      "prereqUnitIds": ["unit.literacy.wave9.asal"],
+      "reviewContentIds": ["syllable.ba.fatha"],
+      "mastery": {
+        "minAttempts": 3,
+        "minAccuracy": 0.7,
+        "minStreak": 2,
+        "minSessions": 1,
+        "reviewAfterDays": 2,
+        "requiredSkillIds": ["skill.long_vowel.madd"]
+      },
+      "tags": ["wave-10"]
+    },
+    {
+      "id": "unit.literacy.wave10.bab",
+      "order": 2,
+      "titleAr": "الْبَاب",
+      "titleEn": "The door",
+      "childGoalAr": "الْبَاب",
+      "learnerLevel": 4,
+      "skillIds": [
+        "skill.letter_forms.positional",
+        "skill.word_decoding.simple",
+        "skill.long_vowel.madd",
+        "skill.short_vowel.fatha"
+      ],
+      "letterIds": ["letter.ba", "letter.alif", "letter.qaf", "letter.lam", "letter.mim", "letter.jim"],
+      "letterForms": [
+        { "letterId": "letter.ba", "form": "initial" },
+        { "letterId": "letter.ba", "form": "final" },
+        { "letterId": "letter.qaf", "form": "initial" },
+        { "letterId": "letter.lam", "form": "medial" },
+        { "letterId": "letter.mim", "form": "final" },
+        { "letterId": "letter.jim", "form": "initial" },
+        { "letterId": "letter.mim", "form": "medial" },
+        { "letterId": "letter.lam", "form": "final" }
+      ],
+      "wordIds": ["word.bab", "word.qalam", "word.jamal"],
+      "exerciseIds": [
+        "exercise.wave10.presentation.bab_compose",
+        "exercise.wave10.audio_to_word.bab",
+        "exercise.wave10.word_to_picture.bab"
+      ],
+      "prereqUnitIds": ["unit.literacy.wave10.madd_alif"],
+      "reviewContentIds": ["word.qalam", "word.jamal"],
+      "mastery": {
+        "minAttempts": 3,
+        "minAccuracy": 0.7,
+        "minStreak": 2,
+        "minSessions": 1,
+        "reviewAfterDays": 2,
+        "requiredSkillIds": ["skill.word_decoding.simple"]
+      },
+      "tags": ["wave-10"]
+    }
+  ],
+  "paths": [
+    {
+      "id": "path.literacy.wave10",
+      "titleAr": "الْمَدّ وَالْبَاب",
+      "titleEn": "Madd and the door",
+      "descriptionAr": "حَرَكَةٌ طَوِيلَةٌ وَكَلِمَة",
+      "learnerLevel": 4,
+      "unitIds": [
+        "unit.literacy.wave10.madd_alif",
+        "unit.literacy.wave10.bab"
+      ],
+      "tags": ["wave-10", "literacy"]
+    }
+  ],
+  "assets": [
+    { "id": "audio.letter.ba.name", "kind": "audio" },
+    { "id": "audio.letter.ba.sound", "kind": "audio" },
+    { "id": "audio.letter.mim.name", "kind": "audio" },
+    { "id": "audio.letter.mim.sound", "kind": "audio" },
+    { "id": "audio.letter.lam.name", "kind": "audio" },
+    { "id": "audio.letter.lam.sound", "kind": "audio" },
+    { "id": "audio.letter.qaf.name", "kind": "audio" },
+    { "id": "audio.letter.qaf.sound", "kind": "audio" },
+    { "id": "audio.letter.jim.name", "kind": "audio" },
+    { "id": "audio.letter.jim.sound", "kind": "audio" },
+    { "id": "audio.syllable.ba.fatha", "kind": "audio" },
+    { "id": "audio.syllable.ba.madd_alif", "kind": "audio" },
+    { "id": "audio.syllable.mim.fatha", "kind": "audio" },
+    { "id": "audio.word.bab", "kind": "audio" },
+    { "id": "audio.word.qalam", "kind": "audio" },
+    { "id": "audio.word.jamal", "kind": "audio" },
+    { "id": "image.word.bab", "kind": "image" },
+    { "id": "image.word.qalam", "kind": "image" },
+    { "id": "image.word.jamal", "kind": "image" }
+  ]
+}

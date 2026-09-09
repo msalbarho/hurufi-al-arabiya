@@ -19,6 +19,7 @@ import { Route as SentencesIndexRouteImport } from './routes/sentences/index'
 import { Route as StoriesIndexRouteImport } from './routes/stories/index'
 import { Route as WordsIndexRouteImport } from './routes/words/index'
 import { Route as LearnWaveIdUnitIdRouteImport } from './routes/learn/$waveId.$unitId'
+import { Route as LearnModulesModuleIdUnitIdRouteImport } from './routes/learn/modules/$moduleId.$unitId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -70,6 +71,12 @@ const LearnWaveIdUnitIdRoute = LearnWaveIdUnitIdRouteImport.update({
   path: '/learn/$waveId/$unitId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LearnModulesModuleIdUnitIdRoute =
+  LearnModulesModuleIdUnitIdRouteImport.update({
+    id: '/learn/modules/$moduleId/$unitId',
+    path: '/learn/modules/$moduleId/$unitId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -82,6 +89,7 @@ export interface FileRoutesByFullPath {
   '/stories/': typeof StoriesIndexRoute
   '/words/': typeof WordsIndexRoute
   '/learn/$waveId/$unitId': typeof LearnWaveIdUnitIdRoute
+  '/learn/modules/$moduleId/$unitId': typeof LearnModulesModuleIdUnitIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -94,6 +102,7 @@ export interface FileRoutesByTo {
   '/stories': typeof StoriesIndexRoute
   '/words': typeof WordsIndexRoute
   '/learn/$waveId/$unitId': typeof LearnWaveIdUnitIdRoute
+  '/learn/modules/$moduleId/$unitId': typeof LearnModulesModuleIdUnitIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -107,6 +116,7 @@ export interface FileRoutesById {
   '/stories/': typeof StoriesIndexRoute
   '/words/': typeof WordsIndexRoute
   '/learn/$waveId/$unitId': typeof LearnWaveIdUnitIdRoute
+  '/learn/modules/$moduleId/$unitId': typeof LearnModulesModuleIdUnitIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -121,6 +131,7 @@ export interface FileRouteTypes {
     | '/stories/'
     | '/words/'
     | '/learn/$waveId/$unitId'
+    | '/learn/modules/$moduleId/$unitId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -133,6 +144,7 @@ export interface FileRouteTypes {
     | '/stories'
     | '/words'
     | '/learn/$waveId/$unitId'
+    | '/learn/modules/$moduleId/$unitId'
   id:
     | '__root__'
     | '/'
@@ -145,6 +157,7 @@ export interface FileRouteTypes {
     | '/stories/'
     | '/words/'
     | '/learn/$waveId/$unitId'
+    | '/learn/modules/$moduleId/$unitId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -158,6 +171,7 @@ export interface RootRouteChildren {
   StoriesIndexRoute: typeof StoriesIndexRoute
   WordsIndexRoute: typeof WordsIndexRoute
   LearnWaveIdUnitIdRoute: typeof LearnWaveIdUnitIdRoute
+  LearnModulesModuleIdUnitIdRoute: typeof LearnModulesModuleIdUnitIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -232,6 +246,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LearnWaveIdUnitIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/learn/modules/$moduleId/$unitId': {
+      id: '/learn/modules/$moduleId/$unitId'
+      path: '/learn/modules/$moduleId/$unitId'
+      fullPath: '/learn/modules/$moduleId/$unitId'
+      preLoaderRoute: typeof LearnModulesModuleIdUnitIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -246,6 +267,7 @@ const rootRouteChildren: RootRouteChildren = {
   StoriesIndexRoute: StoriesIndexRoute,
   WordsIndexRoute: WordsIndexRoute,
   LearnWaveIdUnitIdRoute: LearnWaveIdUnitIdRoute,
+  LearnModulesModuleIdUnitIdRoute: LearnModulesModuleIdUnitIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
